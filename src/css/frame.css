@@ -40,8 +40,12 @@ html, body, #app, .el-container, .el-aside {
 
 /*页面内容*/
 .el-main{
-	padding: 20px;
+	padding: 40px;
 	background-color: #F7F7F7;
+}
+
+.el-main h2{
+	color: #1f3a50;
 }
 
 .hr{
