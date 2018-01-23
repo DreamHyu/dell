@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>框架</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="src/css/frame.css" />
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					        <a class="navbar-brand" href="#">Deloitte</a>
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="src/images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="80px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="active">
+									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-heart"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main style="padding: 0;">
+		    	<div class="top">
+		    		<div class="item1">
+		    			<img src="src/images/item3.png" />
+		    			<div>
+		    				<span class="num">32654</span><br /><span class="word">粉丝总数量</span>
+		    			</div>
+		    		</div>
+		    		<div class="item2">
+		    			<img src="src/images/item2.png" />
+		    			<div>
+		    				<span class="num">3241</span><br /><span class="word">30日新增粉丝数量</span>
+		    			</div>
+		    		</div>
+		    		<div class="item3">
+		    			<img src="src/images/item1.png" />
+		    			<div>
+		    				<span class="num">236</span><br /><span class="word">最近消息</span>
+		    			</div>
+		    		</div>
+		    	</div>
+		    	<div class="medium" style="padding: 40px;">
+		    		<div style="float: left;width: 40%;height: 300px;">
+		    			<h2>审批</h2>
+		    			<div id="chartmain2" style="width:100%; height: 280px;"></div>
+		    		</div>
+		    		<div style="float: left;width: 60%;height: 300px;">
+		    			<h2>互动数量</h2>
+		    			<div id="chartmain3" style="width:100%; height: 280px;"></div>
+		    		</div>
+		    	</div>
+		    	<div class="footer">
+		    		
+		    	</div>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="src/js/echarts.common.min.js" ></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+        	
+	      };
+	    },
+	    methods: {
+			
+     	}
+    })
+ </script>
+ <script type="text/javascript">
+        //指定图标的配置和数据
+        var option = {
+		    tooltip: {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b}: {c} ({d}%)"
+		    },
+		    legend: {
+                x: 'center',
+        		y:'top',
+		        data:['已审批','未审批']
+		    },
+		    series: [
+		        {
+		            name:'访问来源',
+		            type:'pie',
+		            radius: ['50%', '60%'],
+		            avoidLabelOverlap: false,
+		            label: {
+		                normal: {
+		                    show: false,
+		                    position: 'center'
+		                },
+		                emphasis: {
+		                    show: true,
+		                    textStyle: {
+		                        fontSize: '30',
+		                        fontWeight: 'bold'
+		                    }
+		                }
+		            },
+		            labelLine: {
+		                normal: {
+		                    show: false
+		                }
+		            },
+		            data:[
+		                {value:30, name:'已审批'},
+		                {value:70, name:'未审批'}
+		            ]
+		        }
+		    ]
+		};
+		
+		var option1 = {
+		    xAxis: {
+		        type: 'category',
+		        boundaryGap: true,
+		        min:0,
+		        max:7,
+		        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日',]
+		    },
+		    yAxis: {
+		        type: 'value'
+		    },
+		    series: [{
+		        data: [4900, 5200, 12000, 18004, 13000, 19000, 5400,3000],
+		        type: 'line',
+		        areaStyle: {
+		        },
+		        smooth:true,
+		    }]
+		};
+		
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chartmain2'));
+
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);
+        
+        var myChart1 = echarts.init(document.getElementById('chartmain3'));
+
+        //使用制定的配置项和数据显示图表
+        myChart1.setOption(option1);
+    </script>
+ <style>
+ 	.top{
+ 		height: 200px;
+ 		width: 100%;
+ 	}
+ 	.item1,.item2,.item3{
+ 		position: relative;
+ 		width: 33.33%;
+ 		height: 200px;
+ 		float: left;
+ 		text-align: center;
+ 		color: #fff;
+ 	}
+ 	.item1 div,.item2 div, .item3 div{
+ 		position:absolute;
+ 		height: 140px;
+ 		width: 200px;
+ 		top: 50%;
+ 		left: 50%;
+ 		margin-top: -70px;
+ 		margin-left: -100px;
+ 	}
+ 	.item1 img,.item2 img, .item3 img{
+ 		position: relative;
+ 		top: 20%;
+ 		left: -18%;	
+ 		width: 30px;
+ 		height: 30px;
+	}
+ 	.num{
+ 		font-size: 3em;
+ 		font-weight: bold;
+ 		line-height: 20px;
+ 		padding-top: 50px;
+ 		display: block;
+ 	}
+ 	.word{
+ 		font-size: 1.2em;
+ 		line-height: 20px;
+ 	}
+ 	.item1{
+ 		background-color: #a5d045;
+ 	}
+ 	.item2{
+ 		background-color: #0caaa5;
+ 	}
+ 	.item3{
+ 		background-color: #00A372;
+ 	}
+ </style>
+</html>
