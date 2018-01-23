@@ -1,0 +1,49 @@
+html, body, #app, .el-container, .el-aside {
+    height: 100%;
+}
+/*头像*/
+.img-circle{
+	height: 40px;
+	margin-top: 5px;
+}
+/*顶部布局*/
+.el-header{
+	padding: 0;
+}
+/*左侧导航栏*/
+#leftNav{
+	width: 80px;
+	height: 100%;
+	float: left;
+}
+#leftNav div div ul{
+	margin-left: 5px;
+	padding-left: 0;
+	width: 70px;
+	text-align: center;
+}
+#leftNav .container-fluid{
+	padding-left: 0;
+	padding-right: 0;
+}
+#leftNav .container-fluid div .navbar-nav>.active>a:hover{
+	width: 70px;
+}
+#leftNav .container-fluid div .navbar-nav li a{
+	width: 70px;
+	font-size: 12px;
+}
+/*字体图标*/
+.glyphicon{
+	font-size: 10px;
+}
+
+/*页面内容*/
+.el-main{
+	padding: 20px;
+	background-color: #F7F7F7;
+}
+
+.hr{
+	border-top: 2px solid #C6C8CA;
+}
