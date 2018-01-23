@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>微信公众号绑定</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="app">
+  	<div class="wcmain">
+  		<div>
+				<h2>微信公众号绑定</h2>
+				<hr/>
+			</div>
+			<el-form class="wcform" label-position="left" label-width="150px" :model="formLabelAlign">
+			  <el-form-item class="wx-form" label="App Name">
+			    <el-input v-model="formLabelAlign.name"></el-input>
+			  </el-form-item>
+			  <el-form-item class="wx-form" label="App Id">
+			    <el-input v-model="formLabelAlign.id"></el-input>
+			  </el-form-item>
+			  <el-form-item class="wx-form" label="App Secret">
+			    <el-input v-model="formLabelAlign.secret"></el-input>
+			  </el-form-item>
+			  <el-form-item class="wx-form" label="Token">
+			    <el-input v-model="formLabelAlign.token"></el-input>
+			  </el-form-item>	
+			</el-form>
+			<div class="wcbutton">
+				<el-button id="rest" class="bt bttest" type="success">验证</el-button>
+				<el-button id="back" class="bt btback" type="info" plain>返回</el-button>
+			</div>
+  	</div>	
+  </div>
+</body>
+  <!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+      return {
+        formLabelAlign: {
+          name: '',
+          id: '',
+          secret: '',
+          token: '',
+        }
+      };
+      }
+    })
+  </script>
+  <style>
+  	body{
+  		background-color: #F7F7F7;
+  	}
+  	
+  	.wcmain{
+  		width: 75%;
+  		margin: auto;
+  	}
+  	.wcform{
+  		margin: auto;
+  		width: 50%;
+  	}
+  	.wcbutton{
+  		margin: auto;
+  		width: 50%;
+  	}
+  	.bt{
+  		width: 120px;
+  		float: right;
+  	}
+  	.bttest{
+  		background-color: #00a372;
+  		margin-left: 20px;
+  	}
+  </style>
+</html>
