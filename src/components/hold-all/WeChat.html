@@ -1,82 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>微信公众号绑定</title>
   <!-- 引入样式 -->
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
 </head>
+
 <body>
-  <div id="app">
-  	<div class="wcmain">
-  		<div>
-				<h2>微信公众号绑定</h2>
-				<hr/>
-			</div>
-			<el-form class="wcform" label-position="left" label-width="150px" :model="formLabelAlign">
-			  <el-form-item class="wx-form" label="App Name">
-			    <el-input v-model="formLabelAlign.name"></el-input>
-			  </el-form-item>
-			  <el-form-item class="wx-form" label="App Id">
-			    <el-input v-model="formLabelAlign.id"></el-input>
-			  </el-form-item>
-			  <el-form-item class="wx-form" label="App Secret">
-			    <el-input v-model="formLabelAlign.secret"></el-input>
-			  </el-form-item>
-			  <el-form-item class="wx-form" label="Token">
-			    <el-input v-model="formLabelAlign.token"></el-input>
-			  </el-form-item>	
-			</el-form>
-			<div class="wcbutton">
-				<el-button id="rest" class="bt bttest" type="success">验证</el-button>
-				<el-button id="back" class="bt btback" type="info" plain>返回</el-button>
-			</div>
-  	</div>	
-  </div>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					        <a class="navbar-brand" href="#">Deloitte</a>
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="80px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-heart"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="wcmain">
+		  			<div>
+						<h2>微信公众号绑定</h2>
+						<hr/>
+					</div>
+					<el-form class="wcform" label-position="left" label-width="150px" :model="formLabelAlign">
+					  <el-form-item class="wx-form" label="App Name">
+					    <el-input v-model="formLabelAlign.name"></el-input>
+					  </el-form-item>
+					  <el-form-item class="wx-form" label="App Id">
+					    <el-input v-model="formLabelAlign.id"></el-input>
+					  </el-form-item>
+					  <el-form-item class="wx-form" label="App Secret">
+					    <el-input v-model="formLabelAlign.secret"></el-input>
+					  </el-form-item>
+					  <el-form-item class="wx-form" label="Token">
+					    <el-input v-model="formLabelAlign.token"></el-input>
+					  </el-form-item>
+					</el-form>
+					<div class="wcbutton">
+						<el-button id="rest" class="bt bttest" type="success">验证</el-button>
+						<el-button id="back" class="bt btback" type="info" plain>返回</el-button>
+					</div>
+		  		</div>	
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
 </body>
-  <!-- 先引入 Vue -->
+	<!-- 先引入 Vue -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <!-- 引入组件库 -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
     new Vue({
       el: '#app',
       data() {
-      return {
-        formLabelAlign: {
-          name: '',
-          id: '',
-          secret: '',
-          token: '',
-        }
-      };
-      }
+	      return {
+        	formLabelAlign: {
+	        name: '',
+	        id: '',
+	        secret: '',
+	        token: '',
+	        }
+	      };
+	    },
+	    methods: {
+			
+     	}
     })
-  </script>
-  <style>
+ </script>
+ <style>
   	body{
   		background-color: #F7F7F7;
   	}
   	
   	.wcmain{
-  		width: 75%;
+  		width: 90%;
   		margin: auto;
   	}
   	.wcform{
   		margin: auto;
-  		width: 50%;
+  		width: 35%;
   	}
   	.wcbutton{
   		margin: auto;
-  		width: 50%;
+  		width: 35%;
   	}
   	.bt{
-  		width: 120px;
+  		width: 110px;
   		float: right;
   	}
   	.bttest{
   		background-color: #00a372;
   		margin-left: 20px;
   	}
-  </style>
+  	.el-form-item__label{
+  		font-weight: normal;
+  	}
+ </style>
 </html>
