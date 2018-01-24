@@ -17,7 +17,8 @@
 				<nav id="topNav" class="navbar-inverse" role="navigation">
 					<div class="container-fluid">
 					    <div class="navbar-header">
-					        <a class="navbar-brand" href="#">Deloitte</a>
+					        <!--<a class="navbar-brand" href="#">Deloitte</a>-->
+					        <img src="../../images/logo.png" />
 					    </div>
 					    <div>			
 					    	<ul class="nav navbar-nav">
@@ -151,12 +152,12 @@
 						  <el-form-item label="批准人设置" class="AuChild">
 						    <el-input v-model="formInline.approver"></el-input>
 						  </el-form-item>
-					
+					      </div>
 						  <el-form-item class="BtFloat">
-						    <el-button id="rest" class="BT BtTest">完成</el-button>
+						    <el-button id="rest" class="BT BtRest">完成</el-button>
 						    <el-button id="back" class="BT BtBack">返回</el-button>
 						  </el-form-item>
-							</div>
+							
 						</el-form>
 					</div>
 		      </div>
@@ -229,19 +230,20 @@
   		margin-bottom: 8px;
   	}
   	.BtFloat{
-  		margin-right: 45px;
-  		margin-top: 80px;
+  		margin-right: 75px;
+  		margin-top: 70px;
   	}
   	.BT{
   		width: 100px;
+  		color: #FFFFFF;
   		float: right;
   	}
-  	.BtTest{
+  	.BtRest{
   		background-color: #00A372;
-  		margin-left: 20px;
   	}
   	.BtBack{
   		background-color: #D3D3D3;
+  		margin-right: 10px;
   	}
  </style>
 </html>
