@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>修改用户</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					        <a class="navbar-brand" href="#">Deloitte</a>
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="80px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-heart"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="aumain">
+		    	    <div>
+						<h2>修改用户</h2>
+						<hr/>
+					</div>
+					<div class="auform">
+						<el-form :inline="true" label-position="left" label-width="120px" :model="formInline" class="demo-form-inline">
+						  <el-form-item label="用户名">
+						    <el-input v-model="formInline.user"></el-input>
+						  </el-form-item>
+						  <el-form-item label="别称">
+						    <el-input v-model="formInline.otheruser"></el-input>
+						  </el-form-item>
+						  
+						  <el-form-item label="昵称">
+						    <el-input v-model="formInline.nickname"></el-input>
+						  </el-form-item>
+						  <el-form-item label="电子邮件">
+						    <el-input v-model="formInline.email"></el-input>
+						  </el-form-item>
+						
+							<el-form-item label="职务">
+						    <el-input v-model="formInline.position"></el-input>
+						  </el-form-item>
+						  <el-form-item label="部门">
+						    <el-input v-model="formInline.department"></el-input>
+						  </el-form-item>
+						  
+						  
+						  <el-form-item label="角色">
+						    <el-select class="auselect" v-model="formInline.role">
+						      <el-option label="一" value="1"></el-option>
+						      <el-option label="二" value="2"></el-option>
+						      <el-option label="三" value="3"></el-option>
+						    </el-select>
+						  </el-form-item>
+						  <el-form-item label="公众号" class="auchild">
+						    <el-select class="auselect" v-model="formInline.publicnumber">
+						      <el-option label="一" value="1"></el-option>
+						      <el-option label="二" value="2"></el-option>
+						      <el-option label="三" value="3"></el-option>
+						    </el-select>
+						  </el-form-item>
+						  
+						  <el-form-item label="手机">
+						    <el-input v-model="formInline.mobilephone"></el-input>
+						  </el-form-item>
+						  <el-form-item label="电话">
+						    <el-input v-model="formInline.phone"></el-input>
+						  </el-form-item>
+						  
+						  <el-form-item label="员工编号">
+						    <el-input v-model="formInline.employeeID"></el-input>
+						  </el-form-item>
+						  <el-form-item label="座席号">
+						    <el-input v-model="formInline.seatnumber"></el-input>
+						  </el-form-item>
+						  
+						  <el-form-item label="用户地址信息">
+						    <el-input v-model="formInline.useraddress"></el-input>
+						  </el-form-item>
+						  <el-form-item label="批准人设置">
+						    <el-input v-model="formInline.approver"></el-input>
+						  </el-form-item>
+						  
+						  <el-form-item label="其他">
+						    <el-input v-model="formInline.others"></el-input>
+						  </el-form-item>
+						 
+						  <el-form-item class="btfloat">
+						    <el-button id="rest" class="bt bttest">完成</el-button>
+						    <el-button id="back" class="bt btback">返回</el-button>
+						  </el-form-item>
+						</el-form>
+					</div>
+		        </div>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+        	formInline: {
+	          user: '',
+	          otheruser: '',
+	          nickname: '',
+	          email: '',
+	          position: '',
+	          department: '',
+	          role: '',
+	          publicnumber: '',
+	          mobilephone: '',
+	          phone: '',
+	          employeeID: '',
+	          seatnumber: '',
+	          useraddress: '',
+	          approver: '',
+	          others: '',
+	        }
+	      };
+	    },
+	    methods: {
+			
+     	}
+    })
+ </script>
+ <style>
+  	body{
+  		background-color: #F7F7F7;
+  	}
+  	
+  	.aumain{
+  		width: 90%;
+  		margin: auto;
+  	}
+  	.auform{
+  		width: 85%;
+  		margin: auto;
+  	}
+  	.auselect{
+  		width: 92.765%;
+  	}
+  	.auchild{
+  		position: relative;
+  		right: 15px;
+  	}
+  	.btfloat{
+  		float: right;
+  		position: relative;
+  		right: 40px;
+  		margin-top: 70px;
+  	}
+  	.bt{
+  		width: 100px;
+  		float: right;
+  	}
+  	.bttest{
+  		background-color: #00a372;
+  		margin-left: 20px;
+  	}
+  	.btback{
+  		background-color: #D3D3D3;
+  	}
+  	.el-form-item{
+  		margin-bottom: 5px;
+  	}
+  	.el-form-item__label{
+  		margin-left: 150px;
+  		width: 65px;
+  	}
+  	.el-input{
+  		width: 120%;
+  	}
+ </style>
+</html>
