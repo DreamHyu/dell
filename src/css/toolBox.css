@@ -19,6 +19,11 @@
 	margin-left: 6.25%;
 	border: 1px darkgray solid;
 	border-radius:0.4em;
+	/*background-color: darkgray;*/
+}
+
+.tool:hover{
+	background-color: #D3DCE6;
 }
 
 .tool img{
