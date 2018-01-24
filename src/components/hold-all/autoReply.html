@@ -92,7 +92,7 @@
 			  		<div>
 						<div class="fl">
 							<h2>自动回复</h2>
-							<p>通过编辑内容或关键词规则，快速进行自动恢复设置。关闭自动回复之后，将立即对所有用户生效。</p>
+							<p style="color: darkgray;margin-top: 10px;">通过编辑内容或关键词规则，快速进行自动恢复设置。关闭自动回复之后，将立即对所有用户生效。</p>
 						</div>
 						<div class="fr">
 							<el-switch class="elswitch" v-model="value2" active-color="#00a372" inactive-color="#ff4949">
@@ -100,7 +100,7 @@
 						</div>
 						<div class="cleanfix"></div>
 					</div>
-					<hr/>
+					<hr class="hr"/>
 					<div class="ua-control marginbutton">
 						<div class="marginbutton">
 						 	<el-button type="success" class="success" @click="ifshow(0)">关键词回复</el-button>
@@ -324,9 +324,6 @@
   		width: 75%;
   		margin: auto;
   	}
-  	.wcmain hr {
-  		border: 1px solid black;
-  	}
   	.elswitch {
   		margin-top: 10px;
   	}
@@ -334,6 +331,7 @@
   	}
   	.success {
   		background-color: #00a372;
+  		border-color: #00a372;
   	}
   	.marginbutton {
   		margin-bottom: 20px;
