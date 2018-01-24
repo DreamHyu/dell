@@ -7,7 +7,8 @@
   <!-- 引入样式 -->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="src/css/frame.css" />
+	<link rel="stylesheet" href="../../css/frame.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/toolBox.css"/>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 				<nav id="topNav" class="navbar-inverse" role="navigation">
 					<div class="container-fluid">
 					    <div class="navbar-header">
-					    	<img src="src/images/logo.png" />
+					        <img src="../../images/logo.png"/>
 					    </div>
 					    <div>			
 					    	<ul class="nav navbar-nav">
@@ -37,7 +38,7 @@
 					        </ul>
 					        <ul class="nav navbar-nav navbar-right">
 					        	<li>
-				        			<img src="src/images/user_img.png" class="img-circle">
+				        			<img src="../../images/user_img.png" class="img-circle">
 					        	</li>
 					            <li class="dropdown">
 					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -78,7 +79,7 @@
 								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
 								</li>
-								<li>
+								<li class="active">
 									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
 								</li>
 							</ul>
@@ -86,7 +87,45 @@
 					</div>
 				</nav>
 		    </el-aside>
-		    <el-main>Main</el-main>
+		    <el-main>
+		    	<div id="content">
+					<h2>工具箱</h2>
+					<hr class="hr" />
+					<div class="items">
+						<h3>系统管理</h3>
+						<div class="tool">
+							<img src="../../images/box1.png" />
+							<span>微信公众号绑定</span>
+						</div>
+						<div class="tool">
+							<img src="../../images/box2.png" />
+							<span>用户管理</span>
+						</div>
+						<div class="tool">
+							<img src="../../images/box3.png" />
+							<span>权限管理</span>
+						</div>
+					</div>
+					<div class="items">
+						<h3>微信管理</h3>
+						<div class="tool">
+							<img src="../../images/box4.png" />
+							<span>自动回复</span>
+						</div>
+						<div class="tool">
+							<img src="../../images/box5.png" />
+							<span>自定义菜单</span>
+						</div>
+					</div>
+					<div class="items">
+						<h3>客服管理</h3>
+						<div class="tool">
+							<img src="../../images/box6.png" />
+							<span>客服小组管理</span>
+						</div>
+					</div>
+				</div>
+		    </el-main>
 		  </el-container>
 		</el-container>
 	</div>

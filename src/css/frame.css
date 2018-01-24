@@ -10,6 +10,9 @@ html, body, #app, .el-container, .el-aside {
 .el-header{
 	padding: 0;
 }
+.el-header img{
+	margin-top: 4.5px;
+}
 /*左侧导航栏*/
 #leftNav{
 	width: 80px;

@@ -1,0 +1,35 @@
+.el-main{
+	padding: 0;
+}
+#content{
+	width: 85%;
+	height: 85%;
+	margin: 50px auto auto 100px;
+	/*top right bottom left*/
+}
+
+.items{
+	height: 120px;
+}
+
+.tool{
+	height: 80px;
+	width: 25%;
+	float: left;
+	margin-left: 6.25%;
+	border: 1px #999999 solid;
+	border-radius:0.4em;
+}
+
+.tool img{
+	height: 60px;
+	margin: 10px;
+}
+
+.tool span{
+	position: relative;
+	top: -20px;
+	left: 10px;
+	color: #808080;
+	display: inline;
+}
