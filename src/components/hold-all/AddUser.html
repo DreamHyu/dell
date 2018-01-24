@@ -17,7 +17,8 @@
 				<nav id="topNav" class="navbar-inverse" role="navigation">
 					<div class="container-fluid">
 					    <div class="navbar-header">
-					        <a class="navbar-brand" href="#">Deloitte</a>
+					        <!--<a class="navbar-brand" href="#">Deloitte</a>-->
+					        <img src="../../images/logo.png" />
 					    </div>
 					    <div>			
 					    	<ul class="nav navbar-nav">
@@ -126,37 +127,37 @@
 							</div>
 							
 							<div class="AuInput">
-							<el-form-item label="别称" class="AuChild">
-						    <el-input v-model="formInline.otheruser"></el-input>
-						  </el-form-item>
-						  <el-form-item label="电子邮件" class="AuChild">
-						    <el-input v-model="formInline.email"></el-input>
-						  </el-form-item>
-						  <el-form-item label="部门" class="AuChild">
-						    <el-input v-model="formInline.department"></el-input>
-						  </el-form-item>
-						  <el-form-item label="公众号" class="AuChild">
-						    <el-select class="AuSelect" v-model="formInline.publicnumber">
-						      <el-option label="一" value="1"></el-option>
-						      <el-option label="二" value="2"></el-option>
-						      <el-option label="三" value="3"></el-option>
-						    </el-select>
-						  </el-form-item>
-						  <el-form-item label="电话" class="AuChild">
-						    <el-input v-model="formInline.phone"></el-input>
-						  </el-form-item>
-						  <el-form-item label="座席号" class="AuChild">
-						    <el-input v-model="formInline.seatnumber"></el-input>
-						  </el-form-item>
-						  <el-form-item label="批准人设置" class="AuChild">
-						    <el-input v-model="formInline.approver"></el-input>
-						  </el-form-item>
-					
+								<el-form-item label="别称" class="AuChild">
+							    <el-input v-model="formInline.otheruser"></el-input>
+							  </el-form-item>
+							  <el-form-item label="电子邮件" class="AuChild">
+							    <el-input v-model="formInline.email"></el-input>
+							  </el-form-item>
+							  <el-form-item label="部门" class="AuChild">
+							    <el-input v-model="formInline.department"></el-input>
+							  </el-form-item>
+							  <el-form-item label="公众号" class="AuChild">
+							    <el-select class="AuSelect" v-model="formInline.publicnumber">
+							      <el-option label="一" value="1"></el-option>
+							      <el-option label="二" value="2"></el-option>
+							      <el-option label="三" value="3"></el-option>
+							    </el-select>
+							  </el-form-item>
+							  <el-form-item label="电话" class="AuChild">
+							    <el-input v-model="formInline.phone"></el-input>
+							  </el-form-item>
+							  <el-form-item label="座席号" class="AuChild">
+							    <el-input v-model="formInline.seatnumber"></el-input>
+							  </el-form-item>
+							  <el-form-item label="批准人设置" class="AuChild">
+							    <el-input v-model="formInline.approver"></el-input>
+							  </el-form-item>
+							</div>
 						  <el-form-item class="BtFloat">
 						    <el-button id="rest" class="BT BtTest">完成</el-button>
 						    <el-button id="back" class="BT BtBack">返回</el-button>
 						  </el-form-item>
-							</div>
+							
 						</el-form>
 					</div>
 		      </div>
@@ -229,19 +230,20 @@
   		margin-bottom: 8px;
   	}
   	.BtFloat{
-  		margin-right: 45px;
-  		margin-top: 80px;
+  		margin-right: 75px;
+  		margin-top: 70px;
   	}
   	.BT{
   		width: 100px;
+  		color: #FFFFFF;
   		float: right;
   	}
   	.BtTest{
   		background-color: #00A372;
-  		margin-left: 20px;
   	}
   	.BtBack{
   		background-color: #D3D3D3;
+  		margin-right: 10px;
   	}
  </style>
 </html>
