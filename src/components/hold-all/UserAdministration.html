@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>框架</title>
+  <title>自动回复-关键词回复</title>
   <!-- 引入样式 -->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -90,21 +90,62 @@
 		    <el-main>
 		    	<div class="wcmain">
 			  		<div>
-						<h2>用户管理</h2><hr/>
+						<div class="fl">
+							<h2>自动回复</h2>
+							<p>通过编辑内容或关键词规则，快速进行自动恢复设置。关闭自动回复之后，将立即对所有用户生效。</p>
+						</div>
+						<div class="fr">
+							<el-switch class="elswitch" v-model="value2" active-color="#00a372" inactive-color="#ff4949">
+							</el-switch>
+						</div>
+						<div class="cleanfix"></div>
 					</div>
-					<div class="ua-control">
-					  <el-select v-model="value" placeholder="筛选">
-					    <el-option
-					      v-for="item in options"
-					      :key="item.value"
-					      :label="item.label"
-					      :value="item.value">
-					    </el-option>
-					  </el-select>
-					  <el-button type="success" class="success">创建</el-button>
+					<hr/>
+					<div class="ua-control marginbutton">
+						<div class="marginbutton">
+						 	<el-button type="success" class="success">关键词回复</el-button>
+		    				<el-button>收到消息回复</el-button>
+		    				<el-button>被关注回复</el-button>
+						</div>
+						<div class="marginbutton">
+							<div class="fl">
+							  <el-input
+							    placeholder="搜索关键词规则名称"
+							    prefix-icon="el-icon-search"
+							    v-model="input21">
+							  </el-input>
+							</div>
+							<div class="fr">
+								<el-button type="success" class="success">添加回复</el-button>
+							</div>
+							<div class="cleanfix"></div>
+						</div>
 					</div>
 					<div class="cleanfix"></div>
-					<div>自定义模板
+					<div>
+					  <el-table
+					    :data="tableData"
+					    stripe
+					    style="width: 100%">
+					    <el-table-column
+					      prop="date"
+					      label="规则"
+					      width="180">
+					    </el-table-column>
+					    <el-table-column
+					      prop="name"
+					      label="关键词"
+					      width="180">
+					    </el-table-column>
+					    <el-table-column
+					      prop="address"
+					      label="回复内容">
+					    </el-table-column>
+					    <el-table-column
+					      prop="address"
+					      label="操作">
+					    </el-table-column>
+					  </el-table>
 					</div>
 			  	</div>
 		    </el-main>
@@ -122,25 +163,12 @@
     new Vue({
       el: '#app',
       data() {
-	      return {
-        	options: [{
-	          value: '选项1',
-	          label: '黄金糕'
-	        }, {
-	          value: '选项2',
-	          label: '双皮奶'
-	        }, {
-	          value: '选项3',
-	          label: '蚵仔煎'
-	        }, {
-	          value: '选项4',
-	          label: '龙须面'
-	        }, {
-	          value: '选项5',
-	          label: '北京烤鸭'
-	        }],
-	        value: ''
-	      };
+	       return {
+	       	value1: true,
+        	value2: true,
+        	input21: '',
+        	tableData: []
+      	   };
 	    },
 	    methods: {
 			
@@ -158,11 +186,16 @@
   	.wcmain hr {
   		border: 1px solid black;
   	}
+  	.elswitch {
+  		margin-top: 10px;
+  	}
   	.ua-control {
-  		float: right;
   	}
   	.success {
   		background-color: #00a372;
+  	}
+  	.marginbutton {
+  		margin-bottom: 20px;
   	}
  </style>
 </html>
