@@ -11,38 +11,38 @@
 <body>
   <div id="app">
   	<el-row>
-	  <el-col :span="14"><div class="grid-content bg-purple">
-		<div class="word">  	
-		  	<h2>Let's get digital.</h2>
-		  	<p>Get ready to strengthen your brand and grow your digital <br> business.From digital evolution to revolution, from strategy to <br> delivery, we're at your service</p>
-		</div>  	
-	  </div>
+	  <el-col :span="16">
+	  	<div class="grid-content bg-purple">
+				<div class="word">  	
+				  	<h2>Let's get digital<span style="color: #85bc2a;">.</span></h2>
+				  	<p>Get ready to strengthen your brand and grow your digital <br> business.From digital evolution to revolution, from strategy to <br> delivery, we're at your service</p>
+				</div>
+	  	</div>
 	</el-col>
 	  <el-col :span="8">
 	  	<div class="grid-content bg-purple-light">
-	  		<h2 class="logo">
-	  			<img src="../../images/deloitte.png">
-	  		</h2>
-			<el-form class="ruleForm">
-			  <el-form-item prop="email">
-			    <el-input type="email"  auto-complete="off" placeholder="邮箱"></el-input>
-			  </el-form-item>
-			  <el-form-item prop="checkPass">
-			    <el-input type="password"  auto-complete="off" placeholder="密码"></el-input>
-			  </el-form-item>
-			  <el-form-item>
-			    <el-button type="success" class="login-bt">登陆</el-button>
-			  </el-form-item>
-			</el-form>
-			<el-checkbox v-model="checked" class="el-checkbox">记住我</el-checkbox>
-			<p class="forget">忘记密码？</p>
-			<div class="login-footer">
-				<p class="contact">不是客户？<a type="text">联系我们</a></p>
-	  			<p class="copyright">©2017 deloitte.com, inc. All Rights Reserved.</p>
-			</div>
+		  		<h2 class="logo">
+		  			<img src="../../images/deloitte.png">
+		  		</h2>
+				<el-form class="ruleForm">
+				  <el-form-item prop="email">
+				    <el-input type="email"  auto-complete="off" placeholder="邮箱"></el-input>
+				  </el-form-item>
+				  <el-form-item prop="checkPass">
+				    <el-input type="password"  auto-complete="off" placeholder="密码"></el-input>
+				  </el-form-item>
+				  <el-form-item>
+				    <el-button type="success" class="login-bt">登录</el-button>
+				  </el-form-item>
+				</el-form>
+				<el-checkbox v-model="checked" class="el-checkbox">记住我</el-checkbox>
+				<p class="forget">忘记密码？</p>
+				<div class="login-footer">
+					<p class="contact">不是客户？<a type="text">联系我们</a></p>
+		  			<p class="copyright">©2017 deloitte.com, inc. All Rights Reserved.</p>
+				</div>
 	  	</div>
 	  </el-col>
-	  <el-col :span="2"><div class="grid-content bg-purple" style="background-color: black;"></div></el-col>
 	</el-row>
   </div>
 </body>
@@ -82,10 +82,11 @@
 		  }
 		  .bg-purple {
 		    background: #d3dce6;
+		    background-image: url(../../images/loginbg.png);
+		    background-size: 100% 100%;
 		    position: relative;
 		  }
 		  .bg-purple-light {
-		    background: #e5e9f2;
 		    width: 80%;
 		    padding: 0 10% 0 10%;
 		    position: relative;
@@ -102,6 +103,7 @@
 		  	position: absolute;
 		  	top: 70%;
 		  	left: 10%;
+		  	color: #FFFFFF;
 		  }
 		  .word h2 {
 		  	font-size: 40px;
@@ -112,6 +114,7 @@
 		  .login-bt {
 		  	width: 100%;
 		  	background-color: #00a372;
+		  	border-color: #00a372;
 		  }
 		  .bg-purple-light h2 {
 		  	padding-top: 20%;
@@ -130,6 +133,14 @@
 		  .el-checkbox {
 		  	float: left;
 		  }
+		  /*记住我更改为绿色主题*/
+		  .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+			    background-color: #00a372;
+			    border-color: #00a372;
+			}
+			.el-checkbox__input.is-checked+.el-checkbox__label {
+			    color: #00a372;
+			}
 		  .forget {
 		  	margin: 0;
 		  	float: right;
