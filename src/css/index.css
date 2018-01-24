@@ -81,14 +81,11 @@
       .newSend{
       	position: relative;
   	    float: right;
-    	margin-top: 30%;
+    	margin-top: 180px;
       }
       .content_hr{
       	width: 95%;
       	border-top:2px dashed #E5E9F2;
-      }
-      .bottom_hr{
-      	margin-top: auto;
       }
       .title_font{
       	font-size: 13pt;
