@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <title>框架</title>
+  <title>首页</title>
   <!-- 引入样式 -->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="src/css/frame.css" />
+	<link rel="stylesheet" type="text/css" href="src/css/index.css"/>
 </head>
 
 <body>
@@ -108,7 +109,6 @@
 		    		</div>
 		    	</div>
 		    	<div class="medium" style="padding: 40px;">
-		    		
 		    		<div style="float: left;width: 100%;height: 400px;">
 		    			<h2>数据统计</h2>
 			    		<div>
@@ -127,87 +127,87 @@
 		    			</div>
 		    			<div id="chartmain" style="width:100%; height: 280px;"></div>
 		    		</div>
-		    		<div style="float: left;width: 40%;height: 300px;">
-		    			<h2>审批</h2>
+		    		<div style="float: left;width: 40%;height: 350px;">
+		    			<h2 >审批</h2>
 		    			<div id="chartmain2" style="width:100%; height: 280px;"></div>
 		    		</div>
-		    		<div style="float: left;width: 60%;height: 300px;">
-		    			<h2 style="float: left; margin: 0;">互动数量</h2>
-		    			  <el-select v-model="value" placeholder="请选择" class="el-select">
-						    <el-option
-						      v-for="item in options"
-						      :key="item.value"
-						      :label="item.label"
-						      :value="item.value">
-						    </el-option>
-						  </el-select>
-		    			<div id="chartmain3" style="width:100%; height: 280px;margin-top: 30px;"></div>
+		    		<div style="float: left;width: 60%;height: 350px;">
+		    			<h2 >互动数量
+		    			    <el-select v-model="value1" placeholder="请选择" class="el-select">
+							    <el-option
+							      v-for="item in options"
+							      :key="item.value"
+							      :label="item.label"
+							      :value="item.value">
+							    </el-option>
+							</el-select>
+		    			</h2>
+		    			<div id="chartmain3" style="width:100%; height: 280px;"></div>
 		    		</div>
 		    	</div>
-		    	<div class="footer">
-		    		<div class="homepage_list">
-							<div class="list_left">
-								<div>
-									<h2 class="_margin">最近发送</h2>
-									<hr class="list_hr"/>
-								</div>
-								<div>
-									<div class="list_content" style="width:95%">
-				            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
-				            			<div style="width:40%" class="list_padding">
-				            				<span class="title_font">文章标题</span><br />
-				            				<span class="content_font">发送内容信息</span>
-				            			</div>
-				            			<div style="width:20%" class="list_padding">
-				            				<span class="date_font">2017-12-25</span>
-				            			</div>
-				        			</div>
-				        			<hr class="content_hr" />
-				        			<div class="list_content" style="width:95%">
-				            			<div style="width:35%"><img src="src/images/TIM20180123164342.png" class="image"></div>
-				            			<div style="width:40%" class="list_padding">
-				            				<span class="title_font">文章标题</span><br />
-				            				<span class="content_font">发送内容信息</span>
-				            			</div>
-				            			<div style="width:20%" class="list_padding">
-				            				<span class="date_font">2017-12-25</span>
-				            			</div>
-				        			</div>
-				        			<hr class="content_hr" />
-				        			<div class="list_content" style="width:95%">
-				            			<div style="width:35%"><img src="src/images/TIM20180123164345.png" class="image"></div>
-				            			<div style="width:40%" class="list_padding">
-				            				<span class="title_font">文章标题</span><br />
-				            				<span class="content_font">发送内容信息</span>
-				            			</div>
-				            			<div style="width:20%" class="list_padding">
-				            				<span class="date_font">2017-12-25</span>
-				            			</div>
-				        			</div>
-								</div>
-								<hr class="list_hr"/>
+		    	<div class="footer" style="padding: 40px;">
+		    		<div>
+						<div class="list_left">
+							<div>
+								<h2>最近发送</h2>
+								<hr class="hr"/>
 							</div>
-							<div class="list_right">
-								<div>
-									<h2 class="_margin">最近编辑</h2>
-									<hr class="list_hr"/>
-								</div>
-								<div>
-									<div class="list_content" style="width:95%">
-				            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
-				            			<div style="width:40%" class="list_padding">
-				            				<span class="title_font">文章标题</span><br />
-				            				<span class="content_font">发送内容信息</span>
-				            			</div>
-				            			<div style="width:20%" class="list_padding">
-				            				<span class="date_font">2017-12-25</span>
-				            			</div>
-				        		    </div>
-								</div>
-								<button class="_button">新建群发</button>
-								<hr class="list_hr _position"/>
+							<div>
+								<div class="list_content" style="width:100%">
+			            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
+			            			<div style="width:40%" class="list_padding">
+			            				<span class="title_font">文章标题</span><br />
+			            				<span class="content_font">发送内容信息</span>
+			            			</div>
+			            			<div style="width:20%" class="list_padding">
+			            				<span class="date_font">2017-12-25</span>
+			            			</div>
+			        			</div>
+			        			<hr class="content_hr" />
+			        			<div class="list_content" style="width:100%">
+			            			<div style="width:35%"><img src="src/images/TIM20180123164342.png" class="image"></div>
+			            			<div style="width:40%" class="list_padding">
+			            				<span class="title_font">文章标题</span><br />
+			            				<span class="content_font">发送内容信息</span>
+			            			</div>
+			            			<div style="width:20%" class="list_padding">
+			            				<span class="date_font">2017-12-25</span>
+			            			</div>
+			        			</div>
+			        			<hr class="content_hr" />
+			        			<div class="list_content" style="width:100%">
+			            			<div style="width:35%"><img src="src/images/TIM20180123164345.png" class="image"></div>
+			            			<div style="width:40%" class="list_padding">
+			            				<span class="title_font">文章标题</span><br />
+			            				<span class="content_font">发送内容信息</span>
+			            			</div>
+			            			<div style="width:20%" class="list_padding">
+			            				<span class="date_font">2017-12-25</span>
+			            			</div>
+			        			</div>
 							</div>
 						</div>
+						<div class="list_right">
+							<div>
+								<h2>最近编辑</h2>
+								<hr class="hr"/>
+							</div>
+							<div>
+								<div class="list_content" style="width:100%">
+			            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
+			            			<div style="width:40%" class="list_padding">
+			            				<span class="title_font">文章标题</span><br />
+			            				<span class="content_font">发送内容信息</span>
+			            			</div>
+			            			<div style="width:20%" class="list_padding">
+			            				<span class="date_font">2017-12-25</span>
+			            			</div>
+			        		    </div>
+							</div>
+							<!--<button class="_button">新建群发</button>-->
+							<el-button type="success" class="newSend" icon="el-icon-edit">新建群发</el-button>
+						</div>
+					</div>
 		    	</div>
 		    </el-main>
 		  </el-container>
@@ -220,13 +220,31 @@
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--引入echarts-->
   <script type="text/javascript" src="src/js/echarts.common.min.js" ></script>
 	<script>
     new Vue({
       el: '#app',
       data() {
 	      return {
-        	
+        	options: [{
+	          value: '选项1',
+	          label: '最近1天'
+	        }, {
+	          value: '选项2',
+	          label: '最近3天'
+	        }, {
+	          value: '选项3',
+	          label: '最近5天'
+	        }, {
+	          value: '选项4',
+	          label: '最近一周'
+	        }, {
+	          value: '选项5',
+	          label: '最近10天'
+	        }],
+	        value: '',
+	        value1:''
 	      };
 	    },
 	    methods: {
@@ -311,126 +329,5 @@
 
         var myChart = echarts.init(document.getElementById('chartmain'));
         myChart.setOption(option1);
-    </script>
- <style>
- 	.top{
- 		height: 200px;
- 		width: 100%;
- 	}
- 	.item1,.item2,.item3{
- 		position: relative;
- 		width: 33.33%;
- 		height: 200px;
- 		float: left;
- 		text-align: center;
- 		color: #fff;
- 	}
- 	.item1 div,.item2 div, .item3 div{
- 		position:absolute;
- 		height: 140px;
- 		width: 200px;
- 		top: 50%;
- 		left: 50%;
- 		margin-top: -70px;
- 		margin-left: -100px;
- 	}
- 	.item1 img,.item2 img, .item3 img{
- 		position: relative;
- 		top: 20%;
- 		left: -18%;	
- 		width: 30px;
- 		height: 30px;
-	}
- 	.num{
- 		font-size: 3em;
- 		font-weight: bold;
- 		line-height: 20px;
- 		padding-top: 50px;
- 		display: block;
- 	}
- 	.word{
- 		font-size: 1.2em;
- 		line-height: 20px;
- 	}
- 	.item1{
- 		background-color: #a5d045;
- 	}
- 	.item2{
- 		background-color: #0caaa5;
- 	}
- 	.item3{
- 		background-color: #00A372;
- 	}
- 	.success {
- 		background-color: #00a372;
- 	}
- 	.el-input--suffix .el-input__inner {
- 		padding-left: 36px;
- 		border:solid 1px #00a372;
- 		background: url("src/images/date.jpg") no-repeat 6px 6px;
- 	}
- 	.el-select {
- 		float: right;
- 	}
- 	.homepage_list>div{
-  	   	float: left;
-  	   }
-  	   ._position{
-  	   	position: relative;
-  	   	top: 182px;
-  	   }
-	  .list_left{
-	  	width: 50%;
-	  }
-	  .list_right{
-	  	width: 50%;
-	  }
-	  .list_content>div{
-        display: inline-block;
-/*设置HTML元素的width属性包括边框*/
-        box-sizing: border-box;
-/*元素顶端对齐*/
-        vertical-align: top;
-      }
-      ._button{
-      	border-radius: 15px;
-      	width: 100px;
-      	height: 40px;
-      	background-color: #00A372;
-      	position: relative;
-      	top: 200px;
-      	left: 400px;
-      }
-      .list_hr{
-      	width: 95%;
-      }
-      .content_hr{
-      	width: 95%;
-      	border-top:2px dashed #185598;
-      }
-      ._margin{
-      	margin: 0px 0px 0px 15px;
-      }
-      .title_font{
-      	font-size: 13pt;
-      }
-      .content_font{
-      	font-size: 11pt;
-      }
-      .date_font{
-      	font-size: 9pt;
-      }
-      .list_padding{
-      	padding-top: 10px;
-      }
-	  .image {
-	    width: 120px;
-	    height: 50px;
-	    display: block;
-	    margin: 10px 10px 10px 30px;
-	  }
-	  .list_content:hover{
-	  	background-color: bisque;
-	  }
- </style>
+   </script>
 </html>
