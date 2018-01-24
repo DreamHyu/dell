@@ -103,76 +103,160 @@
 					<hr/>
 					<div class="ua-control marginbutton">
 						<div class="marginbutton">
-						 	<el-button type="success" class="success">关键词回复</el-button>
-		    				<el-button>收到消息回复</el-button>
-		    				<el-button>被关注回复</el-button>
+						 	<el-button type="success" class="success" @click="ifshow(0)">关键词回复</el-button>
+		    				<el-button @click="ifshow(1)">收到消息回复</el-button>
+		    				<el-button @click="ifshow(2)">被关注回复</el-button>
 						</div>
-						<div class="marginbutton">
-							<div class="fl">
-							  <el-input
-							    placeholder="搜索关键词规则名称"
-							    prefix-icon="el-icon-search"
-							    v-model="input21">
-							  </el-input>
+						<div v-show="show1">	
+							<div class="marginbutton">
+								<div class="fl">
+								  <el-input
+								    placeholder="搜索关键词规则名称"
+								    prefix-icon="el-icon-search"
+								    v-model="input21">
+								  </el-input>
+								</div>
+								<div class="fr">
+									<el-button type="success" class="success" @click="dialogFormVisible = true">添加回复</el-button>
+									<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
+									  <el-form :model="form">
+									    <el-form-item label="规则名称" :label-width="formLabelWidth">
+									      <el-input v-model="form.name" auto-complete="off"></el-input>
+									    </el-form-item>
+									    <el-form-item label="关键词" :label-width="formLabelWidth">
+									      <el-select v-model="form.region" placeholder="半匹配">
+									        <el-option label="区域一" value="shanghai"></el-option>
+									        <el-option label="区域二" value="beijing"></el-option>
+									      </el-select>
+									      <el-input class="elinput1" auto-complete="off"></el-input>
+									      <el-button type="primary" icon="el-icon-circle-plus-outline"></el-button>
+									    </el-form-item>
+									    <el-form-item label="回复内容" :label-width="formLabelWidth">
+									      <i class="el-icon-circle-plus-outline"></i>
+									    </el-form-item>
+									    <el-form-item label="回复方式" :label-width="formLabelWidth">
+									      <el-radio v-model="radio" label="1">全部回复</el-radio>
+										  <el-radio v-model="radio" label="2">随机回复一条</el-radio>
+									    </el-form-item>
+									  </el-form>
+									  <div slot="footer" class="dialog-footer">
+									    <el-button @click="dialogFormVisible = false">取 消</el-button>
+									    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+									  </div>
+									</el-dialog>
+								</div>
+								<div class="cleanfix"></div>
 							</div>
-							<div class="fr">
-								<el-button type="success" class="success" @click="dialogFormVisible = true">添加回复</el-button>
-								<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
-								  <el-form :model="form">
-								    <el-form-item label="规则名称" :label-width="formLabelWidth">
-								      <el-input v-model="form.name" auto-complete="off"></el-input>
-								    </el-form-item>
-								    <el-form-item label="关键词" :label-width="formLabelWidth">
-								      <el-select v-model="form.region" placeholder="半匹配">
-								        <el-option label="区域一" value="shanghai"></el-option>
-								        <el-option label="区域二" value="beijing"></el-option>
-								      </el-select>
-								      <el-input class="elinput1" auto-complete="off"></el-input>
-								      <el-button type="primary" icon="el-icon-circle-plus-outline"></el-button>
-								    </el-form-item>
-								    <el-form-item label="回复内容" :label-width="formLabelWidth">
-								      <i class="el-icon-circle-plus-outline"></i>
-								    </el-form-item>
-								    <el-form-item label="回复方式" :label-width="formLabelWidth">
-								      <el-radio v-model="radio" label="1">全部回复</el-radio>
-									  <el-radio v-model="radio" label="2">随机回复一条</el-radio>
-								    </el-form-item>
-								  </el-form>
-								  <div slot="footer" class="dialog-footer">
-								    <el-button @click="dialogFormVisible = false">取 消</el-button>
-								    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-								  </div>
-								</el-dialog>
+							<div>
+							  <el-table
+							    :data="tableData"
+							    stripe
+							    style="width: 100%">
+							    <el-table-column
+							      prop="date"
+							      label="规则"
+							      width="180">
+							    </el-table-column>
+							    <el-table-column
+							      prop="name"
+							      label="关键词"
+							      width="180">
+							    </el-table-column>
+							    <el-table-column
+							      prop="address"
+							      label="回复内容">
+							    </el-table-column>
+							    <el-table-column
+							      prop="address"
+							      label="操作">
+							    </el-table-column>
+							  </el-table>
 							</div>
-							<div class="cleanfix"></div>
+						</div>
+						<div v-show="show2">
+							<div class="edit-input">
+							  <ul>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/word.png">
+								  		<p class="fr">文字</p>
+								  	</button>
+							  	</li>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/image.png">
+								  		<p class="fr">图片</p>
+							  		</button>
+							  	</li>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/voice.png">
+								  		<p class="fr">语音</p>
+							  		</button>
+							  	</li>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/movie.png">
+								  		<p class="fr">视频</p>
+							  		</button>
+							  	</li>
+							  </ul>
+							  <div class="cleanfix"></div>
+							  <div class="input1">
+							  	<textarea class="input-word" type="" name=""> </textarea>
+							  </div>
+							  <div></div>
+							  <div></div>
+							  <div></div>
+							</div>
+							<div class="fr foot-button">
+								<el-button>默认按钮</el-button>
+								<el-button class="success" type="success">成功按钮</el-button>
+							</div>
+						</div>
+						<div v-show="show3">
+							<div class="edit-input">
+							  <ul>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/word.png">
+								  		<p class="fr">文字</p>
+								  	</button>
+							  	</li>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/image.png">
+								  		<p class="fr">图片</p>
+							  		</button>
+							  	</li>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/voice.png">
+								  		<p class="fr">语音</p>
+							  		</button>
+							  	</li>
+							  	<li class="fl">
+								  	<button>
+								  		<img src="../../images/movie.png">
+								  		<p class="fr">视频</p>
+							  		</button>
+							  	</li>
+							  </ul>
+							  <div class="cleanfix"></div>
+							  <div class="input1">
+							  	<textarea class="input-word" type="" name=""> </textarea>
+							  </div>
+							  <div></div>
+							  <div></div>
+							  <div></div>
+							</div>
+							<div class="fr foot-button">
+								<el-button>默认按钮</el-button>
+								<el-button class="success" type="success">成功按钮</el-button>
+							</div>
 						</div>
 					</div>
 					<div class="cleanfix"></div>
-					<div>
-					  <el-table
-					    :data="tableData"
-					    stripe
-					    style="width: 100%">
-					    <el-table-column
-					      prop="date"
-					      label="规则"
-					      width="180">
-					    </el-table-column>
-					    <el-table-column
-					      prop="name"
-					      label="关键词"
-					      width="180">
-					    </el-table-column>
-					    <el-table-column
-					      prop="address"
-					      label="回复内容">
-					    </el-table-column>
-					    <el-table-column
-					      prop="address"
-					      label="操作">
-					    </el-table-column>
-					  </el-table>
-					</div>
 			  	</div>
 		    </el-main>
 		  </el-container>
@@ -207,9 +291,28 @@
 	        },
 	        formLabelWidth: '120px',
 	        radio: '1',
+	        show3:false,
+	       	show2:false,
+	        show1:true,
+	        activeName: 'second'
       	   };
 	    },
 	    methods: {
+	    	ifshow: function (num) {
+	    		if (num == 0) {
+	    			this.show3 = false;
+	    			this.show2 = false;
+	    			this.show1 = true;
+	    		} else if (num == 1) {
+	    			this.show3 = false;
+	    			this.show2 = true;
+	    			this.show1 = false;
+	    		} else if (num == 2) {
+	    			this.show3 = true;
+	    			this.show2 = false;
+	    			this.show1 = false;
+	    		}
+	    	},
 	    }
     })
  </script>
@@ -240,6 +343,54 @@
   	}
   	.elinput1 {
   		width: 420px;
+  	}
+  	.edit-input {
+  		height: 400px;
+  		border:1px solid grey;
+  		background-color: #eee;
+  	}
+  	.edit-input ul {
+  		margin: 20px;
+  	}
+  	.edit-input ul li {
+  		margin: 0 20px;
+  	}
+  	.edit-input ul li img {
+  		width: 20px;
+  		height: 20px;
+  	}
+  	.edit-input ul li p {
+  		font-family: Microsoft Yahei;
+  		padding-left: 4px;
+  		font-size: 16px;
+  	}
+  	.edit-input button {
+  		border:none;
+  		background-color: #eee;
+  	}
+  	.edit-input button:focus {
+  		outline: none;
+  		border:none;
+  		background-color: #eee;
+  		color:#97e8df;
+  	}
+  	.edit-input-inside {
+  		padding: 40px;
+  	}
+  	.input1 {
+  		height: 100%;
+  		height: 100%;
+  	}
+  	.input-word {
+  		background-color: #fff;
+  		margin-top: 40px;
+  		margin-left: 4%;
+  		margin-right: 4%;
+  		width: 92%;
+  		height: 70%;
+  	}
+  	.foot-button {
+  		margin: 30px 0;
   	}
  </style>
 </html>
