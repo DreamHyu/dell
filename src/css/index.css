@@ -12,19 +12,21 @@
  	}
  	.item1 div,.item2 div, .item3 div{
  		position:absolute;
- 		height: 140px;
- 		width: 250px;
- 		top: 50%;
- 		left: 50%;
- 		margin-top: -70px;
- 		margin-left: -100px;
+ 		height: 50%;
+ 		width: 40%;
+ 		top: 0;
+ 		margin-top: 12.5%;
+ 		margin-left: 30%;
  	}
  	.item1 img,.item2 img, .item3 img{
- 		position: relative;
- 		top: 20%;
- 		left: -18%;	
+ 		position: absolute;
+ 		top: 0;
+ 		left: 0;
+ 		/*left: -18%;*/	
  		width: 30px;
  		height: 30px;
+ 		margin-top: 15%;
+ 		margin-left: 30%;
 	}
  	.num{
  		font-size: 3em;
@@ -56,10 +58,7 @@
  	.item3{
  		background-color: #00A372;
  	}
- 	.success {
- 		background-color: #00a372;
- 		border-color: #00a372;
- 	}
+	
  	.el-input--suffix .el-input__inner {
  		padding-left: 36px;
  		border:solid 1px #00a372;
@@ -92,8 +91,6 @@
       	position: relative;
   	    float: right;
     	margin-top: 180px;
-    	background-color: #00a372;
-		border-color: #00a372;
       }
       .content_hr{
       	width: 95%;

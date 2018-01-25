@@ -2,6 +2,26 @@ html, body, #app, .el-container, .el-aside {
     height: 100%;
 }
 
+/*.el-button:hover{
+	background-color: #008000;
+}
+.el-button:active{
+	background-color: red;
+}*/
+
+ 	.el-button--success.is-plain {
+	    color: #00a372;
+	    border-color: #00A372;
+	}
+ 	.el-button--success.is-plain:hover {
+	    background: #00a372;
+	    border-color: #00A372;
+	}
+ 	.el-button--success.is-plain:focus {
+	    background: #00a372;
+	    border-color: #00A372;
+	}
+
 /*顶部布局*/
 .el-header{
 	padding: 0;
