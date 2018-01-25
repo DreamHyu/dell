@@ -1,28 +1,33 @@
 html, body, #app, .el-container, .el-aside {
     height: 100%;
 }
-/*头像*/
-.img-circle{
-	height: 40px;
-	margin-top: 5px;
-}
+
 /*顶部布局*/
 .el-header{
 	padding: 0;
 }
 .el-header img{
-	margin-top: 4.5px;
+	margin-top: 13.5px;
+	height: 23px;
+}
+.el-aside{
+	width: 70px;
+}
+/*头像*/
+.el-header .img-circle{
+	height: 40px;
+	margin-top: 5px;
 }
 /*左侧导航栏*/
 #leftNav{
-	width: 80px;
+	width: 70px;
 	height: 100%;
 	float: left;
 }
 #leftNav div div ul{
-	margin-left: 5px;
+	margin-left: 2px;
 	padding-left: 0;
-	width: 70px;
+	width: 66px;
 	text-align: center;
 }
 #leftNav .container-fluid{
@@ -30,10 +35,10 @@ html, body, #app, .el-container, .el-aside {
 	padding-right: 0;
 }
 #leftNav .container-fluid div .navbar-nav>.active>a:hover{
-	width: 70px;
+	width: 66px;
 }
 #leftNav .container-fluid div .navbar-nav li a{
-	width: 70px;
+	width: 66px;
 	font-size: 12px;
 }
 /*字体图标*/
