@@ -2,25 +2,52 @@ html, body, #app, .el-container, .el-aside {
     height: 100%;
 }
 
-/*.el-button:hover{
-	background-color: #008000;
+/*除首页外其他页面返回、取消按钮开始*/
+.el-button{
+	color: #808080;
+  	border-color: #A9A9A9;
+	background-color: #EEEEEE;
 }
-.el-button:active{
-	background-color: red;
-}*/
+.el-button:hover{
+	border-color: #00a372;
+	color: #00A372;
+}
+.el-button:focus{
+	border-color: #00a372;
+	color: #00A372;
+}
+/*除首页外其他页面返回、取消按钮开始*/
 
- 	.el-button--success.is-plain {
-	    color: #00a372;
-	    border-color: #00A372;
-	}
- 	.el-button--success.is-plain:hover {
-	    background: #00a372;
-	    border-color: #00A372;
-	}
- 	.el-button--success.is-plain:focus {
-	    background: #00a372;
-	    border-color: #00A372;
-	}
+/*除首页外其他页面完成、确认按钮开始*/
+.el-button--success {
+	color: #FFFFFF;
+    background-color: #00a372;
+	border-color: #00a372;
+}
+.el-button--success:hover{
+	border-color: #67c23a;
+	color: #FFFFFF;
+}
+.el-button--success:focus{
+	border-color: #67c23a;
+	color: #FFFFFF;
+}
+/*除首页外其他页面完成、确认按钮结束/
+
+/*首页按钮开始*/
+.el-button--success.is-plain {
+    color: #00a372;
+    border-color: #00A372;
+}
+.el-button--success.is-plain:hover {
+    background: #00a372;
+    border-color: #00A372;
+}
+.el-button--success.is-plain:focus {
+    background: #00a372;
+    border-color: #00A372;
+}
+/*首页按钮结束*/
 
 /*顶部布局*/
 .el-header{
