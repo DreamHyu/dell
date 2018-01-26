@@ -132,7 +132,12 @@
 									        <el-option label="区域二" value="beijing"></el-option>
 									      </el-select>
 									      <el-input class="elinput1" auto-complete="off"></el-input>
-									      <el-button type="primary" icon="el-icon-circle-plus-outline"></el-button>
+									      <el-select style="margin-top: 10px;" v-model="form.region" placeholder="全匹配">
+									        <el-option label="区域一" value="shanghai"></el-option>
+									        <el-option label="区域二" value="beijing"></el-option>
+									      </el-select>
+									      <el-input style="margin-top: 10px;" class="elinput1" auto-complete="off"></el-input>
+									      <el-button style="margin-top: 10px;" type="success" icon="el-icon-circle-plus-outline"></el-button>
 									    </el-form-item>
 									    <el-form-item label="回复内容" :label-width="formLabelWidth">
 									      <i class="el-icon-circle-plus-outline"></i>
@@ -338,7 +343,7 @@
   		width: 98px;
   	}
   	.elinput1 {
-  		width: 420px;
+  		width: 400px;
   	}
   	.edit-input {
   		height: 400px;
@@ -393,5 +398,12 @@
   	i{
   		font-size: 22px;
   	}
+  	.el-radio__input.is-checked+.el-radio__label {
+    	color: #00A372;
+		}
+		.el-radio__input.is-checked .el-radio__inner {
+	    border-color: #00A372;
+	    background: #00A372;
+		}
  </style>
 </html>
