@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>会员资料</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+</head>
+
+<body onload="focus()">
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					    	<img src="../../images/logo.png" />
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="70px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-heart"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="MenberInformationMain">
+		    		<div>
+			    		<h2>会员资料</h2>
+						<hr class="hr"/>
+			    	</div>
+			    	<div class="MenberInformationHead">
+			    		<div class="MenberInformationTitle">
+			    			<img src="../../images/MenberInformation.png" class="MenberInformationImg" />
+			    			<div class="MenberInformationFontEn">Harry</div>
+			    			<div class="MenberInformationFontCN">一级会员</div>
+			    		</div>
+			    		<div class="MenberInformationContent">
+			    			<span class="MenberInformationFont">性别：</span>男<br />
+			    			<span class="MenberInformationFont">地址：</span>上海　徐汇<br />
+			    			<span class="MenberInformationFont">关注时间：</span>2017-12-26<br />
+			    			<span class="MenberInformationFont">互动次数：</span>发送消息23条<br />
+			    			<span class="MenberInformationFont">上次活跃时间：</span>一天前互动过
+			    		</div>
+			    	</div>
+			    	<div class="MenberInformationBT">
+			    		<el-button class="MenberInformationButton" id="InformationFocus" autofocus="autofocus" type="success" v-on:click="toggle('vip')" plain>会员信息</el-button>
+			    		<el-button class="MenberInformationButton" type="success" v-on:click="toggle('interactive')" plain>互动信息</el-button>
+			    	</div>
+			    	<div v-show="MenberShow">
+			    		<template>
+							  <el-table :data="tableData" stripe class="MenberInformationTable">
+							    <el-table-column prop="time" label="时间" width="180"></el-table-column>
+							    <el-table-column prop="site" label="站点" width="150"></el-table-column>
+							    <el-table-column prop="mold" label="类型" width="150"></el-table-column>
+							    <el-table-column prop="content" label="内容" width="206"></el-table-column>
+							    <el-table-column prop="action" label="行为" width="150"></el-table-column>
+							    <el-table-column prop="handle" label="操作" width="150"></el-table-column>
+							  </el-table>
+							</template>
+			    	</div>
+			    	<div v-show="!MenberShow" class="MenberContent">
+              <div class="MenberLeft">
+              	<div class="MenberLeftHead">
+              		<img class="MenberImg" src="../../images/MenberInformation2.png" /><div class="MenberFontLeft">真实个人信息</div><br />
+              	</div>
+              	<span class="MenberInformationFont">手机号：</span>18823711272<br />
+			    			<span class="MenberInformationFont">邮箱：</span>abc@deloite.com.cn<br />
+			    			<span class="MenberInformationFont">证件类型：</span>身份证<br />
+			    			<span class="MenberInformationFont">证件号码：</span>12345678987654321<br />
+			    			<span class="MenberInformationFont">会员卡号：</span>123454321<br />
+			    			<span class="MenberInformationFont">会员等级：</span>一级会员<br />
+			    			<span class="MenberInformationFont">累计积分：</span>100<br />
+			    			<span class="MenberInformationFont">注册时间：</span>2017-12-27 18:00:30<br />
+			    			<span class="MenberInformationFont">会员来源：</span>其他
+              </div>
+              <div class="MenberRight">
+              	<div class="MenberLeftHead">
+              		<img class="MenberImg" src="../../images/MenberInformation1.png" /><div class="MenberFontRight">标签信息</div><br />
+              	</div>
+              	<div>
+              		<el-tag
+									  :key="tag"
+									  v-for="tag in dynamicTags"
+									  closable
+									  :disable-transitions="false"
+									  @close="handleClose(tag)">
+									  {{tag}}
+									</el-tag>
+									<el-input
+									  class="input-new-tag"
+									  v-if="inputVisible"
+									  v-model="inputValue"
+									  ref="saveTagInput"
+									  size="small"
+									  @keyup.enter.native="handleInputConfirm"
+									  @blur="handleInputConfirm"
+									>
+									</el-input>
+									<el-button v-else class="button-new-tag" size="small" @click="showInput">添加标签</el-button>
+              	</div>
+              </div>
+			    	</div>
+		    	</div>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+        	tableData: [{
+	          time: '2017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }, {
+	          time: '2017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }, {
+	          time: '2017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }, {
+	          time: '2017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }, {
+	          time: '2017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }, {
+	          time: '2017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }, {
+	          time: '22017-12-27 13:00:21',
+	          site: '微信',
+	          mold: '群发',
+	          content: '文字描述文字描述文字描述',
+	          action: '留言',
+	          handle: '操作'
+	        }],
+        	MenberShow:false,
+          dynamicTags: ['标签一', '标签二', '标签三'],
+	        inputVisible: false,
+	        inputValue: ''
+	      };
+	    },
+	    methods: {
+			  toggle:function(str) {
+			  	console.log(str);
+			  	if(str == 'vip'){
+			  		this.MenberShow = false;
+			  	}
+			  	else if( str == 'interactive'){
+			  		this.MenberShow = true;
+			  	}
+        },
+        
+			  handleClose(tag) {
+	        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+	      },
+	
+	      showInput() {
+	        this.inputVisible = true;
+	        this.$nextTick(_ => {
+	          this.$refs.saveTagInput.$refs.input.focus();
+	        });
+	      },
+	
+	      handleInputConfirm() {
+	        let inputValue = this.inputValue;
+	        if (inputValue) {
+	          this.dynamicTags.push(inputValue);
+	        }
+	        this.inputVisible = false;
+	        this.inputValue = '';
+	      }
+     	}
+    })
+ </script>
+ <link rel="stylesheet" href="../../css/MenberInformation.css" />
+</html>
