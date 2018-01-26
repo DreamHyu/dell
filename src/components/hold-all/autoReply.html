@@ -65,7 +65,7 @@
 					    <div>
 					    	<ul class="nav navbar-nav">
 								<li class="">
-									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 								</li>
 								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
@@ -77,10 +77,13 @@
 									<a href="#"><span class="glyphicon glyphicon-heart"></span><br />粉丝</a>
 								</li>
 								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+								</li>
+								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
 								</li>
 								<li class="active">
-									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+									<a href="toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
 								</li>
 							</ul>
 					    </div>
@@ -103,11 +106,11 @@
 					<hr class="hr"/>
 					<div class="ua-control marginbutton">
 						<div class="marginbutton">
-						 	<el-button type="success" class="success" @click="ifshow(0)">关键词回复</el-button>
-		    				<el-button @click="ifshow(1)">收到消息回复</el-button>
-		    				<el-button @click="ifshow(2)">被关注回复</el-button>
+						 	<el-button type="success" plain @click="ifshow(0)">关键词回复</el-button>
+		    			<el-button type="success" plain @click="ifshow(1)">收到消息回复</el-button>
+		    			<el-button type="success" plain @click="ifshow(2)">被关注回复</el-button>
 						</div>
-						<div v-show="show1">	
+						<div v-show="show1">
 							<div class="marginbutton">
 								<div class="fl">
 								  <el-input
@@ -117,7 +120,7 @@
 								  </el-input>
 								</div>
 								<div class="fr">
-									<el-button type="success" class="success" @click="dialogFormVisible = true">添加回复</el-button>
+									<el-button type="success" plain @click="dialogFormVisible = true">添加回复</el-button>
 									<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
 									  <el-form :model="form">
 									    <el-form-item label="规则名称" :label-width="formLabelWidth">
@@ -141,7 +144,7 @@
 									  </el-form>
 									  <div slot="footer" class="dialog-footer">
 									    <el-button @click="dialogFormVisible = false">取 消</el-button>
-									    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+									    <el-button type="success" @click="dialogFormVisible = false">确 定</el-button>
 									  </div>
 									</el-dialog>
 								</div>
@@ -211,7 +214,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>默认按钮</el-button>
-								<el-button class="success" type="success">成功按钮</el-button>
+								<el-button type="success">成功按钮</el-button>
 							</div>
 						</div>
 						<div v-show="show3">
@@ -252,7 +255,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>默认按钮</el-button>
-								<el-button class="success" type="success">成功按钮</el-button>
+								<el-button type="success">成功按钮</el-button>
 							</div>
 						</div>
 					</div>
@@ -328,10 +331,6 @@
   		margin-top: 10px;
   	}
   	.ua-control {
-  	}
-  	.success {
-  		background-color: #00a372;
-  		border-color: #00a372;
   	}
   	.marginbutton {
   		margin-bottom: 20px;
