@@ -106,7 +106,7 @@
 					<hr class="hr"/>
 					<div class="ua-control marginbutton">
 						<div class="marginbutton">
-						 	<el-button type="success" plain @click="ifshow(0)">关键词回复</el-button>
+						 	<el-button type="success" plain v-bind:autofocus="true" @click="ifshow(0)">关键词回复</el-button>
 		    			<el-button type="success" plain @click="ifshow(1)">收到消息回复</el-button>
 		    			<el-button type="success" plain @click="ifshow(2)">被关注回复</el-button>
 						</div>
@@ -120,7 +120,7 @@
 								  </el-input>
 								</div>
 								<div class="fr">
-									<el-button type="success" plain @click="dialogFormVisible = true">添加回复</el-button>
+									<el-button type="success" @click="dialogFormVisible = true">添加回复</el-button>
 									<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
 									  <el-form :model="form">
 									    <el-form-item label="规则名称" :label-width="formLabelWidth">
@@ -181,25 +181,25 @@
 							  <ul>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/word.png">
+								  		<i class="el-icon-edit"></i>
 								  		<p class="fr">文字</p>
 								  	</button>
 							  	</li>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/image.png">
+								  		<i class="el-icon-picture"></i>
 								  		<p class="fr">图片</p>
 							  		</button>
 							  	</li>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/voice.png">
+								  		<i class="el-icon-phone"></i>
 								  		<p class="fr">语音</p>
 							  		</button>
 							  	</li>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/movie.png">
+								  		<i class="el-icon-view"></i>
 								  		<p class="fr">视频</p>
 							  		</button>
 							  	</li>
@@ -222,25 +222,25 @@
 							  <ul>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/word.png">
+								  		<i class="el-icon-edit"></i>
 								  		<p class="fr">文字</p>
 								  	</button>
 							  	</li>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/image.png">
+								  		<i class="el-icon-picture"></i>
 								  		<p class="fr">图片</p>
 							  		</button>
 							  	</li>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/voice.png">
+								  		<i class="el-icon-phone"></i>
 								  		<p class="fr">语音</p>
 							  		</button>
 							  	</li>
 							  	<li class="fl">
 								  	<button>
-								  		<img src="../../images/movie.png">
+								  		<i class="el-icon-view"></i>
 								  		<p class="fr">视频</p>
 							  		</button>
 							  	</li>
@@ -388,6 +388,9 @@
   	}
   	.foot-button {
   		margin: 30px 0;
+  	}
+  	i{
+  		font-size: 22px;
   	}
  </style>
 </html>

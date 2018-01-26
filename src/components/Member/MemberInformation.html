@@ -107,7 +107,7 @@
 			    		</div>
 			    	</div>
 			    	<div class="MenberInformationBT">
-			    		<el-button class="MenberInformationButton" id="InformationFocus" autofocus="autofocus" type="success" v-on:click="toggle('vip')" plain>会员信息</el-button>
+			    		<el-button class="MenberInformationButton" id="InformationFocus" v-bind:autofocus="true" type="success" v-on:click="toggle('vip')" plain>会员信息</el-button>
 			    		<el-button class="MenberInformationButton" type="success" v-on:click="toggle('interactive')" plain>互动信息</el-button>
 			    	</div>
 			    	<div v-show="MenberShow">

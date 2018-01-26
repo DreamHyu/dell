@@ -9,12 +9,12 @@
 }
 
 .items{
-	height: 120px;
+	height: 140px;
 }
 
 .tool{
-	height: 80px;
-	width: 25%;
+	height: 90px;
+	width: 24%;
 	float: left;
 	margin-left: 6.25%;
 	border: 1px darkgray solid;
@@ -27,7 +27,7 @@
 }
 
 .tool img{
-	height: 60px;
+	height: 70px;
 	margin: 10px;
 }
 
