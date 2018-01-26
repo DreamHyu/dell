@@ -1,0 +1,38 @@
+  	body{
+  		background-color: #F7F7F7;
+  	}
+  	
+  	.AuMain{
+  		width: 90%;
+  		margin: auto;
+  	}
+  	.AuForm{
+  		width: 85%;
+  		margin: auto;
+  	}
+  	.AuInput{
+  		display: inline-block;
+  		width: 48%;
+  		vertical-align: top;
+  		padding: 15px 20px 0px 50px;
+  	}
+		.AuChild{
+			width: 90%;
+		}
+		.AuSelect{
+			width: 100%;
+		}
+		.el-form-item{
+  		margin-bottom: 8px;
+  	}
+  	.BtFloat{
+  		margin-right: 75px;
+  		margin-top: 70px;
+  	}
+  	.BT{
+  		width: 100px;
+  		float: right;
+  	}
+  	.BtBack{
+  		margin-right: 10px;
+  	}

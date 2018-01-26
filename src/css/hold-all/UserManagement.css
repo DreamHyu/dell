@@ -1,0 +1,33 @@
+ 	.UmMain{
+ 		width: 90%;
+ 		margin: auto;
+ 	}
+ 	.demo-form-inline{
+ 		float: right;
+ 	}
+ 	.el-form-item__content{
+ 		width: 100%;
+ 	}
+ 	.el-input{
+ 		width: 150px;
+ 	}
+ 	.el-table thead{
+ 		color: #1F3A50;
+ 	}
+ 	.el-table th{
+ 		background-color: #D3D3D3;
+ 	}
+ 	.UmButton{
+ 		width: 120px;
+ 	}
+ 	.cell{
+ 		text-align: center;
+ 	}
+ 	.UmImage{
+ 		width: 70px;
+ 		height: 70px;
+ 		margin-left: 30px;
+ 	}
+ 	.BtLine{
+ 		text-decoration: underline;
+ 	}
