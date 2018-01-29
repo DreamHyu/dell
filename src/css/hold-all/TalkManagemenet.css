@@ -5,8 +5,8 @@ h2{
 	font-family: "微软雅黑";
 }
 .TalkMain{
-	width:80%;
-	margin:60px auto;
+	width: 90%;
+	margin: auto;
 }
 .floatRight{
 	float: right;
@@ -22,14 +22,14 @@ h2{
  	}
  	.el-table thead{
  		color: #1F3A50;
- 		font-size: 20px;
+ 		/*font-size: 20px;*/
  	}
  	.el-table th{
  		background-color: #D3D3D3;
  	}
  	.el-table tbody td{
  		height: 80px;
- 		font-size: 20px;
+ 		/*font-size: 20px;*/
  	}
 .TMButton{
 	width: 120px;
