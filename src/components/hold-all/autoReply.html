@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/frame.css" />
 	<link rel="stylesheet" href="../../css/hold-all/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/hold-all/autoReply.css"/>
 </head>
 
 <body>
@@ -122,25 +123,62 @@
 								<div class="fr">
 									<el-button type="success" @click="dialogFormVisible = true">添加回复</el-button>
 									<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
-									  <el-form :model="form">
+									  <el-form :model="form" ref="form">
 									    <el-form-item label="规则名称" :label-width="formLabelWidth">
 									      <el-input v-model="form.name" auto-complete="off"></el-input>
 									    </el-form-item>
-									    <el-form-item label="关键词" :label-width="formLabelWidth">
-									      <el-select v-model="form.region" placeholder="半匹配">
-									        <el-option label="区域一" value="shanghai"></el-option>
-									        <el-option label="区域二" value="beijing"></el-option>
-									      </el-select>
-									      <el-input class="elinput1" auto-complete="off"></el-input>
-									      <el-select style="margin-top: 10px;" v-model="form.region" placeholder="全匹配">
-									        <el-option label="区域一" value="shanghai"></el-option>
-									        <el-option label="区域二" value="beijing"></el-option>
-									      </el-select>
-									      <el-input style="margin-top: 10px;" class="elinput1" auto-complete="off"></el-input>
-									      <el-button style="margin-top: 10px;" type="success" icon="el-icon-circle-plus-outline"></el-button>
+									    <el-form-item 
+									    	label="关键词" 
+									    	:label-width="formLabelWidth"
+									    	v-for="(domain, index) in form.domains"
+										    :key="domain.key"
+										    :prop="'domains.' + index + '.value'"
+									    	>
+  									      <el-input placeholder="请输入内容" v-model="domain.value" class="input-with-select">
+											    <el-select v-model="domain.select" slot="prepend" placeholder="请选择">
+											      <el-option label="半匹配" value="1"></el-option>
+											      <el-option label="全匹配" value="2"></el-option>
+											    </el-select>
+											    <el-button slot="append" icon="el-icon-delete" @click.prevent="removeDomain(domain)"></el-button>
+											  </el-input>
+									    </el-form-item>
+								    	<el-form-item :label-width="formLabelWidth">
+								    		<i style="cursor: pointer;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
 									    </el-form-item>
 									    <el-form-item label="回复内容" :label-width="formLabelWidth">
-									      <i class="el-icon-circle-plus-outline"></i>
+									      <i style="cursor: pointer;float: left;margin-top: 10px;" @click="showBtn = !showBtn" class="el-icon-circle-plus-outline"></i>
+									      <div style="margin-top: 5px;">
+										      	<transition name="el-zoom-in-top">
+										        <div v-show="showBtn" style="margin-left: 10px;">
+										          	<ul>
+															  	<li class="fl">
+															  		<a href="#">
+															  			<i class="el-icon-edit"></i>
+																  		<p class="fr">文字</p>
+															  		</a>
+															  	</li>
+															  	<li class="fl" style="margin-left: 10px;">
+															  		<a href="#">
+															  			<i class="el-icon-picture"></i>
+																  		<p class="fr">图片</p>
+															  		</a>
+															  	</li>
+															  	<li class="fl" style="margin-left: 10px;">
+															  		<a href="#">
+															  			<i class="el-icon-phone"></i>
+																  		<p class="fr">语音</p>
+															  		</a>
+															  	</li>
+															  	<li class="fl" style="margin-left: 10px;">
+															  		<a href="#">
+															  			<i class="el-icon-view"></i>
+																  		<p class="fr">视频</p>
+															  		</a>
+															  	</li>
+															  </ul>
+										        </div>
+										      </transition>
+										    </div>
 									    </el-form-item>
 									    <el-form-item label="回复方式" :label-width="formLabelWidth">
 									      <el-radio v-model="radio" label="1">全部回复</el-radio>
@@ -210,15 +248,15 @@
 							  </ul>
 							  <div class="cleanfix"></div>
 							  <div class="input1">
-							  	<textarea class="input-word" type="" name=""> </textarea>
+							  	<textarea class="input-word" placeholder="Thank you for contacting us, our service support will reach out to you soon!" type="" name=""> </textarea>
 							  </div>
 							  <div></div>
 							  <div></div>
 							  <div></div>
 							</div>
 							<div class="fr foot-button">
-								<el-button>默认按钮</el-button>
-								<el-button type="success">成功按钮</el-button>
+								<el-button>删除回复</el-button>
+								<el-button type="success">保存</el-button>
 							</div>
 						</div>
 						<div v-show="show3">
@@ -251,15 +289,15 @@
 							  </ul>
 							  <div class="cleanfix"></div>
 							  <div class="input1">
-							  	<textarea class="input-word" type="" name=""> </textarea>
+							  	<textarea class="input-word" placeholder="Thank you for following SCRM official account." type="" name=""> </textarea>
 							  </div>
 							  <div></div>
 							  <div></div>
 							  <div></div>
 							</div>
 							<div class="fr foot-button">
-								<el-button>默认按钮</el-button>
-								<el-button type="success">成功按钮</el-button>
+								<el-button>删除回复</el-button>
+								<el-button type="success">保存</el-button>
 							</div>
 						</div>
 					</div>
@@ -281,9 +319,12 @@
       el: '#app',
       data() {
 	       return {
+	       	showBtn: false,
 	       	value1: true,
         	value2: true,
         	input21: '',
+        	input5: '',
+      		select: '',
         	tableData: [],
         	dialogFormVisible: false,
 	        form: {
@@ -294,7 +335,11 @@
 	          delivery: false,
 	          type: [],
 	          resource: '',
-	          desc: ''
+	          desc: '',
+	          domains: [{
+	            value: '',
+	            select:''
+	          }]
 	        },
 	        formLabelWidth: '120px',
 	        radio: '1',
@@ -320,90 +365,20 @@
 	    			this.show1 = false;
 	    		}
 	    	},
+	    	removeDomain(item) {
+	        var index = this.form.domains.indexOf(item)
+	        if (index !== -1) {
+	          this.form.domains.splice(index, 1)
+	        }
+	      },
+	      addDomain() {
+	        this.form.domains.push({
+	          value: '',
+	          select:'',
+	          key: Date.now()
+	        });
+	      },
 	    }
     })
  </script>
- <style type="text/css">
- 	body{
-  		background-color: #F7F7F7;
-  	}
-  	.wcmain{
-  		width: 75%;
-  		margin: auto;
-  	}
-  	.elswitch {
-  		margin-top: 10px;
-  	}
-  	.ua-control {
-  	}
-  	.marginbutton {
-  		margin-bottom: 20px;
-  	}
-  	.el-input--suffix .el-input__inner {
-  		width: 98px;
-  	}
-  	.elinput1 {
-  		width: 400px;
-  	}
-  	.edit-input {
-  		height: 400px;
-  		border:1px solid grey;
-  		background-color: #eee;
-  		border-radius: 5px;
-  	}
-  	.edit-input ul {
-  		margin: 20px;
-  	}
-  	.edit-input ul li {
-  		margin: 0 20px;
-  	}
-  	.edit-input ul li img {
-  		width: 20px;
-  		height: 20px;
-  	}
-  	.edit-input ul li p {
-  		font-family: Microsoft Yahei;
-  		padding-left: 4px;
-  		font-size: 16px;
-  	}
-  	.edit-input button {
-  		border:none;
-  		background-color: #eee;
-  	}
-  	.edit-input button:focus {
-  		outline: none;
-  		border:none;
-  		background-color: #eee;
-  		color:#97e8df;
-  	}
-  	.edit-input-inside {
-  		padding: 40px;
-  	}
-  	.input1 {
-  		height: 100%;
-  		height: 100%;
-  	}
-  	.input-word {
-  		background-color: #fff;
-  		margin-top: 40px;
-  		margin-left: 4%;
-  		margin-right: 4%;
-  		width: 92%;
-  		height: 70%;
-  		border-radius: 5px;
-  	}
-  	.foot-button {
-  		margin: 30px 0;
-  	}
-  	i{
-  		font-size: 22px;
-  	}
-  	.el-radio__input.is-checked+.el-radio__label {
-    	color: #00A372;
-		}
-		.el-radio__input.is-checked .el-radio__inner {
-	    border-color: #00A372;
-	    background: #00A372;
-		}
- </style>
 </html>
