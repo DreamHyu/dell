@@ -1,0 +1,42 @@
+body{
+	background-color: #F7F7F7;
+}
+h2{
+	font-family: "微软雅黑";
+}
+.TalkMain{
+	width:80%;
+	margin:60px auto;
+}
+.floatRight{
+	float: right;
+}
+.split{
+	margin-right:20px;
+}
+.el-form-item__content{
+ 		width: 100%;
+ 	}
+ 	.el-input{
+ 		width: 150px;
+ 	}
+ 	.el-table thead{
+ 		color: #1F3A50;
+ 		font-size: 20px;
+ 	}
+ 	.el-table th{
+ 		background-color: #D3D3D3;
+ 	}
+ 	.el-table tbody td{
+ 		height: 80px;
+ 		font-size: 20px;
+ 	}
+.TMButton{
+	width: 120px;
+}
+.cell{
+ 		text-align: center;
+ 	}
+a :hover{
+	cursor: pointer;
+}
