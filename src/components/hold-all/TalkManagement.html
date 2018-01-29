@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <title>工具箱</title>
+  <title>话术管理</title>
   <!-- 引入样式 -->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/frame.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/hold-all/toolBox.css"/>
+	<link rel="stylesheet" href="../../css/hold-all/TalkManagemenet.css" />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 				<nav id="topNav" class="navbar-inverse" role="navigation">
 					<div class="container-fluid">
 					    <div class="navbar-header">
-					        <img src="../../images/logo.png"/>
+					    	<img src="../../images/logo.png" />
 					    </div>
 					    <div>			
 					    	<ul class="nav navbar-nav">
@@ -74,7 +74,7 @@
 									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
 								</li>
 								<li class="">
-									<a href="#"><span class="glyphicon glyphicon-heart"></span><br />粉丝</a>
+									<a href="#"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
 								</li>
 								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
@@ -91,61 +91,43 @@
 				</nav>
 		    </el-aside>
 		    <el-main>
-		    	<div id="content">
-					<h2>工具箱</h2>
-					<hr class="hr" />
-					<div class="items">
-						<h3>系统管理</h3>
-						<a href="bindList.html">
-							<div class="tool">
-								<img src="../../images/box1.png" />
-								<span>微信公众号绑定</span>
-							</div>
-						</a>
-						<a href="UserManagement.html">
-							<div class="tool">
-								<img src="../../images/box2.png" />
-								<span>用户管理</span>
-							</div>
-						</a>
-						<a href="authorityManagement.html">
-							<div class="tool">
-								<img src="../../images/box3.png" />
-								<span>权限管理</span>
-							</div>
-						</a>
-					</div>
-					<div class="items">
-						<h3>微信管理</h3>
-						<a href="autoReply.html">
-							<div class="tool">
-								<img src="../../images/box4.png" />
-								<span>自动回复</span>
-							</div>
-						</a>
-						<a href="#">
-							<div class="tool">
-								<img src="../../images/box5.png" />
-								<span>自定义菜单</span>
-							</div>
-						</a>
-					</div>
-					<div class="items">
-						<h3>客服管理</h3>
-						<a href="#">
-							<div class="tool">
-								<img src="../../images/box6.png" />
-								<span>客服小组管理</span>
-							</div>
-						</a>
-						<a href="TalkManagement.html">
-							<div class="tool">
-								<img src="../../images/box7.png" />
-								<span>话术管理</span>
-							</div>
-						</a>
-					</div>
-				</div>
+		    	<div class="TalkMain">
+		    		<div>
+		    			<h2>话术管理</h2>
+		    			<hr class="hr">
+		    		</div>
+		    		<div>
+		    			<el-form :inline="true" :model="formInline" class="floatRight">
+								<el-form-item>
+								    <el-select v-model="formInline.role" placeholder="筛选">
+								      <el-option label="一" value="1"></el-option>
+								      <el-option label="二" value="2"></el-option>
+								      <el-option label="三" value="3"></el-option>
+								    </el-select>
+								</el-form-item>
+								<el-form-item>
+								    <el-button id="SetUp" type="success" class="TMButton">创建</el-button>
+								</el-form-item>
+						</el-form>
+		    		</div>
+		    		<div>
+		    			<template>
+						  <el-table
+						    :data="tableData2"
+						    stripe
+						    style="width: 100%">
+						    <el-table-column prop="date" label="分类"></el-table-column>
+						    <el-table-column prop="name" label="话术"></el-table-column>
+						    <el-table-column label="操作">
+						    	 <template slot-scope="scope">
+							        <a href="#">查看</a>
+							        <a href="#">编辑</a>
+							     </template>
+						    </el-table-column>
+						  </el-table>
+						</template>
+		    		</div>
+		    	</div>
 		    </el-main>
 		  </el-container>
 		</el-container>
@@ -157,16 +139,31 @@
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script>
+<script>
     new Vue({
       el: '#app',
       data() {
 	      return {
-        	
+	      		formInline: {
+	        		role: '',
+	        	},
+		        
+		        tableData2: [{
+		          date: '2016-05-02',
+		          name: '王小虎',
+		        }, {
+		          date: '2016-05-04',
+		          name: '王小虎',
+		        }, {
+		          date: '2016-05-01',
+		          name: '王小虎',
+		        }, {
+		          date: '2016-05-03',
+		          name: '王小虎',
+		        }]
 	      };
 	    },
 	    methods: {
-			
      	}
     })
  </script>
