@@ -126,15 +126,97 @@
 								  	
 								  	
 								  </el-tab-pane>
-								  <el-tab-pane label="会员报表" name="fourth">定时任务补偿</el-tab-pane>
-								</el-tabs>
-		    				<br />
-		    				
-		    				
+								  <el-tab-pane label="会员报表" name="fourth">
+								  	<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
+			    				  <el-table
+									    :data="tableData"
+									    style="width: 100%;">
+									    <el-table-column
+									      prop="name"
+									      label="名字">
+									    </el-table-column>
+									    <el-table-column
+									      prop="sex"
+									      label="性别">
+									    </el-table-column>
+									    <el-table-column
+									      prop="phone"
+									      label="手机">
+									    </el-table-column>
+									    <el-table-column
+									      prop="address"
+									      label="地址">
+									    </el-table-column>
+									    <el-table-column
+									      prop="tab"
+									      label="标签">
+									    </el-table-column>
+									    <el-table-column
+									      prop="date"
+									      label="关注时间">
+									    </el-table-column>
+									  </el-table>
+								  </el-tab-pane>
+								</el-tabs>		    				
 				    	</el-tab-pane>
 				    	
 				    	<el-tab-pane label="客服统计" name="second">客服统计</el-tab-pane>
-				    	<el-tab-pane label="图文分析" name="third">图文分析</el-tab-pane>
+				    	<el-tab-pane label="图文分析" name="third" class="imgText">
+				    		<div class="card">
+				    			<span>
+					    			<p>图文页阅读次数</p>
+				    				<p class="num">31234</p>
+				    			</span>
+				    			<p style="margin-left: 20px;">
+				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
+				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br />
+				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+				    			</p>
+				    		</div>
+				    		<div class="card">
+				    			<span>
+					    			<p>原文阅读次数</p>
+				    				<p class="num">34521</p>
+				    			</span>
+				    			<p style="margin-left: 20px;">
+				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
+				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br />
+				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+				    			</p>
+				    		</div>
+				    		<div class="card">
+				    			<span>
+					    			<p>分享转发次数</p>
+				    				<p class="num">12345</p>
+				    			</span>
+				    			<p style="margin-left: 20px;">
+				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
+				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br />
+				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+				    			</p>
+				    		</div>
+				    		<div class="card">
+				    		<span>
+					    			<p>微信收藏人数</p>
+				    				<p class="num">5432</p>
+				    			</span>
+				    			<p style="margin-left: 20px;">
+				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
+				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
+				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+				    			</p>
+				    		</div>
+				    		
+				    		<el-tabs v-model="activeName3" type="card" style="clear: both;padding-top: 20px;">
+							    <el-tab-pane label="图文页阅读" name="first">
+							    	<h4>阅读来源分析</h4>
+							    	<hr class="hr" />
+							    </el-tab-pane>
+							    <el-tab-pane label="原文页阅读" name="second">配置管理</el-tab-pane>
+							    <el-tab-pane label="分享转发" name="third">角色管理</el-tab-pane>
+							    <el-tab-pane label="微信收藏" name="fourth">定时任务补偿</el-tab-pane>
+							  </el-tabs>
+				    	</el-tab-pane>
 				  	</el-tabs>
 		    	</div>
 		    </el-main>
@@ -153,8 +235,9 @@
       el: '#app',
       data() {
 	      return {
-        	activeName: 'first',
+        	activeName: 'third',
         	activeName2: 'third',
+        	activeName3: 'first',
         	tableData3: [{
 	          date: '2016-05-03 12:00',
 	          name: '王小虎',
@@ -197,6 +280,56 @@
 	          tab: '标签1、标签2、标签3',
 	          sex: '男',
 	          address: '上海市普陀区金沙江路 1518 弄'
+	        }],
+	        tableData: [{
+	        	phone: '13888888888',
+	          date: '2016-05-03 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	        	phone: '13888888888',
+	          date: '2016-05-02 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	        	phone: '13888888888',
+	          date: '2016-05-04 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	        	phone: '13888888888',
+	          date: '2016-05-01 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	        	phone: '13888888888',
+	          date: '2016-05-08 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	        	phone: '13888888888',
+	          date: '2016-05-06 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	        	phone: '13888888888',
+	          date: '2016-05-07 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
 	        }]
 	      };
 	    },
@@ -234,6 +367,25 @@
 	}
 	.el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
     color: #00A372;
+	}
+	.card{
+		float: left;
+		height: 160px;
+		width: 12%;
+		min-width: 100px;
+		margin-left: 10%;
+		margin-top: 50px;
+	}
+	.imgText div span{
+			display: block;
+			text-align: center;
+		}
+	.num{
+		font-size: 38px;
+		color: #00A372;
+		font-weight: 700;
+		margin-top: 0px;
+		margin-bottom: 0px;
 	}
  </style>
 </html>
