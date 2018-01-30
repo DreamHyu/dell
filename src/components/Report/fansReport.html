@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>素材管理</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					    	<img src="../../images/logo.png" />
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="70px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="active">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="content">
+		    		<el-tabs v-model="activeName">
+				    	<el-tab-pane label="用户分析" name="first">
+				    		
+				    		<el-tabs type="border-card" v-model="activeName2">
+								  <el-tab-pane label="增长分析" name="first">增长分析</el-tab-pane>
+								  <el-tab-pane label="属性分析" name="second">配置管理</el-tab-pane>
+								  <el-tab-pane label="粉丝报表" name="third">
+								  	<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
+			    				  <el-table
+									    :data="tableData3"
+									    style="width: 100%;">
+									    <el-table-column
+									      prop="name"
+									      label="名字">
+									    </el-table-column>
+									    <el-table-column
+									      prop="sex"
+									      label="性别">
+									    </el-table-column>
+									    <el-table-column
+									      prop="address"
+									      label="地址">
+									    </el-table-column>
+									    <el-table-column
+									      prop="tab"
+									      label="标签">
+									    </el-table-column>
+									    <el-table-column
+									      prop="date"
+									      label="关注时间">
+									    </el-table-column>
+									  </el-table>
+								  	
+								  	
+								  </el-tab-pane>
+								  <el-tab-pane label="会员报表" name="fourth">定时任务补偿</el-tab-pane>
+								</el-tabs>
+		    				<br />
+		    				
+		    				
+				    	</el-tab-pane>
+				    	
+				    	<el-tab-pane label="客服统计" name="second">客服统计</el-tab-pane>
+				    	<el-tab-pane label="图文分析" name="third">图文分析</el-tab-pane>
+				  	</el-tabs>
+		    	</div>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+        	activeName: 'first',
+        	activeName2: 'third',
+        	tableData3: [{
+	          date: '2016-05-03 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	          date: '2016-05-02 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	          date: '2016-05-04 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	          date: '2016-05-01 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	          date: '2016-05-08 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	          date: '2016-05-06 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }, {
+	          date: '2016-05-07 12:00',
+	          name: '王小虎',
+	          tab: '标签1、标签2、标签3',
+	          sex: '男',
+	          address: '上海市普陀区金沙江路 1518 弄'
+	        }]
+	      };
+	    },
+	    methods: {
+			
+     	}
+    })
+ </script>
+ <style>
+ 	.content{
+ 		width: 90%;
+ 		margin: auto;
+ 	}
+ 	.el-table{
+ 		text-align: center;
+ 	}
+ 	.el-table th{
+    background-color: #D3D3D3;
+    color: #1F3A50;
+    text-align: center;
+	}
+	/*大选项卡*/
+	.el-tabs__item.is-active {
+	    color: #00A372;
+	}
+	.el-tabs__item:hover {
+    color: #00A372;
+	}
+	.el-tabs__active-bar{
+		background-color: #00A372;
+	}
+	/*小选项卡*/
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+    color: #00A372;
+	}
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
+    color: #00A372;
+	}
+ </style>
+</html>
