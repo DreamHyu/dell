@@ -111,3 +111,26 @@ body{
 	background-color: lightgrey;
 	margin-left: 70%;
 }
+.DialogButton{
+ 	background-color: #00A372;
+ 	border-color: #00A372;
+ 	color: #FFFFFF;
+}
+.MmButton{
+ 	width: 120px;
+ 	background-color: #00A372;
+ 	border-color: #00A372;
+ 	color: #FFFFFF;
+ 	float: right;
+}
+.DialogButton{
+ 		background-color: #00A372;
+ 		border-color: #00A372;
+ 		color: #FFFFFF;
+ 	}
+ 	.el-input__inner{
+ 		width: 250px;
+ 	}
+ 	.el-dialog{
+ 		width: 600px;
+ 	}

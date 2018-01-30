@@ -99,7 +99,30 @@
 		    		</div>
 		    		<!--按钮区-->
 		    		<div class="pmButton">
-		    			<el-button type="success">创建小组</el-button>
+		    			<el-button type="success" @click="PopUp = true">创建小组</el-button>
+		    			<el-dialog title="创建小组" :visible.sync="PopUp">
+							  <el-form :model="form">
+							    <el-form-item label="小组名称" :label-width="formLabelWidth">
+							      <el-input v-model="form.headman" auto-complete="off"></el-input>
+							    </el-form-item>
+							    <el-form-item label="小组组长" :label-width="formLabelWidth">
+							      <el-select v-model="form.region">
+							        <el-option label="一" value="1"></el-option>
+							        <el-option label="二" value="2"></el-option>
+							      </el-select>
+							    </el-form-item>
+							    <el-form-item label="小组成员" :label-width="formLabelWidth">
+							      <el-select v-model="form.menber">
+							        <el-option label="一" value="1"></el-option>
+							        <el-option label="二" value="2"></el-option>
+							      </el-select>
+							    </el-form-item>
+							  </el-form>
+							  <div slot="footer" class="dialog-footer">
+							    <el-button @click="PopUp = false">取 消</el-button>
+							    <el-button type="success" class="DialogButton" @click="PopUp = false">创 建</el-button>
+							  </div>
+							</el-dialog>
 		    		</div>
 		    		<!--小组区-->
 		    		<div class="groupAll">
@@ -271,7 +294,13 @@
       el: '#app',
       data() {
 	      return {
-        	
+	      	PopUp: false,
+        	form: {
+	          name: '',
+	          headman: '',
+	          menber: '',
+	        },
+	        formLabelWidth: '180px',
 	      };
 	    },
 	    methods: {

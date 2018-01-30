@@ -54,7 +54,7 @@
 }
 body{
 	font-size: 15px;
-	line-height: 1.55;
+	line-height: 1.70;
 }
 .MenberContent{
 	width: 80%;
@@ -74,9 +74,9 @@ body{
 	padding: 50px 0px 0px 30px;
 }
 .MenberImg{
-	width: 25px;
-	height: 25px;
-	float: left
+	height: 20px;
+	float: left;
+	margin-top: 4px;
 }
 .MenberFontLeft{
 	font-size: 15pt;
