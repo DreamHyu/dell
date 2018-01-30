@@ -211,6 +211,83 @@
 							    <el-tab-pane label="图文页阅读" name="first">
 							    	<h4>阅读来源分析</h4>
 							    	<hr class="hr" />
+							    	<div id="container" style="min-width:400px;height:400px"></div>
+							    	<h4>趋势图</h4>
+							    	<hr class="hr" />
+							    	
+						    	  <el-table
+									    :data="tableData1"
+									    style="width: 100%;">
+									    <el-table-column
+									      prop="date"
+									      label="时间">
+									    </el-table-column>
+									    <el-table-column
+									      label="图文页阅读">
+									      <el-table-column
+										      prop="person"
+										      label="人数">
+										    </el-table-column>
+									      
+									      <el-table-column
+										      prop="number"
+										      label="次数">
+										    </el-table-column>
+										    
+									    </el-table-column>
+									    <el-table-column
+									      label="从公众号打开">
+									      <el-table-column
+										      prop="person"
+										      label="人数">
+										    </el-table-column>
+									      
+									      <el-table-column
+										      prop="number"
+										      label="次数">
+										    </el-table-column>
+										    
+									    </el-table-column>
+									    <el-table-column
+									      label="从朋友圈打开">
+									      <el-table-column
+										      prop="person"
+										      label="人数">
+										    </el-table-column>
+									      
+									      <el-table-column
+										      prop="number"
+										      label="次数">
+										    </el-table-column>
+										    
+									    </el-table-column>
+									    <el-table-column
+									      label="分享转发">
+									      <el-table-column
+										      prop="person"
+										      label="人数">
+										    </el-table-column>
+									      
+									      <el-table-column
+										      prop="number"
+										      label="次数">
+										    </el-table-column>
+										    
+									    </el-table-column>
+									    <el-table-column
+									      label="微信收藏人数">
+									      <el-table-column
+										      prop="person"
+										      label="人数">
+										    </el-table-column>
+									      
+									      <el-table-column
+										      prop="number"
+										      label="次数">
+										    </el-table-column>
+									    </el-table-column>
+									  </el-table>
+							    	
 							    </el-tab-pane>
 							    <el-tab-pane label="原文页阅读" name="second">配置管理</el-tab-pane>
 							    <el-tab-pane label="分享转发" name="third">角色管理</el-tab-pane>
@@ -230,6 +307,7 @@
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/highcharts.js" ></script>
 	<script>
     new Vue({
       el: '#app',
@@ -330,6 +408,35 @@
 	          tab: '标签1、标签2、标签3',
 	          sex: '男',
 	          address: '上海市普陀区金沙江路 1518 弄'
+	        }],
+	        tableData1: [{
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
+	        }, {
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
+	        }, {
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
+	        }, {
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
+	        }, {
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
+	        }, {
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
+	        }, {
+	          date: '2016-05-03 12:00',
+	          person:'321',
+	          number:'123'
 	        }]
 	      };
 	    },
@@ -337,6 +444,76 @@
 			
      	}
     })
+ </script>
+ <script>
+ 	var chart = null;
+$(function () {
+    $('#container').highcharts({
+        chart: {
+        		backgroundColor: '#F7F7F7',
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            spacing : [40, 0 , 40, 0]
+        },
+        title: {
+            floating:true,
+            text: '<b>5831次</b><br><b>5131人</b><br>阅读总数'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                showInLegend:true,
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b><br>1259人，1238次',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                },
+                point: {
+                    events: {
+                        mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                            // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+                            chart.setTitle({
+                                text: e.target.name+ '<br>'+ e.target.y + ' 人<br>1238次'
+                            });
+                        }
+                        //
+                        // click: function(e) { // 同样的可以在点击事件里处理
+                        //     chart.setTitle({
+                        //         text: e.point.name+ '\t'+ e.point.y + ' %'
+                        //     });
+                        // }
+                    }
+                },
+            }
+        },
+        series: [{
+            type: 'pie',
+            innerSize: '80%',
+            name: '人次份额',
+            data: [
+                ['会话', 1259],
+                ['好友转发',1259],
+                ['朋友圈',1259],
+                ['其他',1259]
+            ]
+        }]
+    }, function(c) {
+        // 环形图圆心
+        var centerY = c.series[0].center[1],
+            titleHeight = parseInt(c.title.styles.fontSize);
+        c.setTitle({
+            y:centerY + titleHeight/2
+        });
+        chart = c;
+    });
+});
  </script>
  <style>
  	.content{
