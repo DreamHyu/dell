@@ -126,7 +126,6 @@
 											 	<el-tag
 												  v-for="tag in tags"
 												  :key="tag.name"
-												  closable
 												  :type="tag.type">
 												  {{tag.name}}
 												</el-tag>
@@ -186,7 +185,7 @@
 											 </div>
 											 <!--按钮区-->
 											 <div class="gmsgBtn">
-											 	<el-button type="success" size="medium">关闭</el-button>
+											 	<el-button type="success" size="medium" @click="dialogFormVisible=false">关闭</el-button>
 											 </div>
 				    					</el-form>
 									</el-dialog>
@@ -215,6 +214,8 @@
       data() {
 	      return {
 	      	dialogFormVisible:false,
+	      	inputVisible: false,
+       		inputValue: '',
 	      	form: {
 	          name: '',
 	          region: '',
@@ -235,8 +236,7 @@
 	      };
 	    },
 	    methods: {
-			
-     	}
+      }
     })
  </script>
 </html>
