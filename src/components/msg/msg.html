@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>消息</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					    	<img src="../../images/logo.png" />
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="70px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="content">
+		    		<el-tabs v-model="activeName">
+				    	<el-tab-pane label="素材管理" name="first"></el-tab-pane>
+				    	<el-tab-pane label="群发消息" name="second">
+				    		<el-tabs type="border-card" v-model="activeName2">
+							  <el-tab-pane label="编辑群发" name="first">用户管理</el-tab-pane>
+							  <el-tab-pane label="审批状态" name="second">
+							  	<h3>未审批</h3>
+							  	<h6>备注描述</h6>
+							  	<hr class="hr" />
+						  	    <el-table
+							      :data="tableData"
+							      style="width: 100%"
+							      v-bind:show-header="false"
+							      >
+							      	<el-table-column prop="time" label="时间"></el-table-column>
+						    		<el-table-column prop="image">
+							    	<template slot-scope="scope">
+								      <img  :src="scope.row.image" class="UmImage">
+								    </template>
+							    	</el-table-column>
+							    	<el-table-column prop="content" label="内容"></el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
+							    </el-table>
+							    
+							    <h3 style="color: #00A372;">审批通过</h3>
+							    <h6>备注描述</h6>
+							  	<hr class="hr" />
+						  	    <el-table
+							      :data="tableData"
+							      style="width: 100%"
+							      v-bind:show-header="false"
+							      >
+							      	<el-table-column prop="time" label="时间"></el-table-column>
+						    		<el-table-column prop="image">
+							    	<template slot-scope="scope">
+								      <img  :src="scope.row.image" class="UmImage">
+								    </template>
+							    	</el-table-column>
+							    	<el-table-column prop="content" label="内容"></el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
+							    </el-table>
+							    
+							    <h3 style="color: #CD0000;">审批未通过</h3>
+							  	<h6>备注描述</h6>
+							  	<hr class="hr" />
+						  	    <el-table
+							      :data="tableData"
+							      style="width: 100%"
+							      v-bind:show-header="false"
+							      >
+							      	<el-table-column prop="time" label="时间"></el-table-column>
+						    		<el-table-column prop="image">
+							    	<template slot-scope="scope">
+								      <img  :src="scope.row.image" class="UmImage">
+								    </template>
+							    	</el-table-column>
+							    	<el-table-column prop="content" label="内容"></el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
+							    </el-table>
+							  </el-tab-pane>
+							  <el-tab-pane label="待发送" name="third">
+							  	<h3>待发送</h3>
+							  	<hr class="hr" />
+						  	    <el-table
+							      :data="tableData"
+							      style="width: 100%"
+							      v-bind:show-header="false"
+							      >
+							      	<el-table-column prop="time" label="时间"></el-table-column>
+						    		<el-table-column prop="image">
+							    	<template slot-scope="scope">
+								      <img  :src="scope.row.image" class="UmImage">
+								    </template>
+							    	</el-table-column>
+							    	<el-table-column prop="content" label="内容"></el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
+							    </el-table>
+							  </el-tab-pane>
+							</el-tabs>
+				    	</el-tab-pane>
+				    	<el-tab-pane label="群发历史" name="third">
+				    		
+				    		<el-input placeholder="请输入内容" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
+							    <el-button slot="append" icon="el-icon-search"></el-button>
+							</el-input>
+							
+							<el-table :data="tableData" stripe style="width: 100%">
+								<el-table-column prop="time" label="时间"></el-table-column>
+							    <el-table-column prop="image">
+							    	<template slot-scope="scope">
+								      <img  :src="scope.row.image" class="UmImage">
+								    </template>
+							    </el-table-column>
+							    <el-table-column prop="content" label="内容"></el-table-column>
+							    <el-table-column prop="mark" label="备注"></el-table-column>
+							</el-table>
+							
+				    	</el-tab-pane>
+				    		
+				    </el-tabs>
+				</div>    		
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+        	activeName:'second',
+        	activeName2:'second',
+        	input5: '',
+        	tableData: [{
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }, {
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }, {
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }, {
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }],
+	        //XXX开始
+	        
+	        //XXX结束
+	      };
+	    },
+	    methods: {
+			
+     	}
+    })
+ </script>
+ <style>
+ 	
+ 	.content{
+ 		width: 90%;
+ 		margin: auto;
+ 	}
+ 	
+	/*小选项卡*/
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+    color: #00A372;
+	}
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
+    color: #00A372;
+	}
+	/*大选项卡*/
+	.el-tabs__item.is-active {
+	    color: #00A372;
+	}
+	.el-tabs__item:hover {
+    color: #00A372;
+	}
+	.el-tabs__active-bar{
+		background-color: #00A372;
+	}
+ 	.el-table thead{
+ 		color: #1F3A50;
+ 		text-align: center;
+ 	}
+ 	.el-table th{
+ 		background-color: #D3D3D3;
+ 		text-align: center;
+ 	}
+ 	.el-table--enable-row-transition .el-table__body td {
+    	text-align: center;
+	}
+	h6{
+		color: lightgray;
+	}
+ </style>
+</html>
