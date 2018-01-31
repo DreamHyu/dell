@@ -41,9 +41,13 @@ body{
 	float: left;
 	margin-right: 100px;
 }
+#attachItem{
+	display: none;
+}
 /*标签*/
+
 .el-tag + .el-tag {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 /*内容描述区*/
 .contentDis{
