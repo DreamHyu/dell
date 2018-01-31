@@ -20,7 +20,7 @@
 					    <div class="navbar-header">
 					        <a class="navbar-brand" href="#">Deloitte</a>
 					    </div>
-					    <div>			
+					    <div>
 					    	<ul class="nav navbar-nav">
 					            <li class="dropdown">
 					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -122,17 +122,17 @@
 								<div class="fr">
 									<el-button type="success" @click="dialogFormVisible = true">添加回复</el-button>
 									<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
-									  <el-form :model="form" ref="form">
+									  <el-form :model="form" ref="form" style="width: 80%;">
 									    <el-form-item label="规则名称" :label-width="formLabelWidth">
 									      <el-input v-model="form.name" auto-complete="off"></el-input>
 									    </el-form-item>
-									    <el-form-item 
+									    <i style="cursor: pointer;position: absolute;right: 15%;top: 155px;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
+									    <el-form-item
 									    	label="关键词" 
 									    	:label-width="formLabelWidth"
 									    	v-for="(domain, index) in form.domains"
 										    :key="domain.key"
-										    :prop="'domains.' + index + '.value'"
-									    	>
+										    :prop="'domains.' + index + '.value'">
   									      <el-input placeholder="请输入内容" v-model="domain.value" class="input-with-select">
 											    <el-select v-model="domain.select" slot="prepend" placeholder="请选择">
 											      <el-option label="半匹配" value="1"></el-option>
@@ -141,34 +141,40 @@
 											    <el-button slot="append" icon="el-icon-delete" @click.prevent="removeDomain(domain)"></el-button>
 											  </el-input>
 									    </el-form-item>
-								    	<el-form-item :label-width="formLabelWidth">
+								    	<!--<el-form-item>
 								    		<i style="cursor: pointer;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
-									    </el-form-item>
+									    </el-form-item>-->
 									    <el-form-item label="回复内容" :label-width="formLabelWidth">
 									      <i style="cursor: pointer;float: left;margin-top: 10px;" @click="showBtn = !showBtn" class="el-icon-circle-plus-outline"></i>
 									      <div style="margin-top: 5px;">
 										      	<transition name="el-zoom-in-top">
-										        <div v-show="showBtn" style="margin-left: 10px;">
+										        <div v-show="showBtn" style="margin-left: 20px;">
 										          	<ul>
-															  	<li class="fl">
+										          		<li class="fl" style="margin-left: 20px;">
+															  		<a href="#">
+															  			<i class="el-icon-tickets"></i>
+																  		<p class="fr">图文消息</p>
+															  		</a>
+															  	</li>
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-edit"></i>
 																  		<p class="fr">文字</p>
 															  		</a>
 															  	</li>
-															  	<li class="fl" style="margin-left: 10px;">
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-picture"></i>
 																  		<p class="fr">图片</p>
 															  		</a>
 															  	</li>
-															  	<li class="fl" style="margin-left: 10px;">
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-phone"></i>
 																  		<p class="fr">语音</p>
 															  		</a>
 															  	</li>
-															  	<li class="fl" style="margin-left: 10px;">
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-view"></i>
 																  		<p class="fr">视频</p>
@@ -196,7 +202,6 @@
 							  <el-table
 							    :data="tableData"
 							    stripe
-							    
 							    >
 							    <el-table-column
 							      prop="date"
@@ -256,7 +261,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>删除回复</el-button>
-								<el-button type="success">保存</el-button>
+								<el-button type="success">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</el-button>
 							</div>
 						</div>
 						<div v-show="show3">
@@ -297,7 +302,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>删除回复</el-button>
-								<el-button type="success">保存</el-button>
+								<el-button type="success">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</el-button>
 							</div>
 						</div>
 					</div>
@@ -341,7 +346,7 @@
 	            select:''
 	          }]
 	        },
-	        formLabelWidth: '120px',
+	        formLabelWidth: '80px',
 	        radio: '1',
 	        show3:false,
 	       	show2:false,
