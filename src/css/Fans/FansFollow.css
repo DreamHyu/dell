@@ -1,0 +1,205 @@
+.FansFollowMain{
+	width: 90%;
+	margin: auto;
+}
+.el-tabs__item{
+	height: 55px;
+	line-height: 55px;
+	font-size: 23px;
+	color: #A9A9A9;
+}
+div.is-top>.el-tabs__nav-scroll{
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	padding-left: 50px;
+}
+.el-tabs__item.is-active{
+	color: #00A372;
+}
+.el-tabs__active-bar{
+	height: 5px;
+	background-color: #00A372;
+}
+.el-tabs__item:hover{
+	color: #00A372;
+}
+.FansFollowLeft{
+	float: left;
+	width: 70%;
+	background-color: #F0F0F0;
+	padding-bottom: 50px;
+}
+.FansFollowList{
+	margin-left: 50px;
+}
+.FansFollowNamestyle{
+	font-size: 13pt;
+}
+.FansFollowAddressStyle{
+	margin: 2px 0px;
+	font-size: 11pt;
+}
+.FansFollowImage{
+	width: 60px;
+	height: 60px;
+}
+.FansFollowIcon{
+	width: 15px;
+	height: 20px;
+}
+.FansFollowIconLast{
+	width: 20px;
+	height: 20px;
+}
+.FansFollowIconSmall{
+	width: 10px;
+	height: 8px;
+}
+.FansFollowContent{
+	background-color: #A5D045;
+	display: inline-block;
+	border-radius: 3px;
+	padding: 0px 8px;
+	color: #FFFFFF;
+}
+.FansFollowFloat{
+	float: right;
+}
+.FansFollowTime{
+	clear: both;
+	margin-top: 5px;
+}
+.FansFollowTableFont{
+	color: #A9A9A9;
+}
+.FansFollowTableMenber{
+	font-size: 13pt;
+}
+.FansFollowButtonPosition{
+	position: absolute;
+	left: 110px;
+	top: 8px;
+}
+.el-button{
+	border-color: #A9A9A9;
+	color: #A9A9A9;
+}
+.FansFollowButtonStyle{
+	height: 30px;
+	width: 110px;
+	background-color: #FFFFFF;
+	line-height: 0px;
+}
+.FansFollowInput{
+	width: 180px;
+	margin-left: 20px;
+}
+.el-input__inner{
+	height: 32px;
+}
+.el-input__icon{
+	line-height: 32px;
+}
+.el-table td, .el-table th{
+	background-color: #F0F0F0;
+}
+.el-table td{
+	border-bottom: 1px solid #A9A9A9;
+}
+.el-table th.is-leaf{
+	border-bottom: 1px solid #A9A9A9;
+}
+table{
+	border-collapse: separate;
+}
+.el-table tr{
+	height: 52.8px;
+}
+.FansFollowRight{
+	float: right;
+	width: 25%;
+	margin-top: 65px;	
+ 	line-height: 40px;
+}
+.title{
+ 	width: 200px;
+ 	background-color: #00A372;
+ 	color: #FFFFFF;
+ 	text-align: center;
+ 	height: 40px;
+ 	margin-left: 70px;
+ 	border-top-left-radius: 5px;
+ 	border-top-right-radius: 5px;
+}
+.addTab{
+	background-color: #FFFFFF;
+	width: 200px;
+	text-align: center;
+	height: 40px;
+	margin-left: 70px;
+	cursor: pointer;
+	border-bottom: 1px #D3DCE6 solid;
+	border-left: 1px #D3DCE6 solid;
+	border-right: 1px #D3DCE6 solid;
+	color: #00A372;
+	font-size: 32px;
+}
+.el-tabs--left .el-tabs__item.is-left{
+	text-align: center;
+}
+.el-tabs--left .el-tabs__header.is-left{
+	margin-bottom: 0;
+	margin-right: 0px;
+	width: 200px;
+	margin-left: 70px;
+}
+.el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
+	border-right-color: #e4e7ed;
+}
+.el-tabs--left.el-tabs--card .el-tabs__nav{
+	border-radius: 0px;
+}
+.el-tabs__content{
+	background-color: #F0F0F0;
+}
+.el-tabs--left.el-tabs--card .el-tabs__nav{
+	background-color: #FFFFFF;
+}
+.el-table{
+	border: 1px solid #F0F0F0;
+	border-bottom: 1px solid #A9A9A9;
+}
+.FansFollowButtonC{
+	background-color: #00A372;
+	color: #FFFFFF;
+	border-radius: 10px !important;
+	width: 80px;
+	float: right !important;
+}
+div.el-dialog__body>div>div.el-input{
+	width: 260px;
+	height: 25px;
+}
+.FansFollowButtonA{
+	border: 0px;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+}
+.FansFollowButtonB{
+	border-radius: 10px !important;
+	float: left;
+	width: 80px;
+}
+.el-dialog{
+	height: 210px;
+}
+.FansFollowButtonD{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	width: 200px;
+}
+.FansFollowInputA{
+	float: left;
+}
+
