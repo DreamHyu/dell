@@ -75,9 +75,9 @@ div.is-top>.el-tabs__nav-scroll{
 	font-size: 13pt;
 }
 .FansFollowButtonPosition{
-	position: absolute;
-	left: 218px;
-	top: 195px;
+	position: relative;
+    left: 112px;
+    top: -439px;
 }
 .el-button{
 	border-color: #A9A9A9;
