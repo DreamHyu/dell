@@ -126,9 +126,11 @@
 									    <el-form-item label="规则名称" :label-width="formLabelWidth">
 									      <el-input v-model="form.name" auto-complete="off"></el-input>
 									    </el-form-item>
-									    <i style="cursor: pointer;position: absolute;right: 15%;top: 155px;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
+								    	<label style="font-size: 14px;color: #606266;line-height: 40px;position: absolute;padding: 0 12px 0 0;left: 46px;">关键词</label>
+									    <i style="cursor: pointer;position: absolute;right: 15%;top: 160px;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
+
 									    <el-form-item
-									    	label="关键词" 
+									    	:label=labelText
 									    	:label-width="formLabelWidth"
 									    	v-for="(domain, index) in form.domains"
 										    :key="domain.key"
@@ -329,6 +331,7 @@
         	value2: true,
         	input21: '',
         	input5: '',
+        	labelText:'',
       		select: '',
         	tableData: [],
         	dialogFormVisible: false,
@@ -372,11 +375,12 @@
 	    	},
 	    	removeDomain(item) {
 	        var index = this.form.domains.indexOf(item)
-	        if (index !== -1) {
+	        if (index !== -1 && index!==0) {
 	          this.form.domains.splice(index, 1)
 	        }
 	      },
 	      addDomain() {
+	      	console.log(this.form.domains)
 	        this.form.domains.push({
 	          value: '',
 	          select:'',
