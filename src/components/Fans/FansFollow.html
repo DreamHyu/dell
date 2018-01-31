@@ -120,7 +120,7 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisible = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -152,9 +152,9 @@
 														  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
 														  </div>
 	                            <div class="FansFollowInputA" v-else="!FansValue">
-	                            	<el-input v-model="input" placeholder="请输入内容"></el-input>
-		                            &nbsp&nbsp<a href="#" v-on:click="judge('no')">添加</a>
-		                            &nbsp&nbsp<a href="#" v-on:click="judge('no')">取消</sa>
+	                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+	                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+		                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
 	                            </div>
 	                            <div class="FansFollowButtonD">
 	                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
@@ -170,7 +170,7 @@
 							    	</div>
 							    	<div class="FansFollowRight">
 							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card" closable @tab-remove="removeTab">
+											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card">
 											  <el-tab-pane style="width: 50%;"
 											    v-for="(item, index) in editableTabs2"
 											    :key="item.name"
@@ -178,9 +178,6 @@
 											    :name="item.name">
 											  </el-tab-pane>
 											</el-tabs>
-											<div class="addTab" @click="addTab(editableTabsValue2)">
-												<i class="el-icon-plus"></i>
-											</div>
 							    	</div>
 							    </el-tab-pane>
 							    <el-tab-pane label="取消关注" name="second">
@@ -209,7 +206,27 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisibleA = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
+												    			<el-dialog :visible.sync="dialogVisibleA" width="25%">
+																	  <template>
+																		  <el-checkbox-group v-model="checkList">
+																		    <el-checkbox label="复选框 A"></el-checkbox>
+																		    <el-checkbox label="复选框 B"></el-checkbox>
+																		  </el-checkbox-group>
+																		  <div v-if="FansValue">
+																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																		  </div>
+					                            <div class="FansFollowInputA" v-else="!FansValue">
+					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+					                            </div>
+					                            <div class="FansFollowButtonD">
+					                            	<el-button class="FansFollowButtonB" @click="dialogVisibleA = flase">取消</el-button>
+					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleA = flase">保存</el-button>
+					                            </div>
+																		</template>
+																	</el-dialog>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -234,7 +251,7 @@
 							    	</div>
 							    	<div class="FansFollowRight">
 							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card" closable @tab-remove="removeTab">
+											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card">
 											  <el-tab-pane style="width: 50%;"
 											    v-for="(item, index) in editableTabs2"
 											    :key="item.name"
@@ -242,9 +259,6 @@
 											    :name="item.name">
 											  </el-tab-pane>
 											</el-tabs>
-											<div class="addTab" @click="addTab(editableTabsValue2)">
-												<i class="el-icon-plus"></i>
-											</div>
 							    	</div>
 							    </el-tab-pane>
 							    <el-tab-pane label="黑名单" name="third">
@@ -273,7 +287,27 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisibleB = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
+												    			<el-dialog :visible.sync="dialogVisibleB" width="25%">
+																	  <template>
+																		  <el-checkbox-group v-model="checkList">
+																		    <el-checkbox label="复选框 A"></el-checkbox>
+																		    <el-checkbox label="复选框 B"></el-checkbox>
+																		  </el-checkbox-group>
+																		  <div v-if="FansValue">
+																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																		  </div>
+					                            <div class="FansFollowInputA" v-else="!FansValue">
+					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+					                            </div>
+					                            <div class="FansFollowButtonD">
+					                            	<el-button class="FansFollowButtonB" @click="dialogVisibleB = flase">取消</el-button>
+					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleB = flase">保存</el-button>
+					                            </div>
+																		</template>
+																	</el-dialog>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -299,7 +333,7 @@
 							    	</div>
 							    	<div class="FansFollowRight">
 							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card" closable @tab-remove="removeTab">
+											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card">
 											  <el-tab-pane style="width: 50%;"
 											    v-for="(item, index) in editableTabs2"
 											    :key="item.name"
@@ -307,9 +341,6 @@
 											    :name="item.name">
 											  </el-tab-pane>
 											</el-tabs>
-											<div class="addTab" @click="addTab(editableTabsValue2)">
-												<i class="el-icon-plus"></i>
-											</div>
 							    	</div>
 							    </el-tab-pane>
 							  </el-tabs>
@@ -398,6 +429,8 @@
 	        multipleSelection: [],
 	        input: '',
 	        dialogVisible: false,
+	        dialogVisibleA: false,
+	        dialogVisibleB: false,
 	        checkList: ['复选框 A'],
 	        editableTabsValue2: '1',
 	        editableTabs2: [{
@@ -428,30 +461,7 @@
 	      handleSelectionChange(val) {
 	        this.multipleSelection = val;
 	      },
-				addTab(targetName) {
-		      let newTabName = ++this.tabIndex + '';
-		      this.editableTabs2.push({
-		        title: '标签描述',
-		        name: newTabName
-		        });
-		      this.editableTabsValue2 = newTabName;
-		      },
-		    removeTab(targetName) {
-		      let tabs = this.editableTabs2;
-		      let activeName = this.editableTabsValue2;
-		      if (activeName === targetName) {
-		        tabs.forEach((tab, index) => {
-		          if (tab.name === targetName) {
-		            let nextTab = tabs[index + 1] || tabs[index - 1];
-		              if (nextTab) {
-		                activeName = nextTab.name;
-		              }
-		          }
-		        });
-		      } 
-		      this.editableTabsValue2 = activeName;
-		      this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
-		    },	      
+				    
      	}
     })
  </script>

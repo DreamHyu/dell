@@ -5,7 +5,7 @@
 .el-tabs__item{
 	height: 55px;
 	line-height: 55px;
-	font-size: 23px;
+	font-size: 20px;
 	color: #A9A9A9;
 }
 div.is-top>.el-tabs__nav-scroll{
@@ -45,7 +45,7 @@ div.is-top>.el-tabs__nav-scroll{
 }
 .FansFollowIcon{
 	width: 15px;
-	height: 20px;
+	height: 17px;
 }
 .FansFollowIconLast{
 	width: 20px;
@@ -150,8 +150,8 @@ table{
 .el-tabs--left .el-tabs__header.is-left{
 	margin-bottom: 0;
 	margin-right: 0px;
-	width: 200px;
-	margin-left: 70px;
+	width: 203px;
+	margin-left: 69px;
 }
 .el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
 	border-right-color: #e4e7ed;
@@ -172,21 +172,22 @@ table{
 .FansFollowButtonC{
 	background-color: #00A372;
 	color: #FFFFFF;
-	border-radius: 10px !important;
+	border-radius: 5px !important;
 	width: 80px;
 	float: right !important;
 }
 div.el-dialog__body>div>div.el-input{
-	width: 260px;
+	width: 65%;
 	height: 25px;
 }
 .FansFollowButtonA{
 	border: 0px;
 	background-color: #FFFFFF;
 	border-radius: 10px;
+	float: left;
 }
 .FansFollowButtonB{
-	border-radius: 10px !important;
+	border-radius: 5px !important;
 	float: left;
 	width: 80px;
 }
@@ -201,5 +202,23 @@ div.el-dialog__body>div>div.el-input{
 }
 .FansFollowInputA{
 	float: left;
+	width: 100%;
+	margin-top: 6px;
 }
-
+.FansFollowA{
+	display: inline-block;
+	width: 15%;
+	text-align: center;
+}
+.FansFollowInputB{
+	display: inline-block;
+}
+.el-tabs__header{
+	border: 2px solid #F0F0F0;
+}
+.el-tabs__nav-wrap::after{
+	content: none;
+}
+.el-tabs__nav-wrap{
+	margin-bottom: 0px;
+}
