@@ -256,3 +256,18 @@ div.el-dialog__body>div>div.el-input{
 	width: 65%;
 	height: 25px;
 }
+.el-button--primary{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #00A372;
+}
+.el-button--primary:hover{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #67c23a;
+}
+.el-button--primary:focus{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #00A372;
+}

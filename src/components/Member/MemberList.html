@@ -109,7 +109,7 @@
 												    <el-table-column width="305">
 												    	<template slot-scope="scope">
 												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon1" class="FansFollowIcon" />
+												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
 												    		</div>
 												    		<div class="FansFollowAddressStyle">
 												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
@@ -285,6 +285,24 @@
 			  		this.FansValue = true;
 			  	}
         },
+        open3() {
+	        this.$prompt('修改', '提示', {
+	          confirmButtonText: '确定',
+	          cancelButtonText: '取消',
+	          inputPattern: /^[a-zA-Z0-9]*$/,
+	          inputErrorMessage: '格式不正确'
+	        }).then(({ value }) => {
+	          this.$message({
+	            type: 'success',
+	            message: ' 信息: ' + value
+	          });
+	        }).catch(() => {
+	          this.$message({
+	            type: 'info',
+	            message: '取消输入'
+	          });       
+	        });
+	      }
      	}
     })
  </script>
