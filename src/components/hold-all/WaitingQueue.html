@@ -123,6 +123,7 @@
 									    		</div>
 									    		<!--分割线-->
 									    		<hr class="hr" />
+									    		
 									    		<!--列表区-->
 									    		<table class="list">
 									    			<tr>
@@ -132,7 +133,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover1"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible1">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible1 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible1 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover1 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    				<td>
 									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
@@ -140,43 +152,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover2"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible2">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible2 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible2 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover2 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    			</tr>
 									    			<tr>
@@ -186,7 +173,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover3"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible3">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible3 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible3 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover3 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    				<td>
 									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
@@ -194,7 +192,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover4"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible4">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible4 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible4 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover4 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    			</tr>
 									    			<tr>
@@ -204,7 +213,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover5"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible5">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible5 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible5 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover5 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    				<td>
 									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
@@ -212,7 +232,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover6"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible6">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible6 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible6 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover6 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    			</tr>
 									    			<tr>
@@ -222,7 +253,18 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover7"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible7">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible7 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible7 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover7 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    				<td>
 									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
@@ -230,7 +272,98 @@
 									    						<h3>Derrick</h3>
 									    						<h6>展示聊天第一句话</h6>
 									    					</span>
-									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    					<el-popover
+															  ref="popover8"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible8">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible8 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible8 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover8 src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<el-popover
+															  ref="popover9"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible9">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible9 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible9 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover9 src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<el-popover
+															  ref="popover10"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible10">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible10 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible10 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover10 src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<el-popover
+															  ref="popover11"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible11">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible11 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible11 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover11 src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<el-popover
+															  ref="popover12"
+															  placement="bottom"
+															  width="200"
+															  v-model="visible12">
+															  <p>是否开始会话？</p>
+															  <div style="text-align: center; margin: 0 auto">
+															    <el-button type="primary" size="mini" @click="visible12 = false">取消</el-button>
+															    <el-button type="success" size="mini" @click="visible12 = false">确定</el-button>
+															  </div>
+															</el-popover>
+									    					<img v-popover:popover12 src="../../images/forward.png" class="imgFloatRight"/>
 									    				</td>
 									    			</tr>
 									    		</table>
@@ -363,7 +496,12 @@
 			el: '#app',
 			data() {
 				return {
-
+					visible1: false,visible2: false,
+					visible3: false,visible4: false,
+					visible5: false,visible6: false,
+					visible7: false,visible8: false,
+					visible9: false,visible10: false,
+					visible11: false,visible12: false,
 				};
 			},
 			methods: {
