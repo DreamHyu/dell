@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/frame.css" />
+	<link rel="stylesheet" href="../../css/hold-all/CustomerStatistic.css" />
 </head>
 
 <body>
@@ -160,7 +161,87 @@
 								</el-tabs>		    				
 				    	</el-tab-pane>
 				    	
-				    	<el-tab-pane label="客服统计" name="second">客服统计</el-tab-pane>
+				    	<el-tab-pane label="客服统计" name="second">
+				    		<div class="csContent">
+					    		<!--标题-->
+					    		<div class="csTitle">
+					    			<span>客服统计</span>
+					    			<hr class="hr"/>
+					    		</div>
+					    		<!--区域-->
+					    		<div class="areaAll">
+					    			<!--选项区1-->
+						    		<div class="selectArea">
+						    			<template>
+										  <el-select v-model="value" placeholder="最近10天">
+										    <el-option
+										      v-for="item in options"
+										      :key="item.value"
+										      :label="item.label"
+										      :value="item.value">
+										    </el-option>
+										  </el-select>
+										</template>
+						    		</div>
+					    			<!--区域1-------------------------------------------->
+						    		<div class="areaFirst">
+						    			<!--图表区1-->
+						    			<div id="main1" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main2" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main3" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main4" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main5" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main6" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main7" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main8" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main9" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main10" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main11" style="height:200px;width: 300px;float: left;"></div>
+						    			<div id="main12" style="height:200px;width: 300px;float: left;"></div>
+						    		</div>
+						    		<!--分割线1------------------------------------------->
+						    		<!--<hr class="hr" />-->
+						    		<!--区域2-------------------------------------------->
+									<!--<div class="areaSecond">-->
+										<!--图表区2-->
+									<!--</div>-->
+									<!--分割线2------------------------------------------->
+									<hr class="hr" />
+									<!--区域3-------------------------------------------->
+						    		<div class="selectArea">
+						    			<!--选项区2-->
+						    			<template>
+										  <el-select v-model="value" placeholder="最近10天">
+										    <el-option
+										      v-for="item in options"
+										      :key="item.value"
+										      :label="item.label"
+										      :value="item.value">
+										    </el-option>
+										  </el-select>
+										</template>
+						    		</div>
+									<div class="areaThird">
+										<!--图表区3-->
+										<template>
+										  <el-table
+										    :data="tableData2"
+										    stripe
+										    style="width: 100%">
+										    <el-table-column prop="group" label="小组"></el-table-column>
+										    <el-table-column prop="name" label="名字"></el-table-column>
+										    <el-table-column prop="onlineTime" label="在线时长"></el-table-column>
+										    <el-table-column prop="sessionNumber" label="会话数量"></el-table-column>
+										    <el-table-column prop="responseNumber" label="应答数量"></el-table-column>
+										    <el-table-column prop="averageChattingTime" label="平均聊天时长"></el-table-column>
+										    <el-table-column prop="fansAverageWaitingTime" label="粉丝平均等待时长"></el-table-column>
+										    <el-table-column prop="satisfiedDegree" label="满意度"></el-table-column>
+										  </el-table>
+										</template>
+									</div>
+					    		</div>
+					    	</div>
+				    	</el-tab-pane>
 				    	<el-tab-pane label="图文分析" name="third" class="imgText">
 				    		<div class="card">
 				    			<span>
@@ -306,6 +387,7 @@
   <!-- 引入组件库 -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../js/highcharts.js" ></script>
 	<script>
@@ -313,6 +395,66 @@
       el: '#app',
       data() {
 	      return {
+	      	//客服统计
+	      	//-----------------------------------------
+	      	options: [{
+	          value: '选项1',
+	          label: '黄金糕'
+	        }, {
+	          value: '选项2',
+	          label: '双皮奶'
+	        }, {
+	          value: '选项3',
+	          label: '蚵仔煎'
+	        }, {
+	          value: '选项4',
+	          label: '龙须面'
+	        }, {
+	          value: '选项5',
+	          label: '北京烤鸭'
+	        }],
+	        value: '',
+	        tableData2: [{
+		          	  group: 'group1',
+			          name: '涛涛',
+			          onlineTime: '100小时',
+			          sessionNumber: '1000个',
+			          responseNumber: '999',
+			          averageChattingTime: '100',
+			          fansAverageWaitingTime: '200',
+			          satisfiedDegree: '99%'
+			        }, {
+			          group: 'group1',
+			          name: '涛涛',
+			          onlineTime: '100小时',
+			          sessionNumber: '1000个',
+			          responseNumber: '999',
+			          averageChattingTime: '100',
+			          fansAverageWaitingTime: '200',
+			          satisfiedDegree: '99%'
+			        }, {
+			         group: 'group1',
+			          name: '涛涛',
+			          onlineTime: '100小时',
+			          sessionNumber: '1000个',
+			          responseNumber: '999',
+			          averageChattingTime: '100',
+			          fansAverageWaitingTime: '200',
+			          satisfiedDegree: '99%'
+			        }, {
+			          group: 'group1',
+			          name: '涛涛',
+			          onlineTime: '100小时',
+			          sessionNumber: '1000个',
+			          responseNumber: '999',
+			          averageChattingTime: '100',
+			          fansAverageWaitingTime: '200',
+			          satisfiedDegree: '99%'
+			      }],
+	      	
+	      	
+	      	
+	      	//------------------------------------------------------------
         	activeName: 'third',
         	activeName2: 'third',
         	activeName3: 'first',
@@ -565,4 +707,591 @@ $(function () {
 		margin-bottom: 0px;
 	}
  </style>
+ 
+ 
+ <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart1 = ec.init(document.getElementById('main1')); 
+                var myChart2 = ec.init(document.getElementById('main2'));
+                var myChart3 = ec.init(document.getElementById('main3'));
+                var myChart4 = ec.init(document.getElementById('main4'));
+                var myChart5 = ec.init(document.getElementById('main5'));
+                var myChart6 = ec.init(document.getElementById('main6'));
+                var myChart7 = ec.init(document.getElementById('main7')); 
+                var myChart8 = ec.init(document.getElementById('main8'));
+                var myChart9 = ec.init(document.getElementById('main9'));
+                var myChart10 = ec.init(document.getElementById('main10'));
+                var myChart11 = ec.init(document.getElementById('main11'));
+                var myChart12 = ec.init(document.getElementById('main12'));
+                var option1 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['在线时长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"在线时长",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option2 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['会话数量']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"会话数量",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option3 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['应答数量']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"应答数量",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option4 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['平均聊天时长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"平均聊天时长",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option5 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['粉丝平均等待时长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"粉丝平均等待时长",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option6 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['满意度']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"满意度",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option7 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['在线时长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"在线时长",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option8 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['会话数量']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"会话数量",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option9 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['应答数量']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"应答数量",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option10 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['平均聊天时长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"平均聊天时长",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option11 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['粉丝平均等待时长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"粉丝平均等待时长",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+                var option12 = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['满意度']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ["小组A","客服1","客服2","客服3"]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            show : true
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"满意度",
+                            "type":"bar",
+                            itemStyle: {
+				                normal: {
+				                    color: function(params) {
+				                        // build a color map as your need.
+				                        var colorList = [
+				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+				                        ];
+				                        return colorList[params.dataIndex]
+				                    },
+				                    label: {
+				                        show: true,
+				                        position: 'top',
+				                        formatter: '{c}'
+				                    }
+				                }
+				            },
+                            "data":[5, 20, 40, 10]
+                        }
+                    ]
+                };
+        
+                // 为echarts对象加载数据 
+                myChart1.setOption(option1); 
+                myChart2.setOption(option2);
+                myChart3.setOption(option3);
+                myChart4.setOption(option4);
+                myChart5.setOption(option5);
+                myChart6.setOption(option6);
+                myChart7.setOption(option7); 
+                myChart8.setOption(option8);
+                myChart9.setOption(option9);
+                myChart10.setOption(option10);
+                myChart11.setOption(option11);
+                myChart12.setOption(option12);
+            }
+        );
+    </script>
 </html>
