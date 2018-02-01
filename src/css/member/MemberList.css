@@ -25,11 +25,12 @@ div.is-top>.el-tabs__nav-scroll{
 }
 .FansFollowLeft{
 	float: left;
-	width: 70%;
+	width: 75%;
 	background-color: #F7F7F7;
 }
 .FansFollowList{
 	margin-left: 50px;
+	background-color: #F7F7F7;
 }
 .FansFollowNamestyle{
 	font-size: 13pt;
@@ -162,7 +163,96 @@ table{
 	background-color: #FFFFFF;
 }
 .el-table{
-	border: 1px solid #F7F7F7;
 	border-bottom: 1px solid #A9A9A9;
 }
-
+.FansRightList{
+	margin-left: 15%;
+}
+.FansTitle{
+	width: 70%;
+	height: 45px;
+	font-size: 14pt;
+	text-align: center;
+	background-color: #00A372;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #FFFFFF;
+}
+.FansContent{
+	width:70%;
+	height: 45px;
+	font-size: 14pt;
+	text-align: center;
+	background-color: #FFFFFF;
+	color: #A9A9A9;
+	border: 1px solid #E9ECF1;
+}
+.FansContent:hover{
+	color: #00A372;
+}
+.el-checkbox__inner:hover {
+    border-color: #00A372;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #00A372;
+    border-color: #00A372;
+}
+.el-input.is-active .el-input__inner, .el-input__inner:focus {
+    border-color: #00A372;
+    outline: 0;
+}
+.el-table__body-wrapper {
+    background-color: #F7F7F7;
+}
+.el-table__header-wrapper{
+	background-color: #F7F7F7;
+}
+.FansFollowButtonA{
+	border: 0px;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	float: left;
+}
+.FansFollowButtonB{
+	border-radius: 5px !important;
+	float: left;
+	width: 80px;
+}
+.FansFollowA{
+	display: inline-block;
+	width: 15%;
+	text-align: center;
+	color: #00A372;
+}
+.FansFollowInputA{
+	float: left;
+	width: 100%;
+	margin-top: 6px;
+}
+.el-dialog {
+    height: 210px;
+}
+.FansFollowButtonD{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	width: 200px;
+}
+.FansFollowButtonC{
+	background-color: #00A372;
+	color: #FFFFFF;
+	border-radius: 5px !important;
+	width: 80px;
+	float: right !important;
+	border: 0px;
+}
+.el-checkbox__input.is-checked + .el-checkbox__label {
+    color: #00A372;
+}
+.FansFollowInputB{
+	display: inline-block;
+}
+div.el-dialog__body>div>div.el-input{
+	width: 65%;
+	height: 25px;
+}

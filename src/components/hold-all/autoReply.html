@@ -98,7 +98,7 @@
 							<p style="color: darkgray;margin-top: 10px;">通过编辑内容或关键词规则，快速进行自动恢复设置。关闭自动回复之后，将立即对所有用户生效。</p>
 						</div>
 						<div class="fr">
-							<el-switch class="elswitch" v-model="value2" active-color="#00a372" inactive-color="#ff4949">
+							<el-switch class="elswitch" v-model="value2" active-color="#00a372" inactive-color="#a9a9a9">
 							</el-switch>
 						</div>
 						<div class="cleanfix"></div>
@@ -115,7 +115,7 @@
 								<div class="fl">
 								  <el-input
 								    placeholder="搜索关键词规则名称"
-								    prefix-icon="el-icon-search"
+								    suffix-icon="el-icon-search"
 								    v-model="input21">
 								  </el-input>
 								</div>
@@ -263,7 +263,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>删除回复</el-button>
-								<el-button type="success">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</el-button>
+								<el-button type="success" style="width:97.6px">保存</el-button>
 							</div>
 						</div>
 						<div v-show="show3">
@@ -304,7 +304,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>删除回复</el-button>
-								<el-button type="success">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</el-button>
+								<el-button type="success" style="width:97.6px">保存</el-button>
 							</div>
 						</div>
 					</div>

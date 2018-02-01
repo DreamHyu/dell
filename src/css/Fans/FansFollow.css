@@ -5,7 +5,7 @@
 .el-tabs__item{
 	height: 55px;
 	line-height: 55px;
-	font-size: 20px;
+	font-size: 15pt;
 	color: #A9A9A9;
 }
 div.is-top>.el-tabs__nav-scroll{
@@ -78,6 +78,11 @@ div.is-top>.el-tabs__nav-scroll{
 .FansFollowButtonPosition{
 	position: absolute;
 	left: 110px;
+	top: 8px;
+}
+.FansFollowButtonPositionA{
+	position: absolute;
+	left: 49px;
 	top: 8px;
 }
 .el-button{
@@ -164,6 +169,7 @@ table{
 	border-radius: 5px !important;
 	width: 80px;
 	float: right !important;
+	border: 0px;
 }
 div.el-dialog__body>div>div.el-input{
 	width: 65%;
@@ -238,7 +244,7 @@ a:focus, a:hover {
 .FansTitle{
 	width: 70%;
 	height: 45px;
-	font-size: 16pt;
+	font-size: 14pt;
 	text-align: center;
 	background-color: #00A372;
 	border-top-left-radius: 5px;
@@ -248,7 +254,7 @@ a:focus, a:hover {
 .FansContent{
 	width:70%;
 	height: 45px;
-	font-size: 16pt;
+	font-size: 14pt;
 	text-align: center;
 	background-color: #FFFFFF;
 	color: #A9A9A9;

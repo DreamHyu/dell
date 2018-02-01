@@ -38,3 +38,8 @@
 	color: #808080;
 	display: inline;
 }
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}

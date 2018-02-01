@@ -51,3 +51,18 @@
 	.el-tree{
 		background-color: #F7F7F7;
 	}
+	div.el-tree-node__children>div.el-tree-node>div.el-tree-node__children>div.el-tree-node>div.el-tree-node__content>span.el-tree-node__label{
+		font-size: 12pt;
+	}
+	div.el-tree>div.el-tree-node>div.el-tree-node__children>div.el-tree-node>div.el-tree-node__content>span.el-tree-node__label{
+		font-size: 14pt;
+	}
+	div.el-tree>div.el-tree-node>div.el-tree-node__content>span.el-tree-node__label{
+		font-size: 16pt;
+	}
+	.el-tabs--left.el-tabs--card .el-tabs__nav{
+		border-radius: 0px;
+	}
+    .el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
+    	border-right-color: #e4e7ed;
+    }

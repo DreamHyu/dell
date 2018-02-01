@@ -101,12 +101,12 @@
 							    			<template>
 												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
 												    <el-table-column type="selection"></el-table-column>
-												    <el-table-column width="100">
+												    <el-table-column width="80">
 												      <template slot-scope="scope">
 												      	<img  :src="scope.row.img" class="FansFollowImage">
 												      </template>
 												    </el-table-column>
-												    <el-table-column width="360">
+												    <el-table-column width="305">
 												    	<template slot-scope="scope">
 												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
 												    			<img :src="scope.row.icon1" class="FansFollowIcon" />
@@ -124,7 +124,27 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisible = true"><img :src="scope.row.icon4" class="FansFollowIconSmall" /></a>
+												    			<el-dialog :visible.sync="dialogVisible" width="25%">
+																	  <template>
+																		  <el-checkbox-group v-model="checkList">
+																		    <el-checkbox label="复选框 A"></el-checkbox>
+																		    <el-checkbox label="复选框 B"></el-checkbox>
+																		  </el-checkbox-group>
+																		  <div v-if="FansValue">
+																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																		  </div>
+					                            <div class="FansFollowInputA" v-else="!FansValue">
+					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+					                            </div>
+					                            <div class="FansFollowButtonD">
+					                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
+					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisible = flase">保存</el-button>
+					                            </div>
+																		</template>
+																	</el-dialog>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -139,7 +159,27 @@
 												</template>
 							    		</div>
 							    		<div class="FansFollowButtonPosition">
-											<el-button type="button" class="FansFollowButtonStyle">打标签</el-button>
+											<el-button type="button" class="FansFollowButtonStyle" @click="dialogVisible = true">打标签</el-button>
+											<el-dialog :visible.sync="dialogVisible" width="25%">
+													  <template>
+														  <el-checkbox-group v-model="checkList">
+														    <el-checkbox label="复选框 A"></el-checkbox>
+														    <el-checkbox label="复选框 B"></el-checkbox>
+														  </el-checkbox-group>
+														  <div v-if="FansValue">
+														  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+														  </div>
+	                            <div class="FansFollowInputA" v-else="!FansValue">
+	                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+	                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+		                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+	                            </div>
+	                            <div class="FansFollowButtonD">
+	                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
+	                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisible = flase">保存</el-button>
+	                            </div>
+														</template>
+													</el-dialog>
 											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
 												<i slot="suffix" class="el-input__icon el-icon-search"></i>
 											</el-input>
@@ -147,15 +187,14 @@
 							    	</div>
 							    	
 							    	<div class="FansFollowRight">
-							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card">
-											  <el-tab-pane style="width: 50%;"
-											    v-for="(item, index) in editableTabs2"
-											    :key="item.name"
-											    :label="item.title"
-											    :name="item.name">
-											  </el-tab-pane>
-											</el-tabs>
+							    		<div class="FansRightList">
+												<div class="FansTitle">{{sum}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+											</div>
 							    	</div>
 		    		</div>
 		    	</div>
@@ -224,29 +263,28 @@
 	          icon5: '../../images/MemberListIcon2.png',
 	          time: '2天前加入会员',
 	        }],
+	        checkList: ['复选框 A'],
 	        multipleSelection: [],
 	        input: '',
-	        editableTabsValue2: '1',
-	        editableTabs2: [{
-	          title: '标签描述',
-	          name: '1'
-	        }, {
-	          title: '标签描述',
-	          name: '2'
-	        },{
-	          title: '标签描述',
-	          name: '3'
-	        },{
-	        	title: '标签描述',
-	        	name: '4',
-	        }],
+	        dialogVisible: false,
+	        sum: '全部',
+	        describe: '描述',
+	        FansValue: 'true',
 	      };
 	    },
 	    methods: {
 			  handleSelectionChange(val) {
 	        this.multipleSelection = val;
 	      },
-				
+				judge:function(str) {
+			  	console.log(str);
+			  	if(str == 'yes'){
+			  		this.FansValue = false;
+			  	}
+			  	else if( str == 'no'){
+			  		this.FansValue = true;
+			  	}
+        },
      	}
     })
  </script>
