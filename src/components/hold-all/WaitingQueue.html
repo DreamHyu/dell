@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>等待队列</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/frame.css" />
+		<link rel="stylesheet" href="../../css/hold-all/WaitingQueue.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<el-container>
+				<el-header height="50px">
+					<nav id="topNav" class="navbar-inverse" role="navigation">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<img src="../../images/logo.png" />
+							</div>
+							<div>
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											公众号名称 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">名称0</a>
+											</li>
+											<li>
+												<a href="#">名称1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<img src="../../images/user_img.png" class="img-circle">
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											用户名 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">用户0</a>
+											</li>
+											<li>
+												<a href="#">用户1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</el-header>
+				<el-container>
+					<el-aside width="70px">
+						<nav id="leftNav" class="navbar-inverse">
+							<div class="container-fluid">
+								<div>
+									<ul class="nav navbar-nav">
+										<li class="">
+											<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+										</li>
+										<li class="">
+											<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+										</li>
+										<li class="">
+											<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+										</li>
+										<li class="">
+											<a href="#"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+										</li>
+										<li class="">
+											<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+										</li>
+										<li class="">
+											<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+										</li>
+										<li>
+											<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</el-aside>
+					<el-main>
+						<div class="wqMain">
+							<!--菜单栏-->
+							<template>
+							  <el-tabs @tab-click="handleClick">
+							    <el-tab-pane label="座席小组" name="first">座席小组</el-tab-pane>
+							    <el-tab-pane label="等待队列" name="second">
+							    	<div class="content">
+							    		<div class="wrapper">
+							    			<!--leftDiv-->
+									    	<div class="leftDiv">
+									    		<!--标题-->
+									    		<div class="leftDivTitle">
+									    			<span>等待列表</span>
+									    		</div>
+									    		<!--分割线-->
+									    		<hr class="hr" />
+									    		<!--列表区-->
+									    		<table class="list">
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    			<tr>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    				<td>
+									    					<img src="../../images/MemberList2.png" class="imgFloatLeft"/>
+									    					<span>
+									    						<h3>Derrick</h3>
+									    						<h6>展示聊天第一句话</h6>
+									    					</span>
+									    					<img src="../../images/forward.png" class="imgFloatRight"/>
+									    				</td>
+									    			</tr>
+									    		</table>
+									    	</div>
+									    	<!--rightDiv-->
+									    	<div class="rightDiv">
+									    		<div class="rightWrapper">
+									    			<!--头像部分-->
+										    		<div>
+										    			<img src="../../images/MemberList3.png" class="headImg"/>
+										    			<h5>昵称(先生/女士)</h5>
+										    		</div>
+										    		<!--菜单-->
+										    		<div class="rightMenu">
+										    			<template>
+														  <el-tabs>
+														    <el-tab-pane label="基本信息" name="first">
+														    	<div class="tableWrapper">
+														    		<table class="basicInfo">
+														    			<tr>
+														    				<td>地址</td>
+														    				<td>重庆</td>
+														    			</tr>
+														    			<tr>
+														    				<td>客户名</td>
+														    				<td>daniel</td>
+														    			</tr>
+														    			<tr>
+														    				<td>关注日期</td>
+														    				<td>01/02/2018</td>
+														    			</tr>
+														    			<tr>
+														    				<td>公众号</td>
+														    				<td>哈哈哈哈</td>
+														    			</tr>
+														    			<tr>
+														    				<td>语言</td>
+														    				<td>中文</td>
+														    			</tr>
+														    			<tr>
+														    				<td>城市</td>
+														    				<td>重庆</td>
+														    			</tr>
+														    			<tr>
+														    				<td>省份</td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td>电话</td>
+														    				<td>110</td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    			<tr>
+														    				<td></td>
+														    				<td></td>
+														    			</tr>
+														    		</table>
+														    	</div>
+														    </el-tab-pane>
+														    <el-tab-pane label="会员信息" name="second">会员信息</el-tab-pane>
+														  </el-tabs>
+														</template>
+										    		</div>
+									    		</div>
+									    	</div>
+								    	</div>
+							    	</div>
+							    </el-tab-pane>
+							    <el-tab-pane label="聊天窗口" name="third">聊天窗口</el-tab-pane>
+							    <el-tab-pane label="聊天历史" name="fourth">聊天历史</el-tab-pane>
+							  </el-tabs>
+							</template>
+						</div>
+					</el-main>
+				</el-container>
+			</el-container>
+		</div>
+	</body>
+	<!-- 先引入 Vue -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+
+				};
+			},
+			methods: {
+				handleClick(){
+					
+				}
+			}
+		})
+	</script>
+
+</html>
