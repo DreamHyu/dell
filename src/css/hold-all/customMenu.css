@@ -1,0 +1,94 @@
+body{
+  		background-color: #F7F7F7;
+  	}
+  	.AuMain{
+  		width: 90%;
+  		margin: auto;
+  	}
+  	.pictureDiv{
+  		border: 2px lightgray solid;
+  		height:300px;
+  		width: 100%;
+  	}
+  	.divAbout{
+  		width: 100%;
+  		
+  	}
+  	.aboutButton{
+  		width: 28%;
+  		border-left: 1px lightgray solid;
+  	}
+  	.aboutButton1{
+  		width: 16%;
+  	}
+  	.AuForm{
+  		width: 85%;
+  		margin: auto;
+  	}
+  	.AuInputLeft{
+  		display: inline-block;
+  		width: 35%;
+  		vertical-align: top;
+  		padding: 15px 20px 0px 50px;
+  	}
+  	.AuInputRight{
+  		display: inline-block;
+  		width: 63%;
+  		vertical-align: top;
+  		padding: 15px 20px 0px 50px;
+  	}
+  	.AuInputpPicture{
+  		display: inline-block;
+  		width: 98%;
+  		height:80%;
+  		vertical-align: top;
+  		padding: 15px 20px 0px 50px;
+  		border-color: #00a372;
+  	}
+		.AuChild{
+			width: 90%;
+		}
+		.AuSelect{
+			width: 100%;
+		}
+		.el-form-item{
+  		margin-bottom: 8px;
+  	}
+  	.BtFloat{
+  		margin-right: 15px;
+  		margin-top: 70px;
+  		float: right;
+  	}
+  	.BT{
+  		width: 100px;
+  		float: right;
+  	}
+  	.BtBack{
+  		margin-right: 10px;  		
+  	}
+  	.el-form-item__label{
+  		font-weight: normal;
+  	}
+  	.iconDiv{
+  		border: 2px lightgray solid;
+  		height:165px;
+  		width: 100%;
+  	}
+  	.iconDiv2{
+  		border: 2px lightgray solid;
+  		height:165px;
+  		width: 100%;
+  	}
+  	.iconDivChild{
+  		border: 1px lightgray solid;
+  		border-radius:5px;
+  		height:45px;
+  		width: 20%;
+  	    margin: 10px;
+  		float:left;
+  		text-align:center
+  	}
+  	.iconDiv i{
+  		font-size: 20px;
+  		margin-top: 8px;
+  	}

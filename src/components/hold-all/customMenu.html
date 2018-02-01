@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>添加用户</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/hold-all/customMenu.css"/>
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					        <!--<a class="navbar-brand" href="#">Deloitte</a>-->
+					        <img src="../../images/logo.png" />
+					    </div>
+					    <div>
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="70px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+								</li>
+								<li class="">
+									<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li class="active">
+									<a href="toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="AuMain">
+		    	    <div>
+						<h2>自定义菜单</h2>
+						<hr class="hrRigth" />
+					</div>
+					<div class="AuForm">
+						<el-form label-position="left" label-width="120px" :model="formInline">
+							<div class="AuInputLeft">
+								<div class="pictureDiv"></div>
+								<div>
+							<el-radio-group size="big" class="divAbout">
+								<el-radio-button label="1"  class="aboutButton1"><i class="el-icon-date" style=""></i></el-radio-button>
+							  <el-radio-button label="2"  class="aboutButton">About us</el-radio-button>
+							  <el-radio-button label="3"  class="aboutButton">Contact</el-radio-button>
+							  <el-radio-button label="4"  class="aboutButton">History</el-radio-button>
+							</el-radio-group>
+						  </div>
+							</div>
+							
+							<div class="AuInputRight">
+								<h4>About us</h4>
+								<hr class="hr"/>
+								<el-form-item label="菜单名称" class="AuChild">
+							    <el-input v-model="formInline.menuName"></el-input>
+							  </el-form-item>
+							    <el-form-item label="菜单内容">
+							    <el-radio-group v-model="formInline.menuContent" @change="menuContentClick(formInline.menuContent)">
+							      <el-radio  label="1" >发送消息</el-radio>
+							      <el-radio  label="2" >跳转网页</el-radio>
+							      <el-radio  label="3" >跳转小程序</el-radio>
+							    </el-radio-group>
+							  </el-form-item>
+							  <div class="iconDiv" v-show=show1>
+							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-cloud-upload"></i></div>
+							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-pencil"></i></div>
+							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-folder-open"></i></div>
+							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-filter"></i></div>
+							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></div>
+							</div>
+							<div class="iconDiv2" v-show=show2>
+								<h4>订阅者点击该菜单会跳转到以下链接</h4>
+								<el-form-item label="页面地址" class="AuChild">
+							    <el-input v-model="formInline.adress"></el-input>
+							  </el-form-item>
+							</div>	
+						  <el-form-item class="BtFloat">
+						     <el-button class="btnCancel" >预览</el-button>
+					    	 <el-button class="btnOk" type="success" >保存并发布</el-button>
+						  </el-form-item>
+						 </div>
+				</el-form>
+					</div>
+		      </div>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/customMenu.js" ></script>
+</html>
