@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>消息-普通级别</title>
+  <title>消息-经理级别</title>
   <!-- 引入样式 -->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -166,9 +166,24 @@
 											</tr>
 											<tr height="30"></tr>
 											<tr>
+												<td colspan="4" width="480">
+													<el-radio v-model="radio2" label="1">立即发送</el-radio>
+										  		<el-radio v-model="radio2" label="2">定时发送</el-radio>
+										  		<el-date-picker
+										  			style="margin-left: 40px;"
+											      v-model="value2"
+											      type="datetime"
+											      placeholder="选择日期时间"
+											      align="right"
+											      :picker-options="pickerOptions1">
+											    </el-date-picker>
+												</td>
+											</tr>
+											<tr height="30"></tr>
+											<tr>
 												<td colspan="2" width="240">
 													<el-button @click="dialogPreview = true">预览</el-button>
-													<el-button type="success">保存并审批</el-button>
+													<el-button type="success">保存并发送</el-button>
 												</td>
 											</tr>
 										</table>
@@ -233,82 +248,54 @@
 									</el-dialog>
 							  	
 							  </el-tab-pane>
-							  <el-tab-pane label="审批状态" name="second">
-							  	<h3>未审批</h3>
-							  	<h6>备注描述</h6>
-							  	<hr class="hr" />
-						  	    <el-table
-							      :data="tableData"
-							      style="width: 100%"
-							      v-bind:show-header="false"
-							      >
-							      <el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-									  </el-table-column>
-						    		<el-table-column prop="image">
-							    	<template slot-scope="scope">
-								      <img  :src="scope.row.image" class="UmImage">
-								    </template>
-							    	</el-table-column>
-							    	<el-table-column prop="content" label="内容"></el-table-column>
-							    </el-table>
+							  <el-tab-pane label="待审批" name="second">
+							  	<el-table :data="tableData" stripe style="width: 100%">
+										<el-table-column prop="time" label="时间"></el-table-column>
+									    <el-table-column prop="image">
+									    	<template slot-scope="scope">
+										      <img  :src="scope.row.image" class="UmImage">
+										    </template>
+									    </el-table-column>
+									    <el-table-column prop="content" label="内容">
+									    	<template slot-scope="scope">
+										      <div>{{scope.row.content}}</div>
+										      <div style="color: lightgray;">{{scope.row.mark}}</div>
+										    </template>
+									    </el-table-column>
+									    <el-table-column prop="role" label="发送人"></el-table-column>
+									    <el-table-column label="操作">
+									    	<template slot-scope="scope">
+								        	<a style="cursor: pointer;" @click="dialogFormVisible = true"><img style="width: 20px;" src="../../images/tool/approve.png" /></a>
+								      		<!--   对话框   -->
+								      		<el-dialog title="审批操作" :visible.sync="dialogFormVisible" center width="500px">
+													  <el-form>
+													    <el-form-item label="标题" :label-width="formLabelWidth">
+													      	标题描述xzzcxzcxzcz
+													    </el-form-item>
+													    <el-form-item label="发送人" :label-width="formLabelWidth">
+													      	发送人A
+													    </el-form-item>
+													    <el-form-item label="备注" :label-width="formLabelWidth">
+													      	<el-input
+																	  type="textarea"
+																	  :autosize="{ minRows: 2, maxRows: 4}"
+																	  placeholder="请输入内容">
+																	</el-input>
+													    </el-form-item>
+													    <el-form-item label="" :label-width="formLabelWidth">
+													      	<el-radio v-model="radio3" label="1">审批通过</el-radio>
+										  						<el-radio v-model="radio3" label="2">审批未通过</el-radio>
+													    </el-form-item>
+													  </el-form>
+													  <div slot="footer" class="dialog-footer" style="padding-top: 0px;">
+													    <el-button @click="dialogFormVisible = false">取消</el-button>
+													    <el-button type="success" @click="dialogFormVisible = false">提交</el-button>
+													  </div>
+													</el-dialog>
+									    	</template>
+									    </el-table-column>
+									</el-table>
 							    
-							    <h3 style="color: #00A372;">审批通过</h3>
-							    <h6>备注描述</h6>
-							  	<hr class="hr" />
-						  	    <el-table
-							      :data="tableData"
-							      style="width: 100%"
-							      v-bind:show-header="false"
-							      >
-						      	<el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-									  </el-table-column>
-						    		<el-table-column prop="image">
-							    	<template slot-scope="scope">
-								      <img  :src="scope.row.image" class="UmImage">
-								    </template>
-							    	</el-table-column>
-							    	<el-table-column prop="content" label="内容"></el-table-column>
-							    	<el-table-column label="操作">
-								      <template slot-scope="scope">
-								        <a href="#"><img style="width: 20px;" src="../../images/tool/send.png" /></a>
-								      </template>
-								    </el-table-column>
-							    </el-table>
-							    
-							    <h3 style="color: #CD0000;">审批未通过</h3>
-							  	<h6>备注描述</h6>
-							  	<hr class="hr" />
-						  	    <el-table
-							      :data="tableData"
-							      style="width: 100%"
-							      v-bind:show-header="false"
-							      >
-							      <el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-									  </el-table-column>
-						    		<el-table-column prop="image">
-							    	<template slot-scope="scope">
-								      <img  :src="scope.row.image" class="UmImage">
-								    </template>
-							    	</el-table-column>
-							    	<el-table-column prop="content" label="内容"></el-table-column>
-							    	<el-table-column label="操作">
-								      <template slot-scope="scope">
-								        <a href="#"><img style="width: 20px;" src="../../images/tool/edit.png" /></a>
-								      </template>
-								    </el-table-column>
-							    </el-table>
 							  </el-tab-pane>
 							  <el-tab-pane label="待发送" name="third">
 							  	<h3>待发送</h3>
@@ -369,9 +356,10 @@
       el: '#app',
       data() {
 	      return {
+	      	dialogFormVisible: false,
 	      	dialogPreview: false,
-	      	selectUser:false,
-	      	radio4:'1',
+         	formLabelWidth: '100px',
+         	selectUser: false,
 	      	pickerOptions1: {
           	shortcuts: [{
 	            text: '今天',
@@ -401,6 +389,8 @@
         	radio:'',
         	radio1:'',
         	radio2:'',
+        	radio3:'',
+        	radio4:'1',
         	options: [{
 	          value: '选项1',
 	          label: '地区1'
@@ -423,22 +413,26 @@
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
 	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
-	          time: '2017-12-25'
+	          time: '2017-12-25',
+	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
 	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
-	          time: '2017-12-25'
+	          time: '2017-12-25',
+	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
 	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
-	          time: '2017-12-25'
+	          time: '2017-12-25',
+	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
 	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
-	          time: '2017-12-25'
+	          time: '2017-12-25',
+	          role:'发送人1'
 	        }],
 	        //XXX开始
 	        
@@ -446,7 +440,8 @@
 	      };
 	    },
 	    methods: {
-				UserSelect(index){
+        UserSelect(index){
+        	console.log(index);
         	if(index == 1){
         		this.selectUser = false;
         	}else if(index == 2){
