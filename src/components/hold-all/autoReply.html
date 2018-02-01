@@ -20,7 +20,7 @@
 					    <div class="navbar-header">
 					        <a class="navbar-brand" href="#">Deloitte</a>
 					    </div>
-					    <div>			
+					    <div>
 					    	<ul class="nav navbar-nav">
 					            <li class="dropdown">
 					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -68,7 +68,7 @@
 									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 								</li>
 								<li class="">
-									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
 								</li>
 								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
@@ -98,7 +98,7 @@
 							<p style="color: darkgray;margin-top: 10px;">通过编辑内容或关键词规则，快速进行自动恢复设置。关闭自动回复之后，将立即对所有用户生效。</p>
 						</div>
 						<div class="fr">
-							<el-switch class="elswitch" v-model="value2" active-color="#00a372" inactive-color="#ff4949">
+							<el-switch class="elswitch" v-model="value2" active-color="#00a372" inactive-color="#a9a9a9">
 							</el-switch>
 						</div>
 						<div class="cleanfix"></div>
@@ -115,24 +115,26 @@
 								<div class="fl">
 								  <el-input
 								    placeholder="搜索关键词规则名称"
-								    prefix-icon="el-icon-search"
+								    suffix-icon="el-icon-search"
 								    v-model="input21">
 								  </el-input>
 								</div>
 								<div class="fr">
 									<el-button type="success" @click="dialogFormVisible = true">添加回复</el-button>
 									<el-dialog title="添加回复" :visible.sync="dialogFormVisible">
-									  <el-form :model="form" ref="form">
+									  <el-form :model="form" ref="form" style="width: 80%;">
 									    <el-form-item label="规则名称" :label-width="formLabelWidth">
 									      <el-input v-model="form.name" auto-complete="off"></el-input>
 									    </el-form-item>
-									    <el-form-item 
-									    	label="关键词" 
+								    	<label style="font-size: 14px;color: #606266;line-height: 40px;position: absolute;padding: 0 12px 0 0;left: 46px;">关键词</label>
+									    <i style="cursor: pointer;position: absolute;right: 15%;top: 160px;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
+
+									    <el-form-item
+									    	:label=labelText
 									    	:label-width="formLabelWidth"
 									    	v-for="(domain, index) in form.domains"
 										    :key="domain.key"
-										    :prop="'domains.' + index + '.value'"
-									    	>
+										    :prop="'domains.' + index + '.value'">
   									      <el-input placeholder="请输入内容" v-model="domain.value" class="input-with-select">
 											    <el-select v-model="domain.select" slot="prepend" placeholder="请选择">
 											      <el-option label="半匹配" value="1"></el-option>
@@ -141,34 +143,40 @@
 											    <el-button slot="append" icon="el-icon-delete" @click.prevent="removeDomain(domain)"></el-button>
 											  </el-input>
 									    </el-form-item>
-								    	<el-form-item :label-width="formLabelWidth">
+								    	<!--<el-form-item>
 								    		<i style="cursor: pointer;" class="el-icon-circle-plus-outline" @click="addDomain"></i>
-									    </el-form-item>
+									    </el-form-item>-->
 									    <el-form-item label="回复内容" :label-width="formLabelWidth">
 									      <i style="cursor: pointer;float: left;margin-top: 10px;" @click="showBtn = !showBtn" class="el-icon-circle-plus-outline"></i>
 									      <div style="margin-top: 5px;">
 										      	<transition name="el-zoom-in-top">
-										        <div v-show="showBtn" style="margin-left: 10px;">
+										        <div v-show="showBtn" style="margin-left: 20px;">
 										          	<ul>
-															  	<li class="fl">
+										          		<li class="fl" style="margin-left: 20px;">
+															  		<a href="#">
+															  			<i class="el-icon-tickets"></i>
+																  		<p class="fr">图文消息</p>
+															  		</a>
+															  	</li>
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-edit"></i>
 																  		<p class="fr">文字</p>
 															  		</a>
 															  	</li>
-															  	<li class="fl" style="margin-left: 10px;">
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-picture"></i>
 																  		<p class="fr">图片</p>
 															  		</a>
 															  	</li>
-															  	<li class="fl" style="margin-left: 10px;">
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-phone"></i>
 																  		<p class="fr">语音</p>
 															  		</a>
 															  	</li>
-															  	<li class="fl" style="margin-left: 10px;">
+															  	<li class="fl" style="margin-left: 20px;">
 															  		<a href="#">
 															  			<i class="el-icon-view"></i>
 																  		<p class="fr">视频</p>
@@ -196,7 +204,6 @@
 							  <el-table
 							    :data="tableData"
 							    stripe
-							    
 							    >
 							    <el-table-column
 							      prop="date"
@@ -256,7 +263,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>删除回复</el-button>
-								<el-button type="success">保存</el-button>
+								<el-button type="success" style="width:97.6px">保存</el-button>
 							</div>
 						</div>
 						<div v-show="show3">
@@ -297,7 +304,7 @@
 							</div>
 							<div class="fr foot-button">
 								<el-button>删除回复</el-button>
-								<el-button type="success">保存</el-button>
+								<el-button type="success" style="width:97.6px">保存</el-button>
 							</div>
 						</div>
 					</div>
@@ -324,6 +331,7 @@
         	value2: true,
         	input21: '',
         	input5: '',
+        	labelText:'',
       		select: '',
         	tableData: [],
         	dialogFormVisible: false,
@@ -341,7 +349,7 @@
 	            select:''
 	          }]
 	        },
-	        formLabelWidth: '120px',
+	        formLabelWidth: '80px',
 	        radio: '1',
 	        show3:false,
 	       	show2:false,
@@ -367,11 +375,12 @@
 	    	},
 	    	removeDomain(item) {
 	        var index = this.form.domains.indexOf(item)
-	        if (index !== -1) {
+	        if (index !== -1 && index!==0) {
 	          this.form.domains.splice(index, 1)
 	        }
 	      },
 	      addDomain() {
+	      	console.log(this.form.domains)
 	        this.form.domains.push({
 	          value: '',
 	          select:'',

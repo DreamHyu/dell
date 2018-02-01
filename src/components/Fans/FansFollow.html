@@ -67,7 +67,7 @@
 									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 								</li>
 								<li class="">
-									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
 								</li>
 								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
@@ -100,15 +100,15 @@
 							    			<template>
 												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
 												    <el-table-column type="selection"></el-table-column>
-												    <el-table-column width="100">
+												    <el-table-column width="80">
 												      <template slot-scope="scope">
 												      	<img  :src="scope.row.img" class="FansFollowImage">
 												      </template>
 												    </el-table-column>
-												    <el-table-column width="360">
+												    <el-table-column width="305">
 												    	<template slot-scope="scope">
 												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon1" class="FansFollowIcon" />
+												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
 												    		</div>
 												    		<div class="FansFollowAddressStyle">
 												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
@@ -120,7 +120,7 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisible = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -152,9 +152,9 @@
 														  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
 														  </div>
 	                            <div class="FansFollowInputA" v-else="!FansValue">
-	                            	<el-input v-model="input" placeholder="请输入内容"></el-input>
-		                            &nbsp&nbsp<a href="#" v-on:click="judge('no')">添加</a>
-		                            &nbsp&nbsp<a href="#" v-on:click="judge('no')">取消</sa>
+	                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+	                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+		                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
 	                            </div>
 	                            <div class="FansFollowButtonD">
 	                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
@@ -162,24 +162,20 @@
 	                            </div>
 														</template>
 													</el-dialog>
-											  <el-button type="button" class="FansFollowButtonStyle">黑名单</el-button>
+											  <el-button type="button" class="FansFollowButtonStyle" @click="open1()">黑名单</el-button>
 											</el-button-group>
 											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
 												<i slot="suffix" class="el-input__icon el-icon-search"></i>
 											</el-input>
 							    	</div>
 							    	<div class="FansFollowRight">
-							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card" closable @tab-remove="removeTab">
-											  <el-tab-pane style="width: 50%;"
-											    v-for="(item, index) in editableTabs2"
-											    :key="item.name"
-											    :label="item.title"
-											    :name="item.name">
-											  </el-tab-pane>
-											</el-tabs>
-											<div class="addTab" @click="addTab(editableTabsValue2)">
-												<i class="el-icon-plus"></i>
+							    		<div class="FansRightList">
+												<div class="FansTitle">{{sum}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
 											</div>
 							    	</div>
 							    </el-tab-pane>
@@ -189,15 +185,15 @@
 							    			<template>
 												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
 												    <el-table-column width="48">空</el-table-column>
-												    <el-table-column width="100">
+												    <el-table-column width="80">
 												      <template slot-scope="scope">
 												      	<img  :src="scope.row.img" class="FansFollowImage">
 												      </template>
 												    </el-table-column>
-												    <el-table-column width="360">
+												    <el-table-column width="305">
 												    	<template slot-scope="scope">
 												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon1" class="FansFollowIcon" />
+												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
 												    		</div>
 												    		<div class="FansFollowAddressStyle">
 												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
@@ -209,7 +205,27 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisibleA = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
+												    			<el-dialog :visible.sync="dialogVisibleA" width="25%">
+																	  <template>
+																		  <el-checkbox-group v-model="checkList">
+																		    <el-checkbox label="复选框 A"></el-checkbox>
+																		    <el-checkbox label="复选框 B"></el-checkbox>
+																		  </el-checkbox-group>
+																		  <div v-if="FansValue">
+																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																		  </div>
+					                            <div class="FansFollowInputA" v-else="!FansValue">
+					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+					                            </div>
+					                            <div class="FansFollowButtonD">
+					                            	<el-button class="FansFollowButtonB" @click="dialogVisibleA = flase">取消</el-button>
+					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleA = flase">保存</el-button>
+					                            </div>
+																		</template>
+																	</el-dialog>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -227,23 +243,19 @@
 												</template>
 							    		</div>	
 							    	</div>
-							    	<div class="FansFollowButtonPosition">
-											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
+							    	<div class="FansFollowButtonPositionA">
+											<el-input class="FansFollowInput FansFollowInputC" v-model="input" placeholder="搜索">
 												<i slot="suffix" class="el-input__icon el-icon-search"></i>
 											</el-input>
 							    	</div>
 							    	<div class="FansFollowRight">
-							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card" closable @tab-remove="removeTab">
-											  <el-tab-pane style="width: 50%;"
-											    v-for="(item, index) in editableTabs2"
-											    :key="item.name"
-											    :label="item.title"
-											    :name="item.name">
-											  </el-tab-pane>
-											</el-tabs>
-											<div class="addTab" @click="addTab(editableTabsValue2)">
-												<i class="el-icon-plus"></i>
+							    		<div class="FansRightList">
+												<div class="FansTitle">{{sum}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
 											</div>
 							    	</div>
 							    </el-tab-pane>
@@ -253,15 +265,15 @@
 							    			<template>
 												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
 												    <el-table-column type="selection"></el-table-column>
-												    <el-table-column width="100">
+												    <el-table-column width="80">
 												      <template slot-scope="scope">
 												      	<img  :src="scope.row.img" class="FansFollowImage">
 												      </template>
 												    </el-table-column>
-												    <el-table-column width="360">
+												    <el-table-column width="305">
 												    	<template slot-scope="scope">
 												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon1" class="FansFollowIcon" />
+												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
 												    		</div>
 												    		<div class="FansFollowAddressStyle">
 												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
@@ -273,7 +285,27 @@
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<img :src="scope.row.icon4" class="FansFollowIconSmall" />
+												    			<a href="#" @click="dialogVisibleB = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
+												    			<el-dialog :visible.sync="dialogVisibleB" width="25%">
+																	  <template>
+																		  <el-checkbox-group v-model="checkList">
+																		    <el-checkbox label="复选框 A"></el-checkbox>
+																		    <el-checkbox label="复选框 B"></el-checkbox>
+																		  </el-checkbox-group>
+																		  <div v-if="FansValue">
+																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																		  </div>
+					                            <div class="FansFollowInputA" v-else="!FansValue">
+					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+					                            </div>
+					                            <div class="FansFollowButtonD">
+					                            	<el-button class="FansFollowButtonB" @click="dialogVisibleB = flase">取消</el-button>
+					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleB = flase">保存</el-button>
+					                            </div>
+																		</template>
+																	</el-dialog>
 												    		</div>
 												    	</template>
 												    </el-table-column>
@@ -292,25 +324,21 @@
 							    		</div>	
 							    	</div>
 							    	<div class="FansFollowButtonPosition">
-											<el-button type="button" class="FansFollowButtonStyle">取消黑名单</el-button>
+											<el-button type="button" class="FansFollowButtonStyle"  @click="open1()">取消黑名单</el-button>
 											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
 												<i slot="suffix" class="el-input__icon el-icon-search"></i>
 											</el-input>
 							    	</div>
 							    	<div class="FansFollowRight">
-							    		<div class="title">全部</div>
-											<el-tabs v-model="editableTabsValue2" tab-position="left" type="card" closable @tab-remove="removeTab">
-											  <el-tab-pane style="width: 50%;"
-											    v-for="(item, index) in editableTabs2"
-											    :key="item.name"
-											    :label="item.title"
-											    :name="item.name">
-											  </el-tab-pane>
-											</el-tabs>
-											<div class="addTab" @click="addTab(editableTabsValue2)">
-												<i class="el-icon-plus"></i>
+											<div class="FansRightList">
+												<div class="FansTitle">{{sum}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
+												<div class="FansContent">{{describe}}</div>
 											</div>
-							    	</div>
+							    	 </div>
 							    </el-tab-pane>
 							  </el-tabs>
 							</template>
@@ -332,6 +360,8 @@
       el: '#app',
       data() {
 	      return {
+	      	sum: '全部',
+	      	describe: '描述',
         	activeName: 'first',
         	tableData3: [{
 	          img: '../../images/MemberList4.png',
@@ -398,21 +428,11 @@
 	        multipleSelection: [],
 	        input: '',
 	        dialogVisible: false,
+	        dialogVisibleA: false,
+	        dialogVisibleB: false,
+	        dialogVisibleC: false,
 	        checkList: ['复选框 A'],
-	        editableTabsValue2: '1',
-	        editableTabs2: [{
-	          title: '标签描述',
-	          name: '1'
-	        }, {
-	          title: '标签描述',
-	          name: '2'
-	        },{
-	          title: '标签描述',
-	          name: '3'
-	        },{
-	        	title: '标签描述',
-	        	name: '4',
-	        }],
+	        
 	      };
 	    },
 	    methods: {
@@ -428,30 +448,58 @@
 	      handleSelectionChange(val) {
 	        this.multipleSelection = val;
 	      },
-				addTab(targetName) {
-		      let newTabName = ++this.tabIndex + '';
-		      this.editableTabs2.push({
-		        title: '标签描述',
-		        name: newTabName
-		        });
-		      this.editableTabsValue2 = newTabName;
-		      },
-		    removeTab(targetName) {
-		      let tabs = this.editableTabs2;
-		      let activeName = this.editableTabsValue2;
-		      if (activeName === targetName) {
-		        tabs.forEach((tab, index) => {
-		          if (tab.name === targetName) {
-		            let nextTab = tabs[index + 1] || tabs[index - 1];
-		              if (nextTab) {
-		                activeName = nextTab.name;
-		              }
-		          }
-		        });
-		      } 
-		      this.editableTabsValue2 = activeName;
-		      this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
-		    },	      
+				open1() {
+	        this.$confirm('是否继续?', '提示', {
+	          confirmButtonText: '确定',
+	          cancelButtonText: '取消',
+	          type: 'warning'
+	        }).then(() => {
+	          this.$message({
+	            type: 'success',
+	            message: '成功!'
+	          });
+	        }).catch(() => {
+	          this.$message({
+	            type: 'info',
+	            message: '取消'
+	          });          
+	        });
+	      },
+	      open2() {
+	        this.$confirm('是否继续?', '提示', {
+	          confirmButtonText: '确定',
+	          cancelButtonText: '取消',
+	          type: 'warning'
+	        }).then(() => {
+	          this.$message({
+	            type: 'success',
+	            message: '成功!'
+	          });
+	        }).catch(() => {
+	          this.$message({
+	            type: 'info',
+	            message: '取消'
+	          });          
+	        });
+	      },
+	      open3() {
+	        this.$prompt('修改', '提示', {
+	          confirmButtonText: '确定',
+	          cancelButtonText: '取消',
+	          inputPattern: /^[a-zA-Z0-9]*$/,
+	          inputErrorMessage: '格式不正确'
+	        }).then(({ value }) => {
+	          this.$message({
+	            type: 'success',
+	            message: ' 信息: ' + value
+	          });
+	        }).catch(() => {
+	          this.$message({
+	            type: 'info',
+	            message: '取消输入'
+	          });       
+	        });
+	      }
      	}
     })
  </script>

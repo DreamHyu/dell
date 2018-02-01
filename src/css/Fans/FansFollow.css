@@ -5,7 +5,7 @@
 .el-tabs__item{
 	height: 55px;
 	line-height: 55px;
-	font-size: 23px;
+	font-size: 15pt;
 	color: #A9A9A9;
 }
 div.is-top>.el-tabs__nav-scroll{
@@ -25,7 +25,7 @@ div.is-top>.el-tabs__nav-scroll{
 }
 .FansFollowLeft{
 	float: left;
-	width: 70%;
+	width: 75%;
 	background-color: #F0F0F0;
 	padding-bottom: 50px;
 }
@@ -45,7 +45,7 @@ div.is-top>.el-tabs__nav-scroll{
 }
 .FansFollowIcon{
 	width: 15px;
-	height: 20px;
+	height: 17px;
 }
 .FansFollowIconLast{
 	width: 20px;
@@ -78,6 +78,11 @@ div.is-top>.el-tabs__nav-scroll{
 .FansFollowButtonPosition{
 	position: absolute;
 	left: 110px;
+	top: 8px;
+}
+.FansFollowButtonPositionA{
+	position: absolute;
+	left: 49px;
 	top: 8px;
 }
 .el-button{
@@ -119,17 +124,7 @@ table{
 	float: right;
 	width: 25%;
 	margin-top: 65px;	
- 	line-height: 40px;
-}
-.title{
- 	width: 200px;
- 	background-color: #00A372;
- 	color: #FFFFFF;
- 	text-align: center;
- 	height: 40px;
- 	margin-left: 70px;
- 	border-top-left-radius: 5px;
- 	border-top-right-radius: 5px;
+ 	line-height: 43px;
 }
 .addTab{
 	background-color: #FFFFFF;
@@ -150,8 +145,8 @@ table{
 .el-tabs--left .el-tabs__header.is-left{
 	margin-bottom: 0;
 	margin-right: 0px;
-	width: 200px;
-	margin-left: 70px;
+	width: 55%;
+	margin-left: 20%;
 }
 .el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
 	border-right-color: #e4e7ed;
@@ -166,27 +161,28 @@ table{
 	background-color: #FFFFFF;
 }
 .el-table{
-	border: 1px solid #F0F0F0;
 	border-bottom: 1px solid #A9A9A9;
 }
 .FansFollowButtonC{
 	background-color: #00A372;
 	color: #FFFFFF;
-	border-radius: 10px !important;
+	border-radius: 5px !important;
 	width: 80px;
 	float: right !important;
+	border: 0px;
 }
 div.el-dialog__body>div>div.el-input{
-	width: 260px;
+	width: 65%;
 	height: 25px;
 }
 .FansFollowButtonA{
 	border: 0px;
 	background-color: #FFFFFF;
 	border-radius: 10px;
+	float: left;
 }
 .FansFollowButtonB{
-	border-radius: 10px !important;
+	border-radius: 5px !important;
 	float: left;
 	width: 80px;
 }
@@ -201,5 +197,93 @@ div.el-dialog__body>div>div.el-input{
 }
 .FansFollowInputA{
 	float: left;
+	width: 100%;
+	margin-top: 6px;
 }
-
+.FansFollowA{
+	display: inline-block;
+	width: 15%;
+	text-align: center;
+	color: #00A372;
+}
+a:focus, a:hover {
+    color: #A5D045;
+}
+.FansFollowInputB{
+	display: inline-block;
+}
+.el-tabs__header{
+	border: 2px solid #F0F0F0;
+}
+.el-tabs__nav-wrap::after{
+	content: none;
+}
+.el-tabs__nav-wrap{
+	margin-bottom: 0px;
+}
+.el-checkbox__inner:hover {
+    border-color: #00A372;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #00A372;
+    border-color: #00A372;
+}
+.FansFollowInputC{
+	margin-left: 0px;
+}
+.el-checkbox__input.is-checked + .el-checkbox__label {
+    color: #00A372;
+}
+.el-input.is-active .el-input__inner, .el-input__inner:focus {
+    border-color: #00A372;
+    outline: 0;
+}
+.FansRightList{
+	margin-left: 15%;
+}
+.FansTitle{
+	width: 70%;
+	height: 45px;
+	font-size: 14pt;
+	text-align: center;
+	background-color: #00A372;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #FFFFFF;
+}
+.FansContent{
+	width:70%;
+	height: 45px;
+	font-size: 14pt;
+	text-align: center;
+	background-color: #FFFFFF;
+	color: #A9A9A9;
+	border: 1px solid #E9ECF1;
+}
+.FansContent:hover{
+	color: #00A372;
+}
+.el-message-box__headerbtn:focus .el-message-box__close, .el-message-box__headerbtn:hover .el-message-box__close {
+    color: #00A372;
+}
+.el-table__body-wrapper {
+    background-color: #F0F0F0;
+}
+.el-table__header-wrapper{
+	background-color: #F0F0F0;
+}
+.el-button--primary{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #00A372;
+}
+.el-button--primary:hover{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #67c23a;
+}
+.el-button--primary:focus{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #00A372;
+}
