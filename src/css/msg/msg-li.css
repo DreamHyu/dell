@@ -1,0 +1,335 @@
+.MaterialMain{
+	width: 95%;
+	margin: auto;
+}
+.MaterialVideoMain{
+	width: 95%;
+	margin: auto;
+}
+.MaterialVideoHead{
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.MaterialVideoFont{
+	display: inline-block;
+	font-size: 15pt;
+	height: 30px;
+}
+.MaterialVideoButton{
+	float: right;
+	height: 30px;
+	line-height: 0;
+	margin-left: 20px;
+}
+.MaterialVideoImg{
+	float: left;
+	margin-left: 30%;
+}
+.MaterialVideoImgStyle{
+	width: 200px;
+	height: 100px;
+}
+.MaterialVideoContent{
+	
+}
+.MaterialVideoState{
+	color: #67C23A;
+}
+.MaterialVideoIcon{
+	margin-right: 20px;
+}
+.MaterialGroups{
+	height: 50px;
+	width: 26.7%;
+	background:gray;
+	position: absolute;
+	border-radius: 2px;
+	bottom: 45px;
+	left: 0px;
+	opacity: 0;
+}
+.MaterialGroupsA{
+	height: 50px;
+	width: 26.7%;
+	background:gray;
+	position: absolute;
+	border-radius: 2px;
+	bottom: 45px;
+	left: 36.66%;
+	opacity: 0;
+}
+.MaterialGroupsB{
+	height: 50px;
+	width: 26.7%;
+	background:gray;
+	position: absolute;
+	border-radius: 2px;
+	bottom: 45px;
+	left: 73.32%;
+	opacity: 0;
+}
+.MaterialGroupsC{
+	height: 50px;
+	width: 28.3%;
+	background:gray;
+	position: absolute;
+	bottom: 288px;
+	opacity: 0;
+}
+.MaterialGroupsD{
+	height: 50px;
+	width: 28.3%;
+	background:gray;
+	position: absolute;
+	bottom: 12px;
+	opacity: 0;
+}
+.MaterialGroupsE{
+	height: 50px;
+	width: 28.3%;
+	background:gray;
+	position: absolute;
+	bottom: 528px;
+	opacity: 0;
+}
+.MaterialGroupsF{
+	height: 50px;
+	width: 28.3%;
+	background:gray;
+	position: absolute;
+	bottom: 368px;
+	opacity: 0;
+}
+.MaterialGroupsG{
+	height: 35px;
+	width: 25.45%;
+	background: gray;
+	position: absolute;
+	bottom: 460px;
+	opacity: 0.5;
+	font-size: 18pt;
+}
+.MaterialGroupsH {
+    height: 35px;
+    width: 25.45%;
+    background: gray;
+    position: absolute;
+    bottom: 185px;
+    opacity: 0.5;
+    font-size: 18pt;
+}
+.MaterialGroupsIcon{
+	width: 30px;
+	margin-top: 8px;
+	margin-left: 44%;
+	-webkit-filter: brightness(2.3);
+	filter: brightness(2.3);
+}
+.MaterialGroupsIconY{
+	margin-left: 17%;
+	margin-top: 6px;
+}
+.MaterialGroupsIconZ{
+	margin-left: 30%;
+	margin-top: 6px;
+}
+.MaterialGroupsIconA{
+	width: 30px;
+	margin-top: 8px;
+	margin-left: -2px;
+	-webkit-filter: brightness(2.3);
+	filter: brightness(2.3);
+}
+.MaterialGroupsIconB{
+	width: 30px;
+	margin-top: 8px;
+	margin-left: -56%;
+	-webkit-filter: brightness(2.3);
+	filter: brightness(2.3);
+}
+.MaterialGroupsIconC{
+	width: 30px;
+	-webkit-filter: brightness(2.3);
+	filter: brightness(2.3);
+}
+.MaterialGroups:hover{
+	opacity: 0.8;
+}
+.MaterialGroupsA:hover{
+	opacity: 0.8;
+}
+.MaterialGroupsB:hover{
+	opacity: 0.8;
+}
+.MaterialGroupsC:hover{
+	opacity: 0.8;
+}
+.MaterialGroupsD:hover{
+	opacity: 0.8;
+}
+.MaterialGroupsE:hover{
+	opacity: 0.8;
+}
+.MaterialGroupsF:hover{
+	opacity: 0.8;
+}
+.MaterialContent{
+	color: #C6C8CA;
+}
+.MaterialContentA{
+	width: 30%;
+	float: left;
+}
+.MaterialContentAA{
+	border: 2px solid #D3D3D3;
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+}
+.MaterialContentAAA{
+	border: 2px solid #D3D3D3;
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+	height: 347.5px;
+}
+.MaterialContentAAC{
+	border: 2px solid #D3D3D3;
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+	height: 268px;
+}
+.MaterialContentAAMain{
+	width: 90%;
+	margin: auto;
+	padding: 15px 0px;	
+}
+.MaterialContentAC{
+	margin-top: 5px;
+}
+.MaterialContentACA{
+	margin-top: 5px;
+	color: #A9A9A9;
+}
+.MaterialContentABC{
+	color: #808080;
+	font-size: large;
+}
+.MaterialContentAAContent{
+	width: 75%;
+	display: inline-block;
+	height: 60.05px;
+}
+.MaterialContentAAImamge{
+	width: 100%;
+}
+.MaterialContentAAImamgeA{
+	width: 100%;
+	height: 145px;
+}
+.MaterialContentAAImamgeB{
+	width: 100%;
+	height: 157px;
+}
+.MaterialContentAAImg{
+	width: 20%;
+	display: block;
+	float: right;
+}
+.MaterialContentB{
+	width: 30%;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;	
+}
+.MaterialContentC{
+	width: 30%;
+	float: left;
+}
+.MaterialPictrue{
+	display: inline-block;
+	width: 80%;
+	text-align: center;
+}
+.MaterialPictrue1{
+	width: 80%;
+}
+.MaterialVoiceImg{
+	width: 50px;
+	height: 50px;
+}
+.MaterialInputA{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.MaterialInputB{
+	width: 20%;
+	display: inline-block;
+}
+.MaterialInputC{
+	display: inline-block;
+}
+.MaterialInputD{
+	height: 31px;
+	margin-top: 8px;
+	line-height: 0;
+	margin-left: 3px;
+}
+.MaterialInputE{
+	height: 31px;
+	margin-top: 13px;
+	width: 20%;
+	float: left;
+}
+.MaterialInputF{
+	float: left;
+	width: 70%;
+	margin-top: 7px;
+	margin-left: 4px;
+}
+.MaterialInputG{
+	float: left;
+	width: 70%;
+	margin-top: 12px;
+	margin-left: 4px;
+}
+.MaterialInputH{
+	height: 31px;
+	margin-top: 8px;
+	line-height: 0;
+	margin-left: 27%;
+}
+.MaterialPictrue{
+	margin: 6px 0px 20px 0px;
+	color: #C6C8CA;
+}
+/*图文消息输入框*/
+.el-input__inner{
+	height: 31px;
+}
+.el-input__icon{
+	line-height: 30px;
+}
+.el-input__inner:focus{
+	border-color: #00A372;
+}
+.el-button--primary{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #00A372;
+}
+.el-button--primary:hover{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #67c23a;
+}
+.el-button--primary:focus{
+	border: 0px;
+	color: #FFFFFF;
+	background-color: #00A372;
+}
+.el-input{
+	width: 70%;
+}
+.el-textarea__inner:focus {
+    border-color: #00A372;
+}
+/*图文消息输入框*/

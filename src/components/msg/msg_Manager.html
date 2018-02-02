@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/frame.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/msg/msg.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/msg/msg-li.css"/>
 </head>
 
 <body>
@@ -67,7 +68,7 @@
 								<li class="">
 									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 								</li>
-								<li class="">
+								<li class="active">
 									<a href="msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
 								</li>
 								<li class="">
@@ -93,7 +94,379 @@
 		    <el-main>
 		    	<div class="content">
 		    		<el-tabs v-model="activeName">
-				    	<el-tab-pane label="素材管理" name="first"></el-tab-pane>
+				    	<el-tab-pane label="素材管理" name="first">
+				    		<div class='MaterialMain'>
+				    			<template>
+									  <el-tabs v-model="activenumber" type="card">
+									    <el-tab-pane label="图文消息" name="first">
+									    	<div class="MaterialVideoMain">
+									    		<div class="MaterialVideoHead">
+									    			<div class="MaterialVideoFont">图文消息(共7条)</div>
+									    			<el-button type="success" class="MaterialVideoButton">新建图文素材</el-button>
+									    			<el-input style="width:15%;float: right;" suffix-icon="el-icon-search" v-model="input" placeholder="标题"></el-input>
+									    		</div>
+									    		<div class="MaterialContent">
+									    			<div class="MaterialContentA">
+									    				<div class="MaterialContentAAA">
+									    					<div class="MaterialContentAAMain">
+									    						<img class="MaterialContentAAImamge" src="../../images/MsgMaterialVideo1.png" />
+									    						<div class="MaterialContentACA">
+									    							<div class="MaterialContentAAContent"><span>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述</span></div>
+									    							<img class="MaterialContentAAImg" src="../../images/MsgMaterialContent1.png" />
+									    						</div>
+									    						<div class="MaterialContentACA">
+									    							<div class="MaterialContentAAContent"><span>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述</span></div>
+									    							<img class="MaterialContentAAImg" src="../../images/MsgMaterialContent1.png" />
+									    						</div>
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsC">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													     </div>
+									    				</div>
+									    				<div class="MaterialContentAAC">
+									    					<div class="MaterialContentAAMain">
+									    						<div class="MaterialContentABC"><span>文字描述</span></div>
+									    						<img class="MaterialContentAAImamge" src="../../images/MsgMaterialVideo1.png" />
+									    						<div class="MaterialContentACA"><span>文字描述</span></div>
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsD">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													      </div>
+									    				</div>
+									    			</div>
+									    			<div class="MaterialContentB">
+									    				<div class="MaterialContentAA">
+									    					<div class="MaterialContentAAMain">
+									    						<div class="MaterialContentABC"><span>文字描述</span></div>
+									    						<div class="MaterialContentACA"><span>文字描述</span></div>
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsE">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													      </div>
+									    				</div>
+									    				<div class="MaterialContentAA">
+									    					<div class="MaterialContentAAMain">
+									    						<div class="MaterialContentABC"><span>文字描述</span></div>
+									    						<img class="MaterialContentAAImamgeA" src="../../images/MsgMaterialVideo1.png" />
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsC">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													      </div>
+									    				</div>
+									    				<div class="MaterialContentAAC">
+									    					<div class="MaterialContentAAMain">
+									    						<div class="MaterialContentABC"><span>文字描述</span></div>
+									    						<img class="MaterialContentAAImamge" src="../../images/MsgMaterialVideo1.png" />
+									    						<div class="MaterialContentACA"><span>文字描述</span></div>
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsD">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													      </div>
+									    				</div>
+									    			</div>
+									    			<div class="MaterialContentC">
+                              <div class="MaterialContentAAC">
+									    					<div class="MaterialContentAAMain">
+									    						<div class="MaterialContentABC"><span>文字描述</span></div>
+									    						<img class="MaterialContentAAImamge" src="../../images/MsgMaterialVideo1.png" />
+									    						<div class="MaterialContentACA"><span>文字描述</span></div>
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsF">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													      </div>
+									    				</div>
+									    				<div class="MaterialContentAAA">
+									    					<div class="MaterialContentAAMain">
+									    						<img class="MaterialContentAAImamgeB" src="../../images/MsgMaterialVideo1.png" />
+									    						<div class="MaterialGroupsH">这是标题</div>
+									    						<div class="MaterialContentACA">
+									    							<div class="MaterialContentAAContent"><span>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述</span></div>
+									    							<img class="MaterialContentAAImg" src="../../images/MsgMaterialContent1.png" />
+									    						</div>
+									    						<div class="MaterialContentACA">
+									    							<div class="MaterialContentAAContent"><span>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述</span></div>
+									    							<img class="MaterialContentAAImg" src="../../images/MsgMaterialContent1.png" />
+									    						</div>
+									    						<div class="MaterialContentAC"><span>2017-12-26</span></div>
+									    					</div>
+									    					<div class="MaterialGroupsD">
+									    						<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/tool/edit.png" class="MaterialGroupsIconZ" />
+														    	</a>
+													      	<a href="#" class="MaterialGroupsIconC">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconY" />
+														    	</a>
+													      </div>
+									    				</div>
+									    			</div>
+									    		</div>
+												</div>
+									    </el-tab-pane>
+									    <el-tab-pane label="图片" name="second">
+									    	<div class="MaterialVideoMain">
+									    		<div class="MaterialVideoHead">
+									    			<div class="MaterialVideoFont">图片(共3条)</div>
+									    			<el-button type="success" class="MaterialVideoButton">上传</el-button>
+									    		</div>
+									    		<div>
+									    			<el-row>
+														  <el-col :span="8" style="text-align: left;">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroups">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIcon" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue" class="MaterialPictrue">name1</div>
+														  </el-col>
+														  <el-col :span="8" style="text-align: center">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroupsA">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconA" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														  <el-col :span="8" style="text-align: right;">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroupsB">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconB" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														</el-row>
+														<el-row>
+														  <el-col :span="8" style="text-align: left;">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroups">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIcon" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														  <el-col :span="8" style="text-align: center">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroupsA">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconA" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														  <el-col :span="8" style="text-align: right;">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroupsB">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconB" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														</el-row>
+														<el-row>
+														  <el-col :span="8" style="text-align: left;">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroups">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIcon" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														  <el-col :span="8" style="text-align: center">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroupsA">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconA" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														  <el-col :span="8" style="text-align: right;">
+														  	<img class="MaterialPictrue1" src="../../images/MsgMaterialVideo2.png">
+														  	<div class="MaterialGroupsB">
+													      	<a href="#">
+														    		<img src="../../images/MsgMaterialVideo4.png" class="MaterialGroupsIconB" />
+														    	</a>
+													      </div>
+														  	<div class="MaterialPictrue">name1</div>
+														  </el-col>
+														</el-row>
+									    		</div>
+									    	</div>
+									    </el-tab-pane>
+									    <el-tab-pane label="语音" name="third">
+									    	<div class="MaterialVideoMain">
+									    		<div class="MaterialVideoHead">
+									    			<div class="MaterialVideoFont">语音(共3条)</div>
+									    			<el-button type="success" class="MaterialVideoButton" @click="dialogVisibleA = true">添加</el-button>
+									    			<el-dialog title="提示" :visible.sync="dialogVisibleA" width="30%">
+														  <div class="MaterialInputA">
+														  	<div class="MaterialInputB">标题</div>
+														  	<el-input class="MaterialInputC" v-model="input" placeholder="请输入内容"></el-input>
+														  </div>
+														  <div class="MaterialInputA">
+														  	<div class="MaterialInputE">上传语音</div>
+														  	<el-button class="MaterialInputD">上传语音</el-button>
+														  </div>
+														  <span slot="footer" class="dialog-footer">
+														    <el-button @click="dialogVisibleA = false">取 消</el-button>
+														    <el-button type="primary" @click="dialogVisibleA = false">确 定</el-button>
+														  </span>
+														</el-dialog>
+									    		</div>
+									    		<div>
+									    			<template>
+														  <el-table :data="tableData1">
+														    <el-table-column label="名称">
+														    	<template slot-scope="scope">
+															      <div class="MaterialVideoImg">
+															      	<img class="MaterialVoiceImg" :src="scope.row.VoiceImg">{{scope.row.number}}
+														    		</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column label="时长">
+														    	<template slot-scope="scope">
+														      	<div>{{scope.row.duration}}</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column label="创建时间">
+														    	<template slot-scope="scope">
+														      	<div>{{scope.row.time}}</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column label="操作">
+														    	<template slot-scope="scope">
+														    		<a href="#" class="MaterialVideoIcon">
+														    			<img src="../../images/tool/edit.png" style="width: 20px;" />
+														    		</a>
+														    		<a href="#">
+														    			<img src="../../images/MsgMaterialVideo4.png" style="width: 20px;" />
+														    		</a>
+														     </template>	
+														    </el-table-column>
+														  </el-table>
+														</template>
+									    		</div>
+									    	</div>
+									    </el-tab-pane>
+									    <el-tab-pane label="视频" name="fourth">
+									    	<div class="MaterialVideoMain">
+									    		<div class="MaterialVideoHead">
+									    			<div class="MaterialVideoFont">视频(共3条)</div>
+									    			<el-button type="success" class="MaterialVideoButton" @click="dialogVisibleB = true">添加</el-button>
+									    			<el-dialog title="提示" :visible.sync="dialogVisibleB" width="30%">
+														  <div class="MaterialInputA">
+														  	<div class="MaterialInputB">标题</div>
+														  	<el-input class="MaterialInputC" v-model="input" placeholder="请输入内容"></el-input>
+														  </div>
+														  <div class="MaterialInputA">
+														  	<div class="MaterialInputE">简介</div>
+														  	<el-input class="MaterialInputF"
+																  type="textarea"
+																  :rows="2"
+																  placeholder="请输入内容"
+																  v-model="textarea">
+																</el-input>
+														  </div>
+														  <div class="MaterialInputA">
+														  	<div class="MaterialInputE">上传视频</div>
+                                <div class="MaterialInputG">视频不能超过20M，超过20M的视频可至腾讯视频上传后添加，也可通过添加视频详情页链接以及公众号文章链接插入视频，视频时长不少于1秒，不多于10小时，支持大部分主流视频格式</div>
+														  </div>
+														  <el-button class="MaterialInputH">上传语音</el-button>
+														  <span slot="footer" class="dialog-footer">
+														    <el-button @click="dialogVisibleB = false">取 消</el-button>
+														    <el-button type="primary" @click="dialogVisibleB = false">确 定</el-button>
+														  </span>
+														</el-dialog>
+									    		</div>
+									    		<div>
+									    			<template>
+														  <el-table :data="tableData1">
+														    <el-table-column label="名称">
+														    	<template slot-scope="scope">
+														    		<div class="MaterialVideoImg">
+															    		<img class="MaterialVideoImgStyle" :src="scope.row.img">
+														    		</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column>
+														    	<template slot-scope="scope">
+															      <div class="MaterialVideoContent">
+															      	<div class="MaterialVideoContentA">{{scope.row.number}}</div>
+															      	<div class="MaterialVideoContentB">{{scope.row.content}}</div>
+														    		</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column label="状态">
+														    	<template slot-scope="scope">
+														      	<div class="MaterialVideoState">{{scope.row.state}}</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column label="创建时间">
+														    	<template slot-scope="scope">
+														      	<div>{{scope.row.time}}</div>
+														      </template>
+														    </el-table-column>
+														    <el-table-column label="操作">
+														    	<template slot-scope="scope">
+														    		<a href="#" class="MaterialVideoIcon">
+														    			<img src="../../images/tool/edit.png" style="width: 20px;" />
+														    		</a>
+														    		<a href="#">
+														    			<img src="../../images/MsgMaterialVideo4.png" style="width: 20px;" />
+														    		</a>
+														     </template>	
+														    </el-table-column>
+														  </el-table>
+														</template>
+									    		</div>
+									    	</div>
+									    </el-tab-pane>
+									  </el-tabs>
+									</template>
+				    		</div>
+				    	</el-tab-pane>
 				    	<el-tab-pane label="群发消息" name="second">
 				    		<el-tabs type="border-card" v-model="activeName2">
 							  <el-tab-pane label="编辑群发" name="first">
@@ -181,7 +554,7 @@
 											</tr>
 											<tr height="30"></tr>
 											<tr>
-												<td colspan="2" width="240">
+												<td colspan="2" width="240" class="msg_tr_padding">
 													<el-button @click="dialogPreview = true">预览</el-button>
 													<el-button type="success">保存并发送</el-button>
 												</td>
@@ -259,7 +632,7 @@
 									    <el-table-column prop="content" label="内容">
 									    	<template slot-scope="scope">
 										      <div>{{scope.row.content}}</div>
-										      <div style="color: lightgray;">{{scope.row.mark}}</div>
+										      <div style="color: lightgray;font-size: small;">{{scope.row.mark}}</div>
 										    </template>
 									    </el-table-column>
 									    <el-table-column prop="role" label="发送人"></el-table-column>
@@ -323,8 +696,8 @@
 				    	</el-tab-pane>
 				    	<el-tab-pane label="群发历史" name="third">
 				    		
-				    		<el-input placeholder="请输入内容" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
-							    <el-button slot="append" icon="el-icon-search"></el-button>
+				    		<el-input placeholder="请输入内容" suffix-icon="el-icon-search" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
+							    
 							</el-input>
 							
 							<el-table :data="tableData" stripe style="width: 100%">
@@ -356,6 +729,45 @@
       el: '#app',
       data() {
 	      return {
+	      	
+	      	//开始
+	        dialogVisibleA: false,
+	        dialogVisibleB: false,
+	        textarea: '',
+	        activenumber: 'first',
+	        input1: '',
+	        input:'',
+	        tableData1: [{
+	          time: '2017年12月26日',
+	          img: '../../images/MsgMaterialVideo1.png',
+	          content: '视频描述描述描述描述描述',
+	          number: '1234567890-',
+	          state: '已通过',
+	          handle: '',
+	          duration: '00:16',
+	          VoiceImg: '../../images/MsgMaterVoice1.png',
+	        }, {
+	          time: '2017年12月26日',
+	          img: '../../images/MsgMaterialVideo2.png',
+	          content: '视频描述描述描述描述描述',
+	          number: '1234567890-',
+	          state: '已通过',
+	          handle: '',
+	          duration: '00:16',
+	          VoiceImg: '../../images/MsgMaterVoice1.png',
+	        }, {
+	          time: '2017年12月26日',
+	          img: '../../images/MsgMaterialVideo3.png',
+	          content: '视频描述描述描述描述描述',
+	          number: '1234567890-',
+	          state: '已通过',
+	          handle: '',
+	          duration: '00:16',
+	          VoiceImg: '../../images/MsgMaterVoice1.png',
+	        }],
+	        //结束
+	      	
+	      	
 	      	dialogFormVisible: false,
 	      	dialogPreview: false,
          	formLabelWidth: '100px',
@@ -383,7 +795,7 @@
 	          }]
 	        },
 	        value2: '',
-        	activeName:'second',
+        	activeName:'first',
         	activeName2:'first',
         	checked:'',
         	radio:'',
@@ -412,25 +824,25 @@
         	tableData: [{
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }],

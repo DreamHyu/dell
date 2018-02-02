@@ -5,31 +5,32 @@ body{
   		width: 90%;
   		margin: auto;
   	}
-  	.pictureDiv{
-  		border: 2px lightgray solid;
-  		height:300px;
-  		width: 100%;
-  	}
   	.divAbout{
   		width: 100%;
-  		
-  	}
-  	.aboutButton{
-  		width: 28%;
-  		border-left: 1px lightgray solid;
-  	}
-  	.aboutButton1{
-  		width: 16%;
+  		background-color: darkblue;
   	}
   	.AuForm{
-  		width: 85%;
+  		width: 100%;
   		margin: auto;
   	}
+	.el-tabs__content {
+	    display: none;
+	}
+	.el-radio__input.is-checked .el-radio__inner {
+	    border-color: #00A372;
+	    background: #00A372;
+	}
+	.el-radio__input.is-checked+.el-radio__label {
+	    color: #00A372;
+	}
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+    	color: #00A372;
+	}
   	.AuInputLeft{
   		display: inline-block;
-  		width: 35%;
+  		width: 31.8%;
   		vertical-align: top;
-  		padding: 15px 20px 0px 50px;
+  		padding: 15px 10px 0px 10px;
   	}
   	.AuInputRight{
   		display: inline-block;
@@ -45,23 +46,23 @@ body{
   		padding: 15px 20px 0px 50px;
   		border-color: #00a372;
   	}
-		.AuChild{
-			width: 90%;
-		}
-		.AuSelect{
-			width: 100%;
-		}
-		.el-form-item{
-  		margin-bottom: 8px;
+	.AuChild{
+		width: 90%;
+		margin-left: 20px;
+	}
+	.AuSelect{
+		width: 100%;
+	}
+	.el-form-item{
+		margin-bottom: 8px;
   	}
   	.BtFloat{
-  		margin-right: 15px;
-  		margin-top: 70px;
+  		margin-top: 20px;
+  		margin-right: 70px;
   		float: right;
   	}
   	.BT{
   		width: 100px;
-  		float: right;
   	}
   	.BtBack{
   		margin-right: 10px;  		
@@ -73,10 +74,12 @@ body{
   		border: 2px lightgray solid;
   		height:165px;
   		width: 100%;
+  		border-radius: 5px;
   	}
   	.iconDiv2{
   		border: 2px lightgray solid;
   		height:165px;
+  		border-radius: 5px;
   		width: 100%;
   	}
   	.iconDivChild{

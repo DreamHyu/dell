@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>消息-普通级别</title>
+  <title>消息-素材管理</title>
   <!-- 引入样式 -->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/frame.css" />
 	<link rel="stylesheet" type="text/css" href="../../css/msg/msg.css"/>
 	<link rel="stylesheet" type="text/css" href="../../css/msg/msg-li.css"/>
+	
 </head>
 
 <body>
@@ -68,7 +69,7 @@
 								<li class="">
 									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 								</li>
-								<li class="active">
+								<li class="">
 									<a href="msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
 								</li>
 								<li class="">
@@ -467,145 +468,10 @@
 									</template>
 				    		</div>
 				    	</el-tab-pane>
-				    	<el-tab-pane label="群发消息" name="second">
-				    		<el-tabs type="border-card" v-model="activeName2">
-							  <el-tab-pane label="编辑群发" name="first">
-							  	<div style="margin:30px 100px 0px 100px;">
-										  <el-radio v-model="radio" label="1">全部用户</el-radio>
-										  <el-radio v-model="radio" label="2">选择用户</el-radio>
-											<hr class="hr" />
-										<table style="margin-top:30px">
-											<tr>
-												<td style="vertical-align:top;width:120px">群发对象</td>
-												<td width="610px">
-													  <div style="width:100px;float:left;"><el-checkbox>财经</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>动漫</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>儿童</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>搞笑</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>健康</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>教育</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>军事</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>科技</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox >历史</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>旅行</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>汽车</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>情感</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>体育</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>外语</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>文学</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>校园</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>音乐</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>影视</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>游戏</el-checkbox></div>
-													  <div style="width:100px;float:left;"><el-checkbox>娱乐</el-checkbox></div>
-												</td>
-											</tr>
-											<tr height="50"></tr>
-											<tr>
-												<td style="width:120px">性别</td>
-												<td>
-													<template>
-													  <el-radio v-model="radio1" label="1">全部</el-radio>
-													  <el-radio v-model="radio1" label="2">男</el-radio>
-													  <el-radio v-model="radio1" label="3">女</el-radio>
-													</template>
-												</td>
-											</tr>
-											<tr height="30"></tr>
-											<tr>
-												<td style="width:120px">群发地区</td>
-												<td>
-														<el-select v-model="value" placeholder="请选择">
-													    <el-option
-													      v-for="item in options"
-													      :key="item.value"
-													      :label="item.label"
-													      :value="item.value">
-													    </el-option>
-													  </el-select>
-												</td>
-											</tr>
-											<tr height="30"></tr>
-											<tr>
-												<td colspan="2">
-													<div class="iconDiv">
-												  	<a href="#" class="iconDivChild"><i class="glyphicon glyphicon-cloud-upload"></i></a>
-												  	<a href="#" class="iconDivChild"><i class="glyphicon glyphicon-pencil"></i></a>
-												  	<a href="#" class="iconDivChild"><i class="glyphicon glyphicon-folder-open"></i></a>
-												  	<a href="#" class="iconDivChild"><i class="glyphicon glyphicon-filter"></i></a>
-												  	<a href="#" class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></a>
-													</div>
-												</td>
-											</tr>
-											<tr height="30"></tr>
-											<tr>
-												<td colspan="2" width="240" class="msg_tr_padding">
-													<el-button @click="dialogPreview = true">预览</el-button>
-													<el-button type="success">保存并审批</el-button>
-												</td>
-											</tr>
-										</table>
-						    	</div>
-							  	<el-dialog title="预览" :visible.sync="dialogPreview" width="500px">
-							  		<table width="400px" style="margin-left: 25px;">
-							  			<tr>
-							  				<td colspan="4">
-							  					<el-radio v-model="radio4" label="1" @change="UserSelect(radio4)">全部用户</el-radio>
-							  					<el-radio v-model="radio4" label="2" @change="UserSelect(radio4)">选择用户</el-radio>
-							  				</td>
-							  			</tr>
-							  			<tr height="20px" v-show="selectUser"></tr>
-							  			<tr v-show="selectUser">
-							  				<td class="td_title">标签</td>
-							  				<td colspan="3">
-							  					<el-tag>标签一</el-tag>&nbsp;
-							  					<el-tag>标签一</el-tag>&nbsp;
-							  					<el-tag>标签一</el-tag>&nbsp;
-							  					<el-tag>标签一</el-tag>
-							  				</td>
-							  			</tr>
-							  			<tr height="20px" v-show="selectUser"></tr>
-							  			<tr width="240px" v-show="selectUser">
-							  				<td class="td_title">性别</td>
-							  				<td>全部</td>
-							  				<td class="td_title" style="width: 110px;">群发地区</td>
-							  				<td>中国</td>
-							  			</tr>
-							  			<tr height="20px"></tr>
-							  			<tr>
-							  				<td colspan="4">
-							  					<div class="artical">
-							  							<a href="#">
-												  			<i style="margin: 20px auto 20px 20px;" class="el-icon-tickets">图文</i>
-												  		</a>
-												  		<a href="#">
-												  			<i style="margin: 20px auto 20px 20px;" class="el-icon-edit">文字</i>
-												  		</a>
-												  		<a href="#">
-												  			<i style="margin: 20px auto 20px 20px;" class="el-icon-picture">图片</i>
-												  		</a>
-												  		<a href="#">
-												  			<i style="margin: 20px auto 20px 20px;" class="el-icon-phone">音频</i>
-												  		</a>
-												  		<a href="#">
-												  			<i style="margin: 20px auto 20px 20px;" class="el-icon-view">视频</i>
-												  		</a>
-							  						<hr style="margin: 0;" />
-							  						<div class="artical_content">
-							  							<h4>我是标题</h4>
-							  							<p>我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文</p>
-							  							<img src="../../images/TIM20180123164334.png" />
-							  						</div>
-							  					</div>
-							  				</td>
-							  			</tr>
-							  		</table>
-									  <div slot="footer" class="dialog-footer" style="padding-top: 0px;">
-									    <el-button type="success" @click="dialogPreview = false">关闭</el-button>
-									  </div>
-									</el-dialog>
-							  	
-							  </el-tab-pane>
+				    	
+				    	<el-tab-pane label="已通过消息" name="second">
+				    		<el-tabs type="border-card" v-model="activenumber">
+							  <el-tab-pane label="编辑已通过" name="first">用户管理</el-tab-pane>
 							  <el-tab-pane label="审批状态" name="second">
 							  	<h3>未审批</h3>
 							  	<h6>备注描述</h6>
@@ -615,21 +481,17 @@
 							      style="width: 100%"
 							      v-bind:show-header="false"
 							      >
-							      <el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-									  </el-table-column>
+							      	<el-table-column prop="time" label="时间"></el-table-column>
 						    		<el-table-column prop="image">
 							    	<template slot-scope="scope">
 								      <img  :src="scope.row.image" class="UmImage">
 								    </template>
 							    	</el-table-column>
 							    	<el-table-column prop="content" label="内容"></el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
 							    </el-table>
 							    
-							    <h3 style="color: #00A372;margin-top: 40px;">审批通过</h3>
+							    <h3 style="color: #00A372;">审批通过</h3>
 							    <h6>备注描述</h6>
 							  	<hr class="hr" />
 						  	    <el-table
@@ -637,26 +499,17 @@
 							      style="width: 100%"
 							      v-bind:show-header="false"
 							      >
-						      	<el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-									  </el-table-column>
+							      	<el-table-column prop="time" label="时间"></el-table-column>
 						    		<el-table-column prop="image">
 							    	<template slot-scope="scope">
 								      <img  :src="scope.row.image" class="UmImage">
 								    </template>
 							    	</el-table-column>
 							    	<el-table-column prop="content" label="内容"></el-table-column>
-							    	<el-table-column label="操作">
-								      <template slot-scope="scope">
-								        <a href="#"><img style="width: 20px;" src="../../images/tool/send.png" /></a>
-								      </template>
-								    </el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
 							    </el-table>
 							    
-							    <h3 style="color: #CD0000;margin-top: 40px;">审批未通过</h3>
+							    <h3 style="color: #CD0000;">审批未通过</h3>
 							  	<h6>备注描述</h6>
 							  	<hr class="hr" />
 						  	    <el-table
@@ -664,23 +517,14 @@
 							      style="width: 100%"
 							      v-bind:show-header="false"
 							      >
-							      <el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-									  </el-table-column>
+							      	<el-table-column prop="time" label="时间"></el-table-column>
 						    		<el-table-column prop="image">
 							    	<template slot-scope="scope">
 								      <img  :src="scope.row.image" class="UmImage">
 								    </template>
 							    	</el-table-column>
 							    	<el-table-column prop="content" label="内容"></el-table-column>
-							    	<el-table-column label="操作">
-								      <template slot-scope="scope">
-								        <a href="#"><img style="width: 20px;" src="../../images/tool/edit.png" /></a>
-								      </template>
-								    </el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
 							    </el-table>
 							  </el-tab-pane>
 							  <el-tab-pane label="待发送" name="third">
@@ -691,26 +535,22 @@
 							      style="width: 100%"
 							      v-bind:show-header="false"
 							      >
-							      <el-table-column prop="time" label="时间">
-							      	<template slot-scope="scope">
-									      <div>{{scope.row.time}}</div>
-									      <div>{{scope.row.mark}}</div>
-									    </template>
-							      </el-table-column>
+							      	<el-table-column prop="time" label="时间"></el-table-column>
 						    		<el-table-column prop="image">
-								    	<template slot-scope="scope">
-									      <img  :src="scope.row.image" class="UmImage">
-									    </template>
+							    	<template slot-scope="scope">
+								      <img  :src="scope.row.image" class="UmImage">
+								    </template>
 							    	</el-table-column>
 							    	<el-table-column prop="content" label="内容"></el-table-column>
+							    	<el-table-column prop="mark" label="备注"></el-table-column>
 							    </el-table>
 							  </el-tab-pane>
 							</el-tabs>
 				    	</el-tab-pane>
-				    	<el-tab-pane label="群发历史" name="third">
+				    	<el-tab-pane label="已通过历史" name="third">
 				    		
-				    		<el-input placeholder="请输入内容" suffix-icon="el-icon-search" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
-							    
+				    		<el-input placeholder="请输入内容" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
+							    <el-button slot="append" icon="el-icon-search"></el-button>
 							</el-input>
 							
 							<el-table :data="tableData" stripe style="width: 100%">
@@ -723,7 +563,9 @@
 							    <el-table-column prop="content" label="内容"></el-table-column>
 							    <el-table-column prop="mark" label="备注"></el-table-column>
 							</el-table>
-				    </el-tab-pane>
+							
+				    	</el-tab-pane>
+				    		
 				    </el-tabs>
 				</div>    		
 		    </el-main>
@@ -742,14 +584,36 @@
       el: '#app',
       data() {
 	      return {
-	      	
-	      	//开始
+        	activeName:'second',
+        	activenumber:'second',
+        	input5: '',
+        	tableData: [{
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }, {
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }, {
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }, {
+	          image: '../../images/TIM20180123164334.png',
+	          content: '内容内容内容内容内容内容内容内容内容内容内容',
+	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          time: '2017-12-25'
+	        }],
+	        //开始
 	        dialogVisibleA: false,
 	        dialogVisibleB: false,
 	        textarea: '',
 	        activenumber: 'first',
 	        input1: '',
-	        input:'',
 	        tableData1: [{
 	          time: '2017年12月26日',
 	          img: '../../images/MsgMaterialVideo1.png',
@@ -779,92 +643,50 @@
 	          VoiceImg: '../../images/MsgMaterVoice1.png',
 	        }],
 	        //结束
-	      	
-	      	dialogPreview: false,
-	      	selectUser:false,
-	      	radio4:'1',
-	      	pickerOptions1: {
-          	shortcuts: [{
-	            text: '今天',
-	            onClick(picker) {
-	              picker.$emit('pick', new Date());
-	            }
-	          }, {
-	            text: '昨天',
-	            onClick(picker) {
-	              const date = new Date();
-	              date.setTime(date.getTime() - 3600 * 1000 * 24);
-	              picker.$emit('pick', date);
-	            }
-	          }, {
-	            text: '一周前',
-	            onClick(picker) {
-	              const date = new Date();
-	              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
-	              picker.$emit('pick', date);
-	            }
-	          }]
-	        },
-	        value2: '',
-        	activeName:'first',
-        	activeName2:'first',
-        	checked:'',
-        	radio:'',
-        	radio1:'',
-        	radio2:'',
-        	options: [{
-	          value: '选项1',
-	          label: '地区1'
-	        }, {
-	          value: '选项2',
-	          label: '地区2'
-	        }, {
-	          value: '选项3',
-	          label: '地区3'
-	        }, {
-	          value: '选项4',
-	          label: '地区4'
-	        }, {
-	          value: '选项5',
-	          label: '地区5'
-	        }],
-	        value: '',
-        	input5: '',
-        	tableData: [{
-	          image: '../../images/TIM20180123164334.png',
-	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注',
-	          time: '2017-12-25'
-	        }, {
-	          image: '../../images/TIM20180123164334.png',
-	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注',
-	          time: '2017-12-25'
-	        }, {
-	          image: '../../images/TIM20180123164334.png',
-	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注',
-	          time: '2017-12-25'
-	        }, {
-	          image: '../../images/TIM20180123164334.png',
-	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注',
-	          time: '2017-12-25'
-	        }],
-	        //XXX开始
-	        
-	        //XXX结束
 	      };
 	    },
 	    methods: {
-				UserSelect(index){
-        	if(index == 1){
-        		this.selectUser = false;
-        	}else if(index == 2){
-        		this.selectUser = true;
-        	}
-        }
+			
      	}
     })
  </script>
+ <style>
+ 	
+ 	.content{
+ 		width: 90%;
+ 		margin: auto;
+ 	}
+ 	
+	/*小选项卡*/
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+    color: #00A372;
+	}
+	.el-tabs--border-card>.el-tabs__header .el-tabs__item:hover {
+    color: #00A372;
+	}
+	/*大选项卡*/
+	.el-tabs__item.is-active {
+	    color: #00A372;
+	}
+	.el-tabs__item:hover {
+    color: #00A372;
+	}
+	.el-tabs__active-bar{
+		background-color: #00A372;
+	}
+ 	.el-table thead{
+ 		color: #1F3A50;
+ 		text-align: center;
+ 	}
+ 	.el-table th{
+ 		background-color: #D3D3D3;
+ 		text-align: center;
+ 	}
+ 	.el-table--enable-row-transition .el-table__body td {
+    	text-align: center;
+	}
+	h6{
+		color: lightgray;
+	}
+ </style>
 </html>
