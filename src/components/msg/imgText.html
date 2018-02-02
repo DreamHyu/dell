@@ -152,9 +152,203 @@
 					
 						<div class="right">
 							<p>多媒体</p>
-							<el-button icon="el-icon-picture">图片</el-button>
-							<el-button icon="el-icon-view">视频</el-button>
-							<el-button icon="el-icon-service">音频</el-button>
+							<el-button icon="el-icon-picture" @click="dialogTableVisibleC = true">图片</el-button>
+								<el-dialog title="添加图片" :visible.sync="dialogTableVisibleC" center>
+								  <table class="dialogVoiceTable">
+								  	<tr>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePosition">try</div>
+								  			</div>
+								  		</td>
+								  	</tr>
+								  	<tr>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  		<td class="dialogVoiceTd">
+								  			<div class="dialogVoiceTdC">
+								  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+								  				<div class="dialogVoiceTdF">name1</div>
+								  				<div class="dialogVoicePositionButton">try</div>
+								  			</div>
+								  		</td>
+								  	</tr>
+								  </table>
+								  
+								  <span slot="footer" class="dialog-footer">
+								    <el-button class="ButtonA" @click="dialogTableVisibleC = false">取 消</el-button>
+								    <el-button class="ButtonA" type="primary" @click="dialogTableVisibleC = false">确 定</el-button>
+								  </span>
+								</el-dialog>
+									    			
+							<el-button icon="el-icon-view" @click="dialogTableVisibleD = true">视频</el-button>
+							
+							<el-dialog title="添加视频" :visible.sync="dialogTableVisibleD" center>
+							  <table class="dialogVideoTable">
+							    <tr>
+							  		<td class="dialogVideoTd">
+							  			<div class="dialogVideoTdC">
+							  				<div class="dialogVideoTdF">name1</div>
+							  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+							  				<div class="dialogVideoTdF">描述描述描述</div>
+							  				<div class="dialogPositionTop">try</div>
+							  			</div>
+							  		</td>
+							  		<td class="dialogVideoTd">
+							  			<div class="dialogVideoTdC">
+							  				<div class="dialogVideoTdF">name1</div>
+							  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+							  				<div class="dialogVideoTdF">描述描述描述</div>
+							  				<div class="dialogPositionTop">try</div>
+							  			</div>
+							  		</td>
+							  		<td class="dialogVideoTd">
+							  			<div class="dialogVideoTdC">
+							  				<div class="dialogVideoTdF">name1</div>
+							  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+							  				<div class="dialogVideoTdF">描述描述描述</div>
+							  				<div class="dialogPositionTop">try</div>
+							  			</div>
+							  		</td>
+							  	</tr>
+							  	<tr>
+							  		<td class="dialogVideoTd">
+							  			<div class="dialogVideoTdC">
+							  				<div class="dialogVideoTdF">name1</div>
+							  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+							  				<div class="dialogVideoTdF">描述描述描述</div>
+							  				<div class="dialogPosition">try</div>
+							  			</div>
+							  		</td>
+							  		<td class="dialogVideoTd">
+							  			<div class="dialogVideoTdC">
+							  				<div class="dialogVideoTdF">name1</div>
+							  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+							  				<div class="dialogVideoTdF">描述描述描述</div>
+							  				<div class="dialogPosition">try</div>
+							  			</div>
+							  		</td>
+							  		<td class="dialogVideoTd">
+							  			<div class="dialogVideoTdC">
+							  				<div class="dialogVideoTdF">name1</div>
+							  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+							  				<div class="dialogVideoTdF">描述描述描述</div>
+							  				<div class="dialogPosition">try</div>
+							  			</div>	
+							  		</td>
+							  	</tr>
+							  </table>		
+							  <span slot="footer" class="dialog-footer">
+							    <el-button class="ButtonA" @click="dialogTableVisibleD = false">取 消</el-button>
+							    <el-button class="ButtonA" style="" type="primary" @click="dialogTableVisibleD = false">确 定</el-button>
+							  </span>
+							</el-dialog>
+							
+							<el-button icon="el-icon-service" @click="dialogTableVisibleE = true">音频</el-button>
+								<el-dialog title="添加音频" :visible.sync="dialogTableVisibleE" center>
+								  <el-table :data="gridData">
+								  	<el-table-column>
+								    	<template slot-scope="scope">
+								      	<div><el-radio v-model="radio">{{scope.row.number}}</el-radio></div>
+								      </template>
+								   </el-table-column>
+								    <el-table-column property="date"></el-table-column>
+								    <el-table-column property="time"></el-table-column>
+								    <el-table-column>
+								    	<template slot-scope="scope">
+								      	<div><img style="width: 50px;" :src="scope.row.img"/></div>
+								      </template>
+								    </el-table-column>
+								  </el-table>		
+								  <span slot="footer" class="dialog-footer">
+								    <el-button class="ButtonA" @click="dialogTableVisibleE = false">取 消</el-button>
+								    <el-button class="ButtonA" type="primary" @click="dialogTableVisibleE = false">确 定</el-button>
+								  </span>
+								</el-dialog>
 						</div>
 						<div class="middle_btn">
 							<el-form-item style="float: right;">
@@ -183,6 +377,30 @@
 	      return {
 			checkbox1:"",
 			radio:'',
+			dialogTableVisibleC: false,
+			dialogTableVisibleD: false,
+			dialogTableVisibleE: false,
+	        gridData: [{
+          date: '2016-05-02',
+          number: '1234567890-',
+          time: '00:01',
+          img: '../../images/imgA.png',
+        }, {
+          date: '2016-05-04',
+          number: '1234567890-',
+          time: '00:01',
+          img: '../../images/imgA.png',
+        }, {
+          date: '2016-05-01',
+          number: '1234567890-',
+          time: '00:01',
+          img: '../../images/imgA.png',
+        }, {
+          date: '2016-05-03',
+          number: '1234567890-',
+          time: '00:01',
+          img: '../../images/imgA.png',
+        }],
 	      };
 	    },
 	    methods: {
