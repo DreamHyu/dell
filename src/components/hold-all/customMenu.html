@@ -69,7 +69,7 @@
 									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 								</li>
 								<li class="">
-									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
 								</li>
 								<li class="">
 									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
@@ -100,22 +100,27 @@
 					<div class="AuForm">
 						<el-form label-position="left" label-width="120px" :model="formInline">
 							<div class="AuInputLeft">
-								<div class="pictureDiv"></div>
-								<div>
-							<el-radio-group size="big" class="divAbout">
-								<el-radio-button label="1"  class="aboutButton1"><i class="el-icon-date" style=""></i></el-radio-button>
-							  <el-radio-button label="2"  class="aboutButton">About us</el-radio-button>
-							  <el-radio-button label="3"  class="aboutButton">Contact</el-radio-button>
-							  <el-radio-button label="4"  class="aboutButton">History</el-radio-button>
-							</el-radio-group>
-						  </div>
+								<!--<div class="pictureDiv"></div>-->
+								<img src="../../images/wechat.png" style="width: 100%;" />
+								<div style="width: 100%;">
+									<el-tabs tab-position="top" type="border-card">
+									  <el-tab-pane>
+									    <span slot="label"><i class="el-icon-date"></i></span>
+									  </el-tab-pane>
+									  <el-tab-pane label="About us"></el-tab-pane>
+									  <el-tab-pane label="Contact"></el-tab-pane>
+									  <el-tab-pane label="History"></el-tab-pane>
+									</el-tabs>
+								</div>
 							</div>
 							
 							<div class="AuInputRight">
 								<h4>About us</h4>
 								<hr class="hr"/>
 								<el-form-item label="菜单名称" class="AuChild">
-							    <el-input v-model="formInline.menuName"></el-input>
+									<el-tooltip class="item" effect="dark" content="字数不要超过4个汉字或8个字母" placement="bottom">
+							      <el-input v-model="formInline.menuName"></el-input>
+							   </el-tooltip>
 							  </el-form-item>
 							    <el-form-item label="菜单内容">
 							    <el-radio-group v-model="formInline.menuContent" @change="menuContentClick(formInline.menuContent)">
@@ -132,16 +137,17 @@
 							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></div>
 							</div>
 							<div class="iconDiv2" v-show=show2>
-								<h4>订阅者点击该菜单会跳转到以下链接</h4>
+								<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">订阅者点击该菜单会跳转到以下链接</p>
 								<el-form-item label="页面地址" class="AuChild">
 							    <el-input v-model="formInline.adress"></el-input>
 							  </el-form-item>
 							</div>	
-						  <el-form-item class="BtFloat">
+
+						 </div>
+ 						  <el-form-item class="BtFloat">
 						     <el-button class="btnCancel" >预览</el-button>
 					    	 <el-button class="btnOk" type="success" >保存并发布</el-button>
 						  </el-form-item>
-						 </div>
 				</el-form>
 					</div>
 		      </div>
