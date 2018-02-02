@@ -312,7 +312,7 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	margin-right: 10px;
 	width: 32px; /*设置图片显示的宽*/
 	height: 32px; /*图片显示的高*/
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/ChattingForward.png); /*引入图片图片*/
 	background-repeat: no-repeat; /*设置图片不重复*/
 	background-position: 0px 0px; /*图片显示的位置*/
 }
@@ -323,7 +323,7 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	margin-right: 10px;
 	width: 32px; /*设置图片显示的宽*/
 	height: 32px; /*图片显示的高*/
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/ChattingShutdown.png); /*引入图片图片*/
 	background-repeat: no-repeat; /*设置图片不重复*/
 	background-position: 0px 0px; /*图片显示的位置*/
 }
@@ -352,23 +352,23 @@ table.WaitingQueue-basicInfo tr td:first-child{
 }
 .ChattingWindow-middleDivButtonIconFace{
 	margin-left: 10px;
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/face.png); /*引入图片图片*/
 }
 .ChattingWindow-middleDivButtonIconPic{
 	margin-left: 50px;
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/chattingpic.png); /*引入图片图片*/
 }
 .ChattingWindow-middleDivButtonIconVedio{
 	margin-left: 90px;
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/chattingvedio.png); /*引入图片图片*/
 }
 .ChattingWindow-middleDivButtonIconVoice{
 	margin-left: 130px;
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/chattingvoice.png); /*引入图片图片*/
 }
 .ChattingWindow-middleDivButtonIconPicAndWorld{
 	margin-left: 170px;
-	background-image: url(../../images/ViewGallery.png); /*引入图片图片*/
+	background-image: url(../../images/chattingpicandword.png); /*引入图片图片*/
 }
 .ChattingWindow-middleDivDown{
 	width: 100%;
