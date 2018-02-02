@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>新建图文消息</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/msg/imgText.css"/>
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					        <!--<a class="navbar-brand" href="#">Deloitte</a>-->
+					        <img src="../../images/logo.png" />
+					    </div>
+					    <div>
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="70px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="active">
+									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+								</li>
+								<li class="">
+									<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li class="">
+									<a href="toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<div class="mainContent">
+		    		<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/mag.html' }">素材库</el-breadcrumb-item>
+					  <el-breadcrumb-item>新建图文消息</el-breadcrumb-item>
+					</el-breadcrumb>
+					
+					<div class="left">
+						<p>图文列表</p>
+						<div class="left_img">
+							<img src="../../images/image.png" />
+						</div>
+						<div class="left_plus">
+							<a href="#">
+								<i class="el-icon-plus"></i>
+							</a>
+						</div>
+					</div>
+					<el-form ref="form" label-width="120px" label-position="left">
+						<div class="middle">
+							<div class="middle_top"></div>
+							
+								<div class="middle_mid">
+									<el-form-item label-width="0px">
+									    <el-input placeholder="请在这里输入标题"></el-input>
+								  </el-form-item>
+								  	<el-form-item label-width="0px" size="mini">
+									    <el-input placeholder="请输入作者"></el-input>
+								  	</el-form-item>
+								  	<el-form-item label-width="0px">
+									    <el-input class="context" type="textarea" placeholder="从这里开始正文"></el-input>
+								  	</el-form-item>
+								  	<el-form-item label="原文链接"></el-form-item>
+								  	<el-form-item label-width="0px">
+									    <el-checkbox-group v-model="checkbox1">
+									      <el-checkbox label="留言" name="type"></el-checkbox>
+									    </el-checkbox-group>
+								  	</el-form-item>
+								  	<el-form-item label-width="0px">
+									    <el-radio-group v-model="radio">
+									      <el-radio label="所有人可留言"></el-radio>
+									      <el-radio label="仅关注后可留言"></el-radio>
+									    </el-radio-group>
+								  	</el-form-item>
+								  	<el-form-item label="原创">未声明</el-form-item>
+								</div>
+								<div class="middle_bottom">
+									<el-form-item label="发布样式编辑">
+								  	</el-form-item>
+									<el-form-item label="封面">
+									    <el-button>从图片库选择</el-button>
+								  	</el-form-item>
+								  	<el-form-item label="摘要">
+									    <el-input type="textarea"></el-input>
+								  	</el-form-item>
+								</div>
+						</div>
+						
+					
+						<div class="right">
+							<p>多媒体</p>
+							<el-button icon="el-icon-picture">图片</el-button>
+							<el-button icon="el-icon-view">视频</el-button>
+							<el-button icon="el-icon-service">音频</el-button>
+						</div>
+						<div class="middle_btn">
+							<el-form-item style="float: right;">
+							    <el-button style="margin-right: 10px;">预览</el-button>
+							    <el-button type="success">保存</el-button>
+						  	</el-form-item>
+						</div>
+					</el-form>	
+		    	</div>
+		    	
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+			checkbox1:"",
+			radio:'',
+	      };
+	    },
+	    methods: {
+			
+     	}
+    })
+ </script>
+</html>
