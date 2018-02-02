@@ -95,3 +95,9 @@ a:hover,a:focus{
 .artical_content{
 	margin: auto 20px;
 }
+.msg_tr_padding{
+	padding-bottom: 10px;
+}
+.el-table td, {
+	padding: 10px 0px;
+}

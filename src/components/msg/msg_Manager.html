@@ -181,7 +181,7 @@
 											</tr>
 											<tr height="30"></tr>
 											<tr>
-												<td colspan="2" width="240">
+												<td colspan="2" width="240" class="msg_tr_padding">
 													<el-button @click="dialogPreview = true">预览</el-button>
 													<el-button type="success">保存并发送</el-button>
 												</td>
@@ -259,7 +259,7 @@
 									    <el-table-column prop="content" label="内容">
 									    	<template slot-scope="scope">
 										      <div>{{scope.row.content}}</div>
-										      <div style="color: lightgray;">{{scope.row.mark}}</div>
+										      <div style="color: lightgray;font-size: small;">{{scope.row.mark}}</div>
 										    </template>
 									    </el-table-column>
 									    <el-table-column prop="role" label="发送人"></el-table-column>
@@ -323,8 +323,8 @@
 				    	</el-tab-pane>
 				    	<el-tab-pane label="群发历史" name="third">
 				    		
-				    		<el-input placeholder="请输入内容" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
-							    <el-button slot="append" icon="el-icon-search"></el-button>
+				    		<el-input placeholder="请输入内容" suffix-icon="el-icon-search" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
+							    
 							</el-input>
 							
 							<el-table :data="tableData" stripe style="width: 100%">
@@ -412,25 +412,25 @@
         	tableData: [{
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25',
 	          role:'发送人1'
 	        }],

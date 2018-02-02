@@ -166,7 +166,7 @@
 											</tr>
 											<tr height="30"></tr>
 											<tr>
-												<td colspan="2" width="240">
+												<td colspan="2" width="240" class="msg_tr_padding">
 													<el-button @click="dialogPreview = true">预览</el-button>
 													<el-button type="success">保存并审批</el-button>
 												</td>
@@ -256,7 +256,7 @@
 							    	<el-table-column prop="content" label="内容"></el-table-column>
 							    </el-table>
 							    
-							    <h3 style="color: #00A372;">审批通过</h3>
+							    <h3 style="color: #00A372;margin-top: 40px;">审批通过</h3>
 							    <h6>备注描述</h6>
 							  	<hr class="hr" />
 						  	    <el-table
@@ -283,7 +283,7 @@
 								    </el-table-column>
 							    </el-table>
 							    
-							    <h3 style="color: #CD0000;">审批未通过</h3>
+							    <h3 style="color: #CD0000;margin-top: 40px;">审批未通过</h3>
 							  	<h6>备注描述</h6>
 							  	<hr class="hr" />
 						  	    <el-table
@@ -336,8 +336,8 @@
 				    	</el-tab-pane>
 				    	<el-tab-pane label="群发历史" name="third">
 				    		
-				    		<el-input placeholder="请输入内容" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
-							    <el-button slot="append" icon="el-icon-search"></el-button>
+				    		<el-input placeholder="请输入内容" suffix-icon="el-icon-search" style="width: 200px;float: right;margin-bottom: 20px;" v-model="input5" class="input-with-select">
+							    
 							</el-input>
 							
 							<el-table :data="tableData" stripe style="width: 100%">
@@ -422,22 +422,22 @@
         	tableData: [{
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25'
 	        }, {
 	          image: '../../images/TIM20180123164334.png',
 	          content: '内容内容内容内容内容内容内容内容内容内容内容',
-	          mark:'备注备注备注备注备注备注备注备注备注备注备注',
+	          mark:'备注备注备注备注备注',
 	          time: '2017-12-25'
 	        }],
 	        //XXX开始
