@@ -48,7 +48,7 @@ body{
   	}
 	.AuChild{
 		width: 90%;
-		margin-left: 20px;
+		
 	}
 	.AuSelect{
 		width: 100%;
@@ -85,13 +85,16 @@ body{
   	.iconDivChild{
   		border: 1px lightgray solid;
   		border-radius:5px;
-  		height:45px;
+  		height: 60px;
   		width: 20%;
   	    margin: 10px;
   		float:left;
   		text-align:center
   	}
-  	.iconDiv i{
-  		font-size: 20px;
-  		margin-top: 8px;
-  	}
+  	.iconDiv i {
+	    font-size: 20px;
+	    margin-top: 18px;
+	}
+	.hrRigth{
+		border-top: 2px solid #C6C8CA;
+	}

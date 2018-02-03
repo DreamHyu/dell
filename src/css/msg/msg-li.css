@@ -70,15 +70,15 @@
 }
 .MaterialGroupsC{
 	height: 50px;
-	width: 28.3%;
-	background:gray;
+	width: 30.17%;
+	background: gray;
 	position: absolute;
-	bottom: 288px;
+	bottom: 307px;
 	opacity: 0;
 }
 .MaterialGroupsD{
 	height: 50px;
-	width: 28.3%;
+	width: 30.17%;
 	background:gray;
 	position: absolute;
 	bottom: 12px;
@@ -86,23 +86,23 @@
 }
 .MaterialGroupsE{
 	height: 50px;
-	width: 28.3%;
+	width: 30.17%;
 	background:gray;
 	position: absolute;
-	bottom: 528px;
+	bottom: 547px;
 	opacity: 0;
 }
 .MaterialGroupsF{
 	height: 50px;
-	width: 28.3%;
+	width: 30.17%;
 	background:gray;
 	position: absolute;
-	bottom: 368px;
+	bottom: 375px;
 	opacity: 0;
 }
 .MaterialGroupsG{
 	height: 35px;
-	width: 25.45%;
+	width: 30.17%;
 	background: gray;
 	position: absolute;
 	bottom: 460px;
@@ -111,12 +111,12 @@
 }
 .MaterialGroupsH {
     height: 35px;
-    width: 25.45%;
-    background: gray;
-    position: absolute;
-    bottom: 185px;
-    opacity: 0.5;
-    font-size: 18pt;
+	width: 27.12%;
+	background: gray;
+	position: absolute;
+	bottom: 190px;
+	opacity: 0.7;
+	font-size: 18pt;
 }
 .MaterialGroupsIcon{
 	width: 30px;
@@ -126,7 +126,7 @@
 	filter: brightness(2.3);
 }
 .MaterialGroupsIconY{
-	margin-left: 17%;
+	margin-left: 20%;
 	margin-top: 6px;
 }
 .MaterialGroupsIconZ{
@@ -162,40 +162,40 @@
 	opacity: 0.8;
 }
 .MaterialGroupsC:hover{
-	opacity: 0.8;
+	opacity: 0.5;
 }
 .MaterialGroupsD:hover{
-	opacity: 0.8;
+	opacity: 0.5;
 }
 .MaterialGroupsE:hover{
-	opacity: 0.8;
+	opacity: 0.5;
 }
 .MaterialGroupsF:hover{
-	opacity: 0.8;
+	opacity: 0.5;
 }
 .MaterialContent{
 	color: #C6C8CA;
 }
 .MaterialContentA{
-	width: 30%;
+	width: 32%;
 	float: left;
 }
 .MaterialContentAA{
-	border: 2px solid #D3D3D3;
+	border: 2px solid #EEEEEE;
 	background-color: #FFFFFF;
 	margin-bottom: 10px;
 }
 .MaterialContentAAA{
-	border: 2px solid #D3D3D3;
+	border: 2px solid #EEEEEE;
 	background-color: #FFFFFF;
 	margin-bottom: 10px;
-	height: 347.5px;
+	height: 353.5px;
 }
 .MaterialContentAAC{
-	border: 2px solid #D3D3D3;
+	border: 2px solid #EEEEEE;
 	background-color: #FFFFFF;
 	margin-bottom: 10px;
-	height: 268px;
+	height: 285px;
 }
 .MaterialContentAAMain{
 	width: 90%;
@@ -212,6 +212,7 @@
 .MaterialContentABC{
 	color: #808080;
 	font-size: large;
+	margin-bottom: 10px;
 }
 .MaterialContentAAContent{
 	width: 75%;
@@ -223,7 +224,7 @@
 }
 .MaterialContentAAImamgeA{
 	width: 100%;
-	height: 145px;
+	height: 136px;
 }
 .MaterialContentAAImamgeB{
 	width: 100%;
@@ -235,13 +236,13 @@
 	float: right;
 }
 .MaterialContentB{
-	width: 30%;
+	width: 32%;
     float: left;
-    margin-left: 5%;
-    margin-right: 5%;	
+    margin-left: 2%;
+    margin-right: 2%;	
 }
 .MaterialContentC{
-	width: 30%;
+	width: 32%;
 	float: left;
 }
 .MaterialPictrue{
@@ -331,5 +332,8 @@
 }
 .el-textarea__inner:focus {
     border-color: #00A372;
+}
+.el-tabs--card > .el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #00A372;
 }
 /*图文消息输入框*/

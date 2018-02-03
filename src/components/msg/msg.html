@@ -102,7 +102,7 @@
 									    	<div class="MaterialVideoMain">
 									    		<div class="MaterialVideoHead">
 									    			<div class="MaterialVideoFont">图文消息(共7条)</div>
-									    			<el-button type="success" class="MaterialVideoButton">新建图文素材</el-button>
+									    			<a href="imgText.html"><el-button type="success" class="MaterialVideoButton">新建图文素材</el-button></a>
 									    			<el-input style="width:15%;float: right;" suffix-icon="el-icon-search" v-model="input" placeholder="标题"></el-input>
 									    		</div>
 									    		<div class="MaterialContent">
@@ -395,7 +395,7 @@
 									    		<div class="MaterialVideoHead">
 									    			<div class="MaterialVideoFont">视频(共3条)</div>
 									    			<el-button type="success" class="MaterialVideoButton" @click="dialogVisibleB = true">添加</el-button>
-									    			<el-dialog title="提示" :visible.sync="dialogVisibleB" width="30%">
+									    			<el-dialog title="提示" :visible.sync="dialogVisibleB" width="50%">
 														  <div class="MaterialInputA">
 														  	<div class="MaterialInputB">标题</div>
 														  	<el-input class="MaterialInputC" v-model="input" placeholder="请输入内容"></el-input>

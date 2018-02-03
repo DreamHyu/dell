@@ -243,7 +243,211 @@
 									    	<div class="MaterialVideoMain">
 									    		<div class="MaterialVideoHead">
 									    			<div class="MaterialVideoFont">图片(共3条)</div>
-									    			<el-button type="success" class="MaterialVideoButton">上传</el-button>
+									    			
+									    			
+									    			
+									    			
+									    			
+									    			<el-button type="success" class="MaterialVideoButton" @click="dialogTableVisibleC = true">上传</el-button>
+									    			
+									    				<el-dialog title="添加音频" :visible.sync="dialogTableVisibleC" center>
+														  <el-table :data="gridData">
+														    <el-table-column property="number"></el-table-column>
+														    <el-table-column property="date"></el-table-column>
+														    <el-table-column property="time"></el-table-column>
+														  </el-table>		
+														  <span slot="footer" class="dialog-footer">
+														    <el-button @click="dialogTableVisibleC = false">取 消</el-button>
+														    <el-button type="primary" @click="dialogTableVisibleC = false">确 定</el-button>
+														  </span>
+														</el-dialog>
+									    			
+									    			
+									    			
+									    			
+									    			<!--<el-dialog title="添加视频" :visible.sync="dialogTableVisibleC" center>
+														  <table class="dialogVideoTable">
+														    <tr>
+														  		<td class="dialogVideoTd">
+														  			<div class="dialogVideoTdC">
+														  				<div class="dialogVideoTdF">name1</div>
+														  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVideoTdF">描述描述描述</div>
+														  				<div class="dialogPositionTop">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVideoTd">
+														  			<div class="dialogVideoTdC">
+														  				<div class="dialogVideoTdF">name1</div>
+														  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVideoTdF">描述描述描述</div>
+														  				<div class="dialogPositionTop">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVideoTd">
+														  			<div class="dialogVideoTdC">
+														  				<div class="dialogVideoTdF">name1</div>
+														  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVideoTdF">描述描述描述</div>
+														  				<div class="dialogPositionTop">try</div>
+														  			</div>
+														  		</td>
+														  	</tr>
+														  	<tr>
+														  		<td class="dialogVideoTd">
+														  			<div class="dialogVideoTdC">
+														  				<div class="dialogVideoTdF">name1</div>
+														  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVideoTdF">描述描述描述</div>
+														  				<div class="dialogPosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVideoTd">
+														  			<div class="dialogVideoTdC">
+														  				<div class="dialogVideoTdF">name1</div>
+														  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVideoTdF">描述描述描述</div>
+														  				<div class="dialogPosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVideoTd">
+														  			<div class="dialogVideoTdC">
+														  				<div class="dialogVideoTdF">name1</div>
+														  				<img class="dialogVideoTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVideoTdF">描述描述描述</div>
+														  				<div class="dialogPosition">try</div>
+														  			</div>	
+														  		</td>
+														  	</tr>
+														  </table>		
+														  <span slot="footer" class="dialog-footer">
+														    <el-button @click="dialogTableVisibleC = false">取 消</el-button>
+														    <el-button type="primary" @click="dialogTableVisibleC = false">确 定</el-button>
+														  </span>
+														</el-dialog>
+														
+														
+														
+														
+														<el-dialog title="添加图片" :visible.sync="dialogTableVisibleC" center>
+														  <table class="dialogVoiceTable">
+														  	<tr>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePosition">try</div>
+														  			</div>
+														  		</td>
+														  	</tr>
+														  	<tr>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  		<td class="dialogVoiceTd">
+														  			<div class="dialogVoiceTdC">
+														  				<img class="dialogVoiceTdI" src="../../images/loginbg.png" />
+														  				<div class="dialogVoiceTdF">name1</div>
+														  				<div class="dialogVoicePositionButton">try</div>
+														  			</div>
+														  		</td>
+														  	</tr>
+														  </table>
+														  
+														  <span slot="footer" class="dialog-footer">
+														    <el-button @click="dialogTableVisibleC = false">取 消</el-button>
+														    <el-button type="primary" @click="dialogTableVisibleC = false">确 定</el-button>
+														  </span>
+														</el-dialog>-->
+														
+														
+														
+														
+														
+														
+														
+														
 									    		</div>
 									    		<div>
 									    			<el-row>
@@ -572,6 +776,9 @@
 		  </el-container>
 		</el-container>
 	</div>
+												
+														
+														
 </body>
 	<!-- 先引入 Vue -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -643,10 +850,30 @@
 	          VoiceImg: '../../images/MsgMaterVoice1.png',
 	        }],
 	        //结束
+	        //
+	        dialogTableVisibleC: false,
+	        gridData: [{
+          date: '2016-05-02',
+          number: '1234567890-',
+          time: '00:01',
+        }, {
+          date: '2016-05-04',
+          number: '1234567890-',
+          time: '00:01',
+        }, {
+          date: '2016-05-01',
+          number: '1234567890-',
+          time: '00:01',
+        }, {
+          date: '2016-05-03',
+          number: '1234567890-',
+          time: '00:01',
+        }],
+	        //
 	      };
 	    },
 	    methods: {
-			
+			  
      	}
     })
  </script>
@@ -687,6 +914,92 @@
 	}
 	h6{
 		color: lightgray;
+	}
+	
+	
+	
+	
+	/*****/
+	.el-table th{
+		background-color: #FFFFFF;
+	}
+	.dialogVoiceTable{
+		border-collapse: separate;
+		border-spacing: 10px;
+	}
+	.dialogVoiceTd{
+		width: 14%;
+	}
+	.dialogVoiceTdC{
+		border: 1px solid #A9A9A9
+	}
+	.dialogVoiceTdI{
+		width: 100%;
+	}
+	.dialogVoiceTdF{
+		text-align: center;
+		background-color: #D3D3D3;
+	}
+	
+	
+	.dialogVideoTable{
+		border-collapse: separate;
+		border-spacing: 10px;
+	}
+	.dialogVideoTd{
+		
+	}
+	.dialogVideoTdC{
+		border: 1px solid #A9A9A9;
+		padding: 10px;
+	}
+	.dialogVideoTdI{
+		width: 100%;	
+  }
+	.dialogVideoTdF{
+    
+	}
+	.dialogPosition{
+		height: 196px;
+		width: 26.5%;
+		background: #00A372;
+		position: absolute;
+		bottom: 114px;
+		opacity: 0;
+	}
+	.dialogPosition:hover{
+		opacity: 0.7;
+	}
+	.dialogPositionTop{
+		height: 196px;
+		width: 26.5%;
+		background: #00A372;
+		position: absolute;
+		bottom: 387px;
+		opacity: 0;
+	}
+	.dialogPositionTop:hover{
+		opacity: 0.7;
+	}
+	.dialogVoicePosition{
+		height: 85px;
+		width: 11.8%;
+		background: #00A372;
+		position: absolute;
+		bottom: 225px;
+		opacity: 0;
+	}.dialogVoicePosition:hover{
+		opacity: 0.7;
+	}
+	.dialogVoicePositionButton{
+		height: 85px;
+		width: 11.8%;
+		background: #00A372;
+		position: absolute;
+		bottom: 104.5px;;
+		opacity: 0;
+	}.dialogVoicePositionButton:hover{
+		opacity: 0.7;
 	}
  </style>
 </html>
