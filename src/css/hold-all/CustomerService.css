@@ -440,3 +440,47 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	cursor: pointer;
 	background-color: #E0E0E0;
 }
+
+/*以下是聊天历史*/
+/*=================================================================*/
+/*leftDiv*/
+.HistoryChatting-leftDiv{
+	width: 30%;
+	height: 100%;
+	background-color: #FFFFFF;
+	float: left;
+	border-radius: 5px;
+	border: 1px solid #E0E0E0;
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.HistoryChatting-middleDiv{
+	width: 34%;
+	height: 100%;
+	float: left;
+	background-color: #FFFFFF;
+	margin-left: 3%;
+	border-radius: 5px;
+	border: 1px solid #E0E0E0;
+	padding: 10px;
+}
+.HistoryChatting-rightDiv{
+	width: 30%;
+	height: 100%;
+	background-color: #FFFFFF;
+	float: right;
+	border-radius: 5px;
+	border: 1px solid #E0E0E0;
+	padding: 10px;
+}
