@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>聊天窗口</title>
+  <!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/frame.css" />
+</head>
+
+<body>
+	<div id="app">
+		<el-container>
+			<el-header height="50px">
+				<nav id="topNav" class="navbar-inverse" role="navigation">
+					<div class="container-fluid">
+					    <div class="navbar-header">
+					    	<img src="../../images/logo.png" />
+					    </div>
+					    <div>			
+					    	<ul class="nav navbar-nav">
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	公众号名称 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">名称0</a></li>
+					                    <li><a href="#">名称1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">名称3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					        <ul class="nav navbar-nav navbar-right">
+					        	<li>
+				        			<img src="../../images/user_img.png" class="img-circle">
+					        	</li>
+					            <li class="dropdown">
+					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				                    	用户名 <b class="caret"></b>
+					                </a>
+					                <ul class="dropdown-menu">
+					                	<li><a href="#">用户0</a></li>
+					                    <li><a href="#">用户1</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户2</a></li>
+					                    <li class="divider"></li>
+					                    <li><a href="#">用户3</a></li>
+					                </ul>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</nav>
+			</el-header>
+		  <el-container>
+		    <el-aside width="70px">
+		    	<nav id="leftNav" class="navbar-inverse">
+					<div class="container-fluid">
+					    <div>
+					    	<ul class="nav navbar-nav">
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+								</li>
+								<li class="">
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+								</li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+								</li>
+							</ul>
+					    </div>
+					</div>
+				</nav>
+		    </el-aside>
+		    <el-main>
+		    	<!--
+                	作者：954380531@qq.com
+                	时间：2018-02-05
+                	描述：聊天指派
+                -->
+		    	<el-button type="success" @click="dialogFormVisible = true">聊天指派</el-button>
+				<el-dialog title="聊天指派" center :visible.sync="dialogFormVisible">
+				  <el-form :inline="false">
+				    <el-form-item style="float: left;" label="客户" :label-width="formLabelWidth">
+				      Larry
+				    </el-form-item>
+				    <el-form-item style="float: right;" label="客户类型" :label-width="formLabelWidth">
+				      XXX
+				    </el-form-item>
+				    <el-form-item style="clear: both;" label="指派备注" :label-width="formLabelWidth">
+				      	<el-input
+						  type="textarea"
+						  :autosize="{ minRows: 2, maxRows: 4}"
+						  placeholder="请输入备注内容">
+						</el-input>
+				    </el-form-item>
+				    <el-form-item label="指派至" :label-width="formLabelWidth">
+				    	<el-cascader
+						  :options="options"
+						  v-model="selectedOptions3"
+						></el-cascader>
+				    </el-form-item>
+				  </el-form>
+				  <div slot="footer" class="dialog-footer">
+				    <el-button @click="dialogFormVisible = false">取 消</el-button>
+				    <el-button type="success" @click="dialogFormVisible = false">确 定</el-button>
+				  </div>
+				</el-dialog>
+				
+				<!--
+                	作者：954380531@qq.com
+                	时间：2018-02-05
+                	描述：聊天转移
+                -->
+                <el-button type="success" @click="dialogFormVisible1 = true">聊天转移</el-button>
+				<el-dialog title="聊天转移" center :visible.sync="dialogFormVisible1">
+				  <el-form label-position="left" :inline="false">
+				  	<el-form-item label="聊天转移申请" :label-width="formLabelWidth">
+				    </el-form-item>
+				    <el-form-item style="float: left;" label="客户" :label-width="formLabelWidth">
+				      Larry
+				    </el-form-item>
+				    <el-form-item style="float: right;" label="客户类型" :label-width="formLabelWidth">
+				      XXX
+				    </el-form-item>
+				    <el-form-item style="clear: both;" label="转移备注" :label-width="formLabelWidth">
+				      	<el-input
+						  type="textarea"
+						  :autosize="{ minRows: 2, maxRows: 4}"
+						  placeholder="请输入备注内容">
+						</el-input>
+				    </el-form-item>
+				    <el-form-item label="申请转移至" :label-width="formLabelWidth">
+			    		<el-select v-model="value" placeholder="请选择">
+						    <el-option
+						      v-for="item in options"
+						      :key="item.value"
+						      :label="item.label"
+						      :value="item.value">
+					    </el-option>
+					  </el-select>
+				    </el-form-item>
+				  </el-form>
+				  <div slot="footer" class="dialog-footer">
+				    <el-button @click="dialogFormVisible1 = false">取 消</el-button>
+				    <el-button type="success" @click="dialogFormVisible1 = false">确 定</el-button>
+				  </div>
+				</el-dialog>
+				<!--
+                	作者：954380531@qq.com
+                	时间：2018-02-05
+                	描述：指派提示
+                -->
+                <el-button type="success" @click="dialogFormVisible2 = true">指派通知</el-button>
+				<el-dialog width="30%" :modal="false" title="通知" center :visible.sync="dialogFormVisible2">
+				  	<p><strong>新客户指派提示</strong></p>
+					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+					<p>指派备注：指派备注描述</p>
+					<p>指派人：经理A</p>
+				  <div slot="footer" class="dialog-footer">
+				    <el-button type="success" @click="dialogFormVisible2 = false">确定</el-button>
+				  </div>
+				</el-dialog>
+				<!--
+                	作者：954380531@qq.com
+                	时间：2018-02-05
+                	描述：转移提示
+                -->
+				<el-button type="success" @click="dialogFormVisible3 = true">转移通知</el-button>
+				<el-dialog width="30%" :modal="false" title="通知" center :visible.sync="dialogFormVisible3">
+				  	<p><strong>新客户转移提示</strong></p>
+					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+					<p>转移备注：指派备注描述</p>
+					<p>申请转移席位：A2</p>
+				  <div slot="footer" class="dialog-footer">
+				  	<el-button @click="dialogFormVisible3 = false">拒绝</el-button>
+				    <el-button type="success" @click="dialogFormVisible3 = false">接受</el-button>
+				  </div>
+				</el-dialog>
+				<!--
+                	作者：954380531@qq.com
+                	时间：2018-02-05
+                	描述：转移成功
+                -->
+				<el-button type="success" @click="dialogFormVisible4 = true">转移成功</el-button>
+				<el-dialog width="30%" :modal="false" title="转接成功" center :visible.sync="dialogFormVisible4">
+					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+					<p>申请转移席位：A2</p>
+				  <div slot="footer" class="dialog-footer">
+				  	<el-button @click="dialogFormVisible4 = false">取消</el-button>
+				    <el-button type="success" @click="dialogFormVisible4 = false">确定</el-button>
+				  </div>
+				</el-dialog>
+				<!--
+                	作者：954380531@qq.com
+                	时间：2018-02-05
+                	描述：转移失败
+                -->
+				<el-button type="success" @click="dialogFormVisible5 = true">转移失败</el-button>
+				<el-dialog width="30%" :modal="false" title="转接失败" center :visible.sync="dialogFormVisible5">
+					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+					<p>申请转移席位：A2</p>
+				  <div slot="footer" class="dialog-footer">
+				  	<el-button @click="dialogFormVisible4 = false">取消</el-button>
+				    <el-button type="success" @click="dialogFormVisible5 = false">确定</el-button>
+				  </div>
+				</el-dialog>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</body>
+	<!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+    new Vue({
+      el: '#app',
+      data() {
+	      return {
+        	dialogFormVisible: false,
+        	dialogFormVisible1: false,
+        	dialogFormVisible2: false,
+        	dialogFormVisible3: false,
+        	dialogFormVisible4: false,
+        	dialogFormVisible5: false,
+	        options: [{
+	          value: 'groupA',
+	          label: '小组A',
+	          children: [{
+	            value: 'a1',
+	            label: 'A1'
+	          }, {
+	            value: 'a2',
+	            label: 'A2'
+	          },
+	          {
+	            value: 'a3',
+	            label: 'A3'
+	          },
+	          {
+	            value: 'a4',
+	            label: 'A4'
+	          },
+	          {
+	            value: 'a5',
+	            label: 'A5'
+	          },
+	          {
+	            value: 'a6',
+	            label: 'A6'
+	          },
+	          {
+	            value: 'a7',
+	            label: 'A7'
+	          },
+	          {
+	            value: 'a8',
+	            label: 'A8'
+	          },
+	          {
+	            value: 'a9',
+	            label: 'A9'
+	          },
+	          {
+	            value: 'a10',
+	            label: 'A10'
+	          }]
+	        },{
+	          value: 'groupB',
+	          label: '小组B',
+	          children: [{
+	            value: 'b1',
+	            label: 'B1'
+	          }, {
+	            value: 'b2',
+	            label: 'B2'
+	          },
+	          {
+	            value: 'b3',
+	            label: 'B3'
+	          },
+	          {
+	            value: 'b4',
+	            label: 'B4'
+	          },
+	          {
+	            value: 'b5',
+	            label: 'B5'
+	          },
+	          {
+	            value: 'b6',
+	            label: 'B6'
+	          },
+	          {
+	            value: 'b7',
+	            label: 'B7'
+	          },
+	          {
+	            value: 'b8',
+	            label: 'B8'
+	          },
+	          {
+	            value: 'b9',
+	            label: 'B9'
+	          },
+	          {
+	            value: 'b10',
+	            label: 'B10'
+	          }]
+	        }
+	        ],
+	        value: "",
+	        options: [{
+	          value: '选项1',
+	          label: 'A1'
+	        }, {
+	          value: '选项2',
+	          label: 'A2'
+	        }, {
+	          value: '选项3',
+	          label: 'A3'
+	        }, {
+	          value: '选项4',
+	          label: 'A4'
+	        }, {
+	          value: '选项5',
+	          label: 'A5'
+	        }, {
+	          value: '选项6',
+	          label: 'A6'
+	        }, {
+	          value: '选项7',
+	          label: 'A7'
+	        }, {
+	          value: '选项8',
+	          label: 'A8'
+	        }, {
+	          value: '选项9',
+	          label: 'A9'
+	        }, {
+	          value: '选项10',
+	          label: 'A10'
+	        }],
+	        selectedOptions3: ['groupB', 'b1'],
+	        formLabelWidth: '120px'
+	      };
+	    },
+	    methods: {
+			open8() {
+		        this.$notify.info({
+		          title: '通知',
+		          dangerouslyUseHTMLString: true,
+		          message: '<p><strong>新客户指派提示</strong></p><br/><p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p><br/><p>指派备注：指派备注描述</p><br/><p>指派人：经理A</p><br/><button type="button" style="float:right;" class="el-button el-button--default"><span>确定</span></button>',
+		          position: 'bottom-right',
+		          duration:0
+		        });
+	      	},
+	      	close1() {
+                this.$notify.close()
+            }
+     	}
+    })
+ </script>
+ <style>
+ </style>
+</html>
