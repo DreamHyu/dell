@@ -138,12 +138,16 @@ table.WaitingQueue-list span>h6{
  	margin: 0 auto;
 	border-collapse: collapse;
 }
+table.WaitingQueue-basicInfo tr{
+	/*height: 20px;*/
+}
  table.WaitingQueue-basicInfo tr td{
+ 	font-size: 12px;
  	opacity: 0.5;
 }
 table.WaitingQueue-basicInfo tr td:first-child{
 	text-align: left;
-	width: 30%;
+	width: 40%;
 }
 
 .el-tabs__active-bar {
