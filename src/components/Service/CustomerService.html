@@ -572,7 +572,7 @@
 							    					</div>
 							    					<!--聊天内容区-->
 							    					<div ref="chattingContent" style="height:500px;padding: 20px;overflow-y: auto;overflow-x: hidden;">
-							    						<my-block v-for="detail in details" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    						<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    					</div>
 							    				</div>
 							    				<!--中中-->
@@ -842,7 +842,7 @@
 							    				</div>
 							    				<hr class="hr" />
 							    				<div class="HistoryChatting-contentZone" style="height: 620px;overflow-y: auto;">
-							    					<my-block v-for="detail in details" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    					<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    				</div>
 							    			</div>
 							    		</div>
@@ -928,20 +928,21 @@
 		</style>
 	<script type="text/template" id="myBlock">
 		<div v-if="type==='customer'" class="leftDiv">
-			<img src="../../images/MemberList2.png" class="leftImg"/>
+			<img :src="img" class="leftImg"/>
 			<div class="leftMsg">
 				<span class="timeZone">{{time}}</span>
 				<span class="leftMsgZone">{{message}}</span>
 			</div>
 		</div>
 		<div v-else class="rightDiv">
-			<img src="../../images/MemberList2.png" class="rightImg"/>
+			<img :src="img" class="rightImg"/>
 			<div class="rightMsg">
 				<span class="timeZone">{{time}}</span>
 				<span class="rightMsgZone">{{message}}</span>
 			</div>
 		</div>
 	</script>
+	
 	<script>
 		Vue.component("my-block",
 		{
@@ -965,40 +966,41 @@
 					response2:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
 					response3:'请您就本次服务完成客户满意度调查',
 					msgToBeSend:'',
+					newDate:new Date(),
 					details:[
 					{
 						type:'customer',
 						time:'2018/05/02 17:03',
-						img:'',
+						img:'../../images/MemberList2.png',
 						message:'您好'
 					},
 					{
 						type:'server',
 						time:'2018/05/02 17:03',
-						img:'',
+						img:'../../images/UserMg3.png',
 						message:'您也好'
 					},
 					{
 						type:'customer',
 						time:'2018/05/02 17:03',
-						img:'',
+						img:'../../images/MemberList2.png',
 						message:'您好'
 					},
 					{
 						type:'server',
 						time:'2018/05/02 17:03',
-						img:'',
+						img:'../../images/UserMg3.png',
 						message:'您也好'
 					},
 					{
 						type:'customer',
 						time:'2018/05/02 17:03',
-						img:'',
+						img:'../../images/MemberList2.png',
 						message:'您好'
 					},{
 						type:'server',
 						time:'2018/05/02 17:03',
-						img:'',
+						img:'../../images/UserMg3.png',
 						message:'您也好'
 					}]
 				};
@@ -1011,18 +1013,47 @@
 					})
 				}
 			},
+			filters: {
+			    formatDate(time) {
+			      var date = new Date(time);
+			      return this.formatDate(time, "yyyy-MM-dd hh:mm:ss");
+			    }
+			},
 			methods: {
 				handleClick(){
 					
 				},
 				sendMsg(){
 						var newDetail = {
+							img:'../../images/UserMg3.png',
 							type:'server',
-							time:'2018/05/02 17:41',
-							message:this.msgToBeSend
+							time:this.formatDate(new Date(),"yyyy-MM-dd hh:mm:ss"),
+							message:this.msgToBeSend,
 						};
 						this.details.push(newDetail);
 						this.msgToBeSend='';
+				},
+				formatDate(date,fmt){
+				    if(/(y+)/.test(fmt)){
+				        fmt = fmt.replace(RegExp.$1, (date.getFullYear()+'').substr(4-RegExp.$1.length));
+				    }
+				    let o = {
+				        'M+': date.getMonth()+1,
+				        'd+': date.getDate(),
+				        'h+': date.getHours(),
+				        'm+': date.getMinutes(),
+				        's+': date.getSeconds()
+				    }
+				    for(let k in o){    
+				        let str = o[k]+'';
+				        if(new RegExp(`(${k})`).test(fmt)){
+				            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length===1)?str:this.padLeftZero(str));
+				        }
+				    }
+				    return fmt;
+				},
+				padLeftZero(str){
+				    return ('00'+str).substr(str.length);
 				}
 			}
 		})
