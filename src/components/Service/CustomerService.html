@@ -571,7 +571,9 @@
 							    						<i class="ChattingWindow-middleDivButtonIconClose"></i>
 							    					</div>
 							    					<!--聊天内容区-->
-							    					<div></div>
+							    					<div style="padding: 20px;">
+							    						<my-block v-for="detail in details" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    					</div>
 							    				</div>
 							    				<!--中中-->
 							    				<div class="ChattingWindow-middleDivMiddle">
@@ -967,31 +969,31 @@
 						type:'customer',
 						time:'2018/05/02 17:03',
 						img:'',
-						message:'您好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+						message:'您好'
 					},
 					{
 						type:'server',
 						time:'2018/05/02 17:03',
 						img:'',
-						message:'您也好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+						message:'您也好'
 					},
 					{
 						type:'customer',
 						time:'2018/05/02 17:03',
 						img:'',
-						message:'您好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+						message:'您好'
 					},
 					{
 						type:'server',
 						time:'2018/05/02 17:03',
 						img:'',
-						message:'您也好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+						message:'您也好'
 					},
 					{
 						type:'customer',
 						time:'2018/05/02 17:03',
 						img:'',
-						message:'您好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+						message:'您好'
 					}]
 				};
 			},
