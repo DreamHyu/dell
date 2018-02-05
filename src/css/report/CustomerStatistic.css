@@ -1,0 +1,55 @@
+body{
+  	background-color: #F7F7F7;
+}
+.csMain{
+	width: 90%;
+	margin: auto;
+}
+/*内容*/
+.csContent{
+	width: 100%;
+	background-color: #F7F7F7;
+}
+/*标题区*/
+.csTitle{
+	height: 40px;
+}
+.csTitle span{
+	display: block;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	font-size: 16px;
+	margin-left: 8%;
+	line-height: 40px;
+}
+.csTitle hr{
+	margin-top: 0px;
+	width: 90%;
+	opacity: 0.5;
+}
+/*区域*/
+.areaAll{
+	margin: 0 auto;
+	width: 86%;
+}
+.areaAll hr,.areaFirst,.areaSecond,.areaThird{
+	clear: both;
+}
+/*选项区1*/
+.selectArea{
+	float: right;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+/*区域1*/
+.areaFirst{
+	height: 30%;
+}
+/*区域2*/
+.areaSecond{	
+	height: 30%;
+	
+}
+/*区域3*/
+.areaThird{
+}
