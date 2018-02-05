@@ -571,7 +571,7 @@
 							    						<i class="ChattingWindow-middleDivButtonIconClose"></i>
 							    					</div>
 							    					<!--聊天内容区-->
-							    					<div style="padding: 20px;">
+							    					<div style="height:500px;padding: 20px;overflow-y: auto;overflow-x: hidden;">
 							    						<my-block v-for="detail in details" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    					</div>
 							    				</div>
@@ -841,7 +841,7 @@
 							    					<span>聊天详细</span>
 							    				</div>
 							    				<hr class="hr" />
-							    				<div class="HistoryChatting-contentZone">
+							    				<div class="HistoryChatting-contentZone" style="height: 620px;overflow-y: auto;">
 							    					<my-block v-for="detail in details" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    				</div>
 							    			</div>
@@ -994,6 +994,41 @@
 						time:'2018/05/02 17:03',
 						img:'',
 						message:'您好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好'
 					}]
 				};
 			},
