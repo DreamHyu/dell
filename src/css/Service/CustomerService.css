@@ -453,12 +453,44 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	border: 1px solid #E0E0E0;
 	padding: 10px;
 }
+.HistoryChatting-titleZone{
+	position: relative;
+	height: 40px;
+}
+.HistoryChatting-contentZone{
+	width: 90%;
+	margin: 0 auto;
+}
 
+.HistoryChatting-titleZone span{
+	position: absolute;
+	display: block;
+	font-family: "微软雅黑";
+	font-size: 20px;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
 
-
-
-
-
+.HistoryChatting-contentZone form select{
+	width: 100%;
+	height: 30px;
+	font-size: 10px;
+	font-family: "微软雅黑";
+	border-radius: 5px;
+}
+.HistoryChatting-contentZone form input[type="text"]{
+	width: 100%;
+	height: 30px;
+	font-size: 10px;
+	font-family: "微软雅黑";
+	border-radius: 5px;
+}
+.searchButton{
+	float: right;
+	margin-top: 20px;
+}
 
 
 
@@ -475,6 +507,25 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	border: 1px solid #E0E0E0;
 	padding: 10px;
 }
+table{
+	width: 100%;
+}
+table thead tr{
+	width: 100%;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	height: 40px;
+}
+table tbody tr{
+	height: 30px;
+	font-size: 16px;
+}
+
+
+
+
+
+
 .HistoryChatting-rightDiv{
 	width: 30%;
 	height: 100%;

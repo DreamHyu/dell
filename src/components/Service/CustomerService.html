@@ -730,16 +730,119 @@
 							    		<div class="wrapper">
 							    			<!--leftDiv-->
 							    			<div class="HistoryChatting-leftDiv">
-							    				<div>
-							    					<h3>筛选条件</h3>
-							    					<hr class="hr" />
+							    				<div class="HistoryChatting-titleZone">
+							    					<span>筛选条件</span>
 							    				</div>
-							    				<div></div>
+							    				<hr class="hr" />
+							    				<div class="HistoryChatting-contentZone">
+							    					<form>
+							    						<h4>座席</h4>
+							    						<select>
+							    							<option>座席1</option>
+							    							<option>座席1</option>
+							    							<option>座席1</option>
+							    							<option>座席1</option>
+							    						</select>
+							    						<h4>标签</h4>
+							    						<select>
+							    							<option>标签1</option>
+							    							<option>标签1</option>
+							    							<option>标签1</option>
+							    							<option>标签1</option>
+							    						</select>
+							    						<h4>时间</h4>
+							    						<select>
+							    							<option>time1</option>
+							    							<option>time1</option>
+							    							<option>time1</option>
+							    							<option>time1</option>
+							    						</select>
+							    						<h4>关键字</h4>
+							    						<input type="text" />
+							    						<el-button type="success" size="small" class="searchButton">搜索</el-button>
+							    					</form>
+							    				</div>
 							    			</div>
 							    			<!--middleDiv-->
-							    			<div class="HistoryChatting-middleDiv"></div>
+							    			<div class="HistoryChatting-middleDiv">
+							    				<div class="HistoryChatting-titleZone">
+							    					<span>聊天记录</span>
+							    				</div>
+							    				<hr class="hr" />
+							    				<div class="HistoryChatting-contentZone">
+							    					<table>
+							    						<thead>
+							    							<tr>
+							    								<th>ChatID</th>
+							    								<th>客户姓名</th>
+							    								<th>座席姓名/席号</th>
+							    								<th>日期</th>
+							    							</tr>
+							    						</thead>
+							    						<tbody>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							
+							    						</tbody>
+							    					</table>
+							    				</div>
+							    			</div>
 							    			<!--rightDiv-->
-							    			<div class="HistoryChatting-rightDiv"></div>
+							    			<div class="HistoryChatting-rightDiv">
+							    				<div class="HistoryChatting-titleZone">
+							    					<span>聊天详细</span>
+							    				</div>
+							    				<hr class="hr" />
+							    				<div class="HistoryChatting-contentZone">
+							    					<my-block v-for="detail in details" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    				</div>
+							    			</div>
 							    		</div>
 							    	</div>
 							    </el-tab-pane>
@@ -757,7 +860,92 @@
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			.leftDiv{
+				width: 80%;
+				float: left;
+				position: relative;
+				margin-top: 10px;
+			}
+			.leftImg{
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				border-radius: 16px;
+				left: 0px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.timeZone{
+				font-size: 10px;
+				font-family: "微软雅黑";
+				display: block;
+				opacity: 0.6;
+			}
+			.leftMsgZone{
+				font-size: 16px;
+				padding: 10px;
+				background-color: #E0E0E0;
+				color: darkslategray;
+				border-radius: 5px;
+				display: block;
+				word-break:break-all;
+			}
+			.leftMsg{
+				float: left;
+				margin-left: 40px;
+			}
+			.rightDiv{
+				width: 80%;
+				float: right;
+				position: relative;
+				margin-top: 10px;
+			}
+			.rightImg{
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				border-radius: 16px;
+				right: 0px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.rightMsgZone{
+				font-size: 16px;
+				padding: 10px;
+				background-color: lightseagreen;
+				color: #fff;
+				border-radius: 5px;
+				display: block;
+				word-break:break-all;
+			}
+			.rightMsg{
+				float: right;
+				margin-right: 40px;
+			}
+		</style>
+	<script type="text/template" id="myBlock">
+		<div v-if="type==='customer'" class="leftDiv">
+			<img src="../../images/MemberList2.png" class="leftImg"/>
+			<div class="leftMsg">
+				<span class="timeZone">{{time}}</span>
+				<span class="leftMsgZone">{{message}}</span>
+			</div>
+		</div>
+		<div v-else class="rightDiv">
+			<img src="../../images/MemberList2.png" class="rightImg"/>
+			<div class="rightMsg">
+				<span class="timeZone">{{time}}</span>
+				<span class="rightMsgZone">{{message}}</span>
+			</div>
+		</div>
+	</script>
 	<script>
+		Vue.component("my-block",
+		{
+			props:['type','time','message','img'],
+			template:"#myBlock"
+		})
 		new Vue({
 			el: '#app',
 			data() {
@@ -773,7 +961,38 @@
 					visible11: false,visible12: false,
 					response1:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
 					response2:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
-					response3:'请您就本次服务完成客户满意度调查'
+					response3:'请您就本次服务完成客户满意度调查',
+					details:[
+					{
+						type:'customer',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+					},
+					{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+					},
+					{
+						type:'customer',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+					},
+					{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您也好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+					},
+					{
+						type:'customer',
+						time:'2018/05/02 17:03',
+						img:'',
+						message:'您好dddddddddddddddddddddddddddddddddddssssssssssssssssssssssss'
+					}]
 				};
 			},
 			methods: {
