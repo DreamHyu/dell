@@ -2,6 +2,9 @@
 body{
   	background-color: #F7F7F7;
 }
+div{
+	overflow: hidden;
+}
 .wqMain{
 	width: 90%;
 	margin: auto;
@@ -300,6 +303,7 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	border-radius: 5px;
 }
 .ChattingWindow-middleDivButtons{
+	z-index: 1;
 	position: absolute;
 	top: 10px;
 	width: 100%;
@@ -445,7 +449,7 @@ table.WaitingQueue-basicInfo tr td:first-child{
 /*=================================================================*/
 /*leftDiv*/
 .HistoryChatting-leftDiv{
-	width: 30%;
+	width: 20%;
 	height: 100%;
 	background-color: #FFFFFF;
 	float: left;
@@ -498,11 +502,11 @@ table.WaitingQueue-basicInfo tr td:first-child{
 
 
 .HistoryChatting-middleDiv{
-	width: 34%;
+	width: 46%;
 	height: 100%;
 	float: left;
 	background-color: #FFFFFF;
-	margin-left: 3%;
+	margin-left: 2%;
 	border-radius: 5px;
 	border: 1px solid #E0E0E0;
 	padding: 10px;
