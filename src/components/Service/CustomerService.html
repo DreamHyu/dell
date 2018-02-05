@@ -598,8 +598,8 @@
 													        </li>
 													    </ul>
 													</div>-->
-													<textarea></textarea>
-							    					<el-button type="success" class="ChattingWindow-middleDivDown-button" size="mini">发送</el-button>
+													<textarea v-model="msgToBeSend"></textarea>
+							    					<el-button type="success" class="ChattingWindow-middleDivDown-button" size="mini" @click="sendMsg">发送</el-button>
 							    				</div>
 							    			</div>
 							    			<!--right-->
@@ -964,6 +964,7 @@
 					response1:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
 					response2:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
 					response3:'请您就本次服务完成客户满意度调查',
+					msgToBeSend:'',
 					details:[
 					{
 						type:'customer',
@@ -999,42 +1000,21 @@
 						time:'2018/05/02 17:03',
 						img:'',
 						message:'您也好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'',
-						message:'您也好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'',
-						message:'您也好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'',
-						message:'您也好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'',
-						message:'您也好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'',
-						message:'您也好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'',
-						message:'您也好'
 					}]
 				};
 			},
 			methods: {
 				handleClick(){
 					
+				},
+				sendMsg(){
+						var newDetail = {
+							type:'server',
+							time:'2018/05/02 17:41',
+							message:this.msgToBeSend
+						};
+						this.details.push(newDetail);
+						this.msgToBeSend='';
 				}
 			}
 		})
