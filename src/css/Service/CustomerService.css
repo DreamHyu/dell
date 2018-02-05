@@ -5,6 +5,17 @@ body{
 div{
 	overflow: hidden;
 }
+::-webkit-scrollbar{
+	background-color: lightblue;
+	width: 2px;
+	border-radius: 1px;
+}
+::-webkit-scrollbar:hover{
+	background-color: cadetblue;
+}
+/*::-webkit-scrollbar-thumb:vertical{
+	back
+}*/
 .wqMain{
 	width: 90%;
 	margin: auto;
