@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../../css/frame.css" />
-		<link rel="stylesheet" href="../../css/hold-all/CustomerService.css" />
+		<link rel="stylesheet" href="../../css/Service/CustomerService.css" />
 	</head>
 
 	<body>
@@ -81,25 +81,25 @@
 								<div>
 									<ul class="nav navbar-nav">
 										<li class="">
-											<a href="#"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+											<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
 										</li>
 										<li class="">
-											<a href="#"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+											<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+										</li>
+										<li class="active">
+											<a href="CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
 										</li>
 										<li class="">
-											<a href="#"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+											<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
 										</li>
 										<li class="">
-											<a href="#"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+											<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
 										</li>
 										<li class="">
-											<a href="#"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
-										</li>
-										<li class="">
-											<a href="#"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+											<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
 										</li>
 										<li>
-											<a href="#"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+											<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
 										</li>
 									</ul>
 								</div>
@@ -110,7 +110,7 @@
 						<div class="wqMain">
 							<!--菜单栏-->
 							<template>
-							  <el-tabs @tab-click="handleClick">
+							  <el-tabs v-model="menu1" @tab-click="handleClick">
 							    <el-tab-pane label="座席小组" name="first">座席小组</el-tab-pane>
 							    <el-tab-pane label="等待队列" name="second">
 							    	<div class="content">
@@ -379,7 +379,7 @@
 										    		<!--菜单-->
 										    		<div class="WaitingQueue-rightMenu">
 										    			<template>
-														  <el-tabs>
+														  <el-tabs v-model="menu2">
 														    <el-tab-pane label="基本信息" name="first">
 														    	<div class="WaitingQueue-tableWrapper">
 														    		<table class="WaitingQueue-basicInfo">
@@ -613,7 +613,7 @@
 											    		<!--菜单-->
 											    		<div class="WaitingQueue-rightMenu">
 											    			<template>
-															  <el-tabs>
+															  <el-tabs v-model="menu2">
 															    <el-tab-pane label="基本信息" name="first">
 															    	<div class="ChattingWindow-tableWrapper">
 															    		<table class="WaitingQueue-basicInfo">
@@ -763,6 +763,8 @@
 			data() {
 				return {
 					value:"",
+					menu1:"second",
+					menu2:"first",
 					visible1: false,visible2: false,
 					visible3: false,visible4: false,
 					visible5: false,visible6: false,
