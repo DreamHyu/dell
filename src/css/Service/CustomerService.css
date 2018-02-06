@@ -3,7 +3,8 @@ body{
   	background-color: #F7F7F7;
 }
 div{
-	overflow: hidden;
+	/*overflow-y: hidden;*/
+	/*overflow-x: hidden;*/
 }
 ::-webkit-scrollbar{
 	background-color: lightblue;
@@ -38,6 +39,182 @@ div{
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
+/*========================================================================================================*/
+/*以下是座席小组*/
+.ServiseGroupMain{
+	width: 100%;
+	border-radius: 5px;
+	background-color: #F0F0F0;
+	padding: 20px;
+	height: 700px;
+}
+.ServiseGroupContent{
+	width: calc(100% - 40px);
+}
+
+/*内容左*/
+.ServiseGroupContentLeft{
+	width: 32%;
+	float: left;
+}
+.ServiseGroupContentLeftTop{
+	
+}
+/*内容左title*/
+.ServiseGroupContentLeftTitle{
+	background-color: #DFDFDF;
+	height: 45px;
+}
+.ServiseGroupContentLeftTitleTop{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.ServiseGroupContentLeftTitleA{
+	float: left;
+	margin-top: 9px;
+	margin-left: 5%;
+	font-size: 15pt;
+	color: #808080;
+	width: 60%;
+}
+.ServiseGroupContentLeftTitleB{
+	float: right;
+	margin-right: 5%;
+	margin-top: 8px;
+}
+/*内容左上content*/
+.ServiseGroupContentLeftTopContent{
+	padding-top: 15px;
+	padding-left: 5%;
+	padding-right: 5%;
+	background-color: #FFFFFF;
+	height: 380px;
+}
+.ServiseGroupContentLeftButtonContent{
+	padding-top: 15px;
+	padding-left: 5%;
+	padding-right: 5%;
+	background-color: #FFFFFF;
+	height: 180px;
+}
+.ServiseGroupContentLeftContent{
+	height: 70px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+}
+.ServiseGroupContentLeftImg{
+	width: 15%;
+	float: left;
+}
+.ServiseGroupContentLeftImgIn{
+	width: 100%;
+}
+.ServiseGroupContentLeftFont{
+	float: left;
+	margin-left: 5%;
+}
+.ServiseGroupContentLeftFontA{
+	color: #808080;
+	font-size: 15pt;
+}
+.ServiseGroupContentLeftFontB{
+	color: #A9A9A9;
+	font-size: 12pt;
+}
+
+/*内容中*/
+.ServiseGroupContentCenter{
+	width: 32%;
+	margin-left: 2%;
+	margin-right: 2%;
+	float: left;
+	background-color: #FFFFFF;
+}
+/*内容中上*/
+.ServiseGroupContentCenterTop{
+	width: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 15px;
+	height: 150px;
+}
+.ServiseGroupContentCenterTopTitle{
+	overflow: hidden;
+}
+.ServiseGroupContentCenterTopImg{
+	float: left;
+	width: 16%;
+}
+.ServiseGroupContentCenterTopImgIn{
+	border-radius: 35px;
+	width: 100%;
+}
+.ServiseGroupContentCenterTopTitleFont{
+	float: left;
+	margin-left: 5%;
+	font-size: 20pt;
+	color: #808080;
+}
+.ServiseGroupContentCenterTopContent{
+	margin-top: 10px;
+}
+.ServiseGroupContentCenterTopFontA{
+	color: #A9A9A9;
+	font-size: 12pt;
+}
+.ServiseGroupContentCenterTopFontB{
+	color: #A9A9A9;
+	font-size: 12pt;
+}
+/*内容中下*/
+.ServiseGroupContentCenterButton{
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 100%;
+	border-top: 15px solid #F0F0F0;
+	height: 500px;
+}
+.ServiseGroupContentCenterButtonTitle{
+	font-size: 17pt;
+	color: black;
+	height: 45px;
+	line-height: 40px;
+}
+.ServiseGroupContentCenterButtonContent{
+	width: 100%;
+	height: 70px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+}
+.ServiseGroupContentCenterButtonImg{
+	width: 15%;
+	float: left;
+}
+.ServiseGroupContentCenterButtonImgIn{
+	border-radius: 35px;
+	width: 100%;
+}
+.ServiseGroupContentCenterButtonFont{
+	float: left;
+	margin-left: 5%;
+	font-size: 11pt;
+	color: #A9A9A9;
+}
+
+/*内容右*/
+.ServiseGroupContentRight{
+	width: 32%;
+	float: left;
+	background-color: #FFFFFF;
+	height: 650px;
+}
+
+/*共同样式*/
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color: #e6f6f1;
+    color: #00A372;
+}
+
 /*=========================================================================================================*/
 /*以下是等待队列*/
 /*左邊的DIv*/
@@ -75,21 +252,47 @@ table.WaitingQueue-list {
 	border-collapse: collapse;
 }
 table.WaitingQueue-list tr td{
+	position: relative;
 	width: 50%;
 }
 .WaitingQueue-imgFloatLeft{
-	float: left;
+	position: absolute;
+	top: 50%;
+	left: 0%;
+	transform: translateY(-50%);
+	width: 16%;
 }
 .WaitingQueue-imgFloatRight{
-	float: right;
-	margin-top: 20px;
-	margin-right: 40px;
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	transform: translateY(-50%);
+	width: 10%;
 	cursor: pointer;
 }
 table.WaitingQueue-list span{
+	position: absolute;
+	top: 50%;
+	left: 18%;
+	transform: translateY(-50%);
 	display: block;
-	float: left;
 }
+/*.WaitingQueue-listSpanDiv{
+	position: absolute;
+	top: 50%;
+	left: 18%;
+	transform: translateY(-50%);
+}
+.WaitingQueue-listSpan1{
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 1.6em;
+}
+.WaitingQueue-listSpan2{
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 0.6em;
+}*/
 table.WaitingQueue-list span>h3{
 	text-align: center;
 }
@@ -512,6 +715,16 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	font-size: 10px;
 	font-family: "微软雅黑";
 	border-radius: 5px;
+}
+.HistoryChatting-contentZone form select:hover{
+	cursor: pointer;
+	transition: * 1s linear;
+	border: 2px solid cornflowerblue;
+}
+.HistoryChatting-contentZone form input[type="text"]:hover{
+	cursor: pointer;
+	transition: * 1s linear;
+	border: 2px solid cornflowerblue;
 }
 .HistoryChatting-contentZone form input[type="text"]{
 	width: 100%;

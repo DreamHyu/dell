@@ -111,12 +111,211 @@
 							<!--菜单栏-->
 							<template>
 							  <el-tabs v-model="menu1" @tab-click="handleClick">
-							    <el-tab-pane label="座席小组" name="first">座席小组</el-tab-pane>
+							    <el-tab-pane label="座席小组" name="first">
+							    	<div class="ServiseGroupMain">
+							    		<!--边框-->
+							    		<div class="ServiseGroupContent">
+							    			<!--内容-->
+							    			<div class="ServiseGroupContentLeft">
+							    				<!--内容左-->
+							    				<div class="ServiseGroupContentLeftTop">
+							    					<!--内容左上-->
+							    					<div class="ServiseGroupContentLeftTitle ServiseGroupContentLeftTitleTop">
+							    						<!--内容左上标题-->
+							    						<div class="ServiseGroupContentLeftTitleA">小组名称1(4/6)</div>
+							    						<div class="ServiseGroupContentLeftTitleB">
+							    							<el-dropdown>
+															  <span class="el-dropdown-link">
+															    <i class="el-icon-caret-bottom"></i>
+															  </span>
+															  <el-dropdown-menu slot="dropdown">
+															    <el-dropdown-item>选项一</el-dropdown-item>
+															    <el-dropdown-item>选项二</el-dropdown-item>
+															    <el-dropdown-item>选项三</el-dropdown-item>
+															  </el-dropdown-menu>
+															</el-dropdown>
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentLeftTopContent">
+							    						<!--内容左上内容-->
+							    						<div class="ServiseGroupContentLeftContent">
+							    							<div class="ServiseGroupContentLeftImg">
+							    								<img class="ServiseGroupContentLeftImgIn" src="../../images/MemberList4.png" />
+							    							</div>
+							    							<div class="ServiseGroupContentLeftFont">
+							    								<div class="ServiseGroupContentLeftFontA">
+								    								A1
+								    							</div>
+								    							<div class="ServiseGroupContentLeftFontB">
+								    								当前聊天数量：4
+								    							</div>
+							    							</div>
+							    						</div>
+							    						<div class="ServiseGroupContentLeftContent">
+							    							<div class="ServiseGroupContentLeftImg">
+							    								<img class="ServiseGroupContentLeftImgIn" src="../../images/MemberList4.png" />
+							    							</div>
+							    							<div class="ServiseGroupContentLeftFont">
+							    								<div class="ServiseGroupContentLeftFontA">
+								    								A1
+								    							</div>
+								    							<div class="ServiseGroupContentLeftFontB">
+								    								当前聊天数量：4
+								    							</div>
+							    							</div>
+							    						</div>
+							    						<div class="ServiseGroupContentLeftContent">
+							    							<div class="ServiseGroupContentLeftImg">
+							    								<img class="ServiseGroupContentLeftImgIn" src="../../images/MemberList4.png" />
+							    							</div>
+							    							<div class="ServiseGroupContentLeftFont">
+							    								<div class="ServiseGroupContentLeftFontA">
+								    								A1
+								    							</div>
+								    							<div class="ServiseGroupContentLeftFontB">
+								    								当前聊天数量：4
+								    							</div>
+							    							</div>
+							    						</div>
+							    						<div class="ServiseGroupContentLeftContent">
+							    							<div class="ServiseGroupContentLeftImg">
+							    								<img class="ServiseGroupContentLeftImgIn" src="../../images/MemberList4.png" />
+							    							</div>
+							    							<div class="ServiseGroupContentLeftFont">
+							    								<div class="ServiseGroupContentLeftFontA">
+								    								A1
+								    							</div>
+								    							<div class="ServiseGroupContentLeftFontB">
+								    								当前聊天数量：4
+								    							</div>
+							    							</div>
+							    						</div>
+							    					</div>
+							    				</div>
+							    				<div class="ServiseGroupContentLeftButton">
+							    					<!--内容左下-->
+							    					<div class="ServiseGroupContentLeftTitle">
+							    						<!--内容左下标题-->
+							    						<div class="ServiseGroupContentLeftTitleA">小组名称2(1/3)</div>
+							    						<div class="ServiseGroupContentLeftTitleB">
+							    							<el-dropdown>
+															  <span class="el-dropdown-link">
+															    <i class="el-icon-caret-bottom"></i>
+															  </span>
+															  <el-dropdown-menu slot="dropdown">
+															    <el-dropdown-item>选项一</el-dropdown-item>
+															    <el-dropdown-item>选项二</el-dropdown-item>
+															    <el-dropdown-item>选项三</el-dropdown-item>
+															  </el-dropdown-menu>
+															</el-dropdown>
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentLeftButtonContent">
+							    						<!--内容左下内容-->
+							    						<div class="ServiseGroupContentLeftContent">
+							    							<div class="ServiseGroupContentLeftImg">
+							    								<img class="ServiseGroupContentLeftImgIn" src="../../images/MemberList4.png" />
+							    							</div>
+							    							<div class="ServiseGroupContentLeftFont">
+							    								<div class="ServiseGroupContentLeftFontA">
+								    								A1
+								    							</div>
+								    							<div class="ServiseGroupContentLeftFontB">
+								    								当前聊天数量：4
+								    							</div>
+							    							</div>
+							    						</div>
+							    					</div>
+							    				</div>
+							    			</div>
+							    			<div class="ServiseGroupContentCenter">
+							    				<!--内容中-->
+							    				<div class="ServiseGroupContentCenterTop">
+							    					<!--内容中上-->
+							    					<div class="ServiseGroupContentCenterTopTitle">
+							    						<div class="ServiseGroupContentCenterTopImg">
+							    							<img class="ServiseGroupContentCenterTopImgIn" src="../../images/MemberList3.png" />
+							    						</div>
+							    						<div class="ServiseGroupContentCenterTopTitleFont">
+							    							A1
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentCenterTopContent">
+							    						<div class="ServiseGroupContentCenterTopFontA">座席编号：A1-201711181029</div>
+							    						<div class="ServiseGroupContentCenterTopFontB">当前聊天数量：4</div>
+							    					</div>
+							    				</div>
+							    				<div class="ServiseGroupContentCenterButton">
+							    					<!--内容中下-->
+							    					<div class="ServiseGroupContentCenterButtonTitle">
+							    						当前聊天列表
+							    					</div>
+							    					<div class="ServiseGroupContentCenterButtonContent">
+							    						<div class="ServiseGroupContentCenterButtonImg">
+							    							<img class="ServiseGroupContentCenterButtonImgIn" src="../../images/MemberList3.png" />
+							    						</div>
+							    						<div class="ServiseGroupContentCenterButtonFont">
+							    							客户：ABCDE
+							    							<br />
+							    							Chat ID：1234567
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentCenterButtonContent">
+							    						<div class="ServiseGroupContentCenterButtonImg">
+							    							<img class="ServiseGroupContentCenterButtonImgIn" src="../../images/MemberList3.png" />
+							    						</div>
+							    						<div class="ServiseGroupContentCenterButtonFont">
+							    							客户：ABCDE
+							    							<br />
+							    							Chat ID：1234567
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentCenterButtonContent">
+							    						<div class="ServiseGroupContentCenterButtonImg">
+							    							<img class="ServiseGroupContentCenterButtonImgIn" src="../../images/MemberList3.png" />
+							    						</div>
+							    						<div class="ServiseGroupContentCenterButtonFont">
+							    							客户：ABCDE
+							    							<br />
+							    							Chat ID：1234567
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentCenterButtonContent">
+							    						<div class="ServiseGroupContentCenterButtonImg">
+							    							<img class="ServiseGroupContentCenterButtonImgIn" src="../../images/MemberList3.png" />
+							    						</div>
+							    						<div class="ServiseGroupContentCenterButtonFont">
+							    							客户：ABCDE
+							    							<br />
+							    							Chat ID：1234567
+							    						</div>
+							    					</div>
+							    					<div class="ServiseGroupContentCenterButtonContent">
+							    						<div class="ServiseGroupContentCenterButtonImg">
+							    							<img class="ServiseGroupContentCenterButtonImgIn" src="../../images/MemberList3.png" />
+							    						</div>
+							    						<div class="ServiseGroupContentCenterButtonFont">
+							    							客户：ABCDE
+							    							<br />
+							    							Chat ID：1234567
+							    						</div>
+							    					</div>
+							    				</div>
+							    			</div>
+							    			<div class="ServiseGroupContentRight">
+							    				<!--内容右-->
+							    				<div style="overflow-y: auto;padding: 20px;">
+							    					<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    				</div>
+							    			</div>
+							    		</div>
+							    	</div>
+							    </el-tab-pane>
 							    <el-tab-pane label="等待队列" name="second">
 							    	<div class="content">
 							    		<div class="wrapper">
 							    			<!--leftDiv-->
-									    	<div class="WaitingQueue-leftDiv">
+									    	<div class="WaitingQueue-leftDiv" style="overflow-y: auto;">
 									    		<!--标题-->
 									    		<div class="WaitingQueue-leftDivTitle">
 									    			<span>等待列表</span>
@@ -381,7 +580,7 @@
 										    			<template>
 														  <el-tabs v-model="menu2">
 														    <el-tab-pane label="基本信息" name="first">
-														    	<div class="WaitingQueue-tableWrapper">
+														    	<div class="WaitingQueue-tableWrapper" style="overflow-y: auto;">
 														    		<table class="WaitingQueue-basicInfo">
 														    			<tr>
 														    				<td>地址</td>
@@ -467,7 +666,7 @@
 									    				<hr class="hr" />
 								    				</div>
 								    				<!--聊天列表-->
-								    				<div class="ChattingWindow-ChattingList">
+								    				<div class="ChattingWindow-ChattingList" style="overflow-y: auto;">
 								    					<table>
 								    						<tr>
 								    							<td>
@@ -566,7 +765,7 @@
 													        </li>
 													    </ul>
 													</div>-->
-													<textarea v-model="msgToBeSend"></textarea>
+													<textarea v-model="msgToBeSend" @keyup="onKeyup" placeholder="按ctrl+Enter发送消息"></textarea>
 							    					<el-button type="success" class="ChattingWindow-middleDivDown-button" size="mini" @click="sendMsg">发送</el-button>
 							    				</div>
 							    			</div>
@@ -585,7 +784,7 @@
 											    			<template>
 															  <el-tabs v-model="menu2">
 															    <el-tab-pane label="基本信息" name="first">
-															    	<div class="ChattingWindow-tableWrapper">
+															    	<div class="ChattingWindow-tableWrapper" style="overflow-y: auto;">
 															    		<table class="WaitingQueue-basicInfo">
 															    			<tr>
 															    				<td>地址</td>
@@ -633,8 +832,8 @@
 							    					<span>快捷回复</span>
 							    				</div>
 							    				<!--右下-->
-							    				<div class="ChattingWindow-rightDivDown">
-							    					<div>
+							    				<div class="ChattingWindow-rightDivDown" >
+							    					<div style="height:100%;overflow-y: auto;">
 							    						<p>{{response1}}</p>
 							    						<hr class="hr"/>
 							    						<p>{{response2}}</p>
@@ -691,7 +890,7 @@
 							    					<span>聊天记录</span>
 							    				</div>
 							    				<hr class="hr" />
-							    				<div class="HistoryChatting-contentZone">
+							    				<div class="HistoryChatting-contentZone" style="overflow-y: auto;">
 							    					<table>
 							    						<thead>
 							    							<tr>
@@ -943,7 +1142,14 @@
 				handleClick(){
 					
 				},
+				onKeyup (e) {
+		            if (e.keyCode === 13 && e.ctrlKey && this.msgToBeSend.length) {
+		                this.sendMsg();
+		                this.msgToBeSend = '';
+		            }
+		        },
 				sendMsg(){
+					if(this.msgToBeSend.length){
 						var newDetail = {
 							img:'../../images/UserMg3.png',
 							type:'server',
@@ -952,6 +1158,7 @@
 						};
 						this.details.push(newDetail);
 						this.msgToBeSend='';
+					}
 				},
 				formatDate(date,fmt){
 				    if(/(y+)/.test(fmt)){
