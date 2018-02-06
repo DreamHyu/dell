@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>聊天（经理级别）</title>
+		<title>聊天（普通级别）</title>
 		<!-- 引入样式 -->
 		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -778,70 +778,7 @@
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<style>
-			.leftDiv{
-				width: 80%;
-				float: left;
-				position: relative;
-				margin-top: 10px;
-			}
-			.leftImg{
-				position: absolute;
-				width: 32px;
-				height: 32px;
-				border-radius: 16px;
-				left: 0px;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-			.timeZone{
-				font-size: 10px;
-				font-family: "微软雅黑";
-				display: block;
-				opacity: 0.6;
-			}
-			.leftMsgZone{
-				font-size: 16px;
-				padding: 10px;
-				background-color: #E0E0E0;
-				color: darkslategray;
-				border-radius: 5px;
-				display: block;
-				word-break:break-all;
-			}
-			.leftMsg{
-				float: left;
-				margin-left: 40px;
-			}
-			.rightDiv{
-				width: 80%;
-				float: right;
-				position: relative;
-				margin-top: 10px;
-			}
-			.rightImg{
-				position: absolute;
-				width: 32px;
-				height: 32px;
-				border-radius: 16px;
-				right: 0px;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-			.rightMsgZone{
-				font-size: 16px;
-				padding: 10px;
-				background-color: lightseagreen;
-				color: #fff;
-				border-radius: 5px;
-				display: block;
-				word-break:break-all;
-			}
-			.rightMsg{
-				float: right;
-				margin-right: 40px;
-			}
-		</style>
+		
 	<script type="text/template" id="myBlock">
 		<div v-if="type==='customer'" class="leftDiv">
 			<img :src="img" class="leftImg"/>
@@ -870,7 +807,7 @@
 			data() {
 				return {
 					value:"",
-					menu1:"second",
+					menu1:"first",
 					menu2:"first",
 					visible1: false,visible2: false,
 					visible3: false,visible4: false,

@@ -8,6 +8,7 @@
  		height: 200px;
  		float: left;
  		text-align: center;
+ 		padding-top: 20px;
  	}
  	.left_img{
  		width: 70%;
@@ -72,10 +73,19 @@
  		width: 20%;
  		float: left;
  		text-align: center;
+ 		background-color: #FFFFFF;
+ 		height: 250px;
+ 		border-top: 1px solid #E9ECF1;
+ 		border-bottom: 1px solid #E9ECF1;
+ 		border-right: 1px solid #E9ECF1;
+ 		border-top-right-radius: 5px;
+ 		border-bottom-right-radius: 5px;
+ 		padding-top: 20px;
  	}
- 	.right .el-button{
+ 	.right>.el-button{
  		width: 60%;
- 		margin-top: 20px;
+ 		border-radius: 0px;
+ 		background-color: #FFFFFF;
  	}
  	.el-button+.el-button {
 	    margin-left: 0px;
@@ -214,3 +224,25 @@
 	.middle_top{
 		padding-bottom: 0px !important;
     }
+    
+    div.el-form-item:first-child {
+	    margin-bottom: 35px;
+	}
+	.el-form-item--mini.el-form-item{
+	    margin-bottom: 55px;
+	}
+	div.el-form-item:nth-child(4){
+		margin-bottom: 0px;
+	}
+	div.el-form-item:nth-child(5){
+		margin-bottom: 0px;
+	}
+	div.el-form-item:nth-child(6){
+		margin-bottom: 0px;
+	}
+	div.el-form-item:nth-child(7){
+		margin-bottom: 0px;
+	}
+	.el-form-item__content{
+		margin-left: 0px !important;
+	}

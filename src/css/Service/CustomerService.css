@@ -6,6 +6,9 @@ div{
 	/*overflow-y: hidden;*/
 	/*overflow-x: hidden;*/
 }
+.hr{
+	clear: both;
+}
 ::-webkit-scrollbar{
 	background-color: lightblue;
 	width: 2px;
@@ -66,8 +69,7 @@ div{
 	height: 45px;
 }
 .ServiseGroupContentLeftTitleTop{
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	
 }
 .ServiseGroupContentLeftTitleA{
 	float: left;
@@ -440,7 +442,7 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	margin-left: 10px;
 	margin-bottom: 6px;
 }
-.el-input__inner {
+div.ChattingWindow-leftDivCostomerName .el-input__inner {
     -webkit-appearance: none;
     background-color: #fff;
     background-image: none;
@@ -791,3 +793,121 @@ table tbody tr{
 	border: 1px solid #E0E0E0;
 	padding: 10px;
 }
+.HistoryChatting-contentZone form select:hover{
+	border: 2px solid #00A372;
+}
+.HistoryChatting-contentZone form input[type="text"]:hover {
+    border: 2px solid #00A372;
+}
+
+.leftDiv{
+	width: 80%;
+	float: left;
+	position: relative;
+	margin-top: 10px;
+}
+.leftImg{
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.timeZone{
+	font-size: 10px;
+	font-family: "微软雅黑";
+	display: block;
+	opacity: 0.6;
+}
+.leftMsgZone{
+	font-size: 16px;
+	padding: 10px;
+	background-color: #E0E0E0;
+	color: darkslategray;
+	border-radius: 5px;
+	display: block;
+	word-break:break-all;
+}
+.leftMsg{
+	float: left;
+	margin-left: 40px;
+}
+.rightDiv{
+	width: 80%;
+	float: right;
+	position: relative;
+	margin-top: 10px;
+}
+.rightImg{
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	right: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.rightMsgZone{
+	font-size: 16px;
+	padding: 10px;
+	background-color: lightseagreen;
+	color: #fff;
+	border-radius: 5px;
+	display: block;
+	word-break:break-all;
+}
+.rightMsg{
+	float: right;
+	margin-right: 40px;
+}
+
+.notify .el-dialog{
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+.v-modal{
+	z-index: 0 !important;
+}
+.el-dialog--center{
+	z-index: 100 !important;
+}
+.el-dialog__wrapper{
+	z-index: 10 !important;
+}
+.el-tabs__nav-wrap::after{
+	z-index: 0;
+}
+.el-tabs__active-bar{
+	z-index: 0;
+}
+.el-tabs__nav{
+	z-index: 0;
+}
+.el-select-dropdown__item.selected {
+    color: #00A372;
+}
+.el-select .el-input__inner:focus {
+    border-color: lightgreen;
+}
+.el-select .el-input.is-focus .el-input__inner {
+    border-color: lightgreen;
+}
+.el-textarea__inner:focus {
+    border-color: #00A372;
+}
+.el-cascader-menu__item.is-active {
+    color: #00A372;
+}
+.el-input.is-active .el-input__inner, .el-input__inner:focus {
+    border-color: #00A372;
+}
+
+.Option{
+	background-color: #00A372;
+	color: #FFFFFF;
+}
+
+

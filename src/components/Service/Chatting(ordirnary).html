@@ -202,7 +202,70 @@
 							    				<div class="ChattingWindow-middleDivUp">
 							    					<!--按钮区-->
 							    					<div class="ChattingWindow-middleDivButtons">
-							    						<i class="ChattingWindow-middleDivButtonIconForward" title="聊天转移"></i>
+							    						<i class="ChattingWindow-middleDivButtonIconForward" @click="dialogFormVisible1 = true" title="聊天转移"></i>
+							    						<el-dialog title="聊天转移" center :visible.sync="dialogFormVisible1">
+														  <el-form label-position="left" :inline="false">
+														  	<el-form-item label="聊天转移申请" :label-width="formLabelWidth">
+														    </el-form-item>
+														    <el-form-item style="float: left;" label="客户" :label-width="formLabelWidth">
+														      Larry
+														    </el-form-item>
+														    <el-form-item style="float: right;" label="客户类型" :label-width="formLabelWidth">
+														      XXX
+														    </el-form-item>
+														    <el-form-item style="clear: both;" label="转移备注" :label-width="formLabelWidth">
+														      	<el-input
+																  type="textarea"
+																  :autosize="{ minRows: 2, maxRows: 4}"
+																  placeholder="请输入备注内容">
+																</el-input>
+														    </el-form-item>
+														    <el-form-item label="申请转移至" :label-width="formLabelWidth">
+													    		<el-select v-model="value" placeholder="请选择">
+																    <el-option
+																      v-for="item in options"
+																      :key="item.value"
+																      :label="item.label"
+																      :value="item.value">
+															    </el-option>
+															  </el-select>
+														    </el-form-item>
+														  </el-form>
+														  <div slot="footer" class="dialog-footer">
+														    <el-button @click="dialogFormVisible1 = false">取 消</el-button>
+														    <el-button type="success" @click="open1()">确 定</el-button>
+														  </div>
+														</el-dialog>
+														
+														<el-dialog class="notify" width="20%" :modal="false" title="通知" center :visible.sync="dialogFormVisible3">
+														  	<p><strong>新客户转移提示</strong></p>
+															<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+															<p>转移备注：指派备注描述</p>
+															<p>申请转移席位：A2</p>
+														  <div slot="footer" class="dialog-footer">
+														  	<el-button @click="open5()">拒绝</el-button>
+														    <el-button type="success" @click="open3()">接受</el-button>
+														  </div>
+														</el-dialog>
+				
+					                                    <el-dialog class="notify" width="20%" :modal="false" title="转接成功" center :visible.sync="dialogFormVisible4">
+															<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+															<p>申请转移席位：A2</p>
+														  <div slot="footer" class="dialog-footer">
+														  	<el-button @click="dialogFormVisible4 = false">取消</el-button>
+														    <el-button type="success" @click="dialogFormVisible4 = false">确定</el-button>
+														  </div>
+														</el-dialog>
+														
+														<el-dialog class="notify" width="20%" :modal="false" title="转接失败" center :visible.sync="dialogFormVisible5">
+															<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
+															<p>申请转移席位：A2</p>
+														  <div slot="footer" class="dialog-footer">
+														  	<el-button @click="dialogFormVisible4 = false">取消</el-button>
+														    <el-button type="success" @click="dialogFormVisible5 = false">确定</el-button>
+														  </div>
+														</el-dialog>
+														
 							    						<i class="ChattingWindow-middleDivButtonIconClose"></i>
 							    					</div>
 							    					<!--聊天内容区-->
@@ -449,70 +512,7 @@
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<style>
-			.leftDiv{
-				width: 80%;
-				float: left;
-				position: relative;
-				margin-top: 10px;
-			}
-			.leftImg{
-				position: absolute;
-				width: 32px;
-				height: 32px;
-				border-radius: 16px;
-				left: 0px;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-			.timeZone{
-				font-size: 10px;
-				font-family: "微软雅黑";
-				display: block;
-				opacity: 0.6;
-			}
-			.leftMsgZone{
-				font-size: 16px;
-				padding: 10px;
-				background-color: #E0E0E0;
-				color: darkslategray;
-				border-radius: 5px;
-				display: block;
-				word-break:break-all;
-			}
-			.leftMsg{
-				float: left;
-				margin-left: 40px;
-			}
-			.rightDiv{
-				width: 80%;
-				float: right;
-				position: relative;
-				margin-top: 10px;
-			}
-			.rightImg{
-				position: absolute;
-				width: 32px;
-				height: 32px;
-				border-radius: 16px;
-				right: 0px;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-			.rightMsgZone{
-				font-size: 16px;
-				padding: 10px;
-				background-color: lightseagreen;
-				color: #fff;
-				border-radius: 5px;
-				display: block;
-				word-break:break-all;
-			}
-			.rightMsg{
-				float: right;
-				margin-right: 40px;
-			}
-		</style>
+	
 	<script type="text/template" id="myBlock">
 		<div v-if="type==='customer'" class="leftDiv">
 			<img :src="img" class="leftImg"/>
@@ -541,7 +541,7 @@
 			data() {
 				return {
 					value:"",
-					menu1:"second",
+					menu1:"third",
 					menu2:"first",
 					visible1: false,visible2: false,
 					visible3: false,visible4: false,
@@ -589,7 +589,134 @@
 						time:'2018/05/02 17:03',
 						img:'../../images/UserMg3.png',
 						message:'您也好'
-					}]
+					}],
+					dialogFormVisible: false,
+		        	dialogFormVisible1: false,
+		        	dialogFormVisible2: false,
+		        	dialogFormVisible3: false,
+		        	dialogFormVisible4: false,
+		        	dialogFormVisible5: false,
+			        options: [{
+			          value: 'groupA',
+			          label: '小组A',
+			          children: [{
+			            value: 'a1',
+			            label: 'A1'
+			          }, {
+			            value: 'a2',
+			            label: 'A2'
+			          },
+			          {
+			            value: 'a3',
+			            label: 'A3'
+			          },
+			          {
+			            value: 'a4',
+			            label: 'A4'
+			          },
+			          {
+			            value: 'a5',
+			            label: 'A5'
+			          },
+			          {
+			            value: 'a6',
+			            label: 'A6'
+			          },
+			          {
+			            value: 'a7',
+			            label: 'A7'
+			          },
+			          {
+			            value: 'a8',
+			            label: 'A8'
+			          },
+			          {
+			            value: 'a9',
+			            label: 'A9'
+			          },
+			          {
+			            value: 'a10',
+			            label: 'A10'
+			          }]
+			        },{
+			          value: 'groupB',
+			          label: '小组B',
+			          children: [{
+			            value: 'b1',
+			            label: 'B1'
+			          }, {
+			            value: 'b2',
+			            label: 'B2'
+			          },
+			          {
+			            value: 'b3',
+			            label: 'B3'
+			          },
+			          {
+			            value: 'b4',
+			            label: 'B4'
+			          },
+			          {
+			            value: 'b5',
+			            label: 'B5'
+			          },
+			          {
+			            value: 'b6',
+			            label: 'B6'
+			          },
+			          {
+			            value: 'b7',
+			            label: 'B7'
+			          },
+			          {
+			            value: 'b8',
+			            label: 'B8'
+			          },
+			          {
+			            value: 'b9',
+			            label: 'B9'
+			          },
+			          {
+			            value: 'b10',
+			            label: 'B10'
+			          }]
+			        }
+			        ],
+			        value: "",
+			        options: [{
+			          value: '选项1',
+			          label: 'A1'
+			        }, {
+			          value: '选项2',
+			          label: 'A2'
+			        }, {
+			          value: '选项3',
+			          label: 'A3'
+			        }, {
+			          value: '选项4',
+			          label: 'A4'
+			        }, {
+			          value: '选项5',
+			          label: 'A5'
+			        }, {
+			          value: '选项6',
+			          label: 'A6'
+			        }, {
+			          value: '选项7',
+			          label: 'A7'
+			        }, {
+			          value: '选项8',
+			          label: 'A8'
+			        }, {
+			          value: '选项9',
+			          label: 'A9'
+			        }, {
+			          value: '选项10',
+			          label: 'A10'
+			        }],
+			        selectedOptions3: ['groupB', 'b1'],
+			        formLabelWidth: '120px'
+							
 				};
 			},
 			watch:{
@@ -649,7 +776,21 @@
 				},
 				padLeftZero(str){
 				    return ('00'+str).substr(str.length);
-				}
+				},
+
+			    open1(){
+			    	this.dialogFormVisible1 = false;
+			    	this.dialogFormVisible3 = true;
+			    },
+			    open3(){
+			    	this.dialogFormVisible3 = false;
+			    	this.dialogFormVisible4 = true;
+			    },
+			    open5(){
+			    	this.dialogFormVisible3 = false;
+			    	this.dialogFormVisible5 = true;
+			    }
+               
 			}
 		})
 	</script>
