@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>聊天（普通级别）</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/frame.css" />
+		<link rel="stylesheet" href="../../css/Service/CustomerService.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<el-container>
+				<el-header height="50px">
+					<nav id="topNav" class="navbar-inverse" role="navigation">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<img src="../../images/logo.png" />
+							</div>
+							<div>
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											公众号名称 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">名称0</a>
+											</li>
+											<li>
+												<a href="#">名称1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<img src="../../images/user_img.png" class="img-circle">
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											用户名 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">用户0</a>
+											</li>
+											<li>
+												<a href="#">用户1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</el-header>
+				<el-container>
+					<el-aside width="70px">
+						<nav id="leftNav" class="navbar-inverse">
+							<div class="container-fluid">
+								<div>
+									<ul class="nav navbar-nav">
+										<li class="">
+											<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+										</li>
+										<li class="">
+											<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+										</li>
+										<li class="active">
+											<a href="CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+										</li>
+										<li class="">
+											<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+										</li>
+										<li class="">
+											<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+										</li>
+										<li class="">
+											<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+										</li>
+										<li>
+											<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</el-aside>
+					<el-main>
+						<div class="wqMain">
+							<!--菜单栏-->
+							<template>
+							  <el-tabs v-model="menu1" @tab-click="handleClick">
+							    <el-tab-pane label="聊天窗口" name="third">
+							    	<div class="content">
+							    		<div class="wrapper">
+							    			<!--left-->
+							    			<div class="ChattingWindow-leftDiv">
+							    				<!--leftWrapper-->
+							    				<div class="ChattingWindow-LeftWrapper">
+							    					<!--客服名字-->
+								    				<div class="ChattingWindow-leftDivCostomerName">
+								    					<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+									    				<span>
+									    					<h4><b>客服名字1</b></h4>
+									    					<template>
+															  <el-select v-model="value" placeholder="状态">
+															  	<el-option label="在线" value="在线"></el-option>
+															  	<el-option label="离线" value="离线"></el-option>
+															  	<el-option label="离开" value="离开"></el-option>
+															  </el-select>
+															</template>
+									    				</span>
+									    				<hr class="hr" />
+								    				</div>
+								    				<!--聊天列表-->
+								    				<div class="ChattingWindow-ChattingList" style="overflow-y: auto;">
+								    					<table>
+								    						<tr>
+								    							<td>
+								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+												    				<span>
+												    					<h4><b>客服名字1</b></h4>
+												    					<h6>展示聊天第一句话</h6>
+												    				</span>
+								    							</td>
+								    						</tr>
+								    						<tr>
+								    							<td>
+								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+												    				<span>
+												    					<h4><b>客服名字1</b></h4>
+												    					<h6>展示聊天第一句话</h6>
+												    				</span>
+								    							</td>
+								    						</tr>
+								    						<tr>
+								    							<td>
+								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+												    				<span>
+												    					<h4><b>客服名字1</b></h4>
+												    					<h6>展示聊天第一句话</h6>
+												    				</span>
+								    							</td>
+								    						</tr>
+								    						<tr>
+								    							<td>
+								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+												    				<span>
+												    					<h4><b>客服名字1</b></h4>
+												    					<h6>展示聊天第一句话</h6>
+												    				</span>
+								    							</td>
+								    						</tr>
+								    						<tr>
+								    							<td>
+								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+												    				<span>
+												    					<h4><b>客服名字1</b></h4>
+												    					<h6>展示聊天第一句话</h6>
+												    				</span>
+								    							</td>
+								    						</tr>
+								    						<tr>
+								    							<td>
+								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+												    				<span>
+												    					<h4><b>客服名字1</b></h4>
+												    					<h6>展示聊天第一句话</h6>
+												    				</span>
+								    							</td>
+								    						</tr>
+								    					</table>
+								    				</div>
+								    				<!--按钮区-->
+								    				<el-button type="success" class="ChattingWindow-el-button" size="mini">接入会话</el-button>
+							    				</div>
+							    			</div>
+							    			<!--middle-->
+							    			<div class="ChattingWindow-middleDiv">
+							    				<!--中上-->
+							    				<div class="ChattingWindow-middleDivUp">
+							    					<!--按钮区-->
+							    					<div class="ChattingWindow-middleDivButtons">
+							    						<i class="ChattingWindow-middleDivButtonIconForward" title="聊天转移"></i>
+							    						<i class="ChattingWindow-middleDivButtonIconClose"></i>
+							    					</div>
+							    					<!--聊天内容区-->
+							    					<div ref="chattingContent" style="height:500px;padding: 20px;overflow-y: auto;overflow-x: hidden;">
+							    						<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    					</div>
+							    				</div>
+							    				<!--中中-->
+							    				<div class="ChattingWindow-middleDivMiddle">
+							    					<i class="ChattingWindow-icon ChattingWindow-middleDivButtonIconFace" title="表情"></i>
+							    					<i class="ChattingWindow-icon ChattingWindow-middleDivButtonIconPic" title="图片"></i>
+							    					<i class="ChattingWindow-icon ChattingWindow-middleDivButtonIconVedio" title="视频"></i>
+							    					<i class="ChattingWindow-icon ChattingWindow-middleDivButtonIconVoice" title="声音"></i>
+							    					<i class="ChattingWindow-icon ChattingWindow-middleDivButtonIconPicAndWorld" title="图文"></i>
+							    				</div>
+							    				<!--中下-->
+							    				<div class="ChattingWindow-middleDivDown">
+							    					<!--<div class="message" v-scroll-bottom="session.messages">
+													    <ul v-if="session">
+													        <li v-for="item in session.messages">
+													            <p class="time">
+													                <span>{{ item.date | time }}</span>
+													            </p>
+													            <div class="main" :class="{ self: item.self }">
+													                <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
+													                <div class="text">{{ item.content }}</div>
+													            </div>
+													        </li>
+													    </ul>
+													</div>-->
+													<textarea v-model="msgToBeSend" @keyup="onKeyup" placeholder="按ctrl+Enter发送消息"></textarea>
+							    					<el-button type="success" class="ChattingWindow-middleDivDown-button" size="mini" @click="sendMsg">发送</el-button>
+							    				</div>
+							    			</div>
+							    			<!--right-->
+							    			<div class="ChattingWindow-rightDiv">
+							    				<!--右上-->
+								    			<div class="ChattingWindow-rightDivUp">
+								    				<div class="WaitingQueue-rightWrapper">
+										    			<!--头像部分-->
+											    		<div class="WaitingQueue-rightHeader">
+											    			<img src="../../images/MemberList3.png" class="ChattingWindow-rightDivUpHeadImg"/>
+											    			<h5>昵称(先生/女士)</h5>
+											    		</div>
+											    		<!--菜单-->
+											    		<div class="WaitingQueue-rightMenu">
+											    			<template>
+															  <el-tabs v-model="menu2">
+															    <el-tab-pane label="基本信息" name="first">
+															    	<div class="ChattingWindow-tableWrapper" style="overflow-y: auto;">
+															    		<table class="WaitingQueue-basicInfo">
+															    			<tr>
+															    				<td>地址</td>
+															    				<td>重庆</td>
+															    			</tr>
+															    			<tr>
+															    				<td>客户名</td>
+															    				<td>daniel</td>
+															    			</tr>
+															    			<tr>
+															    				<td>关注日期</td>
+															    				<td>01/02/2018</td>
+															    			</tr>
+															    			<tr>
+															    				<td>公众号</td>
+															    				<td>哈哈哈哈</td>
+															    			</tr>
+															    			<tr>
+															    				<td>语言</td>
+															    				<td>中文</td>
+															    			</tr>
+															    			<tr>
+															    				<td>城市</td>
+															    				<td>重庆</td>
+															    			</tr>
+															    			<tr>
+															    				<td>省份</td>
+															    				<td></td>
+															    			</tr>
+															    			<tr>
+															    				<td>电话</td>
+															    				<td>110</td>
+															    			</tr>
+															    		</table>
+															    	</div>
+															    </el-tab-pane>
+															    <el-tab-pane label="会员信息" name="second">会员信息</el-tab-pane>
+															  </el-tabs>
+															</template>
+											    		</div>
+										    		</div>
+							    				</div>
+							    				<!--右中-->
+							    				<div class="ChattingWindow-rightDivMiddle">
+							    					<span>快捷回复</span>
+							    				</div>
+							    				<!--右下-->
+							    				<div class="ChattingWindow-rightDivDown" >
+							    					<div style="height:100%;overflow-y: auto;">
+							    						<p>{{response1}}</p>
+							    						<hr class="hr"/>
+							    						<p>{{response2}}</p>
+							    						<hr class="hr"/>
+							    						<p>{{response3}}</p>
+							    					</div>
+							    					<el-button type="success" class="ChattingWindow-rightDivDownButton" size="mini">使用</el-button>
+							    				</div>
+							    			</div>
+							    		</div>
+							    	</div>
+							    </el-tab-pane>
+							    <el-tab-pane label="聊天历史" name="fourth">
+							    	<div class="content">
+							    		<div class="wrapper">
+							    			<!--leftDiv-->
+							    			<div class="HistoryChatting-leftDiv">
+							    				<div class="HistoryChatting-titleZone">
+							    					<span>筛选条件</span>
+							    				</div>
+							    				<hr class="hr" />
+							    				<div class="HistoryChatting-contentZone">
+							    					<form>
+							    						<h4>座席</h4>
+							    						<select>
+							    							<option>座席1</option>
+							    							<option>座席2</option>
+							    							<option>座席3</option>
+							    							<option>座席4</option>
+							    						</select>
+							    						<h4>标签</h4>
+							    						<select>
+							    							<option>标签1</option>
+							    							<option>标签1</option>
+							    							<option>标签1</option>
+							    							<option>标签1</option>
+							    						</select>
+							    						<h4>时间</h4>
+							    						<select>
+							    							<option>time1</option>
+							    							<option>time1</option>
+							    							<option>time1</option>
+							    							<option>time1</option>
+							    						</select>
+							    						<h4>关键字</h4>
+							    						<input type="text" />
+							    						<el-button type="success" size="small" class="searchButton">搜索</el-button>
+							    					</form>
+							    				</div>
+							    			</div>
+							    			<!--middleDiv-->
+							    			<div class="HistoryChatting-middleDiv">
+							    				<div class="HistoryChatting-titleZone">
+							    					<span>聊天记录</span>
+							    				</div>
+							    				<hr class="hr" />
+							    				<div class="HistoryChatting-contentZone" style="overflow-y: auto;">
+							    					<table>
+							    						<thead>
+							    							<tr>
+							    								<th>ChatID</th>
+							    								<th>客户姓名</th>
+							    								<th>座席姓名/席号</th>
+							    								<th>日期</th>
+							    							</tr>
+							    						</thead>
+							    						<tbody>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							<tr>
+							    								<td>123157</td>
+							    								<td>Jesse</td>
+							    								<td>Charre/A3</td>
+							    								<td>2018/05/02</td>
+							    							</tr>
+							    							
+							    						</tbody>
+							    					</table>
+							    				</div>
+							    			</div>
+							    			<!--rightDiv-->
+							    			<div class="HistoryChatting-rightDiv">
+							    				<div class="HistoryChatting-titleZone">
+							    					<span>聊天详细</span>
+							    				</div>
+							    				<hr class="hr" />
+							    				<div class="HistoryChatting-contentZone" style="height: 620px;overflow-y: auto;">
+							    					<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    				</div>
+							    			</div>
+							    		</div>
+							    	</div>
+							    </el-tab-pane>
+							  </el-tabs>
+							</template>
+						</div>
+					</el-main>
+				</el-container>
+			</el-container>
+		</div>
+	</body>
+	<!-- 先引入 Vue -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			.leftDiv{
+				width: 80%;
+				float: left;
+				position: relative;
+				margin-top: 10px;
+			}
+			.leftImg{
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				border-radius: 16px;
+				left: 0px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.timeZone{
+				font-size: 10px;
+				font-family: "微软雅黑";
+				display: block;
+				opacity: 0.6;
+			}
+			.leftMsgZone{
+				font-size: 16px;
+				padding: 10px;
+				background-color: #E0E0E0;
+				color: darkslategray;
+				border-radius: 5px;
+				display: block;
+				word-break:break-all;
+			}
+			.leftMsg{
+				float: left;
+				margin-left: 40px;
+			}
+			.rightDiv{
+				width: 80%;
+				float: right;
+				position: relative;
+				margin-top: 10px;
+			}
+			.rightImg{
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				border-radius: 16px;
+				right: 0px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.rightMsgZone{
+				font-size: 16px;
+				padding: 10px;
+				background-color: lightseagreen;
+				color: #fff;
+				border-radius: 5px;
+				display: block;
+				word-break:break-all;
+			}
+			.rightMsg{
+				float: right;
+				margin-right: 40px;
+			}
+		</style>
+	<script type="text/template" id="myBlock">
+		<div v-if="type==='customer'" class="leftDiv">
+			<img :src="img" class="leftImg"/>
+			<div class="leftMsg">
+				<span class="timeZone">{{time}}</span>
+				<span class="leftMsgZone">{{message}}</span>
+			</div>
+		</div>
+		<div v-else class="rightDiv">
+			<img :src="img" class="rightImg"/>
+			<div class="rightMsg">
+				<span class="timeZone">{{time}}</span>
+				<span class="rightMsgZone">{{message}}</span>
+			</div>
+		</div>
+	</script>
+	
+	<script>
+		Vue.component("my-block",
+		{
+			props:['type','time','message','img'],
+			template:"#myBlock"
+		})
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					value:"",
+					menu1:"second",
+					menu2:"first",
+					visible1: false,visible2: false,
+					visible3: false,visible4: false,
+					visible5: false,visible6: false,
+					visible7: false,visible8: false,
+					visible9: false,visible10: false,
+					visible11: false,visible12: false,
+					response1:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
+					response2:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
+					response3:'请您就本次服务完成客户满意度调查',
+					msgToBeSend:'',
+					newDate:new Date(),
+					details:[
+					{
+						type:'customer',
+						time:'2018/05/02 17:03',
+						img:'../../images/MemberList2.png',
+						message:'您好'
+					},
+					{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'../../images/UserMg3.png',
+						message:'您也好'
+					},
+					{
+						type:'customer',
+						time:'2018/05/02 17:03',
+						img:'../../images/MemberList2.png',
+						message:'您好'
+					},
+					{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'../../images/UserMg3.png',
+						message:'您也好'
+					},
+					{
+						type:'customer',
+						time:'2018/05/02 17:03',
+						img:'../../images/MemberList2.png',
+						message:'您好'
+					},{
+						type:'server',
+						time:'2018/05/02 17:03',
+						img:'../../images/UserMg3.png',
+						message:'您也好'
+					}]
+				};
+			},
+			watch:{
+				details:function(){
+					this.$nextTick(function(){
+						var chattingContent = this.$refs.chattingContent;
+						chattingContent.scrollTop = chattingContent.scrollHeight;
+					})
+				}
+			},
+			filters: {
+			    formatDate(time) {
+			      var date = new Date(time);
+			      return this.formatDate(time, "yyyy-MM-dd hh:mm:ss");
+			    }
+			},
+			methods: {
+				handleClick(){
+					
+				},
+				onKeyup (e) {
+		            if (e.keyCode === 13 && e.ctrlKey && this.msgToBeSend.length) {
+		                this.sendMsg();
+		                this.msgToBeSend = '';
+		            }
+		        },
+				sendMsg(){
+					if(this.msgToBeSend.length){
+						var newDetail = {
+							img:'../../images/UserMg3.png',
+							type:'server',
+							time:this.formatDate(new Date(),"yyyy-MM-dd hh:mm:ss"),
+							message:this.msgToBeSend,
+						};
+						this.details.push(newDetail);
+						this.msgToBeSend='';
+					}
+				},
+				formatDate(date,fmt){
+				    if(/(y+)/.test(fmt)){
+				        fmt = fmt.replace(RegExp.$1, (date.getFullYear()+'').substr(4-RegExp.$1.length));
+				    }
+				    let o = {
+				        'M+': date.getMonth()+1,
+				        'd+': date.getDate(),
+				        'h+': date.getHours(),
+				        'm+': date.getMinutes(),
+				        's+': date.getSeconds()
+				    }
+				    for(let k in o){    
+				        let str = o[k]+'';
+				        if(new RegExp(`(${k})`).test(fmt)){
+				            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length===1)?str:this.padLeftZero(str));
+				        }
+				    }
+				    return fmt;
+				},
+				padLeftZero(str){
+				    return ('00'+str).substr(str.length);
+				}
+			}
+		})
+	</script>
+
+</html>

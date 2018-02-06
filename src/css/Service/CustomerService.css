@@ -532,7 +532,15 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	width: 100%;
 	background-color: transparent;
 }
+.ChattingWindow-middleDivButtonIconForward:hover{
+	opacity: 0.4;
+}
+.ChattingWindow-middleDivButtonIconClose:hover{
+	opacity: 0.4;
+}
 .ChattingWindow-middleDivButtonIconForward{
+	transition: all .4s linear;
+	cursor: pointer;
 	float: right;
 	display: block;
 	margin-top: 4px;
@@ -544,6 +552,8 @@ table.WaitingQueue-basicInfo tr td:first-child{
 	background-position: 0px 0px; /*图片显示的位置*/
 }
 .ChattingWindow-middleDivButtonIconClose{
+	transition: all .4s linear;
+	cursor: pointer;
 	float: right;
 	display: block;
 	margin-top: 4px;
