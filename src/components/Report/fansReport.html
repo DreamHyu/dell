@@ -98,7 +98,41 @@
 				    		
 				    		<el-tabs type="border-card" v-model="activeName2">
 								  <el-tab-pane label="增长分析" name="first">增长分析</el-tab-pane>
-								  <el-tab-pane label="属性分析" name="second">配置管理</el-tab-pane>
+								  <el-tab-pane label="属性分析" name="second">
+								  	<!--wrapper-->
+								  	<div class="attributeWrapper">
+								  		<!--性别分布-->
+									  	<div class="block">
+									  		<span>性别分布</span>
+									  		<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items1'></sexBlock>
+									  	</div>
+									  	<!--语言分布-->
+									  	<div class="block">
+									  		<span>语言分布</span>
+									  		<langBlock :all='150' :lan1='30' :lan2='30' :lan3='40' :other='50' :items='items2'></langBlock>
+									  	</div>
+									  	<!--省份分布-->
+									  	<div class="block">
+									  		<span>省份分布</span>
+									  	</div>
+									  	<!--城市分布-->
+									  	<div class="block">
+									  		<span>城市分布</span>
+									  	</div>
+									  	<!--终端分布-->
+									  	<div class="block">
+									  		<span>终端分布</span>
+									  	</div>
+									  	<!--机型分布TOP10-->
+									  	<div class="block">
+									  		<span>机型分布TOP10</span>
+									  	</div>
+									  	<!--属性分布表-->
+									  	<div class="block">
+									  		<span>属性分布表</span>
+									  	</div>
+								  	</div>
+								  </el-tab-pane>
 								  <el-tab-pane label="粉丝报表" name="third">
 								  	<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
 			    				  <el-table
@@ -391,11 +425,235 @@
   <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../js/highcharts.js" ></script>
+  <script type="text/template" id="sexTemplate">
+  	<div class="templateWrapper">
+  		<!--黑条-->
+  		<div class="blackDiv"></div>
+  		<!--黄条-->
+  		<div class="divModel div1" :style="malePropoStyle"></div>
+  		<!--黄绿条-->
+  		<div class="divModel div2" :style="femalePropoStyle"></div>
+  		<!--绿条-->
+  		<div class="divModel div3" :style="otherPropoStyle"></div>
+  		<!--选项-->
+  		<div class="items">
+  			<!--<div>
+  				<div style="background-color: yellow;"></div>
+  				<span>{{item1}}</span>
+  			</div>
+  			<div>
+  				<div style="background-color: yellowgreen;"></div>
+  				<span>{{item2}}</span>
+  			</div>
+  			<div>
+  				<div style="background-color: lightseagreen;"></div>
+  				<span>{{item3}}</span>
+  			</div>-->
+  			<div v-for="item in items">
+  				<div :style="{backgroundColor: item.backColor}"></div>
+  				<span>{{item.message}}</span>
+  			</div>
+  		</div>
+  		<!--刻度条-->
+  		<div class="scaleBar bar1">
+  			<span>{{all*0.1}}</span>
+  		</div>
+  		<div class="scaleBar bar2">
+  			<span>{{all*0.2}}</span>
+  		</div>
+  		<div class="scaleBar bar3">
+  			<span>{{all*0.3}}</span>
+  		</div>
+  		<div class="scaleBar bar4">
+  			<span>{{all*0.4}}</span>
+  		</div>
+  		<div class="scaleBar bar5">
+  			<span>{{all*0.5}}</span>
+  		</div>
+  		<div class="scaleBar bar6">
+  			<span>{{all*0.6}}</span>
+  		</div>
+  		<div class="scaleBar bar7">
+  			<span>{{all*0.7}}</span>
+  		</div>
+  		<div class="scaleBar bar8">
+  			<span>{{all*0.8}}</span>
+  		</div>
+  		<div class="scaleBar bar9">
+  			<span>{{all*0.9}}</span>
+  		</div>
+  		<div class="scaleBar bar10">
+  			<span>{{all*1.0}}</span>
+  		</div>
+  		<!--总计-->
+  		<div class="totalNum">
+  			{{all}}
+  		</div>
+  	</div>
+  </script>
+  <script type="text/template" id="langTemplate">
+  	<div class="templateWrapper">
+  		<!--黑条-->
+  		<div class="blackDiv"></div>
+  		<div class="divModel div0" :style="lan1Style"></div>
+  		<!--黄条-->
+  		<div class="divModel div1" :style="lan2Style"></div>
+  		<!--黄绿条-->
+  		<div class="divModel div2" :style="lan3Style"></div>
+  		<!--绿条-->
+  		<div class="divModel div3" :style="otherStyle"></div>
+  		<!--选项-->
+  		<div class="items">
+  			<!--<div>
+  				<div style="background-color: yellow;"></div>
+  				<span>{{item1}}</span>
+  			</div>
+  			<div>
+  				<div style="background-color: yellowgreen;"></div>
+  				<span>{{item2}}</span>
+  			</div>
+  			<div>
+  				<div style="background-color: lightseagreen;"></div>
+  				<span>{{item3}}</span>
+  			</div>-->
+  			<div v-for="item in items">
+  				<div :style="{backgroundColor: item.backColor}"></div>
+  				<span>{{item.message}}</span>
+  			</div>
+  		</div>
+  		<!--刻度条-->
+  		<div class="scaleBar bar1">
+  			<span>{{all*0.1}}</span>
+  		</div>
+  		<div class="scaleBar bar2">
+  			<span>{{all*0.2}}</span>
+  		</div>
+  		<div class="scaleBar bar3">
+  			<span>{{all*0.3}}</span>
+  		</div>
+  		<div class="scaleBar bar4">
+  			<span>{{all*0.4}}</span>
+  		</div>
+  		<div class="scaleBar bar5">
+  			<span>{{all*0.5}}</span>
+  		</div>
+  		<div class="scaleBar bar6">
+  			<span>{{all*0.6}}</span>
+  		</div>
+  		<div class="scaleBar bar7">
+  			<span>{{all*0.7}}</span>
+  		</div>
+  		<div class="scaleBar bar8">
+  			<span>{{all*0.8}}</span>
+  		</div>
+  		<div class="scaleBar bar9">
+  			<span>{{all*0.9}}</span>
+  		</div>
+  		<div class="scaleBar bar10">
+  			<span>{{all*1.0}}</span>
+  		</div>
+  		<!--总计-->
+  		<div class="totalNum">
+  			{{all}}
+  		</div>
+  	</div>
+  </script>
 	<script>
+		Vue.component("sexblock",{
+  		props:{
+  		'male':Number,
+  		'female':Number,
+  		'other':Number,
+  		'all':Number,
+  		'items':Array},
+  		template:"#sexTemplate",
+  		data:function(){
+  				return{
+  						malePropoStyle:{
+  							left:0.5+'%',
+			      		width:this.male*1.0/this.all*100+'%'
+			      	},
+			      	femalePropoStyle:{
+			      		width:this.female*1.0/this.all*100+'%',
+			      		left:(0.5+this.male*1.0/this.all*100)+'%'
+			      	},
+			      	otherPropoStyle:{
+			      		width:this.other*1.0/this.all*100+'%',
+			      		left:(0.5+(this.male*1.0/this.all*100)+this.female*1.0/this.all*100)+'%'
+			      	}
+  				}
+  		},
+  		methods:{
+  		}
+  	})
+		Vue.component("langblock",{
+  		props:{
+  		'lan1':Number,
+  		'lan2':Number,
+  		'lan3':Number,
+  		'other':Number,
+  		'all':Number,
+  		'items':Array},
+  		template:"#langTemplate",
+  		data:function(){
+  				return{
+  						lan1Style:{
+  							left:0.5+'%',
+			      		width:this.lan1*1.0/this.all*100+'%'
+			      	},
+			      	lan2Style:{
+			      		width:this.lan2*1.0/this.all*100+'%',
+			      		left:(0.5+this.lan1*1.0/this.all*100)+'%'
+			      	},
+			      	lan3Style:{
+			      		width:this.lan3*1.0/this.all*100+'%',
+			      		left:((0.5+this.lan1*1.0/this.all*100)+this.lan2*1.0/this.all*100)+'%'
+			      	},
+			      	otherStyle:{
+			      		width:this.other*1.0/this.all*100+'%',
+			      		left:((0.5+this.lan1*1.0/this.all*100)+this.lan2*1.0/this.all*100+(this.lan3*1.0/this.all*100))+'%'
+			      	}
+  				}
+  		},
+  		methods:{
+  		}
+  	})
     new Vue({
       el: '#app',
       data() {
 	      return {
+	      	items1:[
+	      		{
+	      			backColor:'yellow',
+	      			message:'男'
+	      		},
+	      		{
+	      			backColor:'yellowgreen',
+	      			message:'女'
+	      		},
+	      		{
+	      			backColor:'lightseagreen',
+	      			message:'其他'
+	      		}
+	      	],
+	      	items2:[
+	      		{
+	      			backColor:'cyan',
+	      			message:'繁体中文'
+	      		},
+	      		{
+	      			backColor:'yellow',
+	      			message:'简体中文'
+	      		},
+	      		{
+	      			backColor:'yellowgreen',
+	      			message:'英文'
+	      		},
+	      		{
+	      			backColor:'lightseagreen',
+	      			message:'其他'
+	      		}
+	      	],
 	      	//客服统计
 	      	//-----------------------------------------
 	      	options: [{

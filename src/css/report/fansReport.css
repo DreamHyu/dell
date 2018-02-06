@@ -46,3 +46,154 @@
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
+	
+/*以下是属性分析*/
+/*==================================================================================*/
+.attributeWrapper{
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+}
+.block{
+	width: 100%;
+	height: 400px;
+	/*background-color: lightgray;*/
+	margin-bottom: 5%;
+}
+.attributeWrapper div span{
+	display: block;
+	font-family: "微软雅黑";
+	font-size: 2em;
+	font-weight: bold;
+}
+/*自定义组件条形分析图*/
+
+/*wrapper*/
+.templateWrapper{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+/*黑条*/
+.blackDiv{
+	height: 50%;
+	width: 0.5%;
+	position: absolute;
+	left: 0%;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: black;
+}
+.divModel{
+	z-index: 99;
+	height: 30%;
+	position: absolute;
+	/*float: left;
+	margin-top: 200px;*/
+	top: 50%;
+	transform: translateY(-50%);
+	/*background-color: yellow;*/
+	/*width: 20%;*/
+	border-left: 0.5px solid whitesmoke;
+	border-right: 0.5px solid whitesmoke;
+}
+.div0{
+	background-color: cyan;
+}
+/*黄条*/
+.div1{
+	background-color: yellow;
+	/*width: 20%;*/
+}
+/*黄绿条*/
+.div2{
+	/*left: 20.5%;*/
+	background-color: yellowgreen;
+	/*width: 40%;*/
+}
+/*绿条*/
+.div3{
+	background-color: lightseagreen;
+}
+
+/*items*/
+.items{
+	position: absolute;
+	left: 50%;
+	bottom: 1%;
+	transform: translateX(-50%);
+}
+.items div{
+	float: left;
+	margin-right: 10px;
+}
+.items div div{
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	display: inline-block;
+	margin-right: 20px;
+}
+.items div span{
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 300;
+}
+/*刻度条*/
+.scaleBar{
+	position: absolute;
+	height: 60%;
+	width: 2px;
+	background-color: lightgrey;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.scaleBar span{
+	opacity: 0.4;
+	font-size: 20px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -40px;
+}
+.bar1{
+	left: 10%;
+}
+.bar2{
+	left: 20%;
+}
+.bar3{
+	left: 30%;
+}
+.bar4{
+	left: 40%;
+}
+.bar5{
+	left: 50%;
+}
+.bar6{
+	left: 60%;
+}
+.bar7{
+	left: 70%;
+}
+.bar8{
+	left: 80%;
+}
+.bar9{
+	left: 90%;
+}
+.bar10{
+	left: 100%;
+}
+/*总计*/
+.totalNum{
+	position: absolute;
+	top: 50%;
+	right: -80px;
+	transform: translateY(-50%);
+	font-size: 30px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	opacity: 0.6;
+}
