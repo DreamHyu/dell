@@ -106,28 +106,81 @@
 									  		<span>性别分布</span>
 									  		<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items1'></sexBlock>
 									  	</div>
+									  	<hr class="hr" />
 									  	<!--语言分布-->
 									  	<div class="block">
 									  		<span>语言分布</span>
 									  		<langBlock :all='150' :lan1='30' :lan2='30' :lan3='40' :other='50' :items='items2'></langBlock>
 									  	</div>
+									  	<hr class="hr" />
 									  	<!--省份分布-->
 									  	<div class="block">
 									  		<span>省份分布</span>
 									  	</div>
+									  	<hr class="hr" />
 									  	<!--城市分布-->
 									  	<div class="block">
 									  		<span>城市分布</span>
+									  		<!--<div class="citySpread">-->
+													 <select value="全国" style="float: right;">
+													  	<option v-for="item in citys" :label="item.label" :value="item.value"></option>
+													  </select>
+													  <table class="citySpread">
+													  	<thead>
+													  		<tr>
+													  			<th>城市</th>
+													  			<th>用户数</th>
+													  		</tr>
+													  	</thead>
+													  	<tbody>
+													  		<tr>
+													  			<td>重庆</td>
+													  			<td>1231243</td>
+													  		</tr>
+													  		<tr>
+													  			<td>重庆</td>
+													  			<td>1231243</td>
+													  		</tr>
+													  		<tr>
+													  			<td>重庆</td>
+													  			<td>1231243</td>
+													  		</tr>
+													  		<tr>
+													  			<td>重庆</td>
+													  			<td>1231243</td>
+													  		</tr>
+													  		<tr>
+													  			<td>重庆</td>
+													  			<td>1231243</td>
+													  		</tr>
+													  		<tr>
+													  			<td>重庆</td>
+													  			<td>1231243</td>
+													  		</tr>
+													  	</tbody>
+													  </table>
+													 <div  style="margin: 40px auto;width: 20%;">
+													 	 <el-pagination
+														  layout="prev, pager, next"
+														  :pageSize="5"
+														  :total="100"
+														  >
+														</el-pagination>
+													 </div>
+									  		<!--</div>-->
 									  	</div>
+									  	<hr class="hr" />
 									  	<!--终端分布-->
 									  	<div class="block">
 									  		<span>终端分布</span>
 									  		<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items3'></sexBlock>
 									  	</div>
+									  	<hr class="hr" />
 									  	<!--机型分布TOP10-->
 									  	<div class="block">
 									  		<span>机型分布TOP10</span>
 									  	</div>
+									  	<hr class="hr" />
 									  	<!--属性分布表-->
 									  	<div class="block">
 									  		<span>属性分布表</span>
@@ -657,6 +710,25 @@
 	      			message:'未知'
 	      		}
 	      	],
+	      	citys:[
+	      		{
+	      			label:'重庆',
+	      			value:'重庆'
+	      		},
+	      		{
+	      			label:'北京',
+	      			value:'北京'
+	      		},
+	      		{
+	      			label:'上海',
+	      			value:'上海'
+	      		},
+	      		{
+	      			label:'广州',
+	      			value:'广州'
+	      		}
+	      	],
+	      	cityModel:'',
 	      	//客服统计
 	      	//-----------------------------------------
 	      	options: [{
