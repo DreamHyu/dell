@@ -169,7 +169,7 @@
                 	描述：指派提示
                 -->
                 <el-button type="success" @click="dialogFormVisible2 = true">指派通知</el-button>
-				<el-dialog width="30%" :modal="false" title="通知" center :visible.sync="dialogFormVisible2">
+				<el-dialog class="notify" width="20%" :modal="false" title="通知" center :visible.sync="dialogFormVisible2">
 				  	<p><strong>新客户指派提示</strong></p>
 					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
 					<p>指派备注：指派备注描述</p>
@@ -184,7 +184,7 @@
                 	描述：转移提示
                 -->
 				<el-button type="success" @click="dialogFormVisible3 = true">转移通知</el-button>
-				<el-dialog width="30%" :modal="false" title="通知" center :visible.sync="dialogFormVisible3">
+				<el-dialog class="notify" width="20%" :modal="false" title="通知" center :visible.sync="dialogFormVisible3">
 				  	<p><strong>新客户转移提示</strong></p>
 					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
 					<p>转移备注：指派备注描述</p>
@@ -200,7 +200,7 @@
                 	描述：转移成功
                 -->
 				<el-button type="success" @click="dialogFormVisible4 = true">转移成功</el-button>
-				<el-dialog width="30%" :modal="false" title="转接成功" center :visible.sync="dialogFormVisible4">
+				<el-dialog class="notify" width="20%" :modal="false" title="转接成功" center :visible.sync="dialogFormVisible4">
 					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
 					<p>申请转移席位：A2</p>
 				  <div slot="footer" class="dialog-footer">
@@ -214,7 +214,7 @@
                 	描述：转移失败
                 -->
 				<el-button type="success" @click="dialogFormVisible5 = true">转移失败</el-button>
-				<el-dialog width="30%" :modal="false" title="转接失败" center :visible.sync="dialogFormVisible5">
+				<el-dialog class="notify" width="20%" :modal="false" title="转接失败" center :visible.sync="dialogFormVisible5">
 					<p>客户：Larry&nbsp;&nbsp;&nbsp;&nbsp;客户类型：XXX</p>
 					<p>申请转移席位：A2</p>
 				  <div slot="footer" class="dialog-footer">
@@ -383,5 +383,10 @@
     })
  </script>
  <style>
+ 	.notify .el-dialog{
+ 		position: absolute;
+ 		right: 10px;
+ 		bottom: 0;
+ 	}
  </style>
 </html>
