@@ -132,7 +132,8 @@
 	height: 20px;
 	border-radius: 10px;
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 5px;
+	margin-left: 20px;
 }
 .items div span{
 	display: inline-block;
