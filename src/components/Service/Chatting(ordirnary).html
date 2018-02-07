@@ -296,7 +296,7 @@
 													        </li>
 													    </ul>
 													</div>-->
-													<el-input type="textarea" v-model="msgToBeSend" @keyup="onKeyup" placeholder="按ctrl+Enter发送消息"></el-input>
+													<el-input type="textarea" v-model="msgToBeSend" @keyup.native="onKeyup" placeholder="按ctrl+Enter发送消息"></el-input>
 							    					<el-button type="success" class="ChattingWindow-middleDivDown-button" size="mini" @click="sendMsg">发送</el-button>
 							    				</div>
 							    			</div>
