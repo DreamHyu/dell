@@ -111,7 +111,7 @@
 					  </el-form-item>
 					</el-form>
 					<div class="wcbutton">
-						<el-button class="bt bttest" type="success">验证</el-button>
+						<el-button class="bt bttest" type="success" ref="OK" @click="ChangeOK()">验证</el-button>
 						<el-button class="bt">返回</el-button>
 					</div>
 		  		</div>	
@@ -136,11 +136,15 @@
 	        id: '',
 	        secret: '',
 	        token: '',
+	        
 	        }
 	      };
 	    },
 	    methods: {
-			
+			  ChangeOK(){
+			  	console.log('ok');
+          
+			  }
      	}
     })
  </script>
