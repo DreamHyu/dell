@@ -57,7 +57,7 @@
 .block{
 	width: 100%;
 	padding-top: 10px;
-	padding-bottom: 60px;
+	padding-bottom: 40px;
 	/*background-color: lightgray;*/
 	margin-bottom: 5%;
 }
@@ -73,12 +73,18 @@ select:hover{
 	cursor: pointer;
 	border: 1px solid lightcyan;
 }
-.attributeWrapper div span{
+.spanTitle{
 	display: block;
 	font-family: "微软雅黑";
 	font-size: 2em;
 	font-weight: bold;
 }
+/*.attributeWrapper div span{
+	display: block;
+	font-family: "微软雅黑";
+	font-size: 2em;
+	font-weight: normal;
+}*/
 /*自定义组件条形分析图*/
 
 /*wrapper*/
@@ -213,35 +219,86 @@ select:hover{
 }
 
 /*城市分布*/
-table.citySpread{
+table.tableStyle{
 	width: 100%;
 	margin-top: 80px;
 }
-table.citySpread thead{
+table.tableStyle thead{
 	background-color: #E0E0E0;
 	font-size: 25px;
 	font-family: "微软雅黑";
 }
-table.citySpread tbody{
+table.tableStyle tbody{
 	background-color: #F9FAFC;
 	font-size: 20px;
 	font-family: "微软雅黑";
 }
-table.citySpread tr{
+table.tableStyle tr{
 	height: 60px;
 }
-table.citySpread tr:hover{
+table.tableStyle tbody tr:hover{
 	background-color: #F0F9EB;
 }
-table.citySpread thead tr th{
+table.tableStyle thead tr th{
 	text-align: center;
 }
-table.citySpread tbody tr td{
+table.tableStyle tbody tr td{
+	padding-top: 1px;
+	padding-bottom: 1px;
 	text-align: center;
 }
-table.citySpread thead tr th:first-child{
+table.tableStyle thead tr th:first-child{
 	width: 30%;
 }
-table.citySpread tbody tr td:first-child{
+table.tableStyle tbody tr td:first-child{
 	width: 30%;
+}
+/*机型分布*/
+.machineWrapper{
+	width: 100%;
+	height: 940px;
+	margin-top: 20px;
+	/*background-color: lightblue;*/
+}
+.machineSpreadPieWrapper{
+	width: 100%;
+	margin: 0 auto;
+}
+.TableWrapper{
+	width: 90%;
+	margin: 0 auto;
+}
+/*省份分布*/
+.provinceSpreadWrapper{
+	width: 100%;
+	height: 1200px;
+	margin-top: 20px;
+}
+.provinceSpreadMapWrapper{
+	width: 100%;
+}
+/*属性分布表*/
+.attributeHeaderWrapper{
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+}
+.downLoadButton{
+	position: absolute;
+	top: 60px;
+	right: 0%;
+}
+.el-tabs__item {
+    padding: 0 20px;
+    height: 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 40px;
+    display: inline-block;
+    list-style: none;
+    font-size: 20px;
+    font-weight: normal;
+    font-weight: bold;
+    color: #303133;
+    position: relative;
 }
