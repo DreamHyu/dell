@@ -1,702 +1,772 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>素材管理</title>
-  <!-- 引入样式 -->
-	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../css/frame.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/report/fansReport.css"/>
-	<link rel="stylesheet" type="text/css" href="../../css/report/CustomerStatistic.css"/>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>素材管理</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/frame.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/report/fansReport.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/report/CustomerStatistic.css" />
+	</head>
 
-<body>
-	<div id="app">
-		<el-container>
-			<el-header height="50px">
-				<nav id="topNav" class="navbar-inverse" role="navigation">
-					<div class="container-fluid">
-					    <div class="navbar-header">
-					    	<img src="../../images/logo.png" />
-					    </div>
-					    <div>			
-					    	<ul class="nav navbar-nav">
-					            <li class="dropdown">
-					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				                    	公众号名称 <b class="caret"></b>
-					                </a>
-					                <ul class="dropdown-menu">
-					                	<li><a href="#">名称0</a></li>
-					                    <li><a href="#">名称1</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">名称2</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">名称3</a></li>
-					                </ul>
-					            </li>
-					        </ul>
-					        <ul class="nav navbar-nav navbar-right">
-					        	<li>
-				        			<img src="../../images/user_img.png" class="img-circle">
-					        	</li>
-					            <li class="dropdown">
-					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				                    	用户名 <b class="caret"></b>
-					                </a>
-					                <ul class="dropdown-menu">
-					                	<li><a href="#">用户0</a></li>
-					                    <li><a href="#">用户1</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">用户2</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">用户3</a></li>
-					                </ul>
-					            </li>
-					        </ul>
-					    </div>
-					</div>
-				</nav>
-			</el-header>
-		  <el-container>
-		    <el-aside width="70px">
-		    	<nav id="leftNav" class="navbar-inverse">
-					<div class="container-fluid">
-					    <div>
-					    	<ul class="nav navbar-nav">
-								<li class="">
-									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
-								</li>
-								<li class="">
-									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
-								</li>
-								<li class="">
-									<a href="../Service/CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
-								</li>
-								<li class="">
-									<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
-								</li>
-								<li class="">
-									<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
-								</li>
-								<li class="active">
-									<a href="fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
-								</li>
-								<li>
-									<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</nav>
-		    </el-aside>
-		    <el-main>
-		    	<div class="content">
-		    		<el-tabs v-model="activeName">
-				    	<el-tab-pane label="用户分析" name="first">
-				    		
-				    		<el-tabs type="border-card" v-model="activeName2">
-								  <el-tab-pane label="增长分析" name="first">增长分析</el-tab-pane>
-								  <el-tab-pane label="属性分析" name="second">
-								  	<!--wrapper-->
-								  	<div class="attributeWrapper">
-								  		<!--性别分布-->
-									  	<div class="block">
-									  		<span class="spanTitle">性别分布</span>
-									  		<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items1'></sexBlock>
-									  	</div>
-									  	<hr class="hr" />
-									  	<!--语言分布-->
-									  	<div class="block">
-									  		<span class="spanTitle">语言分布</span>
-									  		<langBlock :all='150' :lan1='30' :lan2='30' :lan3='40' :other='50' :items='items2'></langBlock>
-									  	</div>
-									  	<hr class="hr" />
-									  	<!--省份分布-->
-									  	<div class="block">
-									  		<span class="spanTitle">省份分布</span>
-									  		<div class="provinceSpreadWrapper">
-									  			<div class="provinceSpreadMapWrapper">
-									  				<div id="provinceSpreadMap" style="width: 800px;height: 600px;margin: 0 auto;"></div>
-									  			</div>
-									  			<div class="TableWrapper">
-										  			<table class="tableStyle">
-														  	<thead>
-														  		<tr>
-														  			<th>省份</th>
-														  			<th>用户数</th>
-														  		</tr>
-														  	</thead>
-														  	<tbody>
-														  		<tr v-for="item in provinceSpread">
-														  			<td>{{item.province}}</td>
-														  			<td>
-														  				<propotionbar :usernumber="item.value" :total="provinceUsers"></propotionbar>
-														  			</td>
-														  		</tr>
-														  	</tbody>
-														</table>
-										  		</div>
-										  		<div  style="margin: 80px auto;margin-bottom:10px;width: 20%;">
-													 	 <el-pagination
-														  layout="prev, pager, next"
-														  :pageSize="5"
-														  :total="100"
-														  >
+	<body>
+		<div id="app">
+			<el-container>
+				<el-header height="50px">
+					<nav id="topNav" class="navbar-inverse" role="navigation">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<img src="../../images/logo.png" />
+							</div>
+							<div>
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											公众号名称 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">名称0</a>
+											</li>
+											<li>
+												<a href="#">名称1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<img src="../../images/user_img.png" class="img-circle">
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											用户名 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">用户0</a>
+											</li>
+											<li>
+												<a href="#">用户1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</el-header>
+				<el-container>
+					<el-aside width="70px">
+						<nav id="leftNav" class="navbar-inverse">
+							<div class="container-fluid">
+								<div>
+									<ul class="nav navbar-nav">
+										<li class="">
+											<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+										</li>
+										<li class="">
+											<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+										</li>
+										<li class="">
+											<a href="../Service/CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+										</li>
+										<li class="">
+											<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+										</li>
+										<li class="">
+											<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+										</li>
+										<li class="active">
+											<a href="fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+										</li>
+										<li>
+											<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</el-aside>
+					<el-main>
+						<div class="content">
+							<el-tabs v-model="activeName">
+								<el-tab-pane label="用户分析" name="first">
+									<el-tabs type="border-card" v-model="activeName2">
+										<el-tab-pane label="增长分析" name="first">
+											<div class="userIncreWrapper">
+												<!--上半部-->
+												<div class="userIncreUp">
+													<div class="card">
+														<span>
+												    	<p>新关注人数</p>
+											    		<p class="num">31234</p>
+											    	</span>
+														<p style="margin-left: 20px;">
+															日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+															周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br /> 
+															月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+														</p>
+													</div>
+													<div class="card">
+														<span>
+												    	<p>取消关注人数</p>
+											    		<p class="num">34521</p>
+											    	</span>
+														<p style="margin-left: 20px;">
+															日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+															周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br /> 
+															月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+														</p>
+													</div>
+													<div class="card">
+														<span>
+												    	<p>净增关注人数</p>
+											    		<p class="num">12345</p>
+											    	</span>
+														<p style="margin-left: 20px;">
+															日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+															周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br /> 
+															月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+														</p>
+													</div>
+													<div class="card">
+														<span>
+												    	<p>累积关注人数</p>
+											    		<p class="num">5432</p>
+											    	</span>
+														<p style="margin-left: 20px;">
+															日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+															周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+															<br /> 月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+														</p>
+													</div>
+												</div>
+												<!--分割线1-->
+												<hr class="hr" style="clear: both;" />
+												<!--中部-->
+												<div class="userIncreMiddle">
+													<el-tabs type="card" style="clear: both;padding-top: 20px;">
+														<el-tab-pane label="新增人数" name="first">
+															<div id="newUsers" style="width: 1200px;height: 600px;margin: 30px auto;"></div>
+														</el-tab-pane>
+														<el-tab-pane label="取消关注人数" name="second">
+															<div id="cancelUsers" style="width: 1200px;height: 600px;margin: 30px auto;"></div>
+														</el-tab-pane>
+														<el-tab-pane label="净增人数" name="third">
+															<div id="incrementUsers" style="width: 1200px;height: 600px;margin: 30px auto;"></div>
+														</el-tab-pane>
+														<el-tab-pane label="累计人数" name="fourth">
+															<div id="sumUsers" style="width: 1200px;height: 600px;margin: 30px auto;"></div>
+														</el-tab-pane>
+													</el-tabs>
+													<div class="selectZone">
+														<el-select v-model="sourceValue" placeholder="来源" class="elSelect1">
+													    <el-option
+													      v-for="item in sources"
+													      :key="item.value"
+													      :label="item.label"
+													      :value="item.value">
+													    </el-option>
+													  </el-select>
+													  <el-select v-model="recentTimeValue" placeholder="最近一周" class="elSelect2">
+													    <el-option
+													      v-for="item in recentTimes"
+													      :key="item.value"
+													      :label="item.label"
+													      :value="item.value">
+													    </el-option>
+													  </el-select>
+													</div>
+												</div>
+												<!--分割线2-->
+												<hr class="hr" style="clear: both;" />
+												<!--下半部(表格)-->
+												<div class="userIncreDown">
+													<div class="selectZone">
+														<el-button  class="elSelect1" size="small">下载表格</el-button>
+														<el-select v-model="recentTimeValue" placeholder="最近一周" class="elSelect2">
+													    <el-option
+													      v-for="item in recentTimes"
+													      :key="item.value"
+													      :label="item.label"
+													      :value="item.value">
+													    </el-option>
+													  </el-select>
+													</div>
+													<table class="tableStyle">
+														<thead>
+															<tr>
+																<th>时间</th>
+																<th>新关注人数</th>
+																<th>取消关注人数</th>
+																<th>净增关注人数</th>
+																<th>累积关注人数</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr v-for="item in userIncreData">
+																<td>{{item.date}}</td>
+																<td>{{item.newUsers}}</td>
+																<td>{{item.cancelUsers}}</td>
+																<td>{{item.incrementUsers}}</td>
+																<td>{{item.allUsers}}</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</el-tab-pane>
+										<el-tab-pane label="属性分析" name="second">
+											<!--wrapper-->
+											<div class="attributeWrapper">
+												<!--性别分布-->
+												<div class="block">
+													<span class="spanTitle">性别分布</span>
+													<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items1'></sexBlock>
+												</div>
+												<hr class="hr" />
+												<!--语言分布-->
+												<div class="block">
+													<span class="spanTitle">语言分布</span>
+													<langBlock :all='150' :lan1='30' :lan2='30' :lan3='40' :other='50' :items='items2'></langBlock>
+												</div>
+												<hr class="hr" />
+												<!--省份分布-->
+												<div class="block">
+													<span class="spanTitle">省份分布</span>
+													<div class="provinceSpreadWrapper">
+														<div class="provinceSpreadMapWrapper">
+															<div id="provinceSpreadMap" style="width: 800px;height: 600px;margin: 0 auto;"></div>
+														</div>
+														<div class="TableWrapper">
+															<table class="tableStyle">
+																<thead>
+																	<tr>
+																		<th>省份</th>
+																		<th>用户数</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr v-for="item in provinceSpread">
+																		<td>{{item.province}}</td>
+																		<td>
+																			<propotionbar :usernumber="item.value" :total="provinceUsers"></propotionbar>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<div style="margin: 80px auto;margin-bottom:10px;width: 20%;">
+															<el-pagination layout="prev, pager, next" :pageSize="5" :total="100">
+															</el-pagination>
+														</div>
+													</div>
+												</div>
+												<hr class="hr" />
+												<!--城市分布-->
+												<div class="block">
+													<span class="spanTitle">城市分布</span>
+													<!--<div class="citySpread">-->
+													<select value="全国" style="float: right;">
+														<option v-for="item in citys" :label="item.label" :value="item.value"></option>
+													</select>
+													<table class="tableStyle">
+														<thead>
+															<tr>
+																<th>城市</th>
+																<th>用户数</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr v-for="item in citySpread">
+																<td>{{item.city}}</td>
+																<td>
+																	<propotionbar :usernumber="item.value" :total="cityUsers"></propotionbar>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+													<div style="margin: 80px auto;margin-bottom:10px;width: 20%;">
+														<el-pagination layout="prev, pager, next" :pageSize="5" :total="100">
 														</el-pagination>
 													</div>
-									  		</div>
-									  	</div>
-									  	<hr class="hr" />
-									  	<!--城市分布-->
-									  	<div class="block">
-									  		<span class="spanTitle">城市分布</span>
-									  		<!--<div class="citySpread">-->
-													 <select value="全国" style="float: right;">
-													  	<option v-for="item in citys" :label="item.label" :value="item.value"></option>
-													  </select>
-													  <table class="tableStyle">
-													  	<thead>
-													  		<tr>
-													  			<th>城市</th>
-													  			<th>用户数</th>
-													  		</tr>
-													  	</thead>
-													  	<tbody>
-													  		<tr v-for="item in citySpread">
-													  			<td>{{item.city}}</td>
-													  			<td>
-													  				<propotionbar :usernumber="item.value" :total="cityUsers"></propotionbar>
-													  			</td>
-													  		</tr>
-													  	</tbody>
-													  </table>
-													 <div  style="margin: 80px auto;margin-bottom:10px;width: 20%;">
-													 	 <el-pagination
-														  layout="prev, pager, next"
-														  :pageSize="5"
-														  :total="100"
-														  >
-														</el-pagination>
-													 </div>
-									  		<!--</div>-->
-									  	</div>
-									  	<hr class="hr" />
-									  	<!--终端分布-->
-									  	<div class="block">
-									  		<span class="spanTitle">终端分布</span>
-									  		<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items3'></sexBlock>
-									  	</div>
-									  	<hr class="hr" />
-									  	<!--机型分布TOP10-->
-									  	<div class="block">
-									  		<span class="spanTitle">机型分布TOP10</span>
-									  		<div class="machineWrapper">
-									  			<div class="machineSpreadPieWrapper">
-										  			<div id="machinetypespreadpie" style="width: 800px;height: 400px;margin: 0 auto;"></div>
-										  		</div>
-										  		<div class="TableWrapper">
-										  			<table class="tableStyle">
-														  	<thead>
-														  		<tr>
-														  			<th>机型</th>
-														  			<th>用户数</th>
-														  		</tr>
-														  	</thead>
-														  	<tbody>
-														  		<tr v-for="item in machineSpread">
-														  			<td>{{item.machine}}</td>
-														  			<td>
-														  				<propotionbar :usernumber="item.value" :total="machineUsers"></propotionbar>
-														  			</td>
-														  		</tr>
-														  	</tbody>
-														</table>
-										  		</div>
-									  		</div>
-									  	</div>
-									  	<hr class="hr" style="clear: both;"/>
-									  	<!--属性分布表-->
-									  	<div class="block">
-									  		<span class="spanTitle">属性分布表</span>
-									  		<div class="attributeHeaderWrapper">
-									  			<template>
-													  <el-tabs>
-													    <el-tab-pane label="性别" name="first">
-													    	<div class="TableWrapper">
-													  			<table class="tableStyle">
-																	  	<thead>
-																	  		<tr>
-																	  			<th>性别</th>
-																	  			<th>用户数</th>
-																	  			<th>占比</th>
-																	  		</tr>
-																	  	</thead>
-																	  	<tbody>
-																	  		<tr v-for="(item,index) in sexSpread">
-																	  			<td>
-																	  				{{item.sex}}
-																	  			</td>
-																	  			<td>
-																	  				{{item.value}}
-																	  			</td>
-																	  			<td>
-																	  				{{sexPropotion(index)}}
-																	  			</td>
-																	  		</tr>
-																	  	</tbody>
-																	</table>
-													  		</div>
-													    </el-tab-pane>
-													    <el-tab-pane label="语言" name="second">
-													    	<div class="TableWrapper">
-													  			<table class="tableStyle">
-																	  	<thead>
-																	  		<tr>
-																	  			<th>语言</th>
-																	  			<th>用户数</th>
-																	  			<th>占比</th>
-																	  		</tr>
-																	  	</thead>
-																	  	<tbody>
-																	  		<tr v-for="(item,index) in langSpread">
-																	  			<td>
-																	  				{{item.lang}}
-																	  			</td>
-																	  			<td>
-																	  				{{item.value}}
-																	  			</td>
-																	  			<td>
-																	  				{{langPropotion(index)}}
-																	  			</td>
-																	  		</tr>
-																	  	</tbody>
-																	</table>
-													  		</div>
-													    </el-tab-pane>
-													    <el-tab-pane label="省份" name="third">
-													    	<div class="TableWrapper">
-													  			<table class="tableStyle">
-																	  	<thead>
-																	  		<tr>
-																	  			<th>省份</th>
-																	  			<th>用户数</th>
-																	  			<th>占比</th>
-																	  		</tr>
-																	  	</thead>
-																	  	<tbody>
-																	  		<tr v-for="(item,index) in provSpread">
-																	  			<td>
-																	  				{{item.province}}
-																	  			</td>
-																	  			<td>
-																	  				{{item.value}}
-																	  			</td>
-																	  			<td>
-																	  				{{provincePropotion(index)}}
-																	  			</td>
-																	  		</tr>
-																	  	</tbody>
-																	</table>
-													  		</div>
-													    </el-tab-pane>
-													    <el-tab-pane label="城市" name="fourth">
-													    	<div class="TableWrapper">
-													  			<table class="tableStyle">
-																	  	<thead>
-																	  		<tr>
-																	  			<th>城市</th>
-																	  			<th>用户数</th>
-																	  			<th>占比</th>
-																	  		</tr>
-																	  	</thead>
-																	  	<tbody>
-																	  		<tr v-for="(item,index) in CitySpread">
-																	  			<td>
-																	  				{{item.city}}
-																	  			</td>
-																	  			<td>
-																	  				{{item.value}}
-																	  			</td>
-																	  			<td>
-																	  				{{cityPropotion(index)}}
-																	  			</td>
-																	  		</tr>
-																	  	</tbody>
-																	</table>
-													  		</div>
-													    </el-tab-pane>
-													    <el-tab-pane label="终端" name="five">
-													    	<div class="TableWrapper">
-													  			<table class="tableStyle">
-																	  	<thead>
-																	  		<tr>
-																	  			<th>终端</th>
-																	  			<th>用户数</th>
-																	  			<th>占比</th>
-																	  		</tr>
-																	  	</thead>
-																	  	<tbody>
-																	  		<tr v-for="(item,index) in terminalSpread">
-																	  			<td>
-																	  				{{item.terminal}}
-																	  			</td>
-																	  			<td>
-																	  				{{item.value}}
-																	  			</td>
-																	  			<td>
-																	  				{{terminalPropotion(index)}}
-																	  			</td>
-																	  		</tr>
-																	  	</tbody>
-																	</table>
-													  		</div>
-													    </el-tab-pane>
-													    <el-tab-pane label="机型" name="six">
-													    	<div class="TableWrapper">
-													  			<table class="tableStyle">
-																	  	<thead>
-																	  		<tr>
-																	  			<th>机型</th>
-																	  			<th>用户数</th>
-																	  			<th>占比</th>
-																	  		</tr>
-																	  	</thead>
-																	  	<tbody>
-																	  		<tr v-for="(item,index) in terminalTypeSpread">
-																	  			<td>
-																	  				{{item.type}}
-																	  			</td>
-																	  			<td>
-																	  				{{item.value}}
-																	  			</td>
-																	  			<td>
-																	  				{{terminalTypePropotion(index)}}
-																	  			</td>
-																	  		</tr>
-																	  	</tbody>
-																	</table>
-													  		</div>
-													    </el-tab-pane>
-													  </el-tabs>
-													</template>
-													<el-button type="success" class="downLoadButton" plain>下载表格</el-button>
-									  		</div>
-									  	</div>
-								  	</div>
-								  </el-tab-pane>
-								  <el-tab-pane label="粉丝报表" name="third">
-								  	<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
-			    				  <el-table
-									    :data="tableData3"
-									    style="width: 100%;">
-									    <el-table-column
-									      prop="name"
-									      label="名字">
-									    </el-table-column>
-									    <el-table-column
-									      prop="sex"
-									      label="性别">
-									    </el-table-column>
-									    <el-table-column
-									      prop="address"
-									      label="地址">
-									    </el-table-column>
-									    <el-table-column
-									      prop="tab"
-									      label="标签">
-									    </el-table-column>
-									    <el-table-column
-									      prop="date"
-									      label="关注时间">
-									    </el-table-column>
-									  </el-table>
-								  	
-								  	
-								  </el-tab-pane>
-								  <el-tab-pane label="会员报表" name="fourth">
-								  	<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
-			    				  <el-table
-									    :data="tableData"
-									    style="width: 100%;">
-									    <el-table-column
-									      prop="name"
-									      label="名字">
-									    </el-table-column>
-									    <el-table-column
-									      prop="sex"
-									      label="性别">
-									    </el-table-column>
-									    <el-table-column
-									      prop="phone"
-									      label="手机">
-									    </el-table-column>
-									    <el-table-column
-									      prop="address"
-									      label="地址">
-									    </el-table-column>
-									    <el-table-column
-									      prop="tab"
-									      label="标签">
-									    </el-table-column>
-									    <el-table-column
-									      prop="date"
-									      label="关注时间">
-									    </el-table-column>
-									  </el-table>
-								  </el-tab-pane>
-								</el-tabs>		    				
-				    	</el-tab-pane>
-				    	
-				    	<el-tab-pane label="客服统计" name="second">
-				    		<div class="csContent">
-					    		<!--标题-->
-					    		<div class="csTitle">
-					    			<span>客服统计</span>
-					    			<hr class="hr"/>
-					    		</div>
-					    		<!--区域-->
-					    		<div class="areaAll">
-					    			<!--选项区1-->
-						    		<div class="selectArea">
-						    			<template>
-										  <el-select v-model="value" placeholder="最近10天">
-										    <el-option
-										      v-for="item in options"
-										      :key="item.value"
-										      :label="item.label"
-										      :value="item.value">
-										    </el-option>
-										  </el-select>
-										</template>
-						    		</div>
-					    			<!--区域1-------------------------------------------->
-						    		<div class="areaFirst">
-						    			<!--图表区1-->
-						    			<div id="main1" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main2" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main3" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main4" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main5" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main6" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main7" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main8" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main9" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main10" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main11" style="height:200px;width: 300px;float: left;"></div>
-						    			<div id="main12" style="height:200px;width: 300px;float: left;"></div>
-						    		</div>
-						    		<!--分割线1------------------------------------------->
-						    		<!--<hr class="hr" />-->
-						    		<!--区域2-------------------------------------------->
-									<!--<div class="areaSecond">-->
-										<!--图表区2-->
-									<!--</div>-->
-									<!--分割线2------------------------------------------->
-									<hr class="hr" />
-									<!--区域3-------------------------------------------->
-						    		<div class="selectArea">
-						    			<!--选项区2-->
-						    			<template>
-										  <el-select v-model="value" placeholder="最近10天">
-										    <el-option
-										      v-for="item in options"
-										      :key="item.value"
-										      :label="item.label"
-										      :value="item.value">
-										    </el-option>
-										  </el-select>
-										</template>
-						    		</div>
-									<div class="areaThird">
-										<!--图表区3-->
-										<template>
-										  <el-table
-										    :data="tableData2"
-										    stripe
-										    style="width: 100%">
-										    <el-table-column prop="group" label="小组"></el-table-column>
-										    <el-table-column prop="name" label="名字"></el-table-column>
-										    <el-table-column prop="onlineTime" label="在线时长"></el-table-column>
-										    <el-table-column prop="sessionNumber" label="会话数量"></el-table-column>
-										    <el-table-column prop="responseNumber" label="应答数量"></el-table-column>
-										    <el-table-column prop="averageChattingTime" label="平均聊天时长"></el-table-column>
-										    <el-table-column prop="fansAverageWaitingTime" label="粉丝平均等待时长"></el-table-column>
-										    <el-table-column prop="satisfiedDegree" label="满意度"></el-table-column>
-										  </el-table>
-										</template>
+													<!--</div>-->
+												</div>
+												<hr class="hr" />
+												<!--终端分布-->
+												<div class="block">
+													<span class="spanTitle">终端分布</span>
+													<sexBlock :all='130' :male='30' :female='30' :other='70' :items='items3'></sexBlock>
+												</div>
+												<hr class="hr" />
+												<!--机型分布TOP10-->
+												<div class="block">
+													<span class="spanTitle">机型分布TOP10</span>
+													<div class="machineWrapper">
+														<div class="machineSpreadPieWrapper">
+															<div id="machinetypespreadpie" style="width: 800px;height: 400px;margin: 0 auto;"></div>
+														</div>
+														<div class="TableWrapper">
+															<table class="tableStyle">
+																<thead>
+																	<tr>
+																		<th>机型</th>
+																		<th>用户数</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr v-for="item in machineSpread">
+																		<td>{{item.machine}}</td>
+																		<td>
+																			<propotionbar :usernumber="item.value" :total="machineUsers"></propotionbar>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+												<hr class="hr" style="clear: both;" />
+												<!--属性分布表-->
+												<div class="block">
+													<span class="spanTitle">属性分布表</span>
+													<div class="attributeHeaderWrapper">
+														<template>
+															<el-tabs>
+																<el-tab-pane label="性别" name="first">
+																	<div class="TableWrapper">
+																		<table class="tableStyle">
+																			<thead>
+																				<tr>
+																					<th>性别</th>
+																					<th>用户数</th>
+																					<th>占比</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr v-for="(item,index) in sexSpread">
+																					<td>
+																						{{item.sex}}
+																					</td>
+																					<td>
+																						{{item.value}}
+																					</td>
+																					<td>
+																						{{sexPropotion(index)}}
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</el-tab-pane>
+																<el-tab-pane label="语言" name="second">
+																	<div class="TableWrapper">
+																		<table class="tableStyle">
+																			<thead>
+																				<tr>
+																					<th>语言</th>
+																					<th>用户数</th>
+																					<th>占比</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr v-for="(item,index) in langSpread">
+																					<td>
+																						{{item.lang}}
+																					</td>
+																					<td>
+																						{{item.value}}
+																					</td>
+																					<td>
+																						{{langPropotion(index)}}
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</el-tab-pane>
+																<el-tab-pane label="省份" name="third">
+																	<div class="TableWrapper">
+																		<table class="tableStyle">
+																			<thead>
+																				<tr>
+																					<th>省份</th>
+																					<th>用户数</th>
+																					<th>占比</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr v-for="(item,index) in provSpread">
+																					<td>
+																						{{item.province}}
+																					</td>
+																					<td>
+																						{{item.value}}
+																					</td>
+																					<td>
+																						{{provincePropotion(index)}}
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</el-tab-pane>
+																<el-tab-pane label="城市" name="fourth">
+																	<div class="TableWrapper">
+																		<table class="tableStyle">
+																			<thead>
+																				<tr>
+																					<th>城市</th>
+																					<th>用户数</th>
+																					<th>占比</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr v-for="(item,index) in CitySpread">
+																					<td>
+																						{{item.city}}
+																					</td>
+																					<td>
+																						{{item.value}}
+																					</td>
+																					<td>
+																						{{cityPropotion(index)}}
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</el-tab-pane>
+																<el-tab-pane label="终端" name="five">
+																	<div class="TableWrapper">
+																		<table class="tableStyle">
+																			<thead>
+																				<tr>
+																					<th>终端</th>
+																					<th>用户数</th>
+																					<th>占比</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr v-for="(item,index) in terminalSpread">
+																					<td>
+																						{{item.terminal}}
+																					</td>
+																					<td>
+																						{{item.value}}
+																					</td>
+																					<td>
+																						{{terminalPropotion(index)}}
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</el-tab-pane>
+																<el-tab-pane label="机型" name="six">
+																	<div class="TableWrapper">
+																		<table class="tableStyle">
+																			<thead>
+																				<tr>
+																					<th>机型</th>
+																					<th>用户数</th>
+																					<th>占比</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr v-for="(item,index) in terminalTypeSpread">
+																					<td>
+																						{{item.type}}
+																					</td>
+																					<td>
+																						{{item.value}}
+																					</td>
+																					<td>
+																						{{terminalTypePropotion(index)}}
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</el-tab-pane>
+															</el-tabs>
+														</template>
+														<el-button type="success" class="downLoadButton" plain>下载表格</el-button>
+													</div>
+												</div>
+											</div>
+										</el-tab-pane>
+										<el-tab-pane label="粉丝报表" name="third">
+											<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
+											<el-table :data="tableData3" style="width: 100%;">
+												<el-table-column prop="name" label="名字">
+												</el-table-column>
+												<el-table-column prop="sex" label="性别">
+												</el-table-column>
+												<el-table-column prop="address" label="地址">
+												</el-table-column>
+												<el-table-column prop="tab" label="标签">
+												</el-table-column>
+												<el-table-column prop="date" label="关注时间">
+												</el-table-column>
+											</el-table>
+
+										</el-tab-pane>
+										<el-tab-pane label="会员报表" name="fourth">
+											<el-button type="success" style="float:right;margin-bottom: 20px;">下载表格</el-button>
+											<el-table :data="tableData" style="width: 100%;">
+												<el-table-column prop="name" label="名字">
+												</el-table-column>
+												<el-table-column prop="sex" label="性别">
+												</el-table-column>
+												<el-table-column prop="phone" label="手机">
+												</el-table-column>
+												<el-table-column prop="address" label="地址">
+												</el-table-column>
+												<el-table-column prop="tab" label="标签">
+												</el-table-column>
+												<el-table-column prop="date" label="关注时间">
+												</el-table-column>
+											</el-table>
+										</el-tab-pane>
+									</el-tabs>
+								</el-tab-pane>
+
+								<el-tab-pane label="客服统计" name="second">
+									<div class="csContent">
+										<!--标题-->
+										<div class="csTitle">
+											<span>客服统计</span>
+											<hr class="hr" />
+										</div>
+										<!--区域-->
+										<div class="areaAll">
+											<!--选项区1-->
+											<div class="selectArea">
+												<template>
+													<el-select v-model="value" placeholder="最近10天">
+														<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+														</el-option>
+													</el-select>
+												</template>
+											</div>
+											<!--区域1-------------------------------------------->
+											<div class="areaFirst">
+												<!--图表区1-->
+												<div id="main1" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main2" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main3" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main4" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main5" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main6" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main7" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main8" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main9" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main10" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main11" style="height:200px;width: 300px;float: left;"></div>
+												<div id="main12" style="height:200px;width: 300px;float: left;"></div>
+											</div>
+											<!--分割线1------------------------------------------->
+											<!--<hr class="hr" />-->
+											<!--区域2-------------------------------------------->
+											<!--<div class="areaSecond">-->
+											<!--图表区2-->
+											<!--</div>-->
+											<!--分割线2------------------------------------------->
+											<hr class="hr" />
+											<!--区域3-------------------------------------------->
+											<div class="selectArea">
+												<!--选项区2-->
+												<template>
+													<el-select v-model="value" placeholder="最近10天">
+														<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+														</el-option>
+													</el-select>
+												</template>
+											</div>
+											<div class="areaThird">
+												<!--图表区3-->
+												<template>
+													<el-table :data="tableData2" stripe style="width: 100%">
+														<el-table-column prop="group" label="小组"></el-table-column>
+														<el-table-column prop="name" label="名字"></el-table-column>
+														<el-table-column prop="onlineTime" label="在线时长"></el-table-column>
+														<el-table-column prop="sessionNumber" label="会话数量"></el-table-column>
+														<el-table-column prop="responseNumber" label="应答数量"></el-table-column>
+														<el-table-column prop="averageChattingTime" label="平均聊天时长"></el-table-column>
+														<el-table-column prop="fansAverageWaitingTime" label="粉丝平均等待时长"></el-table-column>
+														<el-table-column prop="satisfiedDegree" label="满意度"></el-table-column>
+													</el-table>
+												</template>
+											</div>
+										</div>
 									</div>
-					    		</div>
-					    	</div>
-				    	</el-tab-pane>
-				    	<el-tab-pane label="图文分析" name="third" class="imgText">
-				    		<div class="card">
-				    			<span>
+								</el-tab-pane>
+								<el-tab-pane label="图文分析" name="third" class="imgText">
+									<div class="card">
+										<span>
 					    			<p>图文页阅读次数</p>
 				    				<p class="num">31234</p>
 				    			</span>
-				    			<p style="margin-left: 20px;">
-				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
-				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br />
-				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
-				    			</p>
-				    		</div>
-				    		<div class="card">
-				    			<span>
+										<p style="margin-left: 20px;">
+											日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+											周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br /> 
+											月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+										</p>
+									</div>
+									<div class="card">
+										<span>
 					    			<p>原文阅读次数</p>
 				    				<p class="num">34521</p>
 				    			</span>
-				    			<p style="margin-left: 20px;">
-				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
-				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br />
-				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
-				    			</p>
-				    		</div>
-				    		<div class="card">
-				    			<span>
+										<p style="margin-left: 20px;">
+											日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+											周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br /> 
+											月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+										</p>
+									</div>
+									<div class="card">
+										<span>
 					    			<p>分享转发次数</p>
 				    				<p class="num">12345</p>
 				    			</span>
-				    			<p style="margin-left: 20px;">
-				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
-				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br />
-				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
-				    			</p>
-				    		</div>
-				    		<div class="card">
-				    		<span>
+										<p style="margin-left: 20px;">
+											日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+											周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="el-icon-caret-top" style="color: #00A372;"></i>66.7%<br /> 
+											月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+										</p>
+									</div>
+									<div class="card">
+										<span>
 					    			<p>微信收藏人数</p>
 				    				<p class="num">5432</p>
 				    			</span>
-				    			<p style="margin-left: 20px;">
-				    				日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
-				    				周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br />
-				    				月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
-				    			</p>
-				    		</div>
-				    		
-				    		<el-tabs v-model="activeName3" type="card" style="clear: both;padding-top: 20px;">
-							    <el-tab-pane label="图文页阅读" name="first">
-							    	<h4>阅读来源分析</h4>
-							    	<hr class="hr" />
-							    	<div id="container" style="min-width:400px;height:400px"></div>
-							    	<h4>趋势图</h4>
-							    	<hr class="hr" />
-							    	
-						    	  <el-table
-									    :data="tableData1"
-									    style="width: 100%;">
-									    <el-table-column
-									      prop="date"
-									      label="时间">
-									    </el-table-column>
-									    <el-table-column
-									      label="图文页阅读">
-									      <el-table-column
-										      prop="person"
-										      label="人数">
-										    </el-table-column>
-									      
-									      <el-table-column
-										      prop="number"
-										      label="次数">
-										    </el-table-column>
-										    
-									    </el-table-column>
-									    <el-table-column
-									      label="从公众号打开">
-									      <el-table-column
-										      prop="person"
-										      label="人数">
-										    </el-table-column>
-									      
-									      <el-table-column
-										      prop="number"
-										      label="次数">
-										    </el-table-column>
-										    
-									    </el-table-column>
-									    <el-table-column
-									      label="从朋友圈打开">
-									      <el-table-column
-										      prop="person"
-										      label="人数">
-										    </el-table-column>
-									      
-									      <el-table-column
-										      prop="number"
-										      label="次数">
-										    </el-table-column>
-										    
-									    </el-table-column>
-									    <el-table-column
-									      label="分享转发">
-									      <el-table-column
-										      prop="person"
-										      label="人数">
-										    </el-table-column>
-									      
-									      <el-table-column
-										      prop="number"
-										      label="次数">
-										    </el-table-column>
-										    
-									    </el-table-column>
-									    <el-table-column
-									      label="微信收藏人数">
-									      <el-table-column
-										      prop="person"
-										      label="人数">
-										    </el-table-column>
-									      
-									      <el-table-column
-										      prop="number"
-										      label="次数">
-										    </el-table-column>
-									    </el-table-column>
-									  </el-table>
-							    	
-							    </el-tab-pane>
-							    <el-tab-pane label="原文页阅读" name="second">配置管理</el-tab-pane>
-							    <el-tab-pane label="分享转发" name="third">角色管理</el-tab-pane>
-							    <el-tab-pane label="微信收藏" name="fourth">定时任务补偿</el-tab-pane>
-							  </el-tabs>
-				    	</el-tab-pane>
-				  	</el-tabs>
-		    	</div>
-		    </el-main>
-		  </el-container>
-		</el-container>
-	</div>
-</body>
+										<p style="margin-left: 20px;">
+											日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--<br /> 
+											周&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+											<br /> 
+											月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+										</p>
+									</div>
+
+									<el-tabs v-model="activeName3" type="card" style="clear: both;padding-top: 20px;">
+										<el-tab-pane label="图文页阅读" name="first">
+											<h4>阅读来源分析</h4>
+											<hr class="hr" />
+											<div id="container" style="min-width:400px;height:400px"></div>
+											<h4>趋势图</h4>
+											<hr class="hr" />
+
+											<el-table :data="tableData1" style="width: 100%;">
+												<el-table-column prop="date" label="时间">
+												</el-table-column>
+												<el-table-column label="图文页阅读">
+													<el-table-column prop="person" label="人数">
+													</el-table-column>
+
+													<el-table-column prop="number" label="次数">
+													</el-table-column>
+
+												</el-table-column>
+												<el-table-column label="从公众号打开">
+													<el-table-column prop="person" label="人数">
+													</el-table-column>
+
+													<el-table-column prop="number" label="次数">
+													</el-table-column>
+
+												</el-table-column>
+												<el-table-column label="从朋友圈打开">
+													<el-table-column prop="person" label="人数">
+													</el-table-column>
+
+													<el-table-column prop="number" label="次数">
+													</el-table-column>
+
+												</el-table-column>
+												<el-table-column label="分享转发">
+													<el-table-column prop="person" label="人数">
+													</el-table-column>
+
+													<el-table-column prop="number" label="次数">
+													</el-table-column>
+
+												</el-table-column>
+												<el-table-column label="微信收藏人数">
+													<el-table-column prop="person" label="人数">
+													</el-table-column>
+
+													<el-table-column prop="number" label="次数">
+													</el-table-column>
+												</el-table-column>
+											</el-table>
+
+										</el-tab-pane>
+										<el-tab-pane label="原文页阅读" name="second">配置管理</el-tab-pane>
+										<el-tab-pane label="分享转发" name="third">角色管理</el-tab-pane>
+										<el-tab-pane label="微信收藏" name="fourth">定时任务补偿</el-tab-pane>
+									</el-tabs>
+								</el-tab-pane>
+							</el-tabs>
+						</div>
+					</el-main>
+				</el-container>
+			</el-container>
+		</div>
+	</body>
 	<!-- 先引入 Vue -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- 引入组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../../js/highcharts.js" ></script>
-  <script type="text/template" id="sexTemplate">
-  	<div class="templateWrapper">
-  		<!--黑条-->
-  		<div class="blackDiv"></div>
-  		<!--黄条-->
-  		<el-tooltip class="item" effect="dark" :content="items[0].message+':'+male" placement="top">
-  				<div class="divModel div1" :style="malePropoStyle"></div>
-  		</el-tooltip>
-  		<!--黄绿条-->
-  		<el-tooltip class="item" effect="dark" :content="items[1].message+':'+female" placement="top">
-  			<div class="divModel div2" :style="femalePropoStyle"></div>
-  		</el-tooltip>
-  		<!--绿条-->
-  		<el-tooltip class="item" effect="dark" :content="items[2].message+':'+other" placement="top">
-  			<div class="divModel div3" :style="otherPropoStyle"></div>
-  		</el-tooltip>
-  		<!--选项-->
-  		<div class="items">
-  			<!--<div>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/highcharts.js"></script>
+	<script type="text/template" id="sexTemplate">
+		<div class="templateWrapper">
+			<!--黑条-->
+			<div class="blackDiv"></div>
+			<!--黄条-->
+			<el-tooltip class="item" effect="dark" :content="items[0].message+':'+male" placement="top">
+				<div class="divModel div1" :style="malePropoStyle"></div>
+			</el-tooltip>
+			<!--黄绿条-->
+			<el-tooltip class="item" effect="dark" :content="items[1].message+':'+female" placement="top">
+				<div class="divModel div2" :style="femalePropoStyle"></div>
+			</el-tooltip>
+			<!--绿条-->
+			<el-tooltip class="item" effect="dark" :content="items[2].message+':'+other" placement="top">
+				<div class="divModel div3" :style="otherPropoStyle"></div>
+			</el-tooltip>
+			<!--选项-->
+			<div class="items">
+				<!--<div>
   				<div style="background-color: yellow;"></div>
   				<span>{{item1}}</span>
   			</div>
@@ -708,1616 +778,2016 @@
   				<div style="background-color: lightseagreen;"></div>
   				<span>{{item3}}</span>
   			</div>-->
-  			<div v-for="item in items">
-  				<div :style="{backgroundColor: item.backColor}"></div>
-  				<span>{{item.message}}</span>
-  			</div>
-  		</div>
-  		<!--刻度条-->
-  		<div class="scaleBar bar1">
-  			<span>{{all*0.1}}</span>
-  		</div>
-  		<div class="scaleBar bar2">
-  			<span>{{all*0.2}}</span>
-  		</div>
-  		<div class="scaleBar bar3">
-  			<span>{{all*0.3}}</span>
-  		</div>
-  		<div class="scaleBar bar4">
-  			<span>{{all*0.4}}</span>
-  		</div>
-  		<div class="scaleBar bar5">
-  			<span>{{all*0.5}}</span>
-  		</div>
-  		<div class="scaleBar bar6">
-  			<span>{{all*0.6}}</span>
-  		</div>
-  		<div class="scaleBar bar7">
-  			<span>{{all*0.7}}</span>
-  		</div>
-  		<div class="scaleBar bar8">
-  			<span>{{all*0.8}}</span>
-  		</div>
-  		<div class="scaleBar bar9">
-  			<span>{{all*0.9}}</span>
-  		</div>
-  		<div class="scaleBar bar10">
-  			<span>{{all*1.0}}</span>
-  		</div>
-  		<!--总计-->
-  		<div class="totalNum">
-  			{{all}}
-  		</div>
-  	</div>
-  </script>
-  <script type="text/template" id="langTemplate">
-  	<div class="templateWrapper">
-  		<!--黑条-->
-  		<div class="blackDiv"></div>
-  		<el-tooltip class="item" effect="dark" :content="items[0].message+':'+lan1" placement="top">
-  			<div class="divModel div0" :style="lan1Style"></div>
-  		</el-tooltip>
-  		<!--黄条-->
-  		<el-tooltip class="item" effect="dark" :content="items[1].message+':'+lan2" placement="top">
-  			<div class="divModel div1" :style="lan2Style"></div>
-  		</el-tooltip>
-  		<!--黄绿条-->
-  		<el-tooltip class="item" effect="dark" :content="items[2].message+':'+lan3" placement="top">
-  			<div class="divModel div2" :style="lan3Style"></div>
-  		</el-tooltip>
-  		<!--绿条-->
-  		<el-tooltip class="item" effect="dark" :content="items[3].message+':'+other" placement="top">
-  			<div class="divModel div3" :style="otherStyle"></div>
-  		</el-tooltip>
-  		<!--选项-->
-  		<div class="items">
-  			<div v-for="item in items">
-  				<div :style="{backgroundColor: item.backColor}"></div>
-  				<span>{{item.message}}</span>
-  			</div>
-  		</div>
-  		<!--刻度条-->
-  		<div class="scaleBar bar1">
-  			<span>{{all*0.1}}</span>
-  		</div>
-  		<div class="scaleBar bar2">
-  			<span>{{all*0.2}}</span>
-  		</div>
-  		<div class="scaleBar bar3">
-  			<span>{{all*0.3}}</span>
-  		</div>
-  		<div class="scaleBar bar4">
-  			<span>{{all*0.4}}</span>
-  		</div>
-  		<div class="scaleBar bar5">
-  			<span>{{all*0.5}}</span>
-  		</div>
-  		<div class="scaleBar bar6">
-  			<span>{{all*0.6}}</span>
-  		</div>
-  		<div class="scaleBar bar7">
-  			<span>{{all*0.7}}</span>
-  		</div>
-  		<div class="scaleBar bar8">
-  			<span>{{all*0.8}}</span>
-  		</div>
-  		<div class="scaleBar bar9">
-  			<span>{{all*0.9}}</span>
-  		</div>
-  		<div class="scaleBar bar10">
-  			<span>{{all*1.0}}</span>
-  		</div>
-  		<!--总计-->
-  		<div class="totalNum">
-  			{{all}}
-  		</div>
-  	</div>
-  </script>
-  <style>
-  	.propotionBarWrapper{
-  		/*position: relative;*/
-  		height: 60px;
-  		width: 100%;
-  		/*margin-left: auto;*/
-  	}
-  	.propotionBarWrapper span{
-  		position: relative;
-  		line-height: 100%;
-  		float: left;
-  		top: 50%;
-  		transform: translateY(-50%);
-  		display: block;
-  		margin-left: 10%;
-  	}
-  	.grayBar{
-  		/*position: absolute;*/
-  		/*top: 50%;
+				<div v-for="item in items">
+					<div :style="{backgroundColor: item.backColor}"></div>
+					<span>{{item.message}}</span>
+				</div>
+			</div>
+			<!--刻度条-->
+			<div class="scaleBar bar1">
+				<span>{{all*0.1}}</span>
+			</div>
+			<div class="scaleBar bar2">
+				<span>{{all*0.2}}</span>
+			</div>
+			<div class="scaleBar bar3">
+				<span>{{all*0.3}}</span>
+			</div>
+			<div class="scaleBar bar4">
+				<span>{{all*0.4}}</span>
+			</div>
+			<div class="scaleBar bar5">
+				<span>{{all*0.5}}</span>
+			</div>
+			<div class="scaleBar bar6">
+				<span>{{all*0.6}}</span>
+			</div>
+			<div class="scaleBar bar7">
+				<span>{{all*0.7}}</span>
+			</div>
+			<div class="scaleBar bar8">
+				<span>{{all*0.8}}</span>
+			</div>
+			<div class="scaleBar bar9">
+				<span>{{all*0.9}}</span>
+			</div>
+			<div class="scaleBar bar10">
+				<span>{{all*1.0}}</span>
+			</div>
+			<!--总计-->
+			<div class="totalNum">
+				{{all}}
+			</div>
+		</div>
+	</script>
+	<script type="text/template" id="langTemplate">
+		<div class="templateWrapper">
+			<!--黑条-->
+			<div class="blackDiv"></div>
+			<el-tooltip class="item" effect="dark" :content="items[0].message+':'+lan1" placement="top">
+				<div class="divModel div0" :style="lan1Style"></div>
+			</el-tooltip>
+			<!--黄条-->
+			<el-tooltip class="item" effect="dark" :content="items[1].message+':'+lan2" placement="top">
+				<div class="divModel div1" :style="lan2Style"></div>
+			</el-tooltip>
+			<!--黄绿条-->
+			<el-tooltip class="item" effect="dark" :content="items[2].message+':'+lan3" placement="top">
+				<div class="divModel div2" :style="lan3Style"></div>
+			</el-tooltip>
+			<!--绿条-->
+			<el-tooltip class="item" effect="dark" :content="items[3].message+':'+other" placement="top">
+				<div class="divModel div3" :style="otherStyle"></div>
+			</el-tooltip>
+			<!--选项-->
+			<div class="items">
+				<div v-for="item in items">
+					<div :style="{backgroundColor: item.backColor}"></div>
+					<span>{{item.message}}</span>
+				</div>
+			</div>
+			<!--刻度条-->
+			<div class="scaleBar bar1">
+				<span>{{all*0.1}}</span>
+			</div>
+			<div class="scaleBar bar2">
+				<span>{{all*0.2}}</span>
+			</div>
+			<div class="scaleBar bar3">
+				<span>{{all*0.3}}</span>
+			</div>
+			<div class="scaleBar bar4">
+				<span>{{all*0.4}}</span>
+			</div>
+			<div class="scaleBar bar5">
+				<span>{{all*0.5}}</span>
+			</div>
+			<div class="scaleBar bar6">
+				<span>{{all*0.6}}</span>
+			</div>
+			<div class="scaleBar bar7">
+				<span>{{all*0.7}}</span>
+			</div>
+			<div class="scaleBar bar8">
+				<span>{{all*0.8}}</span>
+			</div>
+			<div class="scaleBar bar9">
+				<span>{{all*0.9}}</span>
+			</div>
+			<div class="scaleBar bar10">
+				<span>{{all*1.0}}</span>
+			</div>
+			<!--总计-->
+			<div class="totalNum">
+				{{all}}
+			</div>
+		</div>
+	</script>
+	<style>
+		.propotionBarWrapper {
+			/*position: relative;*/
+			height: 60px;
+			width: 100%;
+			/*margin-left: auto;*/
+		}
+		
+		.propotionBarWrapper span {
+			position: relative;
+			line-height: 100%;
+			float: left;
+			top: 50%;
+			transform: translateY(-50%);
+			display: block;
+			margin-left: 10%;
+		}
+		
+		.grayBar {
+			/*position: absolute;*/
+			/*top: 50%;
   		transform: translateY(-50%);*/
-  		position: relative;
-  		top: 40%;
-  		height: 20%;
-  		width: 76%;
-  		background-color: lightgrey;
-  		float: right;
-  		/*margin-top: 28px;*/
-  		/*margin-left: 30px;*/
-  		margin-right: 10px;
-  		border-radius: 10px;
-  	}
-  	.greenBar{
-  		height: 100%;
-  		float: left;
-  		display: block;
-  		border-radius: 10px;
-  		background-color: green;
-  	}
-  </style>
-  <script type="text/template" id="propotionTemplate">
-  	<div class="propotionBarWrapper">
-  		<!--用户数-->
-  		<span>{{usernumber}}</span>
-  		<!--比例条-->
-  		<div class="grayBar">
-  			<div :style="propotionBarStyle" class="greenBar"></div>
-  		</div>
-  	</div>
-  </script>
+			position: relative;
+			top: 40%;
+			height: 20%;
+			width: 76%;
+			background-color: lightgrey;
+			float: right;
+			/*margin-top: 28px;*/
+			/*margin-left: 30px;*/
+			margin-right: 10px;
+			border-radius: 10px;
+		}
+		
+		.greenBar {
+			height: 100%;
+			float: left;
+			display: block;
+			border-radius: 10px;
+			background-color: green;
+		}
+	</style>
+	<script type="text/template" id="propotionTemplate">
+		<div class="propotionBarWrapper">
+			<!--用户数-->
+			<span>{{usernumber}}</span>
+			<!--比例条-->
+			<div class="grayBar">
+				<div :style="propotionBarStyle" class="greenBar"></div>
+			</div>
+		</div>
+	</script>
 	<script>
-		Vue.component("sexblock",{
-  		props:{
-  		'male':Number,
-  		'female':Number,
-  		'other':Number,
-  		'all':Number,
-  		'items':Array},
-  		template:"#sexTemplate",
-  		data:function(){
-  				return{
-  						malePropoStyle:{
-  							left:0.5+'%',
-			      		width:this.male*1.0/this.all*100+'%'
-			      	},
-			      	femalePropoStyle:{
-			      		width:this.female*1.0/this.all*100+'%',
-			      		left:(0.5+this.male*1.0/this.all*100)+'%'
-			      	},
-			      	otherPropoStyle:{
-			      		width:this.other*1.0/this.all*100+'%',
-			      		left:(0.5+(this.male*1.0/this.all*100)+this.female*1.0/this.all*100)+'%'
-			      	}
-  				}
-  		},
-  		methods:{
-  		}
-  	})
-		Vue.component("langblock",{
-  		props:{
-  		'lan1':Number,
-  		'lan2':Number,
-  		'lan3':Number,
-  		'other':Number,
-  		'all':Number,
-  		'items':Array},
-  		template:"#langTemplate",
-  		data:function(){
-  				return{
-  						lan1Style:{
-  							left:0.5+'%',
-			      		width:this.lan1*1.0/this.all*100+'%'
-			      	},
-			      	lan2Style:{
-			      		width:this.lan2*1.0/this.all*100+'%',
-			      		left:(0.5+this.lan1*1.0/this.all*100)+'%'
-			      	},
-			      	lan3Style:{
-			      		width:this.lan3*1.0/this.all*100+'%',
-			      		left:((0.5+this.lan1*1.0/this.all*100)+this.lan2*1.0/this.all*100)+'%'
-			      	},
-			      	otherStyle:{
-			      		width:this.other*1.0/this.all*100+'%',
-			      		left:((0.5+this.lan1*1.0/this.all*100)+this.lan2*1.0/this.all*100+(this.lan3*1.0/this.all*100))+'%'
-			      	}
-  				}
-  		},
-  		methods:{
-  		}
-  	})
-		Vue.component("propotionbar",{
-			props:{
-				usernumber:Number,
-				total:Number
+		Vue.component("sexblock", {
+			props: {
+				'male': Number,
+				'female': Number,
+				'other': Number,
+				'all': Number,
+				'items': Array
 			},
-			template:"#propotionTemplate",
-			data:function(){
-				return{
-					propotionBarStyle:{
-						width:this.usernumber*1.0/this.total*100+'%'
+			template: "#sexTemplate",
+			data: function() {
+				return {
+					malePropoStyle: {
+						left: 0.5 + '%',
+						width: this.male * 1.0 / this.all * 100 + '%'
+					},
+					femalePropoStyle: {
+						width: this.female * 1.0 / this.all * 100 + '%',
+						left: (0.5 + this.male * 1.0 / this.all * 100) + '%'
+					},
+					otherPropoStyle: {
+						width: this.other * 1.0 / this.all * 100 + '%',
+						left: (0.5 + (this.male * 1.0 / this.all * 100) + this.female * 1.0 / this.all * 100) + '%'
+					}
+				}
+			},
+			methods: {}
+		})
+		Vue.component("langblock", {
+			props: {
+				'lan1': Number,
+				'lan2': Number,
+				'lan3': Number,
+				'other': Number,
+				'all': Number,
+				'items': Array
+			},
+			template: "#langTemplate",
+			data: function() {
+				return {
+					lan1Style: {
+						left: 0.5 + '%',
+						width: this.lan1 * 1.0 / this.all * 100 + '%'
+					},
+					lan2Style: {
+						width: this.lan2 * 1.0 / this.all * 100 + '%',
+						left: (0.5 + this.lan1 * 1.0 / this.all * 100) + '%'
+					},
+					lan3Style: {
+						width: this.lan3 * 1.0 / this.all * 100 + '%',
+						left: ((0.5 + this.lan1 * 1.0 / this.all * 100) + this.lan2 * 1.0 / this.all * 100) + '%'
+					},
+					otherStyle: {
+						width: this.other * 1.0 / this.all * 100 + '%',
+						left: ((0.5 + this.lan1 * 1.0 / this.all * 100) + this.lan2 * 1.0 / this.all * 100 + (this.lan3 * 1.0 / this.all * 100)) + '%'
+					}
+				}
+			},
+			methods: {}
+		})
+		Vue.component("propotionbar", {
+			props: {
+				usernumber: Number,
+				total: Number
+			},
+			template: "#propotionTemplate",
+			data: function() {
+				return {
+					propotionBarStyle: {
+						width: this.usernumber * 1.0 / this.total * 100 + '%'
 					}
 				}
 			}
 		})
-    new Vue({
-      el: '#app',
-      data() {
-	      return {
-	      	//选项1
-	      	items1:[
-	      		{
-	      			backColor:'yellow',
-	      			message:'男'
-	      		},
-	      		{
-	      			backColor:'yellowgreen',
-	      			message:'女'
-	      		},
-	      		{
-	      			backColor:'lightseagreen',
-	      			message:'其他'
-	      		}
-	      	],
-	      	//选项2
-	      	items2:[
-	      		{
-	      			backColor:'cyan',
-	      			message:'繁体中文'
-	      		},
-	      		{
-	      			backColor:'yellow',
-	      			message:'简体中文'
-	      		},
-	      		{
-	      			backColor:'yellowgreen',
-	      			message:'英文'
-	      		},
-	      		{
-	      			backColor:'lightseagreen',
-	      			message:'其他'
-	      		}
-	      	],
-	      	//选项3
-	      	items3:[
-	      		{
-	      			backColor:'yellow',
-	      			message:'Android'
-	      		},
-	      		{
-	      			backColor:'yellowgreen',
-	      			message:'iPhone'
-	      		},
-	      		{
-	      			backColor:'lightseagreen',
-	      			message:'未知'
-	      		}
-	      	],
-	      	//城市下拉菜单部分
-	      	citys:[
-	      		{
-	      			label:'重庆',
-	      			value:'重庆'
-	      		},
-	      		{
-	      			label:'北京',
-	      			value:'北京'
-	      		},
-	      		{
-	      			label:'上海',
-	      			value:'上海'
-	      		},
-	      		{
-	      			label:'广州',
-	      			value:'广州'
-	      		}
-	      	],
-	      	cityModel:'',
-	      	//城市分布
-	      	citySpread:[
-	      		{
-	      			city:'上海',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'广州',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'重庆',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'北京',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'济南',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'南京',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'杭州',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//省份分布
-	      	provinceSpread:[
-			      	{
-			      		province:'上海市',
-			      		value: Math.floor(Math.random()*1000)
-			      	},
-			      	{
-			      		province:'北京市',
-			      		value: Math.floor(Math.random()*1000)
-			      	},
-			      	{
-			      		province:'广东省',
-			      		value: Math.floor(Math.random()*1000)
-			      	},
-			      	{
-			      		province:'辽宁省',
-			      		value: Math.floor(Math.random()*1000)
-			      	},
-			      	{
-			      		province:'重庆市',
-			      		value: Math.floor(Math.random()*1000)
-			      	},
-			      	{
-			      		province:'河南省',
-			      		value: Math.floor(Math.random()*1000)
-			      	}
-	      	],
-	      	//机型分布表
-	      	machineSpread:[
-	      		{
-	      			machine:'iphone',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			machine:'华为',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			machine:'小米',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			machine:'魅族',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			machine:'黑莓',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			machine:'三星',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			machine:'中兴',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//属性分布表部分==============================
-	      	//性别分布
-	      	sexSpread:[
-	      		{
-	      			sex:'男',
-	      			value:Math.floor(Math.random()*1000),
-	      		},
-	      		{
-	      			sex:'女',
-	      			value:Math.floor(Math.random()*1000),
-	      		},
-	      		{
-	      			sex:'其他',
-	      			value:Math.floor(Math.random()*1000),
-	      		},
-	      	],
-	      	//语言分布
-	      	langSpread:[
-	      		{
-	      			lang:'汉语',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			lang:'英语',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			lang:'俄语',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			lang:'日语',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			lang:'荷兰语',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//省份分布
-	      	provSpread:[
-	      		{
-	      			province:'重庆',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			province:'北京',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			province:'广东省',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			province:'河南省',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			province:'辽宁省',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//城市分布
-	      	CitySpread:[
-	      		{
-	      			city:'重庆',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'北京',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'南京',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			city:'香港',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//终端分布
-	      	terminalSpread:[
-	      		{
-	      			terminal:'android',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			terminal:'iphone',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			terminal:'pc',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//机型分布
-	      	terminalTypeSpread:[
-	      		{
-	      			type:'小米',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			type:'华为',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			type:'苹果',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			type:'三星',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			type:'Oppo',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			type:'三星',
-	      			value:Math.floor(Math.random()*1000)
-	      		},
-	      		{
-	      			type:'魅族',
-	      			value:Math.floor(Math.random()*1000)
-	      		}
-	      	],
-	      	//客服统计
-	      	//-----------------------------------------
-	      	options: [{
-	          value: '选项1',
-	          label: '黄金糕'
-	        }, {
-	          value: '选项2',
-	          label: '双皮奶'
-	        }, {
-	          value: '选项3',
-	          label: '蚵仔煎'
-	        }, {
-	          value: '选项4',
-	          label: '龙须面'
-	        }, {
-	          value: '选项5',
-	          label: '北京烤鸭'
-	        }],
-	        value: '',
-	        tableData2: [{
-		          	group: 'group1',
-			          name: '涛涛',
-			          onlineTime: '100小时',
-			          sessionNumber: '1000个',
-			          responseNumber: '999',
-			          averageChattingTime: '100',
-			          fansAverageWaitingTime: '200',
-			          satisfiedDegree: '99%'
-			        }, {
-			          group: 'group1',
-			          name: '涛涛',
-			          onlineTime: '100小时',
-			          sessionNumber: '1000个',
-			          responseNumber: '999',
-			          averageChattingTime: '100',
-			          fansAverageWaitingTime: '200',
-			          satisfiedDegree: '99%'
-			        }, {
-			         group: 'group1',
-			          name: '涛涛',
-			          onlineTime: '100小时',
-			          sessionNumber: '1000个',
-			          responseNumber: '999',
-			          averageChattingTime: '100',
-			          fansAverageWaitingTime: '200',
-			          satisfiedDegree: '99%'
-			        }, {
-			          group: 'group1',
-			          name: '涛涛',
-			          onlineTime: '100小时',
-			          sessionNumber: '1000个',
-			          responseNumber: '999',
-			          averageChattingTime: '100',
-			          fansAverageWaitingTime: '200',
-			          satisfiedDegree: '99%'
-			      }],
-	      	
-	      	
-	      	
-	      	//------------------------------------------------------------
-        	activeName: 'third',
-        	activeName2: 'third',
-        	activeName3: 'first',
-        	tableData3: [{
-	          date: '2016-05-03 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	          date: '2016-05-02 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	          date: '2016-05-04 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	          date: '2016-05-01 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	          date: '2016-05-08 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	          date: '2016-05-06 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	          date: '2016-05-07 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }],
-	        tableData: [{
-	        	phone: '13888888888',
-	          date: '2016-05-03 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	        	phone: '13888888888',
-	          date: '2016-05-02 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	        	phone: '13888888888',
-	          date: '2016-05-04 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	        	phone: '13888888888',
-	          date: '2016-05-01 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	        	phone: '13888888888',
-	          date: '2016-05-08 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	        	phone: '13888888888',
-	          date: '2016-05-06 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }, {
-	        	phone: '13888888888',
-	          date: '2016-05-07 12:00',
-	          name: '王小虎',
-	          tab: '标签1、标签2、标签3',
-	          sex: '男',
-	          address: '上海市普陀区金沙江路 1518 弄'
-	        }],
-	        tableData1: [{
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }, {
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }, {
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }, {
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }, {
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }, {
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }, {
-	          date: '2016-05-03 12:00',
-	          person:'321',
-	          number:'123'
-	        }]
-	      };
-	    },
-	    computed:{
-	    	cityUsers:function(){
-	    		var allTotalUsers=0;
-	    		for(var i = 0;i < this.citySpread.length; i++){
-	    			allTotalUsers += parseInt(this.citySpread[i].value);
-	    		}
-	    		return allTotalUsers;
-	    	},
-	    	provinceUsers:function(){
-	    		var allTotalUsers=0;
-	    		for(var i = 0;i < this.provinceSpread.length; i++){
-	    			allTotalUsers += parseInt(this.provinceSpread[i].value);
-	    		}
-	    		return allTotalUsers;
-	    	},
-	    	machineUsers:function(){
-	    		var allTotalUsers=0;
-	    		for(var i = 0;i < this.machineSpread.length; i++){
-	    			allTotalUsers += parseInt(this.machineSpread[i].value);
-	    		}
-	    		return allTotalUsers;
-	    	}
-	    },
-	    methods: {
-				sexPropotion:function(index){
-	    		var allTotalUsers = 0;
-	    		for(var i = 0;i < this.sexSpread.length; i++){
-	    			allTotalUsers += parseInt(this.sexSpread[i].value);
-	    		}
-	    		return (parseInt(this.sexSpread[index].value)*1.0/allTotalUsers*100).toFixed(2)+'%';
-	    	},
-	    	langPropotion:function(index){
-	    		var allTotalUsers = 0;
-	    		for(var i = 0;i < this.langSpread.length; i++){
-	    			allTotalUsers += parseInt(this.langSpread[i].value);
-	    		}
-	    		return (parseInt(this.langSpread[index].value)*1.0/allTotalUsers*100).toFixed(2)+'%';
-	    	},
-	    	provincePropotion:function(index){
-	    		var allTotalUsers = 0;
-	    		for(var i = 0;i < this.provSpread.length; i++){
-	    			allTotalUsers += parseInt(this.provSpread[i].value);
-	    		}
-	    		return (parseInt(this.provSpread[index].value)*1.0/allTotalUsers*100).toFixed(2)+'%';
-	    	},
-	    	cityPropotion:function(index){
-	    		var allTotalUsers = 0;
-	    		for(var i = 0;i < this.CitySpread.length; i++){
-	    			allTotalUsers += parseInt(this.CitySpread[i].value);
-	    		}
-	    		return (parseInt(this.CitySpread[index].value)*1.0/allTotalUsers*100).toFixed(2)+'%';
-	    	},
-	    	terminalPropotion:function(index){
-	    		var allTotalUsers = 0;
-	    		for(var i = 0;i < this.terminalSpread.length; i++){
-	    			allTotalUsers += parseInt(this.terminalSpread[i].value);
-	    		}
-	    		return (parseInt(this.terminalSpread[index].value)*1.0/allTotalUsers*100).toFixed(2)+'%';
-	    	},
-	    	terminalTypePropotion:function(index){
-	    		var allTotalUsers = 0;
-	    		for(var i = 0;i < this.terminalTypeSpread.length; i++){
-	    			allTotalUsers += parseInt(this.terminalTypeSpread[i].value);
-	    		}
-	    		return (parseInt(this.terminalTypeSpread[index].value)*1.0/allTotalUsers*100).toFixed(2)+'%';
-	    	},
-     	}
-    })
- </script>
- <script>
- 	var chart = null;
-$(function () {
-    $('#container').highcharts({
-        chart: {
-        		backgroundColor: '#F7F7F7',
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            spacing : [40, 0 , 40, 0]
-        },
-        title: {
-            floating:true,
-            text: '<b>5831次</b><br><b>5131人</b><br>阅读总数'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                showInLegend:true,
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b><br>1259人，1238次',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                },
-                point: {
-                    events: {
-                        mouseOver: function(e) {  // 鼠标滑过时动态更新标题
-                            // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
-                            chart.setTitle({
-                                text: e.target.name+ '<br>'+ e.target.y + ' 人<br>1238次'
-                            });
-                        }
-                        //
-                        // click: function(e) { // 同样的可以在点击事件里处理
-                        //     chart.setTitle({
-                        //         text: e.point.name+ '\t'+ e.point.y + ' %'
-                        //     });
-                        // }
-                    }
-                },
-            }
-        },
-        series: [{
-            type: 'pie',
-            innerSize: '80%',
-            name: '人次份额',
-            data: [
-                ['会话', 1259],
-                ['好友转发',1259],
-                ['朋友圈',1259],
-                ['其他',1259]
-            ]
-        }]
-    }, function(c) {
-        // 环形图圆心
-        var centerY = c.series[0].center[1],
-            titleHeight = parseInt(c.title.styles.fontSize);
-        c.setTitle({
-            y:centerY + titleHeight/2
-        });
-        chart = c;
-    });
-});
- </script>
- <script type="text/javascript">
- 				require.config({
-            paths: {
-                echarts: 'http://echarts.baidu.com/build/dist'
-            }
-        });
-        
-        // 使用
-        require(
-            [
-                'echarts',
-                'echarts/chart/map' // 使用饼状图
-            ],
-            function(ec){
-            	var myMap = ec.init(document.getElementById('provinceSpreadMap'));
-            	var option = {
-							    title : {
-							        text: '省份分布',
-							        x:'center'
-							    },
-							    tooltip : {
-							        trigger: 'item'
-							    },
-							    legend: {
-							        orient: 'vertical',
-							        x:'left',
-							        data:['用户数']
-							    },
-							    dataRange: {
-							        min: 0,
-							        max: 2500,
-							        x: 'left',
-							        y: 'bottom',
-							        text:['高','低'],           // 文本，默认为数值文本
-							        calculable : true
-							    },
-							    toolbox: {
-							        show: true,
-							        orient : 'vertical',
-							        x: 'right',
-							        y: 'center',
-							        feature : {
-							            mark : {show: true},
-							            dataView : {show: true, readOnly: false},
-							            restore : {show: true},
-							            saveAsImage : {show: true}
-							        }
-							    },
-							    roamController: {
-							        show: true,
-							        x: 'right',
-							        mapTypeControl: {
-							            'china': true
-							        }
-							    },
-							    series : [
-							        {
-							            name: '用户数',
-							            type: 'map',
-							            mapType: 'china',
-							            roam: false,
-							            itemStyle:{
-							                normal:{label:{show:true}},
-							                emphasis:{label:{show:true}}
-							            },
-							            data:[
-							                {name: '北京',value: Math.round(Math.random()*1000)},
-							                {name: '天津',value: Math.round(Math.random()*1000)},
-							                {name: '上海',value: Math.round(Math.random()*1000)},
-							                {name: '重庆',value: Math.round(Math.random()*1000)},
-							                {name: '河北',value: Math.round(Math.random()*1000)},
-							                {name: '河南',value: Math.round(Math.random()*1000)},
-							                {name: '云南',value: Math.round(Math.random()*1000)},
-							                {name: '辽宁',value: Math.round(Math.random()*1000)},
-							                {name: '黑龙江',value: Math.round(Math.random()*1000)},
-							                {name: '湖南',value: Math.round(Math.random()*1000)},
-							                {name: '安徽',value: Math.round(Math.random()*1000)},
-							                {name: '山东',value: Math.round(Math.random()*1000)},
-							                {name: '新疆',value: Math.round(Math.random()*1000)},
-							                {name: '江苏',value: Math.round(Math.random()*1000)},
-							                {name: '浙江',value: Math.round(Math.random()*1000)},
-							                {name: '江西',value: Math.round(Math.random()*1000)},
-							                {name: '湖北',value: Math.round(Math.random()*1000)},
-							                {name: '广西',value: Math.round(Math.random()*1000)},
-							                {name: '甘肃',value: Math.round(Math.random()*1000)},
-							                {name: '山西',value: Math.round(Math.random()*1000)},
-							                {name: '内蒙古',value: Math.round(Math.random()*1000)},
-							                {name: '陕西',value: Math.round(Math.random()*1000)},
-							                {name: '吉林',value: Math.round(Math.random()*1000)},
-							                {name: '福建',value: Math.round(Math.random()*1000)},
-							                {name: '贵州',value: Math.round(Math.random()*1000)},
-							                {name: '广东',value: Math.round(Math.random()*1000)},
-							                {name: '青海',value: Math.round(Math.random()*1000)},
-							                {name: '西藏',value: Math.round(Math.random()*1000)},
-							                {name: '四川',value: Math.round(Math.random()*1000)},
-							                {name: '宁夏',value: Math.round(Math.random()*1000)},
-							                {name: '海南',value: Math.round(Math.random()*1000)},
-							                {name: '台湾',value: Math.round(Math.random()*1000)},
-							                {name: '香港',value: Math.round(Math.random()*1000)},
-							                {name: '澳门',value: Math.round(Math.random()*1000)}
-							            ]
-							        }
-							  ]
-							};
-            myMap.setOption(option);        
-            }
-        );
- </script>
- <script type="text/javascript">
- 	 // 路径配置
-        require.config({
-            paths: {
-                echarts: 'http://echarts.baidu.com/build/dist'
-            }
-        });
-        
-        // 使用
-        require(
-            [
-                'echarts',
-                'echarts/chart/pie' // 使用饼状图
-            ],
-            function (ec) {
-                var myPie = ec.init(document.getElementById('machinetypespreadpie'));
-                var option = {
-								    title : {
-								        text: '机型分布',
-//								        subtext: '纯属虚构',
-								        x:'center'
-								    },
-								    tooltip : {
-								        trigger: 'item',
-								        formatter: "{a} <br/>{b} : {c} ({d}%)"
-								    },
-								    legend: {
-								        orient : 'vertical',
-								        x : 'left',
-								        data:['华为','中兴','iphone','黑莓','三星','小米','魅族']
-								    },
-								    toolbox: {
-								        show : true,
-								        feature : {
-								            mark : {show: true},
-								            dataView : {show: true, readOnly: false},
-								            magicType : {
-								                show: true, 
-								                type: ['pie', 'funnel'],
-								                option: {
-								                    funnel: {
-								                        x: '25%',
-								                        width: '50%',
-								                        funnelAlign: 'left',
-								                        max: 1548
-								                    }
-								                }
-								            },
-								            restore : {show: true},
-								            saveAsImage : {show: true}
-								        }
-								    },
-								    calculable : true,
-								    series : [
-								        {
-								            name:'机型分布TOP10',
-								            type:'pie',
-								            radius : '55%',
-								            center: ['50%', '60%'],
-								            data:[
-								                {value:335, name:'华为'},
-								                {value:310, name:'中兴'},
-								                {value:234, name:'iphone'},
-								                {value:135, name:'黑莓'},
-								                {value:1548, name:'三星'},
-								                {value:123, name:'小米'},
-								                {value:234, name:'魅族'}
-								            ]
-								        }
-								    ]
-								};
-                myPie.setOption(option);
-            }
-        );
- </script>
- 
- <script type="text/javascript">
-        // 路径配置
-        require.config({
-            paths: {
-                echarts: 'http://echarts.baidu.com/build/dist'
-            }
-        });
-        
-        // 使用
-        require(
-            [
-                'echarts',
-                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
-            ],
-            function (ec) {
-                // 基于准备好的dom，初始化echarts图表
-                var myChart1 = ec.init(document.getElementById('main1')); 
-                var myChart2 = ec.init(document.getElementById('main2'));
-                var myChart3 = ec.init(document.getElementById('main3'));
-                var myChart4 = ec.init(document.getElementById('main4'));
-                var myChart5 = ec.init(document.getElementById('main5'));
-                var myChart6 = ec.init(document.getElementById('main6'));
-                var myChart7 = ec.init(document.getElementById('main7')); 
-                var myChart8 = ec.init(document.getElementById('main8'));
-                var myChart9 = ec.init(document.getElementById('main9'));
-                var myChart10 = ec.init(document.getElementById('main10'));
-                var myChart11 = ec.init(document.getElementById('main11'));
-                var myChart12 = ec.init(document.getElementById('main12'));
-                var option1 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['在线时长']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"在线时长",
-                            "type":"bar",
-                    itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                    "data":[5, 20, 40, 10]
-                    }
-                  ]
-                };
-                var option2 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['会话数量']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"会话数量",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option3 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['应答数量']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"应答数量",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option4 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['平均聊天时长']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"平均聊天时长",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option5 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['粉丝平均等待时长']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"粉丝平均等待时长",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option6 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['满意度']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"满意度",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option7 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['在线时长']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"在线时长",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option8 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['会话数量']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"会话数量",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option9 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['应答数量']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"应答数量",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option10 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['平均聊天时长']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"平均聊天时长",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option11 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['粉丝平均等待时长']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"粉丝平均等待时长",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-                var option12 = {
-                    tooltip: {
-                        show: true
-                    },
-                    legend: {
-                        data:['满意度']
-                    },
-                    xAxis : [
-                        {
-                            type : 'category',
-                            data : ["小组A","客服1","客服2","客服3"]
-                        }
-                    ],
-                    yAxis : [
-                        {
-                            type : 'value',
-                            show : true
-                        }
-                    ],
-                    series : [
-                        {
-                            "name":"满意度",
-                            "type":"bar",
-                            itemStyle: {
-				                normal: {
-				                    color: function(params) {
-				                        // build a color map as your need.
-				                        var colorList = [
-				                          '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-				                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-				                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-				                        ];
-				                        return colorList[params.dataIndex]
-				                    },
-				                    label: {
-				                        show: true,
-				                        position: 'top',
-				                        formatter: '{c}'
-				                    }
-				                }
-				            },
-                            "data":[5, 20, 40, 10]
-                        }
-                    ]
-                };
-        
-                // 为echarts对象加载数据 
-                myChart1.setOption(option1); 
-                myChart2.setOption(option2);
-                myChart3.setOption(option3);
-                myChart4.setOption(option4);
-                myChart5.setOption(option5);
-                myChart6.setOption(option6);
-                myChart7.setOption(option7); 
-                myChart8.setOption(option8);
-                myChart9.setOption(option9);
-                myChart10.setOption(option10);
-                myChart11.setOption(option11);
-                myChart12.setOption(option12);
-            }
-        );
-    </script>
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					//用户增长分析
+					userIncreData:[
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						},
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						},
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						},
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						},
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						},
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						},
+						{
+							date:this.formatDate(new Date(),'yyyy/MM/dd'),
+							newUsers:Math.floor(Math.random() * 1000),
+							cancelUsers:Math.floor(Math.random() * 1000),
+							incrementUsers:Math.floor(Math.random() * 1000),
+							allUsers:Math.floor(Math.random() * 1000)
+						}
+					],
+					//选项1
+					items1: [{
+							backColor: 'yellow',
+							message: '男'
+						},
+						{
+							backColor: 'yellowgreen',
+							message: '女'
+						},
+						{
+							backColor: 'lightseagreen',
+							message: '其他'
+						}
+					],
+					//选项2
+					items2: [{
+							backColor: 'cyan',
+							message: '繁体中文'
+						},
+						{
+							backColor: 'yellow',
+							message: '简体中文'
+						},
+						{
+							backColor: 'yellowgreen',
+							message: '英文'
+						},
+						{
+							backColor: 'lightseagreen',
+							message: '其他'
+						}
+					],
+					//选项3
+					items3: [{
+							backColor: 'yellow',
+							message: 'Android'
+						},
+						{
+							backColor: 'yellowgreen',
+							message: 'iPhone'
+						},
+						{
+							backColor: 'lightseagreen',
+							message: '未知'
+						}
+					],
+					//城市下拉菜单部分
+					citys: [{
+							label: '重庆',
+							value: '重庆'
+						},
+						{
+							label: '北京',
+							value: '北京'
+						},
+						{
+							label: '上海',
+							value: '上海'
+						},
+						{
+							label: '广州',
+							value: '广州'
+						}
+					],
+					cityModel: '',
+					//城市分布
+					citySpread: [{
+							city: '上海',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '广州',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '重庆',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '北京',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '济南',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '南京',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '杭州',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//省份分布
+					provinceSpread: [{
+							province: '上海市',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '北京市',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '广东省',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '辽宁省',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '重庆市',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '河南省',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//机型分布表
+					machineSpread: [{
+							machine: 'iphone',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							machine: '华为',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							machine: '小米',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							machine: '魅族',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							machine: '黑莓',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							machine: '三星',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							machine: '中兴',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//属性分布表部分==============================
+					//性别分布
+					sexSpread: [{
+							sex: '男',
+							value: Math.floor(Math.random() * 1000),
+						},
+						{
+							sex: '女',
+							value: Math.floor(Math.random() * 1000),
+						},
+						{
+							sex: '其他',
+							value: Math.floor(Math.random() * 1000),
+						},
+					],
+					//语言分布
+					langSpread: [{
+							lang: '汉语',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							lang: '英语',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							lang: '俄语',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							lang: '日语',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							lang: '荷兰语',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//省份分布
+					provSpread: [{
+							province: '重庆',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '北京',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '广东省',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '河南省',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							province: '辽宁省',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//城市分布
+					CitySpread: [{
+							city: '重庆',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '北京',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '南京',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							city: '香港',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//终端分布
+					terminalSpread: [{
+							terminal: 'android',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							terminal: 'iphone',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							terminal: 'pc',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//机型分布
+					terminalTypeSpread: [{
+							type: '小米',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							type: '华为',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							type: '苹果',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							type: '三星',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							type: 'Oppo',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							type: '三星',
+							value: Math.floor(Math.random() * 1000)
+						},
+						{
+							type: '魅族',
+							value: Math.floor(Math.random() * 1000)
+						}
+					],
+					//客服统计
+					//-----------------------------------------
+					options: [{
+						value: '选项1',
+						label: '黄金糕'
+					}, {
+						value: '选项2',
+						label: '双皮奶'
+					}, {
+						value: '选项3',
+						label: '蚵仔煎'
+					}, {
+						value: '选项4',
+						label: '龙须面'
+					}, {
+						value: '选项5',
+						label: '北京烤鸭'
+					}],
+					value: '',
+					sourceValue:'',
+					sources:[
+						{
+							 value: '来源1',
+         			 label: '来源1'
+						},
+						{
+							 value: '来源2',
+         			 label: '来源2'
+						},
+						{
+							 value: '来源3',
+         			 label: '来源3'
+						},
+						{
+							 value: '来源4',
+         			 label: '来源4'
+						},
+						{
+							 value: '来源5',
+         			 label: '来源5'
+						}
+					],
+					recentTimeValue:'',
+					recentTimes:[
+						{
+							value:'最近一天',
+							label:'最近一天'
+						},
+						{
+							value:'最近一周',
+							label:'最近一周'
+						},
+						{
+							value:'最近一个月',
+							label:'最近一个月'
+						},
+						{
+							value:'最近一年',
+							label:'最近一年'
+						},
+					],
+					tableData2: [{
+						group: 'group1',
+						name: '涛涛',
+						onlineTime: '100小时',
+						sessionNumber: '1000个',
+						responseNumber: '999',
+						averageChattingTime: '100',
+						fansAverageWaitingTime: '200',
+						satisfiedDegree: '99%'
+					}, {
+						group: 'group1',
+						name: '涛涛',
+						onlineTime: '100小时',
+						sessionNumber: '1000个',
+						responseNumber: '999',
+						averageChattingTime: '100',
+						fansAverageWaitingTime: '200',
+						satisfiedDegree: '99%'
+					}, {
+						group: 'group1',
+						name: '涛涛',
+						onlineTime: '100小时',
+						sessionNumber: '1000个',
+						responseNumber: '999',
+						averageChattingTime: '100',
+						fansAverageWaitingTime: '200',
+						satisfiedDegree: '99%'
+					}, {
+						group: 'group1',
+						name: '涛涛',
+						onlineTime: '100小时',
+						sessionNumber: '1000个',
+						responseNumber: '999',
+						averageChattingTime: '100',
+						fansAverageWaitingTime: '200',
+						satisfiedDegree: '99%'
+					}],
+
+					//------------------------------------------------------------
+					activeName: 'third',
+					activeName2: 'third',
+					activeName3: 'first',
+					tableData3: [{
+						date: '2016-05-03 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						date: '2016-05-02 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						date: '2016-05-04 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						date: '2016-05-01 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						date: '2016-05-08 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						date: '2016-05-06 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						date: '2016-05-07 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}],
+					tableData: [{
+						phone: '13888888888',
+						date: '2016-05-03 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						phone: '13888888888',
+						date: '2016-05-02 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						phone: '13888888888',
+						date: '2016-05-04 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						phone: '13888888888',
+						date: '2016-05-01 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						phone: '13888888888',
+						date: '2016-05-08 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						phone: '13888888888',
+						date: '2016-05-06 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}, {
+						phone: '13888888888',
+						date: '2016-05-07 12:00',
+						name: '王小虎',
+						tab: '标签1、标签2、标签3',
+						sex: '男',
+						address: '上海市普陀区金沙江路 1518 弄'
+					}],
+					tableData1: [{
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}, {
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}, {
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}, {
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}, {
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}, {
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}, {
+						date: '2016-05-03 12:00',
+						person: '321',
+						number: '123'
+					}]
+				};
+			},
+			computed: {
+				cityUsers: function() {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.citySpread.length; i++) {
+						allTotalUsers += parseInt(this.citySpread[i].value);
+					}
+					return allTotalUsers;
+				},
+				provinceUsers: function() {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.provinceSpread.length; i++) {
+						allTotalUsers += parseInt(this.provinceSpread[i].value);
+					}
+					return allTotalUsers;
+				},
+				machineUsers: function() {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.machineSpread.length; i++) {
+						allTotalUsers += parseInt(this.machineSpread[i].value);
+					}
+					return allTotalUsers;
+				}
+			},
+			methods: {
+				sexPropotion: function(index) {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.sexSpread.length; i++) {
+						allTotalUsers += parseInt(this.sexSpread[i].value);
+					}
+					return(parseInt(this.sexSpread[index].value) * 1.0 / allTotalUsers * 100).toFixed(2) + '%';
+				},
+				langPropotion: function(index) {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.langSpread.length; i++) {
+						allTotalUsers += parseInt(this.langSpread[i].value);
+					}
+					return(parseInt(this.langSpread[index].value) * 1.0 / allTotalUsers * 100).toFixed(2) + '%';
+				},
+				provincePropotion: function(index) {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.provSpread.length; i++) {
+						allTotalUsers += parseInt(this.provSpread[i].value);
+					}
+					return(parseInt(this.provSpread[index].value) * 1.0 / allTotalUsers * 100).toFixed(2) + '%';
+				},
+				cityPropotion: function(index) {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.CitySpread.length; i++) {
+						allTotalUsers += parseInt(this.CitySpread[i].value);
+					}
+					return(parseInt(this.CitySpread[index].value) * 1.0 / allTotalUsers * 100).toFixed(2) + '%';
+				},
+				terminalPropotion: function(index) {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.terminalSpread.length; i++) {
+						allTotalUsers += parseInt(this.terminalSpread[i].value);
+					}
+					return(parseInt(this.terminalSpread[index].value) * 1.0 / allTotalUsers * 100).toFixed(2) + '%';
+				},
+				terminalTypePropotion: function(index) {
+					var allTotalUsers = 0;
+					for(var i = 0; i < this.terminalTypeSpread.length; i++) {
+						allTotalUsers += parseInt(this.terminalTypeSpread[i].value);
+					}
+					return(parseInt(this.terminalTypeSpread[index].value) * 1.0 / allTotalUsers * 100).toFixed(2) + '%';
+				},
+				formatDate(date,fmt){
+				    if(/(y+)/.test(fmt)){
+				        fmt = fmt.replace(RegExp.$1, (date.getFullYear()+'').substr(4-RegExp.$1.length));
+				    }
+				    let o = {
+				        'M+': date.getMonth()+1,
+				        'd+': date.getDate(),
+				        'h+': date.getHours(),
+				        'm+': date.getMinutes(),
+				        's+': date.getSeconds()
+				    }
+				    for(let k in o){    
+				        let str = o[k]+'';
+				        if(new RegExp(`(${k})`).test(fmt)){
+				            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length===1)?str:this.padLeftZero(str));
+				        }
+				    }
+				    return fmt;
+				},
+				padLeftZero(str){
+				    return ('00'+str).substr(str.length);
+				},
+			}
+		})
+	</script>
+	<script>
+		var chart = null;
+		$(function() {
+			$('#container').highcharts({
+				chart: {
+					backgroundColor: '#F7F7F7',
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					spacing: [40, 0, 40, 0]
+				},
+				title: {
+					floating: true,
+					text: '<b>5831次</b><br><b>5131人</b><br>阅读总数'
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						showInLegend: true,
+						dataLabels: {
+							enabled: true,
+							format: '<b>{point.name}</b><br>1259人，1238次',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						point: {
+							events: {
+								mouseOver: function(e) { // 鼠标滑过时动态更新标题
+									// 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+									chart.setTitle({
+										text: e.target.name + '<br>' + e.target.y + ' 人<br>1238次'
+									});
+								}
+								//
+								// click: function(e) { // 同样的可以在点击事件里处理
+								//     chart.setTitle({
+								//         text: e.point.name+ '\t'+ e.point.y + ' %'
+								//     });
+								// }
+							}
+						},
+					}
+				},
+				series: [{
+					type: 'pie',
+					innerSize: '80%',
+					name: '人次份额',
+					data: [
+						['会话', 1259],
+						['好友转发', 1259],
+						['朋友圈', 1259],
+						['其他', 1259]
+					]
+				}]
+			}, function(c) {
+				// 环形图圆心
+				var centerY = c.series[0].center[1],
+					titleHeight = parseInt(c.title.styles.fontSize);
+				c.setTitle({
+					y: centerY + titleHeight / 2
+				});
+				chart = c;
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		require.config({
+			paths: {
+				echarts: 'http://echarts.baidu.com/build/dist'
+			}
+		});
+		require(
+			[
+				'echarts',
+				'echarts/chart/line' // 折线图
+			],
+			function(ec){
+				var myLine1 = ec.init(document.getElementById("newUsers"));
+				var myLine2 = ec.init(document.getElementById("cancelUsers"));
+				var myLine3 = ec.init(document.getElementById("incrementUsers"));
+				var myLine4 = ec.init(document.getElementById("sumUsers"));
+						var option1 = {
+						    title : {
+						        text: '新增人数',
+						    },
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    legend: {
+						        data:['新关注人数']
+						    },
+						    toolbox: {
+						        show : true,
+						        feature : {
+						            mark : {show: true},
+						            dataView : {show: true, readOnly: false},
+						            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+						            restore : {show: true},
+						            saveAsImage : {show: true}
+						        }
+						    },
+						    calculable : true,
+						    xAxis : [
+						        {
+						            type : 'category',
+						            boundaryGap : false,
+						            data : ['2018/02/08','2018/02/09','2018/02/10','2018/02/11','2018/02/12','2018/02/13','2018/02/14']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            name:'新增人数',
+						            type:'line',
+						            smooth:true,
+						            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+						            data:[
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000)]
+						        }
+						    ]
+						};
+						var option2 = {
+						    title : {
+						        text: '取消关注人数',
+						    },
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    legend: {
+						        data:['取消关注人数']
+						    },
+						    toolbox: {
+						        show : true,
+						        feature : {
+						            mark : {show: true},
+						            dataView : {show: true, readOnly: false},
+						            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+						            restore : {show: true},
+						            saveAsImage : {show: true}
+						        }
+						    },
+						    calculable : true,
+						    xAxis : [
+						        {
+						            type : 'category',
+						            boundaryGap : false,
+						            data : ['2018/02/08','2018/02/09','2018/02/10','2018/02/11','2018/02/12','2018/02/13','2018/02/14']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            name:'取消关注人数',
+						            type:'line',
+						            smooth:true,
+						            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+						            data:[
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000)]
+						        }
+						    ]
+						};
+						var option3 = {
+						    title : {
+						        text: '净增人数',
+						    },
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    legend: {
+						        data:['净增人数']
+						    },
+						    toolbox: {
+						        show : true,
+						        feature : {
+						            mark : {show: true},
+						            dataView : {show: true, readOnly: false},
+						            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+						            restore : {show: true},
+						            saveAsImage : {show: true}
+						        }
+						    },
+						    calculable : true,
+						    xAxis : [
+						        {
+						            type : 'category',
+						            boundaryGap : false,
+						            data : ['2018/02/08','2018/02/09','2018/02/10','2018/02/11','2018/02/12','2018/02/13','2018/02/14']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            name:'净增人数',
+						            type:'line',
+						            smooth:true,
+						            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+						            data:[
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000)]
+						        }
+						    ]
+						};
+						var option4 = {
+						    title : {
+						        text: '累积关注人数',
+						    },
+						    tooltip : {
+						        trigger: 'axis'
+						    },
+						    legend: {
+						        data:['累积关注人数']
+						    },
+						    toolbox: {
+						        show : true,
+						        feature : {
+						            mark : {show: true},
+						            dataView : {show: true, readOnly: false},
+						            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+						            restore : {show: true},
+						            saveAsImage : {show: true}
+						        }
+						    },
+						    calculable : true,
+						    xAxis : [
+						        {
+						            type : 'category',
+						            boundaryGap : false,
+						            data : ['2018/02/08','2018/02/09','2018/02/10','2018/02/11','2018/02/12','2018/02/13','2018/02/14']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            name:'累积关注人数',
+						            type:'line',
+						            smooth:true,
+						            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+						            data:[
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000), 
+						            Math.round(Math.random() * 1000)]
+						        }
+						    ]
+						};
+                    
+				myLine1.setOption(option1);
+				myLine2.setOption(option2);
+				myLine3.setOption(option3);
+				myLine4.setOption(option4);
+			}
+		);
+	</script>
+	<script type="text/javascript">
+		require.config({
+			paths: {
+				echarts: 'http://echarts.baidu.com/build/dist'
+			}
+		});
+
+		// 使用
+		require(
+			[
+				'echarts',
+				'echarts/chart/map' // 使用饼状图
+			],
+			function(ec) {
+				var myMap = ec.init(document.getElementById('provinceSpreadMap'));
+				var option = {
+					title: {
+						text: '省份分布',
+						x: 'center'
+					},
+					tooltip: {
+						trigger: 'item'
+					},
+					legend: {
+						orient: 'vertical',
+						x: 'left',
+						data: ['用户数']
+					},
+					dataRange: {
+						min: 0,
+						max: 2500,
+						x: 'left',
+						y: 'bottom',
+						text: ['高', '低'], // 文本，默认为数值文本
+						calculable: true
+					},
+					toolbox: {
+						show: true,
+						orient: 'vertical',
+						x: 'right',
+						y: 'center',
+						feature: {
+							mark: {
+								show: true
+							},
+							dataView: {
+								show: true,
+								readOnly: false
+							},
+							restore: {
+								show: true
+							},
+							saveAsImage: {
+								show: true
+							}
+						}
+					},
+					roamController: {
+						show: true,
+						x: 'right',
+						mapTypeControl: {
+							'china': true
+						}
+					},
+					series: [{
+						name: '用户数',
+						type: 'map',
+						mapType: 'china',
+						roam: false,
+						itemStyle: {
+							normal: {
+								label: {
+									show: true
+								}
+							},
+							emphasis: {
+								label: {
+									show: true
+								}
+							}
+						},
+						data: [{
+								name: '北京',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '天津',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '上海',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '重庆',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '河北',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '河南',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '云南',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '辽宁',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '黑龙江',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '湖南',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '安徽',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '山东',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '新疆',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '江苏',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '浙江',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '江西',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '湖北',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '广西',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '甘肃',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '山西',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '内蒙古',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '陕西',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '吉林',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '福建',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '贵州',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '广东',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '青海',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '西藏',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '四川',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '宁夏',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '海南',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '台湾',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '香港',
+								value: Math.round(Math.random() * 1000)
+							},
+							{
+								name: '澳门',
+								value: Math.round(Math.random() * 1000)
+							}
+						]
+					}]
+				};
+				myMap.setOption(option);
+			}
+		);
+	</script>
+	<script type="text/javascript">
+		// 路径配置
+		require.config({
+			paths: {
+				echarts: 'http://echarts.baidu.com/build/dist'
+			}
+		});
+
+		// 使用
+		require(
+			[
+				'echarts',
+				'echarts/chart/pie' // 使用饼状图
+			],
+			function(ec) {
+				var myPie = ec.init(document.getElementById('machinetypespreadpie'));
+				var option = {
+					title: {
+						text: '机型分布',
+						//								        subtext: '纯属虚构',
+						x: 'center'
+					},
+					tooltip: {
+						trigger: 'item',
+						formatter: "{a} <br/>{b} : {c} ({d}%)"
+					},
+					legend: {
+						orient: 'vertical',
+						x: 'left',
+						data: ['华为', '中兴', 'iphone', '黑莓', '三星', '小米', '魅族']
+					},
+					toolbox: {
+						show: true,
+						feature: {
+							mark: {
+								show: true
+							},
+							dataView: {
+								show: true,
+								readOnly: false
+							},
+							magicType: {
+								show: true,
+								type: ['pie', 'funnel'],
+								option: {
+									funnel: {
+										x: '25%',
+										width: '50%',
+										funnelAlign: 'left',
+										max: 1548
+									}
+								}
+							},
+							restore: {
+								show: true
+							},
+							saveAsImage: {
+								show: true
+							}
+						}
+					},
+					calculable: true,
+					series: [{
+						name: '机型分布TOP10',
+						type: 'pie',
+						radius: '55%',
+						center: ['50%', '60%'],
+						data: [{
+								value: 335,
+								name: '华为'
+							},
+							{
+								value: 310,
+								name: '中兴'
+							},
+							{
+								value: 234,
+								name: 'iphone'
+							},
+							{
+								value: 135,
+								name: '黑莓'
+							},
+							{
+								value: 1548,
+								name: '三星'
+							},
+							{
+								value: 123,
+								name: '小米'
+							},
+							{
+								value: 234,
+								name: '魅族'
+							}
+						]
+					}]
+				};
+				myPie.setOption(option);
+			}
+		);
+	</script>
+
+	<script type="text/javascript">
+		// 路径配置
+		require.config({
+			paths: {
+				echarts: 'http://echarts.baidu.com/build/dist'
+			}
+		});
+
+		// 使用
+		require(
+			[
+				'echarts',
+				'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+			],
+			function(ec) {
+				// 基于准备好的dom，初始化echarts图表
+				var myChart1 = ec.init(document.getElementById('main1'));
+				var myChart2 = ec.init(document.getElementById('main2'));
+				var myChart3 = ec.init(document.getElementById('main3'));
+				var myChart4 = ec.init(document.getElementById('main4'));
+				var myChart5 = ec.init(document.getElementById('main5'));
+				var myChart6 = ec.init(document.getElementById('main6'));
+				var myChart7 = ec.init(document.getElementById('main7'));
+				var myChart8 = ec.init(document.getElementById('main8'));
+				var myChart9 = ec.init(document.getElementById('main9'));
+				var myChart10 = ec.init(document.getElementById('main10'));
+				var myChart11 = ec.init(document.getElementById('main11'));
+				var myChart12 = ec.init(document.getElementById('main12'));
+				var option1 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['在线时长']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "在线时长",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option2 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['会话数量']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "会话数量",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option3 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['应答数量']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "应答数量",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option4 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['平均聊天时长']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "平均聊天时长",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option5 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['粉丝平均等待时长']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "粉丝平均等待时长",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option6 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['满意度']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "满意度",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option7 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['在线时长']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "在线时长",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option8 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['会话数量']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "会话数量",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option9 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['应答数量']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "应答数量",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option10 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['平均聊天时长']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "平均聊天时长",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option11 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['粉丝平均等待时长']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "粉丝平均等待时长",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+				var option12 = {
+					tooltip: {
+						show: true
+					},
+					legend: {
+						data: ['满意度']
+					},
+					xAxis: [{
+						type: 'category',
+						data: ["小组A", "客服1", "客服2", "客服3"]
+					}],
+					yAxis: [{
+						type: 'value',
+						show: true
+					}],
+					series: [{
+						"name": "满意度",
+						"type": "bar",
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									// build a color map as your need.
+									var colorList = [
+										'#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+										'#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+										'#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+									];
+									return colorList[params.dataIndex]
+								},
+								label: {
+									show: true,
+									position: 'top',
+									formatter: '{c}'
+								}
+							}
+						},
+						"data": [5, 20, 40, 10]
+					}]
+				};
+
+				// 为echarts对象加载数据 
+				myChart1.setOption(option1);
+				myChart2.setOption(option2);
+				myChart3.setOption(option3);
+				myChart4.setOption(option4);
+				myChart5.setOption(option5);
+				myChart6.setOption(option6);
+				myChart7.setOption(option7);
+				myChart8.setOption(option8);
+				myChart9.setOption(option9);
+				myChart10.setOption(option10);
+				myChart11.setOption(option11);
+				myChart12.setOption(option12);
+			}
+		);
+	</script>
+
 </html>
