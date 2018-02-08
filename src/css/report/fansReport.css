@@ -115,6 +115,10 @@ select:hover{
 	/*width: 20%;*/
 	border-left: 0.5px solid whitesmoke;
 	border-right: 0.5px solid whitesmoke;
+	transition: all .2s linear;
+}
+.divModel:hover{
+	opacity: 0.6;
 }
 .div0{
 	background-color: cyan;

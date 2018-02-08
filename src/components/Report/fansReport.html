@@ -683,11 +683,17 @@
   		<!--黑条-->
   		<div class="blackDiv"></div>
   		<!--黄条-->
-  		<div class="divModel div1" :style="malePropoStyle"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[0].message+':'+male" placement="top">
+  				<div class="divModel div1" :style="malePropoStyle"></div>
+  		</el-tooltip>
   		<!--黄绿条-->
-  		<div class="divModel div2" :style="femalePropoStyle"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[1].message+':'+female" placement="top">
+  			<div class="divModel div2" :style="femalePropoStyle"></div>
+  		</el-tooltip>
   		<!--绿条-->
-  		<div class="divModel div3" :style="otherPropoStyle"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[2].message+':'+other" placement="top">
+  			<div class="divModel div3" :style="otherPropoStyle"></div>
+  		</el-tooltip>
   		<!--选项-->
   		<div class="items">
   			<!--<div>
@@ -748,13 +754,21 @@
   	<div class="templateWrapper">
   		<!--黑条-->
   		<div class="blackDiv"></div>
-  		<div class="divModel div0" :style="lan1Style"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[0].message+':'+lan1" placement="top">
+  			<div class="divModel div0" :style="lan1Style"></div>
+  		</el-tooltip>
   		<!--黄条-->
-  		<div class="divModel div1" :style="lan2Style"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[1].message+':'+lan2" placement="top">
+  			<div class="divModel div1" :style="lan2Style"></div>
+  		</el-tooltip>
   		<!--黄绿条-->
-  		<div class="divModel div2" :style="lan3Style"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[2].message+':'+lan3" placement="top">
+  			<div class="divModel div2" :style="lan3Style"></div>
+  		</el-tooltip>
   		<!--绿条-->
-  		<div class="divModel div3" :style="otherStyle"></div>
+  		<el-tooltip class="item" effect="dark" :content="items[3].message+':'+other" placement="top">
+  			<div class="divModel div3" :style="otherStyle"></div>
+  		</el-tooltip>
   		<!--选项-->
   		<div class="items">
   			<div v-for="item in items">
