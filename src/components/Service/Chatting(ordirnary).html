@@ -269,7 +269,7 @@
 							    						<i class="ChattingWindow-middleDivButtonIconClose"></i>
 							    					</div>
 							    					<!--聊天内容区-->
-							    					<div ref="chattingContent" style="height:100%;padding: 20px;overflow-y: auto;overflow-x: hidden;">
+							    					<div ref="chattingContent" class="ChattingcontentZone">
 							    						<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    					</div>
 							    				</div>
@@ -491,7 +491,7 @@
 							    					<span>聊天详细</span>
 							    				</div>
 							    				<hr class="hr" />
-							    				<div class="HistoryChatting-contentZone" style="height: 620px;overflow-y: auto;">
+							    				<div class="ChattingcontentZoneHistory">
 							    					<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    				</div>
 							    			</div>

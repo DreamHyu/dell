@@ -799,8 +799,12 @@ table tbody tr{
 }
 
 
-
-
+.ChattingcontentZone{
+	height:100%;padding:20px;overflow-y: auto;overflow-x: hidden;
+}
+.ChattingcontentZoneHistory{
+	height:90%;padding:20px;overflow-y: auto;overflow-x: hidden;
+}
 
 
 .HistoryChatting-rightDiv{
