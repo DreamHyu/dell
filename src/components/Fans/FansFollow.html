@@ -1,282 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>粉丝</title>
-  <!-- 引入样式 -->
-	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../css/frame.css" />
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>粉丝</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/frame.css" />
+	</head>
 
-<body>
-	<div id="app">
-		<el-container>
-			<el-header height="50px">
-				<nav id="topNav" class="navbar-inverse" role="navigation">
-					<div class="container-fluid">
-					    <div class="navbar-header">
-					    	<img src="../../images/logo.png" />
-					    </div>
-					    <div>			
-					    	<ul class="nav navbar-nav">
-					            <li class="dropdown">
-					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				                    	公众号名称 <b class="caret"></b>
-					                </a>
-					                <ul class="dropdown-menu">
-					                	<li><a href="#">名称0</a></li>
-					                    <li><a href="#">名称1</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">名称2</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">名称3</a></li>
-					                </ul>
-					            </li>
-					        </ul>
-					        <ul class="nav navbar-nav navbar-right">
-					        	<li>
-				        			<img src="../../images/user_img.png" class="img-circle">
-					        	</li>
-					            <li class="dropdown">
-					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				                    	用户名 <b class="caret"></b>
-					                </a>
-					                <ul class="dropdown-menu">
-					                	<li><a href="#">用户0</a></li>
-					                    <li><a href="#">用户1</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">用户2</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">用户3</a></li>
-					                </ul>
-					            </li>
-					        </ul>
-					    </div>
-					</div>
-				</nav>
-			</el-header>
-		  <el-container>
-		    <el-aside width="70px">
-		    	<nav id="leftNav" class="navbar-inverse">
-					<div class="container-fluid">
-					    <div>
-					    	<ul class="nav navbar-nav">
-								<li class="">
-									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
-								</li>
-								<li class="">
-									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
-								</li>
-								<li class="">
-									<a href="../Service/CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
-								</li>
-								<li class="active">
-									<a href="FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
-								</li>
-								<li class="">
-									<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
-								</li>
-								<li class="">
-									<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
-								</li>
-								<li>
-									<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</nav>
-		    </el-aside>
-		    <el-main>
-		    	<div class="FansFollowMain">
-		    		<div>
-		    			<template>
-							  <el-tabs v-model="activeName">
-							    <el-tab-pane label="关注" name="first">
-							    	<div class="FansFollowLeft">
-							    		<div class="FansFollowList">
-							    			<template>
-												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
-												    <el-table-column type="selection"></el-table-column>
-												    <el-table-column width="80">
-												      <template slot-scope="scope">
-												      	<img  :src="scope.row.img" class="FansFollowImage">
-												      </template>
-												    </el-table-column>
-												    <el-table-column width="305">
-												    	<template slot-scope="scope">
-												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
-												    		</div>
-												    		<div class="FansFollowAddressStyle">
-												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
-												    			&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon3" class="FansFollowIcon" />
-												    		  <span class="FansFollowTableFont">{{scope.row.address}}</span>
-												    		</div>
-												    		<div class="FansFollowContentStyle">
-												    			<!--<div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>
+	<body>
+		<div id="app">
+			<el-container>
+				<el-header height="50px">
+					<nav id="topNav" class="navbar-inverse" role="navigation">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<img src="../../images/logo.png" />
+							</div>
+							<div>
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											公众号名称 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">名称0</a>
+											</li>
+											<li>
+												<a href="#">名称1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<img src="../../images/user_img.png" class="img-circle">
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											用户名 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">用户0</a>
+											</li>
+											<li>
+												<a href="#">用户1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</el-header>
+				<el-container>
+					<el-aside width="70px">
+						<nav id="leftNav" class="navbar-inverse">
+							<div class="container-fluid">
+								<div>
+									<ul class="nav navbar-nav">
+										<li class="">
+											<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+										</li>
+										<li class="">
+											<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+										</li>
+										<li class="">
+											<a href="../Service/CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+										</li>
+										<li class="active">
+											<a href="FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+										</li>
+										<li class="">
+											<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+										</li>
+										<li class="">
+											<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+										</li>
+										<li>
+											<a href="../hold-all/toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</nav>
+					</el-aside>
+					<el-main>
+						<div class="FansFollowMain">
+							<div>
+								<template>
+									<el-tabs v-model="activeName">
+										<el-tab-pane label="关注" name="first">
+											<div class="FansFollowLeft">
+												<div class="FansFollowList">
+													<template>
+														<el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
+															<el-table-column type="selection"></el-table-column>
+															<el-table-column width="80">
+																<template slot-scope="scope">
+																	<img :src="scope.row.img" class="FansFollowImage">
+																</template>
+															</el-table-column>
+															<el-table-column width="305">
+																<template slot-scope="scope">
+																	<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
+																		<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
+																	</div>
+																	<div class="FansFollowAddressStyle">
+																		<img :src="scope.row.icon2" class="FansFollowIcon" /> &nbsp&nbsp&nbsp
+																		<img :src="scope.row.icon3" class="FansFollowIcon" />
+																		<span class="FansFollowTableFont">{{scope.row.address}}</span>
+																	</div>
+																	<div class="FansFollowContentStyle">
+																		<!--<div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>
 												          <div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>-->
-												          <div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												          <div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<a href="#" @click="dialogVisible = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
-												    		</div>
-												    	</template>
-												    </el-table-column>
-												    <el-table-column>
-												    	<template slot-scope="scope">
-												    		<div>
-												    			<div class="FansFollowFloat">
-												    				<img class="FansFollowIconLast" :src="scope.row.icon5" />&nbsp
-												    				<span class="FansFollowTableMenber">{{scope.row.menber}}</span>
-												    			</div>
-												    			<div class="FansFollowFloat FansFollowTime FansFollowTableFont">{{scope.row.time}}</div>
-												    		</div>
-												    	</template>
-												    </el-table-column>
-												  </el-table>
-												</template>
-							    		</div>	
-							    	</div>
-							    	<div class="FansFollowButtonPosition">
-							    		<el-button-group>
-											  <el-button type="button" class="FansFollowButtonStyle" @click="dialogVisible = true">打标签</el-button>
-												  <el-dialog :visible.sync="dialogVisible" width="25%">
-													  <template>
-														  <el-checkbox-group v-model="checkList">
-														    <el-checkbox label="复选框 A"></el-checkbox>
-														    <el-checkbox label="复选框 B"></el-checkbox>
-														  </el-checkbox-group>
-														  <div v-if="FansValue">
-														  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
-														  </div>
-	                            <div class="FansFollowInputA" v-else="!FansValue">
-	                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
-	                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
-		                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
-	                            </div>
-	                            <div class="FansFollowButtonD">
-	                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
-	                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisible = flase">保存</el-button>
-	                            </div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<a href="#" @click="dialogVisible = true"><img class="FansFollowIconSmall" :src="scope.row.icon4" /></a>
+																	</div>
+																</template>
+															</el-table-column>
+															<el-table-column>
+																<template slot-scope="scope">
+																	<div>
+																		<div class="FansFollowFloat">
+																			<img class="FansFollowIconLast" :src="scope.row.icon5" />&nbsp
+																			<span class="FansFollowTableMenber">{{scope.row.menber}}</span>
+																		</div>
+																		<div class="FansFollowFloat FansFollowTime FansFollowTableFont">{{scope.row.time}}</div>
+																	</div>
+																</template>
+															</el-table-column>
+														</el-table>
+													</template>
+												</div>
+											</div>
+											<div class="FansFollowButtonPosition">
+												<el-button-group>
+													<el-button type="button" class="FansFollowButtonStyle" @click="dialogVisible = true">打标签</el-button>
+													<el-dialog :visible.sync="dialogVisible" width="25%">
+														<template>
+															<el-checkbox-group v-model="checkList">
+																<el-checkbox label="复选框 A"></el-checkbox>
+																<el-checkbox label="复选框 B"></el-checkbox>
+															</el-checkbox-group>
+															<div v-if="FansValue">
+																<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+															</div>
+															<div class="FansFollowInputA" v-else="!FansValue">
+																<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+																<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+																<a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+															</div>
+															<div class="FansFollowButtonD">
+																<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
+																<el-button type="success" class="FansFollowButtonC" @click="dialogVisible = flase">保存</el-button>
+															</div>
 														</template>
 													</el-dialog>
-											  <el-button type="button" class="FansFollowButtonStyle" @click="open1()">黑名单</el-button>
-											</el-button-group>
-											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
-												<i slot="suffix" class="el-input__icon el-icon-search"></i>
-											</el-input>
-							    	</div>
-							    	<div class="FansFollowRight">
-							    		<div class="FansRightList">
-												<div class="FansTitle">{{sum}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
+													<el-button type="button" class="FansFollowButtonStyle" @click="open1()">黑名单</el-button>
+												</el-button-group>
+												<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
+													<i slot="suffix" class="el-input__icon el-icon-search"></i>
+												</el-input>
 											</div>
-							    	</div>
-							    </el-tab-pane>
-							    <el-tab-pane label="取消关注" name="second">
-							    	<div class="FansFollowLeft">
-							    		<div class="FansFollowList">
-							    			<template>
-												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
-												    <el-table-column width="48">空</el-table-column>
-												    <el-table-column width="80">
-												      <template slot-scope="scope">
-												      	<img  :src="scope.row.img" class="FansFollowImage">
-												      </template>
-												    </el-table-column>
-												    <el-table-column width="305">
-												    	<template slot-scope="scope">
-												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
-												    		</div>
-												    		<div class="FansFollowAddressStyle">
-												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
-												    			&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon3" class="FansFollowIcon" />
-												    		  <span class="FansFollowTableFont">{{scope.row.address}}</span>
-												    		</div>
-												    		<div class="FansFollowContentStyle">
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<a href="#" @click="dialogVisibleA = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
-												    			<el-dialog :visible.sync="dialogVisibleA" width="25%">
-																	  <template>
-																		  <el-checkbox-group v-model="checkList">
-																		    <el-checkbox label="复选框 A"></el-checkbox>
-																		    <el-checkbox label="复选框 B"></el-checkbox>
-																		  </el-checkbox-group>
-																		  <div v-if="FansValue">
-																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
-																		  </div>
-					                            <div class="FansFollowInputA" v-else="!FansValue">
-					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
-					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
-						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
-					                            </div>
-					                            <div class="FansFollowButtonD">
-					                            	<el-button class="FansFollowButtonB" @click="dialogVisibleA = flase">取消</el-button>
-					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleA = flase">保存</el-button>
-					                            </div>
-																		</template>
-																	</el-dialog>
-												    		</div>
-												    	</template>
-												    </el-table-column>
-												    <el-table-column>
-												    	<template slot-scope="scope">
-												    		<div>
-												    			<div class="FansFollowFloat">
-												    				<img class="FansFollowIconLast" :src="scope.row.icon6" />
-												    			</div>
-												    			<div class="FansFollowFloat FansFollowTime FansFollowTableFont">{{scope.row.timeuf}}</div>
-												    		</div>
-												    	</template>
-												    </el-table-column>
-												  </el-table>
-												</template>
-							    		</div>	
-							    	</div>
-							    	<div class="FansFollowButtonPositionA">
-											<el-input class="FansFollowInput FansFollowInputC" v-model="input" placeholder="搜索">
-												<i slot="suffix" class="el-input__icon el-icon-search"></i>
-											</el-input>
-							    	</div>
-							    	<div class="FansFollowRight">
-							    		
-							    	<div class="FansFollowRightHead">
-							    		标签
-							    	</div>
-							    	
-							    	<el-tabs v-model="editableTabsValue2" :tab-position="tabPosition" type="card" closable @tab-remove="removeTab">
-										  <el-tab-pane
-										    v-for="(item, index) in editableTabs2"
-										    :key="item.name"
-										    :label="item.title"
-										    :name="item.name"
-										  >
-										  </el-tab-pane>
-										</el-tabs>
-							    		
-							    	<div class="FansRightButton">
-										  <el-button
-										    size="small"
-										    @click="addTab(editableTabsValue2)"
-										  >
-										    Add
-										  </el-button>
-										</div>
-							    	
-							    		<!--<div class="FansRightList">
+											<div class="FansFollowRight">
+												<div class="FansRightList">
+													<div class="FansTitle">{{sum}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+												</div>
+											</div>
+										</el-tab-pane>
+										<el-tab-pane label="取消关注" name="second">
+											<div class="FansFollowLeft">
+												<div class="FansFollowList">
+													<template>
+														<el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
+															<el-table-column width="48">空</el-table-column>
+															<el-table-column width="80">
+																<template slot-scope="scope">
+																	<img :src="scope.row.img" class="FansFollowImage">
+																</template>
+															</el-table-column>
+															<el-table-column width="305">
+																<template slot-scope="scope">
+																	<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
+																		<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
+																	</div>
+																	<div class="FansFollowAddressStyle">
+																		<img :src="scope.row.icon2" class="FansFollowIcon" /> &nbsp&nbsp&nbsp
+																		<img :src="scope.row.icon3" class="FansFollowIcon" />
+																		<span class="FansFollowTableFont">{{scope.row.address}}</span>
+																	</div>
+																	<div class="FansFollowContentStyle">
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<a href="#" @click="dialogVisibleA = true"><img class="FansFollowIconSmall" :src="scope.row.icon4" /></a>
+																		<el-dialog :visible.sync="dialogVisibleA" width="25%">
+																			<template>
+																				<el-checkbox-group v-model="checkList">
+																					<el-checkbox label="复选框 A"></el-checkbox>
+																					<el-checkbox label="复选框 B"></el-checkbox>
+																				</el-checkbox-group>
+																				<div v-if="FansValue">
+																					<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																				</div>
+																				<div class="FansFollowInputA" v-else="!FansValue">
+																					<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+																					<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+																					<a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+																				</div>
+																				<div class="FansFollowButtonD">
+																					<el-button class="FansFollowButtonB" @click="dialogVisibleA = flase">取消</el-button>
+																					<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleA = flase">保存</el-button>
+																				</div>
+																			</template>
+																		</el-dialog>
+																	</div>
+																</template>
+															</el-table-column>
+															<el-table-column>
+																<template slot-scope="scope">
+																	<div>
+																		<div class="FansFollowFloat">
+																			<img class="FansFollowIconLast" :src="scope.row.icon6" />
+																		</div>
+																		<div class="FansFollowFloat FansFollowTime FansFollowTableFont">{{scope.row.timeuf}}</div>
+																	</div>
+																</template>
+															</el-table-column>
+														</el-table>
+													</template>
+												</div>
+											</div>
+											<div class="FansFollowButtonPositionA">
+												<el-input class="FansFollowInput FansFollowInputC" v-model="input" placeholder="搜索">
+													<i slot="suffix" class="el-input__icon el-icon-search"></i>
+												</el-input>
+											</div>
+											<div class="FansFollowRight">
+
+												<div class="FansFollowRightHead">
+													标签1
+												</div>
+
+												<el-tabs v-model="editableTabsValue2" :tab-position="tabPosition" type="card" closable @tab-remove="removeTab">
+													<el-tab-pane v-for="(item, index) in editableTabs2" :key="item.name" :label="item.title" :name="item.name">
+													</el-tab-pane>
+												</el-tabs>
+												<el-popover
+												  ref="popover"
+												  placement="bottom"
+												  width="300"
+												  trigger="click"
+												  v-model="popvisible">
+												  <el-input v-model="newTabName" style="display:inline-block;margin-left:10px;width:70%"></el-input>
+												  <el-button type="success" size="small" @click="addTab(editableTabsValue2)" style="display:inline-block;margin-left:10px">OK</el-button>
+												</el-popover>
+												<div class="FansRightButton">
+													<el-button size="small" v-popover:popover>
+														Add
+													</el-button>
+												</div>
+
+												<!--<div class="FansRightList">
 												<div class="FansTitle">{{sum}}</div>
 												<div class="FansContent">{{describe}}</div>
 												<div class="FansContent">{{describe}}</div>
@@ -284,332 +298,348 @@
 												<div class="FansContent">{{describe}}</div>
 												<div class="FansContent">{{describe}}</div>
 											</div>-->
-											
-							    	</div>
-							    </el-tab-pane>
-							    <el-tab-pane label="黑名单" name="third">
-							    	<div class="FansFollowLeft">
-							    		<div class="FansFollowList">
-							    			<template>
-												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
-												    <el-table-column type="selection"></el-table-column>
-												    <el-table-column width="80">
-												      <template slot-scope="scope">
-												      	<img  :src="scope.row.img" class="FansFollowImage">
-												      </template>
-												    </el-table-column>
-												    <el-table-column width="305">
-												    	<template slot-scope="scope">
-												    		<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
-												    			<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
-												    		</div>
-												    		<div class="FansFollowAddressStyle">
-												    			<img :src="scope.row.icon2" class="FansFollowIcon" />
-												    			&nbsp&nbsp&nbsp
-												    			<img :src="scope.row.icon3" class="FansFollowIcon" />
-												    		  <span class="FansFollowTableFont">{{scope.row.address}}</span>
-												    		</div>
-												    		<div class="FansFollowContentStyle">
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<a href="#" @click="dialogVisibleB = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
-												    			<el-dialog :visible.sync="dialogVisibleB" width="25%">
-																	  <template>
-																		  <el-checkbox-group v-model="checkList">
-																		    <el-checkbox label="复选框 A"></el-checkbox>
-																		    <el-checkbox label="复选框 B"></el-checkbox>
-																		  </el-checkbox-group>
-																		  <div v-if="FansValue">
-																		  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
-																		  </div>
-					                            <div class="FansFollowInputA" v-else="!FansValue">
-					                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
-					                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
-						                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
-					                            </div>
-					                            <div class="FansFollowButtonD">
-					                            	<el-button class="FansFollowButtonB" @click="dialogVisibleB = flase">取消</el-button>
-					                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleB = flase">保存</el-button>
-					                            </div>
-																		</template>
-																	</el-dialog>
-												    		</div>
-												    	</template>
-												    </el-table-column>
-												    <el-table-column>
-												    	<template slot-scope="scope">
-												    		<div>
-												    			<div class="FansFollowFloat">
-												    				<img class="FansFollowIconLast" :src="scope.row.icon6" />
-												    			</div>
-												    			<div class="FansFollowFloat FansFollowTime FansFollowTableFont">{{scope.row.timebl}}</div>
-												    		</div>
-												    	</template>
-												    </el-table-column>
-												  </el-table>
-												</template>
-							    		</div>	
-							    	</div>
-							    	<div class="FansFollowButtonPosition">
-											<el-button type="button" class="FansFollowButtonStyle"  @click="open1()">取消黑名单</el-button>
-											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
-												<i slot="suffix" class="el-input__icon el-icon-search"></i>
-											</el-input>
-							    	</div>
-							    	<div class="FansFollowRight">
-											<div class="FansRightList">
-												<div class="FansTitle">{{sum}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
-												<div class="FansContent">{{describe}}</div>
+
 											</div>
-							    	 </div>
-							    </el-tab-pane>
-							  </el-tabs>
-							</template>
-		    		</div>
-		    	</div>
-		    </el-main>
-		  </el-container>
-		</el-container>
-	</div>
-</body>
+										</el-tab-pane>
+										<el-tab-pane label="黑名单" name="third">
+											<div class="FansFollowLeft">
+												<div class="FansFollowList">
+													<template>
+														<el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
+															<el-table-column type="selection"></el-table-column>
+															<el-table-column width="80">
+																<template slot-scope="scope">
+																	<img :src="scope.row.img" class="FansFollowImage">
+																</template>
+															</el-table-column>
+															<el-table-column width="305">
+																<template slot-scope="scope">
+																	<div class="FansFollowNamestyle">{{scope.row.name}}&nbsp&nbsp&nbsp
+																		<a href="#" @click="open3"><img :src="scope.row.icon1" class="FansFollowIcon" /></a>
+																	</div>
+																	<div class="FansFollowAddressStyle">
+																		<img :src="scope.row.icon2" class="FansFollowIcon" /> &nbsp&nbsp&nbsp
+																		<img :src="scope.row.icon3" class="FansFollowIcon" />
+																		<span class="FansFollowTableFont">{{scope.row.address}}</span>
+																	</div>
+																	<div class="FansFollowContentStyle">
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<div class="FansFollowContent">{{scope.row.content}}</div>
+																		<a href="#" @click="dialogVisibleB = true"><img class="FansFollowIconSmall" :src="scope.row.icon4" /></a>
+																		<el-dialog :visible.sync="dialogVisibleB" width="25%">
+																			<template>
+																				<el-checkbox-group v-model="checkList">
+																					<el-checkbox label="复选框 A"></el-checkbox>
+																					<el-checkbox label="复选框 B"></el-checkbox>
+																				</el-checkbox-group>
+																				<div v-if="FansValue">
+																					<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+																				</div>
+																				<div class="FansFollowInputA" v-else="!FansValue">
+																					<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+																					<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+																					<a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+																				</div>
+																				<div class="FansFollowButtonD">
+																					<el-button class="FansFollowButtonB" @click="dialogVisibleB = flase">取消</el-button>
+																					<el-button type="success" class="FansFollowButtonC" @click="dialogVisibleB = flase">保存</el-button>
+																				</div>
+																			</template>
+																		</el-dialog>
+																	</div>
+																</template>
+															</el-table-column>
+															<el-table-column>
+																<template slot-scope="scope">
+																	<div>
+																		<div class="FansFollowFloat">
+																			<img class="FansFollowIconLast" :src="scope.row.icon6" />
+																		</div>
+																		<div class="FansFollowFloat FansFollowTime FansFollowTableFont">{{scope.row.timebl}}</div>
+																	</div>
+																</template>
+															</el-table-column>
+														</el-table>
+													</template>
+												</div>
+											</div>
+											<div class="FansFollowButtonPosition">
+												<el-button type="button" class="FansFollowButtonStyle" @click="open1()">取消黑名单</el-button>
+												<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
+													<i slot="suffix" class="el-input__icon el-icon-search"></i>
+												</el-input>
+											</div>
+											<div class="FansFollowRight">
+												<div class="FansRightList">
+													<div class="FansTitle">{{sum}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+													<div class="FansContent">{{describe}}</div>
+												</div>
+											</div>
+										</el-tab-pane>
+									</el-tabs>
+								</template>
+							</div>
+						</div>
+					</el-main>
+				</el-container>
+			</el-container>
+		</div>
+	</body>
 	<!-- 先引入 Vue -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- 引入组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
-    new Vue({
-      el: '#app',
-      data() {
-	      return {
-	      	sum: '全部',
-	      	describe: '描述',
-        	activeName: 'first',
-        	tableData3: [{
-	          img: '../../images/MemberList4.png',
-	          name: 'Harry',
-	          icon1: '../../images/MemberListIcon5.png',
-	          icon2: '../../images/MemberListIcon1.png',
-	          icon3: '../../images/MemberListIcon3.png',
-	          icon4: '../../images/MemberListIcon4.png',
-	          content: '#标签内容#',
-	          address: '徐汇 上海 中国',
-	          icon5: '../../images/FansFollowIcon1.png',
-	          icon6: '../../images/FansFollowIcon6.png',
-	          menber: '0',
-	          time: '1个小时前关注',
-	          timebl: '1个小时前加入黑名单',
-	          timeuf: '1个小时前取消关注',
-	          tagList: "-1",
-	        }, {
-	          img: '../../images/MemberList1.png',
-	          name: 'Ivan',
-	          icon1: '../../images/MemberListIcon5.png',
-	          icon2: '../../images/MemberListIcon1.png',
-	          icon3: '../../images/MemberListIcon3.png',
-	          icon4: '../../images/MemberListIcon4.png',
-	          content: '#标签内容#',
-	          address: '徐汇 上海 中国',
-	          icon5: '../../images/FansFollowIcon1.png',
-	          icon6: '../../images/FansFollowIcon6.png',
-	          menber: '2',
-	          time: '2天前关注',
-	          timebl: '2天前加入黑名单',
-	          timeuf: '2天前取消关注',
-	          tagList: "-1",
-	        }, {
-	          img: '../../images/MemberList2.png',
-	          name: 'Harry',
-	          icon1: '../../images/MemberListIcon5.png',
-	          icon2: '../../images/MemberListIcon1.png',
-	          icon3: '../../images/MemberListIcon3.png',
-	          icon4: '../../images/MemberListIcon4.png',
-	          content: '#标签内容#',
-	          address: '徐汇 上海 中国',
-	          icon5: '../../images/FansFollowIcon1.png',
-	          icon6: '../../images/FansFollowIcon6.png',
-	          menber: '1',
-	          time: '2天前关注',
-	          timebl: '2天前加入黑名单',
-	          timeuf: '2天前取消关注',
-	          tagList: "-1",
-	        }, {
-	          img: '../../images/MemberList3.png',
-	          name: 'Ivan',
-	          icon1: '../../images/MemberListIcon5.png',
-	          icon2: '../../images/MemberListIcon1.png',
-	          icon3: '../../images/MemberListIcon3.png',
-	          icon4: '../../images/MemberListIcon4.png',
-	          content: '#标签内容#',
-	          address: '徐汇 上海 中国',
-	          icon5: '../../images/FansFollowIcon1.png',
-	          icon6: '../../images/FansFollowIcon6.png',
-	          menber: '3',
-	          time: '3天前关注',
-	          timebl: '2天前加入黑名单',
-	          timeuf: '2天前取消关注',
-//	          tagList: "-1",
-	        }],
-	        FansValue: 'true',
-	        multipleSelection: [],
-	        input: '',
-	        dialogVisible: false,
-	        dialogVisibleA: false,
-	        dialogVisibleB: false,
-	        dialogVisibleC: false,
-	        checkList: ['复选框 A'],
-	        
-	        
-//	        tabs
-	      editableTabsValue2: '2',
-        editableTabs2: [{
-          title: 'Tab',
-          name: '1', 
-        }, {
-          title: 'Tab',
-          name: '2',  
-        }],
-        tabIndex: 2,
-	      tabPosition: 'left',
-	      
-	      
-	      }
-	    },
-//	    mounted:function(){
-//      this.$nextTick(function(){
-//      	function getElementsByClassName(className,tagName){
-//						var ele=[],all=document.getElementsByTagName(tagName||"*");
-//						for(var i=0;i<all.length;i++){
-//						if(all[i].className==className){
-//						ele[ele.length]=all[i];
-//						 }
-//						}
-//						return ele;
-//						}
-//      	
-//						console.log(getElementsByClassName("FansFollowContent"));
-//						console.log(getElementsByClassName("FansFollowContent","div"));
-//      	
-//          var every = document.getElementById( "nodes" );  
-//      var a=every.parentNode; 
-//      
-//      console.info(a.childNodes[0].nodeType);  
-//        
-//      cleanWhitespace(a);
-//      
-//      console.info(a.childNodes[0].nodeType); 
-//      
-//      function cleanWhitespace(oEelement){  
-//          for(var i=0;i<oEelement.childNodes.length;i++){  
-//              var node=oEelement.childNodes[i];  
-//              if(node.nodeType==3 && !/\S/.test(node.nodeValue)){  
-//                  node.parentNode.removeChild(node)  
-//              }  
-//          }  
-//      }
-//      })
-//  },
-	    methods: {
-	    	judge:function(str) {
-			  	console.log(str);
-			  	if(str == 'yes'){
-			  		this.FansValue = false;
-			  	}
-			  	else if( str == 'no'){
-			  		this.FansValue = true;
-			  	}
-        },
-	      handleSelectionChange(val) {
-	        this.multipleSelection = val;
-	      },
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					sum: '全部',
+					describe: '描述',
+					activeName: 'first',
+					popvisible:false,
+					newTabName:'',
+					tableData3: [{
+						img: '../../images/MemberList4.png',
+						name: 'Harry',
+						icon1: '../../images/MemberListIcon5.png',
+						icon2: '../../images/MemberListIcon1.png',
+						icon3: '../../images/MemberListIcon3.png',
+						icon4: '../../images/MemberListIcon4.png',
+						content: '#标签内容#',
+						address: '徐汇 上海 中国',
+						icon5: '../../images/FansFollowIcon1.png',
+						icon6: '../../images/FansFollowIcon6.png',
+						menber: '0',
+						time: '1个小时前关注',
+						timebl: '1个小时前加入黑名单',
+						timeuf: '1个小时前取消关注',
+						tagList: "-1",
+					}, {
+						img: '../../images/MemberList1.png',
+						name: 'Ivan',
+						icon1: '../../images/MemberListIcon5.png',
+						icon2: '../../images/MemberListIcon1.png',
+						icon3: '../../images/MemberListIcon3.png',
+						icon4: '../../images/MemberListIcon4.png',
+						content: '#标签内容#',
+						address: '徐汇 上海 中国',
+						icon5: '../../images/FansFollowIcon1.png',
+						icon6: '../../images/FansFollowIcon6.png',
+						menber: '2',
+						time: '2天前关注',
+						timebl: '2天前加入黑名单',
+						timeuf: '2天前取消关注',
+						tagList: "-1",
+					}, {
+						img: '../../images/MemberList2.png',
+						name: 'Harry',
+						icon1: '../../images/MemberListIcon5.png',
+						icon2: '../../images/MemberListIcon1.png',
+						icon3: '../../images/MemberListIcon3.png',
+						icon4: '../../images/MemberListIcon4.png',
+						content: '#标签内容#',
+						address: '徐汇 上海 中国',
+						icon5: '../../images/FansFollowIcon1.png',
+						icon6: '../../images/FansFollowIcon6.png',
+						menber: '1',
+						time: '2天前关注',
+						timebl: '2天前加入黑名单',
+						timeuf: '2天前取消关注',
+						tagList: "-1",
+					}, {
+						img: '../../images/MemberList3.png',
+						name: 'Ivan',
+						icon1: '../../images/MemberListIcon5.png',
+						icon2: '../../images/MemberListIcon1.png',
+						icon3: '../../images/MemberListIcon3.png',
+						icon4: '../../images/MemberListIcon4.png',
+						content: '#标签内容#',
+						address: '徐汇 上海 中国',
+						icon5: '../../images/FansFollowIcon1.png',
+						icon6: '../../images/FansFollowIcon6.png',
+						menber: '3',
+						time: '3天前关注',
+						timebl: '2天前加入黑名单',
+						timeuf: '2天前取消关注',
+						//	          tagList: "-1",
+					}],
+					FansValue: 'true',
+					multipleSelection: [],
+					input: '',
+					dialogVisible: false,
+					dialogVisibleA: false,
+					dialogVisibleB: false,
+					dialogVisibleC: false,
+					checkList: ['复选框 A'],
+
+					//	        tabs
+					editableTabsValue2: '2',
+					editableTabs2: [{
+						title: 'Tab',
+						name: '1',
+					}, {
+						title: 'Tab',
+						name: '2',
+					}],
+					tabIndex: 2,
+					tabPosition: 'left',
+
+				}
+			},
+			//	    mounted:function(){
+			//      this.$nextTick(function(){
+			//      	function getElementsByClassName(className,tagName){
+			//						var ele=[],all=document.getElementsByTagName(tagName||"*");
+			//						for(var i=0;i<all.length;i++){
+			//						if(all[i].className==className){
+			//						ele[ele.length]=all[i];
+			//						 }
+			//						}
+			//						return ele;
+			//						}
+			//      	
+			//						console.log(getElementsByClassName("FansFollowContent"));
+			//						console.log(getElementsByClassName("FansFollowContent","div"));
+			//      	
+			//          var every = document.getElementById( "nodes" );  
+			//      var a=every.parentNode; 
+			//      
+			//      console.info(a.childNodes[0].nodeType);  
+			//        
+			//      cleanWhitespace(a);
+			//      
+			//      console.info(a.childNodes[0].nodeType); 
+			//      
+			//      function cleanWhitespace(oEelement){  
+			//          for(var i=0;i<oEelement.childNodes.length;i++){  
+			//              var node=oEelement.childNodes[i];  
+			//              if(node.nodeType==3 && !/\S/.test(node.nodeValue)){  
+			//                  node.parentNode.removeChild(node)  
+			//              }  
+			//          }  
+			//      }
+			//      })
+			//  },
+			methods: {
+				judge: function(str) {
+					console.log(str);
+					if(str == 'yes') {
+						this.FansValue = false;
+					} else if(str == 'no') {
+						this.FansValue = true;
+					}
+				},
+				handleSelectionChange(val) {
+					this.multipleSelection = val;
+				},
 				open1() {
-	        this.$confirm('是否继续?', '提示', {
-	          confirmButtonText: '确定',
-	          cancelButtonText: '取消',
-	          type: 'warning'
-	        }).then(() => {
-	          this.$message({
-	            type: 'success',
-	            message: '成功!'
-	          });
-	        }).catch(() => {
-	          this.$message({
-	            type: 'info',
-	            message: '取消'
-	          });          
-	        });
-	      },
-	      open2() {
-	        this.$confirm('是否继续?', '提示', {
-	          confirmButtonText: '确定',
-	          cancelButtonText: '取消',
-	          type: 'warning'
-	        }).then(() => {
-	          this.$message({
-	            type: 'success',
-	            message: '成功!'
-	          });
-	        }).catch(() => {
-	          this.$message({
-	            type: 'info',
-	            message: '取消'
-	          });          
-	        });
-	      },
-	      open3() {
-	        this.$prompt('修改', '提示', {
-	          confirmButtonText: '确定',
-	          cancelButtonText: '取消',
-	          inputPattern: /^[a-zA-Z0-9]*$/,
-	          inputErrorMessage: '格式不正确'
-	        }).then(({ value }) => {
-	          this.$message({
-	            type: 'success',
-	            message: ' 信息: ' + value
-	          });
-	        }).catch(() => {
-	          this.$message({
-	            type: 'info',
-	            message: '取消输入'
-	          });       
-	        });
-	      },
-	      
-//	      tabs
-	      addTab(targetName) {
-	        let newTabName = ++this.tabIndex + '';
-	        this.editableTabs2.push({
-	          title: 'New Tab',
-	          name: newTabName,
-	          
-	        });
-	        this.editableTabsValue2 = newTabName;
-	      },
-	      removeTab(targetName) {
-	        let tabs = this.editableTabs2;
-	        let activeName = this.editableTabsValue2;
-	        if (activeName === targetName) {
-	          tabs.forEach((tab, index) => {
-	            if (tab.name === targetName) {
-	              let nextTab = tabs[index + 1] || tabs[index - 1];
-	              if (nextTab) {
-	                activeName = nextTab.name;
-	              }
-	            }
-	          });
-	        }
-	        
-	        this.editableTabsValue2 = activeName;
-	        this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
-	      }
-     	}
-    })
- </script>
- <link rel="stylesheet" href="../../css/Fans/FansFollow.css" />
+					this.$confirm('是否继续?', '提示', {
+						confirmButtonText: '确定',
+						cancelButtonText: '取消',
+						type: 'warning'
+					}).then(() => {
+						this.$message({
+							type: 'success',
+							message: '成功!'
+						});
+					}).catch(() => {
+						this.$message({
+							type: 'info',
+							message: '取消'
+						});
+					});
+				},
+				open2() {
+					this.$confirm('是否继续?', '提示', {
+						confirmButtonText: '确定',
+						cancelButtonText: '取消',
+						type: 'warning'
+					}).then(() => {
+						this.$message({
+							type: 'success',
+							message: '成功!'
+						});
+					}).catch(() => {
+						this.$message({
+							type: 'info',
+							message: '取消'
+						});
+					});
+				},
+				open3() {
+					this.$prompt('修改', '提示', {
+						confirmButtonText: '确定',
+						cancelButtonText: '取消',
+						inputPattern: /^[a-zA-Z0-9]*$/,
+						inputErrorMessage: '格式不正确'
+					}).then(({
+						value
+					}) => {
+						this.$message({
+							type: 'success',
+							message: ' 信息: ' + value
+						});
+					}).catch(() => {
+						this.$message({
+							type: 'info',
+							message: '取消输入'
+						});
+					});
+				},
+
+				//	      tabs
+				addTab(targetName) {
+					let newTabIndex = ++this.tabIndex + '';
+					this.editableTabs2.push({
+						title: this.newTabName,
+						name: newTabIndex,
+					});
+					this.editableTabsValue2 = newTabIndex;
+					this.newTabName = '';
+					this.popvisible = false;
+				},
+				removeTab(targetName) {
+					this.$confirm('是否删除该标签?', '提示', {
+						confirmButtonText: '确定',
+						cancelButtonText: '取消',
+						type: 'warning'
+					}).then(() => {
+						let tabs = this.editableTabs2;
+						let activeName = this.editableTabsValue2;
+						if(activeName === targetName) {
+							tabs.forEach((tab, index) => {
+								if(tab.name === targetName) {
+									let nextTab = tabs[index + 1] || tabs[index - 1];
+									if(nextTab) {
+										activeName = nextTab.name;
+									}
+								}
+							});
+						}
+						this.editableTabsValue2 = activeName;
+						this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
+						this.$message({
+							type: 'success',
+							message: '成功!'
+						});
+					}).catch(() => {
+						this.$message({
+							type: 'info',
+							message: '取消'
+						});
+					});
+				}
+			}
+		})
+	</script>
+	<link rel="stylesheet" href="../../css/Fans/FansFollow.css" />
+
 </html>
