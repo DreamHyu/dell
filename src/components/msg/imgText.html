@@ -157,20 +157,25 @@
 							<p>多媒体</p>
 							<el-button icon="el-icon-picture" @click="dialogTableVisibleC = true">图片</el-button>
 								<el-dialog title="添加图片" :visible.sync="dialogTableVisibleC" center>
-								  <table class="dialogVoiceTable">
+									<div v-for="(item,index) in pics" class="dialogVoiceTdC">
+								  	<div class="dialogVoiceTdImg"><img class="dialogVoiceTdI" :src="item.img" /></div>
+								  	<div class="dialogVoiceTdF">{{item.name}}</div>
+								  	<div :class="{checkedItem : item.checked}" class="dialogVoicePosition"  @click="checkPicItem(index)"><img class="dialogVoicePositionImg" :src="item.checkImg"></div>
+								  </div>
+								  <!--<table class="dialogVoiceTable">
 								  	<tr>
 								  		<td class="dialogVoiceTd">
 								  			<div class="dialogVoiceTdC">
 								  				<div class="dialogVoiceTdImg"><img class="dialogVoiceTdI" src="../../images/whit.jpg" /></div>
 								  				<div class="dialogVoiceTdF">name1</div>
-								  				<div class="dialogVoicePosition"><img class="dialogVoicePositionImg" src="../../images/imgB.png"></div>
+								  				<div :class="{checkedItem : checked}" class="dialogVoicePosition"  @click="checkItem"><img class="dialogVoicePositionImg" src="../../images/imgB.png"></div>
 								  			</div>
 								  		</td>
 								  		<td class="dialogVoiceTd">
 								  			<div class="dialogVoiceTdC">
 								  				<div class="dialogVoiceTdImg"><img class="dialogVoiceTdI" src="../../images/loginbg.png" /></div>
 								  				<div class="dialogVoiceTdF">name1</div>
-								  				<div class="dialogVoicePosition"><img class="dialogVoicePositionImg" src="../../images/imgB.png"></div>
+								  				<div :class="{checkedItem : checked}" class="dialogVoicePosition"  @click="checkItem"><img class="dialogVoicePositionImg" src="../../images/imgB.png"></div>
 								  			</div>
 								  		</td>
 								  		<td class="dialogVoiceTd">
@@ -233,7 +238,7 @@
 								  			</div>
 								  		</td>
 								  	</tr>
-								  </table>
+								  </table>-->
 								  
 								  <span slot="footer" class="dialog-footer">
 								    <el-button class="ButtonA" @click="dialogTableVisibleC = false">取 消</el-button>
@@ -244,7 +249,14 @@
 							<el-button icon="el-icon-view" @click="dialogTableVisibleD = true">视频</el-button>
 							
 							<el-dialog title="添加视频" :visible.sync="dialogTableVisibleD" center>
-							  <table class="dialogVideoTable">
+								<div v-for="(item,index) in vedios" class="dialogVideoTdC">
+										<div class="dialogVideoTdH">{{item.name}}</div>
+							  		<div class="dialogVideoTdT">{{item.date}}</div>
+							  		<img class="dialogVideoTdI" :src="item.img" />
+							  		<div class="dialogVideoTdF">{{item.description}}</div>
+							  		<div :class="{checkedItem:item.checked}" class="dialogVideoPosition" @click="checkVedioItem(index)"><a href="#"><img class="dialogVideoPositionImg" :src="item.checkedImg"></a></div>
+								</div>
+							  <!--<table class="dialogVideoTable">
 							    <tr>
 							  		<td class="dialogVideoTd">
 							  			<div class="dialogVideoTdC">
@@ -285,7 +297,7 @@
 							  			</div>
 							  		</td>
 							  	</tr>
-							  </table>		
+							  </table>		-->
 							  <span slot="footer" class="dialog-footer">
 							    <el-button class="ButtonA" @click="dialogTableVisibleD = false">取 消</el-button>
 							    <el-button class="ButtonA" style="" type="primary" @click="dialogTableVisibleD = false">确 定</el-button>
@@ -339,36 +351,145 @@
       el: '#app',
       data() {
 	      return {
-			checkbox1:"",
-			radio:'',
-			dialogTableVisibleC: false,
-			dialogTableVisibleD: false,
-			dialogTableVisibleE: false,
-	        gridData: [{
-          date: '2016-05-02',
-          number: '1234567890-',
-          time: '00:01',
-          img: '../../images/imgA.png',
-        }, {
-          date: '2016-05-04',
-          number: '1234567890-',
-          time: '00:01',
-          img: '../../images/imgA.png',
-        }, {
-          date: '2016-05-01',
-          number: '1234567890-',
-          time: '00:01',
-          img: '../../images/imgA.png',
-        }, {
-          date: '2016-05-03',
-          number: '1234567890-',
-          time: '00:01',
-          img: '../../images/imgA.png',
-        }],
-	      };
+					    display:true,
+					    checked:false,
+							checkbox1:"",
+							radio:'',
+							dialogTableVisibleC: false,
+							dialogTableVisibleD: false,
+							dialogTableVisibleE: false,
+					    gridData: [{
+				          date: '2016-05-02',
+				          number: '1234567890-',
+				          time: '00:01',
+				          img: '../../images/imgA.png',
+				        }, {
+				          date: '2016-05-04',
+				          number: '1234567890-',
+				          time: '00:01',
+				          img: '../../images/imgA.png',
+				        }, {
+				          date: '2016-05-01',
+				          number: '1234567890-',
+				          time: '00:01',
+				          img: '../../images/imgA.png',
+				        }, {
+				          date: '2016-05-03',
+				          number: '1234567890-',
+				          time: '00:01',
+				          img: '../../images/imgA.png',
+				        }],
+				      pics:[
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		img:'../../images/loginbg.png',
+				      		name:'name1',
+				      		checkImg:'../../images/imgB.png',
+				      		checked:false
+				      	}
+				      ],
+				      vedios:[
+				      	{
+				      		name:'name',
+				      		date:'2018/02/13',
+				      		img:'../../images/loginbg.png',
+				      		description:'描述描述描述描述',
+				      		checkedImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		name:'name',
+				      		date:'2018/02/13',
+				      		img:'../../images/loginbg.png',
+				      		description:'描述描述描述描述',
+				      		checkedImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		name:'name',
+				      		date:'2018/02/13',
+				      		img:'../../images/loginbg.png',
+				      		description:'描述描述描述描述',
+				      		checkedImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		name:'name',
+				      		date:'2018/02/13',
+				      		img:'../../images/loginbg.png',
+				      		description:'描述描述描述描述',
+				      		checkedImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		name:'name',
+				      		date:'2018/02/13',
+				      		img:'../../images/loginbg.png',
+				      		description:'描述描述描述描述',
+				      		checkedImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      	{
+				      		name:'name',
+				      		date:'2018/02/13',
+				      		img:'../../images/loginbg.png',
+				      		description:'描述描述描述描述',
+				      		checkedImg:'../../images/imgB.png',
+				      		checked:false
+				      	},
+				      ]
+				};
 	    },
 	    methods: {
-			  
+	    	checkPicItem:function(index){
+	    		console.log("checked");
+	    		for(var i = 0; i < this.pics.length; i++){
+	    			this.pics[i].checked = false;
+	    		}
+	    		this.pics[index].checked = true;
+	    	},
+	    	checkVedioItem:function(index){
+	    		console.log("checked");
+	    		for(var i = 0; i < this.vedios.length; i++){
+	    			this.vedios[i].checked = false;
+	    		}
+	    		this.vedios[index].checked = true;
+	    	},
      	}
     })
  </script>
@@ -378,7 +499,9 @@
 		    	console.log("ok");
 		      $(this).parent("div").focus();
 		    });
+		   
 		});
+		
  </script>
  <script type="text/javascript" src="../../js/wangEditor.min.js"></script>
     <script type="text/javascript">

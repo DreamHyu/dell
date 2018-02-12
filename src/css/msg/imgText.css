@@ -116,6 +116,13 @@
 		border: 1px solid #A9A9A9;
 		position: relative;
 		border-radius: 5px;
+		/*new*/
+		display: inline-block;
+		margin-top: 2%;
+		width: 20%;
+		/*display: flex;
+		justify-content: center;
+		align-items: center;*/
 	}
 	.dialogVoiceTdI{
 		width: 100%;
@@ -142,6 +149,10 @@
 		padding: 15px;
 		position: relative;
 		border-radius: 5px;
+		/*new*/
+		display: inline-block;
+		margin-top: 2%;
+		width: 50%;
 	}
 	.dialogVideoTdI{
 		width: 100%;	
@@ -175,6 +186,7 @@
 		border-radius: 5px;
 		left: 0px;
 	}
+	
 	.dialogVideoPosition:hover{
 		opacity: 0.7;
 	}
@@ -190,6 +202,9 @@
 		opacity: 0;
 		text-align: center;
 		border-radius: 5px;
+	}
+	.checkedItem{
+		opacity:0.7;
 	}
 	.dialogVoicePosition:hover{
 		opacity: 0.7;
@@ -264,7 +279,9 @@
 	}
 	
 	.dialogVoiceTdImg{
-		height: 130px;
+		/*height: 130px;*/
+		height: 100%;
+		
 		display: flex;
 		justify-content: center;
 		align-items: center;
