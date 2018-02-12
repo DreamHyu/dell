@@ -93,77 +93,75 @@
 		    </el-aside>
 		    <el-main>
 		    	<div class="AuMain">
-		    	    <div>
-						<h2>添加用户</h2>
-						<hr class="hr"/>
-					</div>
-					<div class="AuForm">
-						<el-form label-position="left" label-width="120px" :model="formInline">
-							<div class="AuInput">
-								<el-form-item label="用户名" class="AuChild">
-						    <el-input v-model="formInline.user"></el-input>
-						  </el-form-item>
-						  <el-form-item label="昵称" class="AuChild">
-						    <el-input v-model="formInline.nickname"></el-input>
-						  </el-form-item>
-						  <el-form-item label="职务" class="AuChild">
-						    <el-input v-model="formInline.position"></el-input>
-						  </el-form-item>
-						  <el-form-item label="角色" class="AuChild">
-						    <el-select class="AuSelect" v-model="formInline.role">
-						      <el-option label="一" value="1"></el-option>
-						      <el-option label="二" value="2"></el-option>
-						      <el-option label="三" value="3"></el-option>
-						    </el-select>
-						  </el-form-item>
-						  <el-form-item label="手机" class="AuChild">
-						    <el-input v-model="formInline.mobilephone"></el-input>
-						  </el-form-item>
-						  <el-form-item label="员工编号" class="AuChild">
-						    <el-input v-model="formInline.employeeID"></el-input>
-						  </el-form-item>
-						  <el-form-item label="用户地址信息" class="AuChild">
-						    <el-input v-model="formInline.useraddress"></el-input>
-						  </el-form-item>
-						  <el-form-item label="其他" class="AuChild">
-						    <el-input v-model="formInline.others"></el-input>
-						  </el-form-item>
-							</div>
-							
-							<div class="AuInput">
-								<el-form-item label="别称" class="AuChild">
-							    <el-input v-model="formInline.otheruser"></el-input>
+			    	<div>
+							<h2>添加用户</h2>
+							<hr class="hr"/>
+						</div>
+						<div class="AuForm">
+							<el-form label-position="left" label-width="120px" :model="formInline">
+								<div class="AuInput">
+									<el-form-item label="用户名" class="AuChild">
+							    <el-input v-model="formInline.user"></el-input>
 							  </el-form-item>
-							  <el-form-item label="电子邮件" class="AuChild">
-							    <el-input v-model="formInline.email"></el-input>
+							  <el-form-item label="昵称" class="AuChild">
+							    <el-input v-model="formInline.nickname"></el-input>
 							  </el-form-item>
-							  <el-form-item label="部门" class="AuChild">
-							    <el-input v-model="formInline.department"></el-input>
+							  <el-form-item label="职务" class="AuChild">
+							    <el-input v-model="formInline.position"></el-input>
 							  </el-form-item>
-							  <el-form-item label="公众号" class="AuChild">
-							    <el-select class="AuSelect" v-model="formInline.publicnumber">
+							  <el-form-item label="角色" class="AuChild">
+							    <el-select class="AuSelect" v-model="formInline.role">
 							      <el-option label="一" value="1"></el-option>
 							      <el-option label="二" value="2"></el-option>
 							      <el-option label="三" value="3"></el-option>
 							    </el-select>
 							  </el-form-item>
-							  <el-form-item label="电话" class="AuChild">
-							    <el-input v-model="formInline.phone"></el-input>
+							  <el-form-item label="手机" class="AuChild">
+							    <el-input v-model="formInline.mobilephone"></el-input>
 							  </el-form-item>
-							  <el-form-item label="座席号" class="AuChild">
-							    <el-input v-model="formInline.seatnumber"></el-input>
+							  <el-form-item label="员工编号" class="AuChild">
+							    <el-input v-model="formInline.employeeID"></el-input>
 							  </el-form-item>
-							  <el-form-item label="批准人设置" class="AuChild">
-							    <el-input v-model="formInline.approver"></el-input>
+							  <el-form-item label="用户地址信息" class="AuChild">
+							    <el-input v-model="formInline.useraddress"></el-input>
 							  </el-form-item>
-							</div>
-						  <el-form-item class="BtFloat">
-						    <el-button type="success" class="BT">完成</el-button>
-						    <el-button class="BT BtBack">返回</el-button>
-						  </el-form-item>
-							
-						</el-form>
-					</div>
+							  <el-form-item label="其他" class="AuChild">
+							    <el-input v-model="formInline.others"></el-input>
+							  </el-form-item>
+								</div>
+								<div class="AuInput">
+									<el-form-item label="别称" class="AuChild">
+								    <el-input v-model="formInline.otheruser"></el-input>
+								  </el-form-item>
+								  <el-form-item label="电子邮件" class="AuChild">
+								    <el-input v-model="formInline.email"></el-input>
+								  </el-form-item>
+								  <el-form-item label="部门" class="AuChild">
+								    <el-input v-model="formInline.department"></el-input>
+								  </el-form-item>
+								  <el-form-item label="公众号" class="AuChild">
+								    <el-select class="AuSelect" v-model="formInline.publicnumber">
+								      <el-option label="一" value="1"></el-option>
+								      <el-option label="二" value="2"></el-option>
+								      <el-option label="三" value="3"></el-option>
+								    </el-select>
+								  </el-form-item>
+								  <el-form-item label="电话" class="AuChild">
+								    <el-input v-model="formInline.phone"></el-input>
+								  </el-form-item>
+								  <el-form-item label="座席号" class="AuChild">
+								    <el-input v-model="formInline.seatnumber"></el-input>
+								  </el-form-item>
+								  <el-form-item label="批准人设置" class="AuChild">
+								    <el-input v-model="formInline.approver"></el-input>
+								  </el-form-item>
+								</div>
+							  <el-form-item class="BtFloat">
+							    <el-button type="success" class="BT">完成</el-button>
+							    <el-button class="BT BtBack">返回</el-button>
+							  </el-form-item>
+							</el-form>
+						</div>
 		      </div>
 		    </el-main>
 		  </el-container>

@@ -96,7 +96,7 @@
 						<h2>微信公众号绑定</h2>
 						<hr class="hr"/>
 					</div>
-					<el-form class="wcform" label-position="left" label-width="150px" :model="formLabelAlign">
+					<el-form class="wcform" label-position="left" :model="formLabelAlign">
 					  <el-form-item class="wx-form" label="App Name">
 					    <el-input v-model="formLabelAlign.name"></el-input>
 					  </el-form-item>
@@ -110,9 +110,24 @@
 					    <el-input v-model="formLabelAlign.token"></el-input>
 					  </el-form-item>
 					</el-form>
-					<div class="wcbutton">
-						<el-button class="bt bttest" type="success" ref="OK" @click="ChangeOK()">验证</el-button>
+					<div v-show="BindFromShow" class="wcbuttonA">
+						<el-button class="bt bttest" type="success" @click="BindFromShow = !BindFromShow">验证</el-button>
 						<el-button class="bt">返回</el-button>
+					</div>
+					<div v-show="!BindFromShow" class="wcbuttonB">
+						<el-tooltip class="bfSplit" content="将微信公众号内的素材、自动回复内容同步到系统中" placement="bottom" effect="light">
+						  <div class="bfCheck">
+									<template class="bt bttest">
+											<!-- `checked` 为 true 或 false -->
+											<el-checkbox v-model="checked">同步</el-checkbox>
+									</template>
+					 			<i class="el-icon-question"></i>
+								</div>
+						</el-tooltip>
+
+						<el-button class="bt bttest" type="success" @click="BindFromShow = !BindFromShow">保存</el-button>
+						<el-button class="bt" @click="BindFromShow = !BindFromShow">返回</el-button>
+						
 					</div>
 		  		</div>	
 		    </el-main>
@@ -136,14 +151,14 @@
 	        id: '',
 	        secret: '',
 	        token: '',
-	        
-	        }
+	        },
+	        BindFromShow: true,
+	        checked: true,
 	      };
 	    },
 	    methods: {
 			  ChangeOK(){
 			  	console.log('ok');
-          
 			  }
      	}
     })

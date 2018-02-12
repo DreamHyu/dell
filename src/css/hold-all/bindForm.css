@@ -8,19 +8,51 @@
   	}
   	.wcform{
   		margin: auto;
-  		width: 35%;
+  		width: 40%;
   	}
-  	.wcbutton{
+  	.wcbuttonA{
   		margin: auto;
-  		width: 35%;
+  		width: 40%;
+  		overflow: hidden 
+  	}
+  	.wcbuttonB{
+  		margin: auto;
+  		width: 40%;
+  		overflow: hidden 
+  	}
+  	.bfCheck{
+  		margin-top: 1.5%;
+  	}
+  	.bfSplit{
+  		float: right;
+  		margin-left: 1.5%;
   	}
   	.bt{
-  		width: 110px;
+  		width: 20%;
   		float: right;
   	}
   	.bttest{
-  		margin-left: 20px;
+  		margin-left: 5%;
   	}
   	.el-form-item__label{
   		font-weight: normal;
+  		width: 35%;
   	}
+  	.el-form-item__content{
+  		margin-left: 0px;
+  		width: 65%;
+		float: right;
+  	}
+  	.el-button{
+  		padding: 2% 0px;
+  	}
+  	.el-button + .el-button{
+  		margin-left: 0px;
+  	}
+  	.el-tooltip__popper.is-dark {
+	    background: #FFFFFF;
+	    color: #000000;
+	}
+	.el-checkbox__input.is-checked + .el-checkbox__label {
+	    color: #A9A9A9;
+	}

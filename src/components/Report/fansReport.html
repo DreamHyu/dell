@@ -168,7 +168,7 @@
 												<hr class="hr" style="clear: both;" />
 												<!--中部-->
 												<div class="userIncreMiddle">
-													<el-tabs type="card" style="clear: both;padding-top: 20px;">
+													<el-tabs type="card" style="clear: both;padding-top: 20px;" v-model="activeName4">
 														<el-tab-pane label="新增人数" name="first">
 															<div id="newUsers" style="width: 800px;height: 400px;margin: 30px auto;"></div>
 														</el-tab-pane>
@@ -283,7 +283,7 @@
 																</tbody>
 															</table>
 														</div>
-														<div style="margin: 80px auto;margin-bottom:10px;width: 20%;">
+														<div style="margin: 20px auto;margin-bottom:10px;width: 20%;">
 															<el-pagination layout="prev, pager, next" :pageSize="5" :total="100">
 															</el-pagination>
 														</div>
@@ -294,9 +294,10 @@
 												<div class="block">
 													<span class="spanTitle">城市分布</span>
 													<!--<div class="citySpread">-->
-													<select value="全国" style="float: right;">
-														<option v-for="item in citys" :label="item.label" :value="item.value"></option>
-													</select>
+													<el-select v-model="cityValue" value="全国" style="float: right;">
+														<el-option v-for="item in citys" :key="item.value" :label="item.label" :value="item.value"></el-option>
+													</el-select>
+													
 													<table class="tableStyle">
 														<thead>
 															<tr>
@@ -313,7 +314,7 @@
 															</tr>
 														</tbody>
 													</table>
-													<div style="margin: 80px auto;margin-bottom:10px;width: 20%;">
+													<div style="margin: 20px auto;margin-bottom:10px;width: 20%;">
 														<el-pagination layout="prev, pager, next" :pageSize="5" :total="100">
 														</el-pagination>
 													</div>
@@ -359,7 +360,7 @@
 													<span class="spanTitle">属性分布表</span>
 													<div class="attributeHeaderWrapper">
 														<template>
-															<el-tabs>
+															<el-tabs v-model="activeName5">
 																<el-tab-pane label="性别" name="first">
 																	<div class="TableWrapper">
 																		<table class="tableStyle">
@@ -1116,6 +1117,7 @@
 						}
 					],
 					//城市下拉菜单部分
+					cityValue: '',
 					citys: [{
 							label: '重庆',
 							value: '重庆'
@@ -1441,9 +1443,11 @@
 					}],
 
 					//------------------------------------------------------------
-					activeName: 'third',
-					activeName2: 'third',
+					activeName: 'first',
+					activeName2: 'first',
 					activeName3: 'first',
+					activeName4: 'first',
+					activeName5: 'first',
 					tableData3: [{
 						date: '2016-05-03 12:00',
 						name: '王小虎',

@@ -97,7 +97,33 @@
 		    		</div>
 		    		<div>
 		    			<div class="FansFollowLeft">
-							    		<div class="FansFollowList">
+							    		<div class="FansFollowList">		
+							    			<div class="FansFollowButtonPosition">
+											<el-button type="button" class="FansFollowButtonStyle" @click="dialogVisible = true">打标签</el-button>
+											<el-dialog :visible.sync="dialogVisible" width="25%">
+													  <template>
+														  <el-checkbox-group v-model="checkList">
+														    <el-checkbox label="复选框 A"></el-checkbox>
+														    <el-checkbox label="复选框 B"></el-checkbox>
+														  </el-checkbox-group>
+														  <div v-if="FansValue">
+														  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
+														  </div>
+	                            <div class="FansFollowInputA" v-else="!FansValue">
+	                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
+	                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
+		                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
+	                            </div>
+	                            <div class="FansFollowButtonD">
+	                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
+	                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisible = flase">保存</el-button>
+	                            </div>
+														</template>
+													</el-dialog>
+											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
+												<i slot="suffix" class="el-input__icon el-icon-search"></i>
+											</el-input>
+							    	</div>
 							    			<template>
 												  <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" @selection-change="handleSelectionChange">
 												    <el-table-column type="selection"></el-table-column>
@@ -158,32 +184,7 @@
 												  </el-table>
 												</template>
 							    		</div>
-							    		<div class="FansFollowButtonPosition">
-											<el-button type="button" class="FansFollowButtonStyle" @click="dialogVisible = true">打标签</el-button>
-											<el-dialog :visible.sync="dialogVisible" width="25%">
-													  <template>
-														  <el-checkbox-group v-model="checkList">
-														    <el-checkbox label="复选框 A"></el-checkbox>
-														    <el-checkbox label="复选框 B"></el-checkbox>
-														  </el-checkbox-group>
-														  <div v-if="FansValue">
-														  	<el-button icon="el-icon-plus" class="FansFollowButtonA" v-on:click="judge('yes')">新建标签</el-button>
-														  </div>
-	                            <div class="FansFollowInputA" v-else="!FansValue">
-	                            	<el-input class="FansFollowInputB" v-model="input" placeholder="请输入内容"></el-input>
-	                            	<a class="FansFollowA" href="#" v-on:click="judge('no')">添加</a>
-		                            <a class="FansFollowA" href="#" v-on:click="judge('no')">取消</a>
-	                            </div>
-	                            <div class="FansFollowButtonD">
-	                            	<el-button class="FansFollowButtonB" @click="dialogVisible = flase">取消</el-button>
-	                            	<el-button type="success" class="FansFollowButtonC" @click="dialogVisible = flase">保存</el-button>
-	                            </div>
-														</template>
-													</el-dialog>
-											<el-input class="FansFollowInput" v-model="input" placeholder="搜索">
-												<i slot="suffix" class="el-input__icon el-icon-search"></i>
-											</el-input>
-							    	</div>
+							    		
 							    	</div>
 							    	
 							    	<div class="FansFollowRight">

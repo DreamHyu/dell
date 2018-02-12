@@ -2,25 +2,25 @@
 	width: 90%;
 	margin: auto;
 }
-.el-tabs__item{
+.FansFollowMain .el-tabs__item{
 	height: 55px;
 	line-height: 55px;
 	font-size: 15pt;
 	color: #A9A9A9;
 }
-div.is-top>.el-tabs__nav-scroll{
+.FansFollowMain div.is-top>.el-tabs__nav-scroll{
 	background-color: #FFFFFF;
 	border-radius: 3px;
 	padding-left: 50px;
 }
-.el-tabs__item.is-active{
+.FansFollowMain .el-tabs__item.is-active{
 	color: #00A372;
 }
-.el-tabs__active-bar{
+.FansFollowMain .el-tabs__active-bar{
 	height: 5px;
 	background-color: #00A372;
 }
-.el-tabs__item:hover{
+.FansFollowMain .el-tabs__item:hover{
 	color: #00A372;
 }
 .FansFollowLeft{
@@ -61,6 +61,7 @@ div.is-top>.el-tabs__nav-scroll{
 	border-radius: 3px;
 	padding: 0px 8px;
 	color: #FFFFFF;
+	margin: 0px 0px;
 }
 .FansFollowFloat{
 	float: right;
@@ -99,34 +100,34 @@ div.is-top>.el-tabs__nav-scroll{
 	width: 180px;
 	margin-left: 20px;
 }
-.el-input__inner{
+.FansFollowMain .el-input__inner{
 	height: 32px;
 }
-.el-input__icon{
+.FansFollowMain .el-input__icon{
 	line-height: 32px;
 }
-.el-table td, .el-table th{
+.FansFollowMain .el-table td, .el-table th{
 	background-color: #F0F0F0;
 }
-.el-table td{
+.FansFollowMain .el-table td{
 	border-bottom: 1px solid #A9A9A9;
 }
-.el-table th.is-leaf{
+.FansFollowMain .el-table th.is-leaf{
 	border-bottom: 1px solid #A9A9A9;
 }
-table{
+.FansFollowMain table{
 	border-collapse: separate;
 }
-.el-table tr{
+.FansFollowMain .el-table tr{
 	height: 52.8px;
 }
 .FansFollowRight{
 	float: right;
 	width: 25%;
 	margin-top: 65px;	
- 	line-height: 43px;
+ 	/*line-height: 43px;*/
 }
-.addTab{
+.FansFollowMain .addTab{
 	background-color: #FFFFFF;
 	width: 200px;
 	text-align: center;
@@ -139,28 +140,28 @@ table{
 	color: #00A372;
 	font-size: 32px;
 }
-.el-tabs--left .el-tabs__item.is-left{
+.FansFollowMain .el-tabs--left .el-tabs__item.is-left{
 	text-align: center;
 }
-.el-tabs--left .el-tabs__header.is-left{
+.FansFollowMain .el-tabs--left .el-tabs__header.is-left{
 	margin-bottom: 0;
 	margin-right: 0px;
 	width: 55%;
 	margin-left: 20%;
 }
-.el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
+.FansFollowMain .el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
 	border-right-color: #e4e7ed;
 }
-.el-tabs--left.el-tabs--card .el-tabs__nav{
+.FansFollowMain .el-tabs--left.el-tabs--card .el-tabs__nav{
 	border-radius: 0px;
 }
-.el-tabs__content{
+.FansFollowMain .el-tabs__content{
 	background-color: #F0F0F0;
 }
-.el-tabs--left.el-tabs--card .el-tabs__nav{
+.FansFollowMain .el-tabs--left.el-tabs--card .el-tabs__nav{
 	background-color: #FFFFFF;
 }
-.el-table{
+.FansFollowMain .el-table{
 	border-bottom: 1px solid #A9A9A9;
 }
 .FansFollowButtonC{
@@ -171,7 +172,7 @@ table{
 	float: right !important;
 	border: 0px;
 }
-div.el-dialog__body>div>div.el-input{
+.FansFollowMain div.el-dialog__body>div>div.el-input{
 	width: 65%;
 	height: 25px;
 }
@@ -186,13 +187,14 @@ div.el-dialog__body>div>div.el-input{
 	float: left;
 	width: 80px;
 }
-.el-dialog{
+/*.el-dialog{
 	height: 210px;
-}
+}*/
 .FansFollowButtonD{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
+	margin-bottom: 75px;
 	width: 200px;
 }
 .FansFollowInputA{
@@ -206,35 +208,35 @@ div.el-dialog__body>div>div.el-input{
 	text-align: center;
 	color: #00A372;
 }
-a:focus, a:hover {
+.FansFollowMain a:focus, a:hover {
     color: #A5D045;
 }
 .FansFollowInputB{
 	display: inline-block;
 }
-.el-tabs__header{
+.FansFollowMain .el-tabs__header{
 	border: 2px solid #F0F0F0;
 }
-.el-tabs__nav-wrap::after{
+.FansFollowMain .el-tabs__nav-wrap::after{
 	content: none;
 }
-.el-tabs__nav-wrap{
+.FansFollowMain .el-tabs__nav-wrap{
 	margin-bottom: 0px;
 }
-.el-checkbox__inner:hover {
+.FansFollowMain .el-checkbox__inner:hover {
     border-color: #00A372;
 }
-.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+.FansFollowMain .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
     background-color: #00A372;
     border-color: #00A372;
 }
 .FansFollowInputC{
 	margin-left: 0px;
 }
-.el-checkbox__input.is-checked + .el-checkbox__label {
+.FansFollowMain .el-checkbox__input.is-checked + .el-checkbox__label {
     color: #00A372;
 }
-.el-input.is-active .el-input__inner, .el-input__inner:focus {
+.FansFollowMain .el-input.is-active .el-input__inner, .el-input__inner:focus {
     border-color: #00A372;
     outline: 0;
 }
@@ -263,13 +265,13 @@ a:focus, a:hover {
 .FansContent:hover{
 	color: #00A372;
 }
-.el-message-box__headerbtn:focus .el-message-box__close, .el-message-box__headerbtn:hover .el-message-box__close {
+.FansFollowMain .el-message-box__headerbtn:focus .el-message-box__close, .el-message-box__headerbtn:hover .el-message-box__close {
     color: #00A372;
 }
-.el-table__body-wrapper {
+.FansFollowMain .el-table__body-wrapper {
     background-color: #F0F0F0;
 }
-.el-table__header-wrapper{
+.FansFollowMain .el-table__header-wrapper{
 	background-color: #F0F0F0;
 }
 .el-button--primary{
@@ -286,4 +288,54 @@ a:focus, a:hover {
 	border: 0px;
 	color: #FFFFFF;
 	background-color: #00A372;
+}
+#test{
+	width: 0px;
+}
+
+.FansRightButton{
+	margin-left: 20%;
+	width: 55%;
+}
+.FansFollowRight .el-button--small{
+	border: none;
+	width: 100%;
+	border-radius: 0px;
+	height: 45px;
+	background-color: #00A372;
+	color: #FFFFFF;
+}
+.FansFollowRight .el-button--small:hover{
+	background-color: #00A372;
+	color: #FFFFFF;
+	font-size: 18px;
+}
+.FansFollowRight .el-button--small:focus{
+	background-color: #00a372 !important;
+	color: #FFFFFF !important;
+}
+.FansFollowRight .el-tabs__nav{
+	border: 0px !important;
+}
+.FansFollowRight .el-tabs__header{
+	border: 0px !important;
+}
+.FansFollowRight .el-tabs__item{
+	border-right: 0px !important;
+	border-left: 0px !important;
+	height: 45px;
+	line-height: 45px;
+}
+.FansFollowMain .el-tabs--left .el-tabs__nav-wrap.is-left {
+    margin-right: 0px;
+}
+.FansFollowRightHead{
+	width: 55%;
+	margin-left: 20%;
+	height: 45px;
+	background-color: #00A372;
+	color: #FFFFFF;
+	text-align: center;
+    line-height: 45px;
+    font-size: 18px;
 }

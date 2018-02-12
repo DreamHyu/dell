@@ -953,3 +953,19 @@ h3{
 .ChattingWindow-rightDivDown hr{
 	margin-bottom: 8px;
 }
+
+/*分页*/
+/*div.wqMain>div.el-tabs--top>div.el-tabs__header{
+	border: 2px solid #F0F0F0;
+}
+div.wqMain>div.el-tabs--top>div.el-tabs__header>div.el-tabs__nav-wrap>.el-tabs__nav-scroll{
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	padding-left: 50px;
+}
+div.wqMain>div.el-tabs--top>div.el-tabs__header>div.el-tabs__nav-wrap>.el-tabs__nav-scroll>div.el-tabs__nav>div.el-tabs__item{
+	height: 55px;
+	line-height: 55px;
+	font-size: 15pt;
+	color: #A9A9A9;
+}*/

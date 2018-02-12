@@ -91,37 +91,39 @@
 				</nav>
 		    </el-aside>
 		    <el-main>
-		    	<h2>权限管理</h2>
-				<hr class="hr" />
-				<div class="main_left">
-					<div class="title">角色</div>
-
-					<el-tabs v-model="editableTabsValue2" tab-position="left" type="card">
-					  <el-tab-pane style="width: 50%;"
-					    v-for="(item, index) in editableTabs2"
-					    :key="item.name"
-					    :label="item.title"
-					    :name="item.name">
-					  </el-tab-pane>
-					</el-tabs>
-					<div class="addTab" @click="addTab(editableTabsValue2)">
-						<i class="el-icon-plus"></i>
-					</div>
-				</div>
-				<div class="main_right">
-					<el-tree
-					  :data="data2"
-					  show-checkbox
-					  node-key="id"
-					  :default-expanded-keys="[1,2,3,4,5]"
-					  :default-checked-keys="[3,4]"
-					  :props="defaultProps">
-					</el-tree>
-					<div class="btnGroups">
-						<el-button>取消</el-button>
-						<el-button type="success">保存</el-button>
-					</div>
-				</div>
+		    	<div class="AMMain">
+		    		<h2>权限管理</h2>
+						<hr class="hr" />
+						<div class="main_left">
+							<div class="title">角色</div>
+		
+							<el-tabs v-model="editableTabsValue2" tab-position="left" type="card">
+							  <el-tab-pane style="width: 50%;"
+							    v-for="(item, index) in editableTabs2"
+							    :key="item.name"
+							    :label="item.title"
+							    :name="item.name">
+							  </el-tab-pane>
+							</el-tabs>
+							<div class="addTab" @click="addTab(editableTabsValue2)">
+								<i class="el-icon-plus"></i>
+							</div>
+						</div>
+						<div class="main_right">
+							<el-tree
+							  :data="data2"
+							  show-checkbox
+							  node-key="id"
+							  :default-expanded-keys="[1,2,3,4,5]"
+							  :default-checked-keys="[3,4]"
+							  :props="defaultProps">
+							</el-tree>
+							<div class="btnGroups">
+								<el-button>取消</el-button>
+								<el-button type="success">保存</el-button>
+							</div>
+						</div>
+		    	</div>
 		    </el-main>
 		  </el-container>
 		</el-container>

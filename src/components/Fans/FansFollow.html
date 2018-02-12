@@ -90,7 +90,7 @@
 				</nav>
 		    </el-aside>
 		    <el-main>
-		    	<div id="FansFollowMain">
+		    	<div class="FansFollowMain">
 		    		<div>
 		    			<template>
 							  <el-tabs v-model="activeName">
@@ -117,9 +117,12 @@
 												    		  <span class="FansFollowTableFont">{{scope.row.address}}</span>
 												    		</div>
 												    		<div class="FansFollowContentStyle">
+												    			<!--<div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>
+												    			<div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>
+												          <div v-for="tag in scope.row.tagList" class="FansFollowContent">{{scope.row.content}}</div>-->
+												          <div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
-												    			<div class="FansFollowContent">{{scope.row.content}}</div>
+												          <div class="FansFollowContent">{{scope.row.content}}</div>
 												    			<a href="#" @click="dialogVisible = true"><img class="FansFollowIconSmall" :src="scope.row.icon4"/></a>
 												    		</div>
 												    	</template>
@@ -249,14 +252,39 @@
 											</el-input>
 							    	</div>
 							    	<div class="FansFollowRight">
-							    		<div class="FansRightList">
+							    		
+							    	<div class="FansFollowRightHead">
+							    		标签
+							    	</div>
+							    	
+							    	<el-tabs v-model="editableTabsValue2" :tab-position="tabPosition" type="card" closable @tab-remove="removeTab">
+										  <el-tab-pane
+										    v-for="(item, index) in editableTabs2"
+										    :key="item.name"
+										    :label="item.title"
+										    :name="item.name"
+										  >
+										  </el-tab-pane>
+										</el-tabs>
+							    		
+							    	<div class="FansRightButton">
+										  <el-button
+										    size="small"
+										    @click="addTab(editableTabsValue2)"
+										  >
+										    Add
+										  </el-button>
+										</div>
+							    	
+							    		<!--<div class="FansRightList">
 												<div class="FansTitle">{{sum}}</div>
 												<div class="FansContent">{{describe}}</div>
 												<div class="FansContent">{{describe}}</div>
 												<div class="FansContent">{{describe}}</div>
 												<div class="FansContent">{{describe}}</div>
 												<div class="FansContent">{{describe}}</div>
-											</div>
+											</div>-->
+											
 							    	</div>
 							    </el-tab-pane>
 							    <el-tab-pane label="黑名单" name="third">
@@ -378,6 +406,7 @@
 	          time: '1个小时前关注',
 	          timebl: '1个小时前加入黑名单',
 	          timeuf: '1个小时前取消关注',
+	          tagList: "-1",
 	        }, {
 	          img: '../../images/MemberList1.png',
 	          name: 'Ivan',
@@ -393,6 +422,7 @@
 	          time: '2天前关注',
 	          timebl: '2天前加入黑名单',
 	          timeuf: '2天前取消关注',
+	          tagList: "-1",
 	        }, {
 	          img: '../../images/MemberList2.png',
 	          name: 'Harry',
@@ -408,6 +438,7 @@
 	          time: '2天前关注',
 	          timebl: '2天前加入黑名单',
 	          timeuf: '2天前取消关注',
+	          tagList: "-1",
 	        }, {
 	          img: '../../images/MemberList3.png',
 	          name: 'Ivan',
@@ -423,6 +454,7 @@
 	          time: '3天前关注',
 	          timebl: '2天前加入黑名单',
 	          timeuf: '2天前取消关注',
+//	          tagList: "-1",
 	        }],
 	        FansValue: 'true',
 	        multipleSelection: [],
@@ -433,8 +465,56 @@
 	        dialogVisibleC: false,
 	        checkList: ['复选框 A'],
 	        
-	      };
+	        
+//	        tabs
+	      editableTabsValue2: '2',
+        editableTabs2: [{
+          title: 'Tab',
+          name: '1', 
+        }, {
+          title: 'Tab',
+          name: '2',  
+        }],
+        tabIndex: 2,
+	      tabPosition: 'left',
+	      
+	      
+	      }
 	    },
+//	    mounted:function(){
+//      this.$nextTick(function(){
+//      	function getElementsByClassName(className,tagName){
+//						var ele=[],all=document.getElementsByTagName(tagName||"*");
+//						for(var i=0;i<all.length;i++){
+//						if(all[i].className==className){
+//						ele[ele.length]=all[i];
+//						 }
+//						}
+//						return ele;
+//						}
+//      	
+//						console.log(getElementsByClassName("FansFollowContent"));
+//						console.log(getElementsByClassName("FansFollowContent","div"));
+//      	
+//          var every = document.getElementById( "nodes" );  
+//      var a=every.parentNode; 
+//      
+//      console.info(a.childNodes[0].nodeType);  
+//        
+//      cleanWhitespace(a);
+//      
+//      console.info(a.childNodes[0].nodeType); 
+//      
+//      function cleanWhitespace(oEelement){  
+//          for(var i=0;i<oEelement.childNodes.length;i++){  
+//              var node=oEelement.childNodes[i];  
+//              if(node.nodeType==3 && !/\S/.test(node.nodeValue)){  
+//                  node.parentNode.removeChild(node)  
+//              }  
+//          }  
+//      }
+//      })
+//  },
 	    methods: {
 	    	judge:function(str) {
 			  	console.log(str);
@@ -499,6 +579,34 @@
 	            message: '取消输入'
 	          });       
 	        });
+	      },
+	      
+//	      tabs
+	      addTab(targetName) {
+	        let newTabName = ++this.tabIndex + '';
+	        this.editableTabs2.push({
+	          title: 'New Tab',
+	          name: newTabName,
+	          
+	        });
+	        this.editableTabsValue2 = newTabName;
+	      },
+	      removeTab(targetName) {
+	        let tabs = this.editableTabs2;
+	        let activeName = this.editableTabsValue2;
+	        if (activeName === targetName) {
+	          tabs.forEach((tab, index) => {
+	            if (tab.name === targetName) {
+	              let nextTab = tabs[index + 1] || tabs[index - 1];
+	              if (nextTab) {
+	                activeName = nextTab.name;
+	              }
+	            }
+	          });
+	        }
+	        
+	        this.editableTabsValue2 = activeName;
+	        this.editableTabs2 = tabs.filter(tab => tab.name !== targetName);
 	      }
      	}
     })
