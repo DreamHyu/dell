@@ -270,22 +270,21 @@
 												<div class="FansFollowRightHead">
 													标签1
 												</div>
-
 												<el-tabs v-model="editableTabsValue2" :tab-position="tabPosition" type="card" closable @tab-remove="removeTab">
-													<el-tab-pane v-for="(item, index) in editableTabs2" :key="item.name" :label="item.title" :name="item.name">
+													<el-tab-pane v-for="(item, index) in editableTabs2" :key="item.name" :label="item.title" :name="item.name" >
 													</el-tab-pane>
 												</el-tabs>
 												<el-popover
-												  ref="popover"
+												  ref="popover2"
 												  placement="bottom"
 												  width="300"
 												  trigger="click"
-												  v-model="popvisible">
+												  v-model="popvisible2">
 												  <el-input v-model="newTabName" style="display:inline-block;margin-left:10px;width:70%"></el-input>
 												  <el-button type="success" size="small" @click="addTab(editableTabsValue2)" style="display:inline-block;margin-left:10px">OK</el-button>
 												</el-popover>
 												<div class="FansRightButton">
-													<el-button size="small" v-popover:popover>
+													<el-button size="small" v-popover:popover2>
 														Add
 													</el-button>
 												</div>
@@ -404,7 +403,9 @@
 					sum: '全部',
 					describe: '描述',
 					activeName: 'first',
-					popvisible:false,
+					editTabNewName:'dd',
+					popvisible1:false,
+					popvisible2:false,
 					newTabName:'',
 					tableData3: [{
 						img: '../../images/MemberList4.png',
@@ -604,7 +605,14 @@
 					});
 					this.editableTabsValue2 = newTabIndex;
 					this.newTabName = '';
-					this.popvisible = false;
+					this.popvisible2 = false;
+				},
+				editTab(item){
+					console.log("edit");
+					item.title = 'dd';
+					console.log(item);
+					this.popvisible1 = false;
+					this.editTabNewName = '';
 				},
 				removeTab(targetName) {
 					this.$confirm('是否删除该标签?', '提示', {

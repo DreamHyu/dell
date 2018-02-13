@@ -1,166 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>添加用户</title>
-  <!-- 引入样式 -->
-	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../css/frame.css" />
-	<link rel="stylesheet" type="text/css" href="../../css/hold-all/customMenu.css"/>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>添加用户</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/frame.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/hold-all/customMenu.css" />
+	</head>
 
-<body>
-	<div id="app">
-		<el-container>
-			<el-header height="50px">
-				<nav id="topNav" class="navbar-inverse" role="navigation">
-					<div class="container-fluid">
-					    <div class="navbar-header">
-					        <!--<a class="navbar-brand" href="#">Deloitte</a>-->
-					        <img src="../../images/logo.png" />
-					    </div>
-					    <div>
-					    	<ul class="nav navbar-nav">
-					            <li class="dropdown">
-					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				                    	公众号名称 <b class="caret"></b>
-					                </a>
-					                <ul class="dropdown-menu">
-					                	<li><a href="#">名称0</a></li>
-					                    <li><a href="#">名称1</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">名称2</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">名称3</a></li>
-					                </ul>
-					            </li>
-					        </ul>
-					        <ul class="nav navbar-nav navbar-right">
-					        	<li>
-				        			<img src="../../images/user_img.png" class="img-circle">
-					        	</li>
-					            <li class="dropdown">
-					                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				                    	用户名 <b class="caret"></b>
-					                </a>
-					                <ul class="dropdown-menu">
-					                	<li><a href="#">用户0</a></li>
-					                    <li><a href="#">用户1</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">用户2</a></li>
-					                    <li class="divider"></li>
-					                    <li><a href="#">用户3</a></li>
-					                </ul>
-					            </li>
-					        </ul>
-					    </div>
-					</div>
-				</nav>
-			</el-header>
-		  <el-container>
-		    <el-aside width="70px">
-		    	<nav id="leftNav" class="navbar-inverse">
-					<div class="container-fluid">
-					    <div>
-					    	<ul class="nav navbar-nav">
-								<li class="">
-									<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
-								</li>
-								<li class="">
-									<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
-								</li>
-								<li class="">
-									<a href="../Service/CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
-								</li>
-								<li class="">
-									<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
-								</li>
-								<li class="">
-									<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
-								</li>
-								<li class="">
-									<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
-								</li>
-								<li class="active">
-									<a href="toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</nav>
-		    </el-aside>
-		    <el-main>
-		    	<div class="AuMain">
-		    	    <div>
-						<h2>自定义菜单</h2>
-						<hr class="hrRigth" />
-					</div>
-					<div class="AuForm">
-						<el-form label-position="left" label-width="120px" :model="formInline">
-							<div class="AuInputLeft">
-								<!--<div class="pictureDiv"></div>-->
-								<img src="../../images/wechat.png" style="width: 100%;" />
-								<div style="width: 100%;">
-									<el-tabs tab-position="top" type="border-card">
-									  <el-tab-pane>
-									    <span slot="label"><i class="el-icon-date"></i></span>
-									  </el-tab-pane>
-									  <el-tab-pane label="About us"></el-tab-pane>
-									  <el-tab-pane label="Contact"></el-tab-pane>
-									  <el-tab-pane label="History"></el-tab-pane>
-									</el-tabs>
+	<body>
+		<div id="app">
+			<el-container>
+				<el-header height="50px">
+					<nav id="topNav" class="navbar-inverse" role="navigation">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<!--<a class="navbar-brand" href="#">Deloitte</a>-->
+								<img src="../../images/logo.png" />
+							</div>
+							<div>
+								<ul class="nav navbar-nav">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											公众号名称 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">名称0</a>
+											</li>
+											<li>
+												<a href="#">名称1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">名称3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<img src="../../images/user_img.png" class="img-circle">
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											用户名 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">用户0</a>
+											</li>
+											<li>
+												<a href="#">用户1</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户2</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="#">用户3</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</el-header>
+				<el-container>
+					<el-aside width="70px">
+						<nav id="leftNav" class="navbar-inverse">
+							<div class="container-fluid">
+								<div>
+									<ul class="nav navbar-nav">
+										<li class="">
+											<a href="../../../index.html"><span class="glyphicon glyphicon-home"></span><br />首页</a>
+										</li>
+										<li class="">
+											<a href="../msg/msg.html"><span class="glyphicon glyphicon-comment"></span><br />消息</a>
+										</li>
+										<li class="">
+											<a href="../Service/CustomerService.html"><span class="glyphicon glyphicon-headphones"></span><br />客服</a>
+										</li>
+										<li class="">
+											<a href="../Fans/FansFollow.html"><span class="glyphicon glyphicon-user"></span><br />粉丝</a>
+										</li>
+										<li class="">
+											<a href="../Member/MemberList.html"><span class="glyphicon glyphicon-tower"></span><br />会员</a>
+										</li>
+										<li class="">
+											<a href="../Report/fansReport.html"><span class="glyphicon glyphicon-list-alt"></span><br />报表</a>
+										</li>
+										<li class="active">
+											<a href="toolBox.html"><span class="glyphicon glyphicon-inbox"></span><br />工具箱</a>
+										</li>
+									</ul>
 								</div>
 							</div>
-							
-							<div class="AuInputRight">
-								<h4>About us</h4>
-								<hr class="hr"/>
-								<el-form-item label="菜单名称" class="AuChild">
-									<el-tooltip class="item" effect="dark" content="字数不要超过4个汉字或8个字母" placement="bottom">
-							      <el-input v-model="formInline.menuName"></el-input>
-							   </el-tooltip>
-							  </el-form-item>
-							    <el-form-item label="菜单内容">
-							    <el-radio-group v-model="formInline.menuContent" @change="menuContentClick(formInline.menuContent)">
-							      <el-radio  label="1" >发送消息</el-radio>
-							      <el-radio  label="2" >跳转网页</el-radio>
-							      <el-radio  label="3" >跳转小程序</el-radio>
-							    </el-radio-group>
-							  </el-form-item>
-							  <div class="iconDiv" v-show=show1>
-							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-cloud-upload"></i></div>
-							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-pencil"></i></div>
-							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-folder-open"></i></div>
-							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-filter"></i></div>
-							  	<div  class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></div>
+						</nav>
+					</el-aside>
+					<el-main>
+						<div class="AuMain">
+							<selfmenu :editable="true" :menunum='menunum' @add="handleAddTopMenu">
+								<topmenu slot="topmenu" v-for="topmenu in topmenus"></topmenu>
+							</selfmenu>
+						</div>
+					</el-main>
+				</el-container>
+			</el-container>
+		</div>
+	</body>
+	<!-- 先引入 Vue -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!--<script type="text/javascript" src="../../js/customMenu.js"></script>-->
+	
+	<!--一级菜单-->
+	<style>
+		.topMenuWrapper{
+			display: inline-block;
+			width: 33.2%;
+			height: 200%;
+			margin-top: -50%;
+		}
+		.addSubMenuButton{
+			width: 100%;
+			height: 50%;
+			background-color: antiquewhite;
+			border: 0.5px solid darkgray;
+		}
+		.topMenuItem{
+			width: 100%;
+			height: 50%;
+			background-color: green;
+			border: 0.5px solid darkgray;
+		}
+	</style>
+	<script type="text/template" id='topmenu'>
+		<div class="topMenuWrapper">
+			<!--add-->
+			<div class="addSubMenuButton"></div>
+			<!--menutItem-->
+			<div class="topMenuItem">
+				
+			</div>
+		</div>
+	</script>
+	<!--二级菜单-->
+	<script type="text/template" id='submenu'>
+			
+	</script>
+	<!--整体布局-->
+	<style>
+		.iconDiv i {
+		    font-size: 20px;
+		    margin-top: 0px;
+		}
+		.menuEditWrapper{
+			overflow-y: visible;
+			width: 100%;
+			height:60px;
+			background-color: lightgray;
+			border: 0.5px solid darkgray;
+		}
+		.keyBoardDiv{
+			border: inherit;
+			border-top: none;
+			border-left: none;
+			margin: 0px;
+			height: 100%;
+			width: 15%;
+			display: inline-block;
+			position: relative;
+		}
+		.keyBoardDiv span{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 80%;
+			height: 80%;
+		}
+		.menuAddDiv{
+			height: 100%;
+			width: 85%;
+			margin: 0px;
+			float: right;
+			display: inline-block;
+			position: relative;
+			/*background-color: green;*/
+		}
+		.iconKeyBoard{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			display: block;
+			width: 100%; /*设置图片显示的宽*/
+			height: 100%; /*图片显示的高*/
+			background-repeat: no-repeat; /*设置图片不重复*/
+			background-position: 0px 0px; /*图片显示的位置*/
+			background-image: url(../../images/keyboard.png); /*引入图片图片*/
+			background-size:100% 100%;
+			border-radius: 24px;
+		}
+		.iconMenuAdd{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			display: block;
+			width: 32px; /*设置图片显示的宽*/
+			height: 32px; /*图片显示的高*/
+			background-repeat: no-repeat; /*设置图片不重复*/
+			background-position: 0px 0px; /*图片显示的位置*/
+			background-image: url(../../images/add.png); /*引入图片图片*/
+			background-size:32px 32px;
+			border-radius: 16px;
+		}
+		.addButton{
+			display: inline-block;
+			/*background-color: yellow;*/
+			cursor: pointer;
+			border: inherit;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.addButton:hover{
+			border: 1px solid whitesmoke;
+		}
+		.addButton span{
+			/*width: 10%;
+			height: 80%;*/
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 10%;
+			height: 80%;
+		}
+	</style>
+	<script type="text/template" id='menudisplay'>
+		<div style="width: 100%;height: 100%;">
+			<div>
+				<h2>自定义菜单</h2>
+				<hr class="hrRigth" />
+			</div>
+			<div class="AuForm">
+				<el-form label-position="left" label-width="120px">
+					<div class="AuInputLeft">
+						<!--<div class="pictureDiv"></div>-->
+						<img src="../../images/wechat.png" style="width: 100%;" />
+						<div class="menuEditWrapper">
+							<!--键盘区域-->
+							<div class="keyBoardDiv">
+								<span><i class="iconKeyBoard"></i></span>
 							</div>
-							<div class="iconDiv2" v-show=show2>
+							<!--菜单编辑区域-->
+							<div class="menuAddDiv">
+								<!--菜单区域-->
+								<slot name="topmenu"></slot>
+								<div :style="addButtonStyle" class="addButton" title="添加菜单" @click="addTopMenu">
+									<span><i class="iconMenuAdd"></i></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--自定义菜单-->
+					<div class="AuInputRight">
+						<h4>Menu Setting</h4>
+						<hr class="hr" />
+						<el-form-item label="菜单名称" class="AuChild">
+							<el-tooltip class="item" effect="dark" content="字数不要超过4个汉字或8个字母" placement="bottom">
+								<el-input></el-input>
+							</el-tooltip>
+						</el-form-item>
+						<div v-if="formInLine.subMenu">
+							<el-form-item label="菜单内容">
+								<el-radio-group v-model="formInLine.tabPosition" @change="handleTabClick(formInLine.tabPosition)">
+							    <el-radio-button label="1">发送消息</el-radio-button>
+							    <el-radio-button label="2">跳转网页</el-radio-button>
+							    <el-radio-button label="3">跳转小程序</el-radio-button>
+							  </el-radio-group>
+							</el-form-item>
+							<div class="iconDiv" v-show="panelShow.show1">
+								<div class="iconDivChild"><i class="glyphicon glyphicon-cloud-upload"></i></div>
+								<div class="iconDivChild"><i class="glyphicon glyphicon-pencil"></i></div>
+								<div class="iconDivChild"><i class="glyphicon glyphicon-folder-open"></i></div>
+								<div class="iconDivChild"><i class="glyphicon glyphicon-filter"></i></div>
+								<div class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></div>
+							</div>
+							<div class="iconDiv" v-show="panelShow.show2">
 								<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">订阅者点击该菜单会跳转到以下链接</p>
 								<el-form-item label="页面地址" class="AuChild">
-							    <el-input v-model="formInline.adress"></el-input>
-							  </el-form-item>
-							</div>	
-
-						 </div>
- 						  <el-form-item class="BtFloat">
-						     <el-button class="btnCancel" >预览</el-button>
-					    	 <el-button class="btnOk" type="success" >保存并发布</el-button>
-						  </el-form-item>
-				</el-form>
+									<el-input></el-input>
+								</el-form-item>
+							</div>
+							<div class="iconDiv" v-show="panelShow.show3">
+								<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">Action</p>
+								  <el-select v-model="defaultAction" placeholder="select an action">
+								    <el-option
+								      v-for="item in actions"
+								      :key="item.value"
+								      :label="item.label"
+								      :value="item.value">
+								    </el-option>
+								  </el-select>
+							</div>
+						</div>
 					</div>
-		      </div>
-		    </el-main>
-		  </el-container>
-		</el-container>
-	</div>
-</body>
-	<!-- 先引入 Vue -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- 引入组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../../js/customMenu.js" ></script>
+					<el-form-item class="BtFloat">
+							<el-button class="btnCancel">预览</el-button>
+							<el-button class="btnOk" type="success">保存并发布</el-button>
+					</el-form-item>
+				</el-form>
+			</div>
+		</div>
+	</script>
+	<script>
+		Vue.component('submenu', {
+			template: '#submenu',
+
+		})
+		Vue.component('topmenu', {
+			template: '#topmenu',
+			
+		})
+		Vue.component('selfmenu',{
+			props:{
+				name:String,
+				editable:Boolean,
+				menunum:Number
+			},
+			template: '#menudisplay',
+			data:function(){
+				return{
+					defaultAction:'',
+					actions:[
+						{
+							value:'1',
+							label:'Scan QR Code'
+						},
+						{
+							value:'2',
+							label:'Scan QR Code'
+						},
+						{
+							value:'3',
+							label:'Scan QR Code'
+						},
+						{
+							value:'4',
+							label:'Scan QR Code'
+						}
+					],
+					panelShow:{
+						show1:true,
+						show2:false,
+						show3:false
+					},
+					formInLine:{
+						subMenu:this.editable,
+						tabPosition:'1'
+					},
+					addButtonStyle:{
+						width:(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%')))
+					},
+				}
+			},
+			watch:{
+				menunum:function(newValue,oldValue){
+					console.log("newValue:"+newValue);
+					console.log("oldValue:"+oldValue);
+					this.addButtonStyle = {
+						width:(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%')))
+					}
+				},
+				topmenus:function(){
+					this.menunum = this.topmenus.length;
+				}
+			},
+			methods:{
+				handleTabClick(tabIndex){
+					console.log(tabIndex);
+					switch(tabIndex){
+						case '1':
+							{
+								this.panelShow.show1 = true;
+								this.panelShow.show2 = false;
+								this.panelShow.show3 = false;
+								break;
+							}
+						case '2':
+							{
+								this.panelShow.show1 = false;
+								this.panelShow.show2 = true;
+								this.panelShow.show3 = false;
+								break;
+							}
+						case '3':
+							{
+								this.panelShow.show1 = false;
+								this.panelShow.show2 = false;
+								this.panelShow.show3 = true;
+								break;
+							}
+						default:{
+								this.panelShow.show1 = true;
+								this.panelShow.show2 = false;
+								this.panelShow.show3 = false;
+						}
+					}
+				},
+			addTopMenu(){
+//				this.menunum += 1;
+				this.$emit("add");
+			}
+			}
+		})
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					menunum:0,
+					topmenus:[
+					]
+				}
+			},
+			methods: {
+				handleAddTopMenu(){
+					console.log('addTopMenu');
+					this.menunum += 1;
+					var menu = {};
+					this.topmenus.push(menu);
+				}
+			},
+		})
+	</script>
+
 </html>

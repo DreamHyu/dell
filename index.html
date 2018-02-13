@@ -92,127 +92,129 @@
 				</nav>
 		    </el-aside>
 		    <el-main style="padding: 0;">
-		    	<div class="top">
-		    		<div class="item1">
-		    			<img src="src/images/item3.png" />
-		    			<div>
-		    				<span class="num">32654</span><br /><span class="word">粉丝总数量</span>
-		    			</div>
-		    		</div>
-		    		<div class="item2">
-		    			<img src="src/images/item2.png" />
-		    			<div>
-		    				<span class="num">3241</span><br /><span class="word">30日新增粉丝数量</span>
-		    			</div>
-		    		</div>
-		    		<div class="item3">
-		    			<img src="src/images/item1.png" />
-		    			<div>
-		    				<span class="num">236</span><br /><span class="word">最近消息</span>
-		    			</div>
-		    		</div>
-		    	</div>
-		    	<div class="medium" style="padding: 40px;">
-		    		<div style="float: left;width: 100%;height: 400px;">
-		    			<h2>数据统计</h2>
+					<div style="width: 100%;">
+						<div class="top">
+			    		<div class="item1">
+			    			<img src="src/images/item3.png" />
+			    			<div>
+			    				<span class="num">32654</span><br /><span class="word">粉丝总数量</span>
+			    			</div>
+			    		</div>
+			    		<div class="item2">
+			    			<img src="src/images/item2.png" />
+			    			<div>
+			    				<span class="num">3241</span><br /><span class="word">30日新增粉丝数量</span>
+			    			</div>
+			    		</div>
+			    		<div class="item3">
+			    			<img src="src/images/item1.png" />
+			    			<div>
+			    				<span class="num">236</span><br /><span class="word">最近消息</span>
+			    			</div>
+			    		</div>
+			    	</div>
+			    	<div class="medium" style="padding: 40px;">
+			    		<div style="float: left;width: 100%;height: 400px;">
+			    			<h2>数据统计</h2>
+				    		<div>
+			    				<el-button type="success" v-bind:autofocus="true" plain>新增粉丝</el-button>
+			    				<el-button type="success" plain>取消关注</el-button>
+			    				<el-button type="success" plain>净增人数</el-button>
+			    				<el-button type="success" plain>累计人数</el-button>
+			    				  <el-select v-model="value" placeholder="请选择" class="el-select">
+								    <el-option
+								      v-for="item in options"
+								      :key="item.value"
+								      :label="item.label"
+								      :value="item.value">
+								    </el-option>
+								  </el-select>
+			    			</div>
+			    			<div id="chartmain" style="width:100%; height: 280px;"></div>
+			    		</div>
+			    		<div style="float: left;width: 40%;height: 350px;">
+			    			<h2 >审批</h2>
+			    			<div id="chartmain2" style="width:100%; height: 280px;"></div>
+			    		</div>
+			    		<div style="float: left;width: 60%;height: 350px;">
+			    			<h2 >互动数量
+			    			    <el-select v-model="value1" placeholder="请选择" class="el-select">
+								    <el-option
+								      v-for="item in options"
+								      :key="item.value"
+								      :label="item.label"
+								      :value="item.value">
+								    </el-option>
+								</el-select>
+			    			</h2>
+			    			<div id="chartmain3" style="width:100%; height: 280px;"></div>
+			    		</div>
+			    	</div>
+			    	<div class="footer" style="padding: 40px;">
 			    		<div>
-		    				<el-button type="success" v-bind:autofocus="true" plain>新增粉丝</el-button>
-		    				<el-button type="success" plain>取消关注</el-button>
-		    				<el-button type="success" plain>净增人数</el-button>
-		    				<el-button type="success" plain>累计人数</el-button>
-		    				  <el-select v-model="value" placeholder="请选择" class="el-select">
-							    <el-option
-							      v-for="item in options"
-							      :key="item.value"
-							      :label="item.label"
-							      :value="item.value">
-							    </el-option>
-							  </el-select>
-		    			</div>
-		    			<div id="chartmain" style="width:100%; height: 280px;"></div>
-		    		</div>
-		    		<div style="float: left;width: 40%;height: 350px;">
-		    			<h2 >审批</h2>
-		    			<div id="chartmain2" style="width:100%; height: 280px;"></div>
-		    		</div>
-		    		<div style="float: left;width: 60%;height: 350px;">
-		    			<h2 >互动数量
-		    			    <el-select v-model="value1" placeholder="请选择" class="el-select">
-							    <el-option
-							      v-for="item in options"
-							      :key="item.value"
-							      :label="item.label"
-							      :value="item.value">
-							    </el-option>
-							</el-select>
-		    			</h2>
-		    			<div id="chartmain3" style="width:100%; height: 280px;"></div>
-		    		</div>
-		    	</div>
-		    	<div class="footer" style="padding: 40px;">
-		    		<div>
-						<div class="list_left">
-							<div>
-								<h2>最近发送</h2>
-								<hr class="hr"/>
+							<div class="list_left">
+								<div>
+									<h2>最近发送</h2>
+									<hr class="hr"/>
+								</div>
+								<div>
+									<div class="list_content" style="width:100%">
+				            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
+				            			<div style="width:40%" class="list_padding">
+				            				<span class="title_font">文章标题</span><br />
+				            				<span class="content_font">发送内容信息</span>
+				            			</div>
+				            			<div style="width:20%" class="list_padding">
+				            				<span class="date_font">2017-12-25</span>
+				            			</div>
+				        			</div>
+				        			<hr class="content_hr" />
+				        			<div class="list_content" style="width:100%">
+				            			<div style="width:35%"><img src="src/images/TIM20180123164342.png" class="image"></div>
+				            			<div style="width:40%" class="list_padding">
+				            				<span class="title_font">文章标题</span><br />
+				            				<span class="content_font">发送内容信息</span>
+				            			</div>
+				            			<div style="width:20%" class="list_padding">
+				            				<span class="date_font">2017-12-25</span>
+				            			</div>
+				        			</div>
+				        			<hr class="content_hr" />
+				        			<div class="list_content" style="width:100%">
+				            			<div style="width:35%"><img src="src/images/TIM20180123164345.png" class="image"></div>
+				            			<div style="width:40%" class="list_padding">
+				            				<span class="title_font">文章标题</span><br />
+				            				<span class="content_font">发送内容信息</span>
+				            			</div>
+				            			<div style="width:20%" class="list_padding">
+				            				<span class="date_font">2017-12-25</span>
+				            			</div>
+				        			</div>
+								</div>
 							</div>
-							<div>
-								<div class="list_content" style="width:100%">
-			            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
-			            			<div style="width:40%" class="list_padding">
-			            				<span class="title_font">文章标题</span><br />
-			            				<span class="content_font">发送内容信息</span>
-			            			</div>
-			            			<div style="width:20%" class="list_padding">
-			            				<span class="date_font">2017-12-25</span>
-			            			</div>
-			        			</div>
-			        			<hr class="content_hr" />
-			        			<div class="list_content" style="width:100%">
-			            			<div style="width:35%"><img src="src/images/TIM20180123164342.png" class="image"></div>
-			            			<div style="width:40%" class="list_padding">
-			            				<span class="title_font">文章标题</span><br />
-			            				<span class="content_font">发送内容信息</span>
-			            			</div>
-			            			<div style="width:20%" class="list_padding">
-			            				<span class="date_font">2017-12-25</span>
-			            			</div>
-			        			</div>
-			        			<hr class="content_hr" />
-			        			<div class="list_content" style="width:100%">
-			            			<div style="width:35%"><img src="src/images/TIM20180123164345.png" class="image"></div>
-			            			<div style="width:40%" class="list_padding">
-			            				<span class="title_font">文章标题</span><br />
-			            				<span class="content_font">发送内容信息</span>
-			            			</div>
-			            			<div style="width:20%" class="list_padding">
-			            				<span class="date_font">2017-12-25</span>
-			            			</div>
-			        			</div>
+							<div class="list_right">
+								<div>
+									<h2>最近编辑</h2>
+									<hr class="hr"/>
+								</div>
+								<div>
+									<div class="list_content" style="width:100%">
+				            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
+				            			<div style="width:40%" class="list_padding">
+				            				<span class="title_font">文章标题</span><br />
+				            				<span class="content_font">发送内容信息</span>
+				            			</div>
+				            			<div style="width:20%" class="list_padding">
+				            				<span class="date_font">2017-12-25</span>
+				            			</div>
+				        		    </div>
+								</div>
+								<!--<button class="_button">新建群发</button>-->
+								<el-button class="newSend" type="success" icon="el-icon-edit">新建群发</el-button>
 							</div>
 						</div>
-						<div class="list_right">
-							<div>
-								<h2>最近编辑</h2>
-								<hr class="hr"/>
-							</div>
-							<div>
-								<div class="list_content" style="width:100%">
-			            			<div style="width:35%"><img src="src/images/TIM20180123164334.png" class="image"></div>
-			            			<div style="width:40%" class="list_padding">
-			            				<span class="title_font">文章标题</span><br />
-			            				<span class="content_font">发送内容信息</span>
-			            			</div>
-			            			<div style="width:20%" class="list_padding">
-			            				<span class="date_font">2017-12-25</span>
-			            			</div>
-			        		    </div>
-							</div>
-							<!--<button class="_button">新建群发</button>-->
-							<el-button class="newSend" type="success" icon="el-icon-edit">新建群发</el-button>
-						</div>
+			    	</div>						
 					</div>
-		    	</div>
 		    </el-main>
 		  </el-container>
 		</el-container>

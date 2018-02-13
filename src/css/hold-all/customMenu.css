@@ -72,15 +72,10 @@ body{
   	}
   	.iconDiv{
   		border: 2px lightgray solid;
-  		height:165px;
+  		height:200px;
   		width: 100%;
   		border-radius: 5px;
-  	}
-  	.iconDiv2{
-  		border: 2px lightgray solid;
-  		height:165px;
-  		border-radius: 5px;
-  		width: 100%;
+  		padding: 20px;
   	}
   	.iconDivChild{
   		border: 1px lightgray solid;
@@ -88,6 +83,7 @@ body{
   		height: 60px;
   		width: 20%;
   	    margin: 10px;
+  	    padding-top: 15px;
   		float:left;
   		text-align:center
   	}

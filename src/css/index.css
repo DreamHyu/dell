@@ -1,3 +1,6 @@
+ 	.el-main,.el-aside{
+ 		overflow-x: hidden;
+ 	}
  	.top{
  		height: 250px;
  		width: 100%;
