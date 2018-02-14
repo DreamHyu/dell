@@ -110,7 +110,9 @@
 					<el-main>
 						<div class="AuMain">
 							<selfmenu :editable="true" :menunum='menunum' @add="handleAddTopMenu">
-								<topmenu slot="topmenu" v-for="topmenu in topmenus"></topmenu>
+								<topmenu slot="topmenu" v-for="topmenu in topmenus" 
+									 :menuname="topmenu.menuName" :menuindex="topmenu.menuIndex"
+									 @removeedit="handleRemoveTopMenu"></topmenu>
 							</selfmenu>
 						</div>
 					</el-main>
@@ -128,32 +130,100 @@
 	
 	<!--一级菜单-->
 	<style>
+		/*菜单的高度是59px(定死了)*/
 		.topMenuWrapper{
 			display: inline-block;
 			width: 33.2%;
 			height: 200%;
-			margin-top: -50%;
+			/*59px*/
+			margin-top: -59px;
 		}
 		.addSubMenuButton{
 			width: 100%;
 			height: 50%;
-			background-color: antiquewhite;
-			border: 0.5px solid darkgray;
+			background-color: #E0E0E0;
+			border: 0.1px solid darkgray;
+			/*border-right: none;*/
+			cursor: pointer;
+			position: relative;
+		}
+		.addSubMenuButton:hover{
+			opacity: 0.7;
 		}
 		.topMenuItem{
 			width: 100%;
 			height: 50%;
+			background-color: #E0E0E0;
+			border: 0.1px solid darkgray;
+			cursor: pointer;
+			/*border-right: none;*/
+			position: relative;
+		}
+		.topMenuItem label{
+			cursor: pointer;
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			/*59px*/
+			line-height: 59px;
+		}
+		.menuBorderStyle{
+			border: 1px solid cornflowerblue;
+		}
+		.iconMenuClose{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			display: block;
+			width: 20px; /*设置图片显示的宽*/
+			height: 20px; /*图片显示的高*/
+			background-repeat: no-repeat; /*设置图片不重复*/
+			background-position: 0px 0px; /*图片显示的位置*/
+			background-image: url('../../images/close.jpg'); /*引入图片图片*/
+			background-size:20px 20px;
 			background-color: green;
-			border: 0.5px solid darkgray;
+			border-radius: 10px;
+			z-index: 1;
+		}
+		.closeButton{
+			background-color: #717fcc;
+			width: 24px;
+			height: 24px;
+			border-radius: 12px;
+			position: absolute;
+			top: -12px;
+			right: -12px;
+			cursor: default;
+			z-index: 1;
+			background-repeat: no-repeat; /*设置图片不重复*/
+			background-position: center; /*图片显示的位置*/
+			background-image: url('../../images/close.jpg'); /*引入图片图片*/
+			background-size:10px 10px;
+		}
+		/*.closeWrapper{
+			border-radius: 50%;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			z-index: 2;
+		}*/
+		.closeButton:hover{
+			opacity: 0.7;
 		}
 	</style>
 	<script type="text/template" id='topmenu'>
 		<div class="topMenuWrapper">
 			<!--add-->
-			<div class="addSubMenuButton"></div>
+			<div class="addSubMenuButton" title="添加子菜单">
+				<span><i class="iconMenuAdd"></i></span>
+			</div>
 			<!--menutItem-->
-			<div class="topMenuItem">
-				
+			<div class="topMenuItem" :class="{menuBorderStyle:isChecked}">
+				<label @click="checkEdit">{{menuname}}</label>
+				<!--编辑框-->
+				<div :class="{closeButton:isChecked}" @click="removeedit" title="close"></div>
 			</div>
 		</div>
 	</script>
@@ -180,7 +250,7 @@
 			border-left: none;
 			margin: 0px;
 			height: 100%;
-			width: 15%;
+			width: 18%;
 			display: inline-block;
 			position: relative;
 		}
@@ -194,12 +264,12 @@
 		}
 		.menuAddDiv{
 			height: 100%;
-			width: 85%;
+			width: 82%;
 			margin: 0px;
 			float: right;
 			display: inline-block;
 			position: relative;
-			/*background-color: green;*/
+			/*background-color: yellow;*/
 		}
 		.iconKeyBoard{
 			position: absolute;
@@ -229,8 +299,9 @@
 			border-radius: 16px;
 		}
 		.addButton{
+			float: right;
 			display: inline-block;
-			/*background-color: yellow;*/
+			/*background-color: red;*/
 			cursor: pointer;
 			border: inherit;
 			height: 100%;
@@ -238,7 +309,8 @@
 			overflow: hidden;
 		}
 		.addButton:hover{
-			border: 1px solid whitesmoke;
+			/*border: 1px solid whitesmoke;*/
+			opacity: 0.7;
 		}
 		.addButton span{
 			/*width: 10%;
@@ -271,7 +343,7 @@
 							<div class="menuAddDiv">
 								<!--菜单区域-->
 								<slot name="topmenu"></slot>
-								<div :style="addButtonStyle" class="addButton" title="添加菜单" @click="addTopMenu">
+								<div :style="addButtonStyle" class="addButton" title="添加根菜单" @click="addTopMenu">
 									<span><i class="iconMenuAdd"></i></span>
 								</div>
 							</div>
@@ -334,8 +406,36 @@
 
 		})
 		Vue.component('topmenu', {
+			props:{
+				menuname:String,
+				menuindex:Number
+			},
 			template: '#topmenu',
-			
+			created:function(){
+				console.log("this.menuname:"+this.menuname);
+				console.log("this.menuindex:"+this.menuindex);
+			},
+			data:function(){
+				return{
+					isChecked:false,
+				}
+			},
+			methods:{
+				checkEdit(){
+					console.log("checkEdit");
+					if(this.isChecked){
+						this.isChecked = false;
+					}else{
+						this.isChecked = true;
+					}
+					this.$emit("checkedit");
+				},
+				removeedit(){
+					console.log("removeedit");
+					console.log("this.menuindex:"+this.menuindex);
+					this.$emit("removeedit",this.menuindex);
+				}
+			}
 		})
 		Vue.component('selfmenu',{
 			props:{
@@ -375,7 +475,7 @@
 						tabPosition:'1'
 					},
 					addButtonStyle:{
-						width:(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%')))
+						width:(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%'))),
 					},
 				}
 			},
@@ -433,17 +533,34 @@
 			el: '#app',
 			data() {
 				return {
+					menuIndex:0,
 					menunum:0,
 					topmenus:[
 					]
+				}
+			},
+			computed:{
+				getIndex:function(){
+					this.index=this.index+1;
+					return this.index;
 				}
 			},
 			methods: {
 				handleAddTopMenu(){
 					console.log('addTopMenu');
 					this.menunum += 1;
-					var menu = {};
+					var menu = {
+						menuIndex : ++this.menuIndex,
+						menuName:'menu'+this.menuIndex
+					};
+					console.log(menu);
 					this.topmenus.push(menu);
+					console.log(this.topmenus);
+				},
+				handleRemoveTopMenu(menuIndex){
+					console.log('removeTopMenu');
+					this.menunum -= 1;
+					this.topmenus = this.topmenus.filter(menu => menu.menuIndex != menuIndex);
 				}
 			},
 		})
