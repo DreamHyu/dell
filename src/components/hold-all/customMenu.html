@@ -109,11 +109,7 @@
 					</el-aside>
 					<el-main>
 						<div class="AuMain">
-							<selfmenu :editable="true" :menunum='menunum' @add="handleAddTopMenu">
-								<topmenu slot="topmenu" v-for="topmenu in topmenus" 
-									 :menuname="topmenu.menuName" :menuindex="topmenu.menuIndex"
-									 @removeedit="handleRemoveTopMenu"></topmenu>
-							</selfmenu>
+							<selfmenu :editable="true"></selfmenu>
 						</div>
 					</el-main>
 				</el-container>
@@ -127,18 +123,22 @@
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!--<script type="text/javascript" src="../../js/customMenu.js"></script>-->
-	
+
 	<!--一级菜单-->
 	<style>
 		/*菜单的高度是59px(定死了)*/
-		.topMenuWrapper{
+		
+		.topMenuWrapper {
 			display: inline-block;
-			width: 33.2%;
+			width: 33.3%;
 			height: 200%;
 			/*59px*/
 			margin-top: -59px;
+			/*ddd*/
+			position: relative;
 		}
-		.addSubMenuButton{
+		
+		.addSubMenuButton {
 			width: 100%;
 			height: 50%;
 			background-color: #E0E0E0;
@@ -147,10 +147,12 @@
 			cursor: pointer;
 			position: relative;
 		}
-		.addSubMenuButton:hover{
+		
+		.addSubMenuButton:hover {
 			opacity: 0.7;
 		}
-		.topMenuItem{
+		
+		.topMenuItem {
 			width: 100%;
 			height: 50%;
 			background-color: #E0E0E0;
@@ -159,7 +161,8 @@
 			/*border-right: none;*/
 			position: relative;
 		}
-		.topMenuItem label{
+		
+		.topMenuItem label {
 			cursor: pointer;
 			display: block;
 			width: 100%;
@@ -168,26 +171,34 @@
 			/*59px*/
 			line-height: 59px;
 		}
-		.menuBorderStyle{
+		
+		.menuBorderStyle {
 			border: 1px solid cornflowerblue;
 		}
-		.iconMenuClose{
+		
+		.iconMenuClose {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%,-50%);
+			transform: translate(-50%, -50%);
 			display: block;
-			width: 20px; /*设置图片显示的宽*/
-			height: 20px; /*图片显示的高*/
-			background-repeat: no-repeat; /*设置图片不重复*/
-			background-position: 0px 0px; /*图片显示的位置*/
-			background-image: url('../../images/close.jpg'); /*引入图片图片*/
-			background-size:20px 20px;
+			width: 20px;
+			/*设置图片显示的宽*/
+			height: 20px;
+			/*图片显示的高*/
+			background-repeat: no-repeat;
+			/*设置图片不重复*/
+			background-position: 0px 0px;
+			/*图片显示的位置*/
+			background-image: url('../../images/close.jpg');
+			/*引入图片图片*/
+			background-size: 20px 20px;
 			background-color: green;
 			border-radius: 10px;
 			z-index: 1;
 		}
-		.closeButton{
+		
+		.closeButton {
 			background-color: #717fcc;
 			width: 24px;
 			height: 24px;
@@ -197,10 +208,13 @@
 			right: -12px;
 			cursor: default;
 			z-index: 1;
-			background-repeat: no-repeat; /*设置图片不重复*/
-			background-position: center; /*图片显示的位置*/
-			background-image: url('../../images/close.jpg'); /*引入图片图片*/
-			background-size:10px 10px;
+			background-repeat: no-repeat;
+			/*设置图片不重复*/
+			background-position: center;
+			/*图片显示的位置*/
+			background-image: url('../../images/close.jpg');
+			/*引入图片图片*/
+			background-size: 10px 10px;
 		}
 		/*.closeWrapper{
 			border-radius: 50%;
@@ -209,14 +223,31 @@
 			position: relative;
 			z-index: 2;
 		}*/
-		.closeButton:hover{
+		
+		.closeButton:hover {
 			opacity: 0.7;
+		}
+		.submenusDiv{
+			display: block;
+			position: absolute;
+			width: 100%;
+			top: -50%;
+			left: 0%;
 		}
 	</style>
 	<script type="text/template" id='topmenu'>
 		<div class="topMenuWrapper">
+			<div class="submenusDiv">
+				<submenu v-for="submenu in submenus"
+					:menuname="submenu.menuName" 
+					:menuindex="submenu.menuIndex" 
+					:checkedindex="subcheckedindex" 
+					@checkedit="handleCheckSubMenu" 
+					@removeedit="handleRemoveSubMenu"
+				></submenu>
+			</div>
 			<!--add-->
-			<div class="addSubMenuButton" title="添加子菜单">
+			<div class="addSubMenuButton" title="添加子菜单" @click="handleAddSubMenu">
 				<span><i class="iconMenuAdd"></i></span>
 			</div>
 			<!--menutItem-->
@@ -228,23 +259,122 @@
 		</div>
 	</script>
 	<!--二级菜单-->
+	<style>
+		.subMenuWrapper {
+			/*display: block;*/
+			/*width: 100%;
+			height: 118px;
+			float: left;*/
+			/*border: 1px solid green;*/
+			position: absolute;
+			width: 100%;
+			height: 118px;
+			top: -50%;
+			left: 0%;
+		}
+		
+		.subMenuItem {
+			width: 100%;
+			height: 50%;
+			background-color: #E0E0E0;
+			border: 0.1px solid darkgray;
+			cursor: pointer;
+			/*border-right: none;*/
+			position: relative;
+		}
+		
+		.subMenuItem label {
+			cursor: pointer;
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			/*59px*/
+			line-height: 59px;
+		}
+		
+		.menuBorderStyle {
+			border: 1px solid cornflowerblue;
+		}
+		
+		.iconMenuClose {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: block;
+			width: 20px;
+			/*设置图片显示的宽*/
+			height: 20px;
+			/*图片显示的高*/
+			background-repeat: no-repeat;
+			/*设置图片不重复*/
+			background-position: 0px 0px;
+			/*图片显示的位置*/
+			background-image: url('../../images/close.jpg');
+			/*引入图片图片*/
+			background-size: 20px 20px;
+			background-color: green;
+			border-radius: 10px;
+			z-index: 1;
+		}
+		
+		.closeButton {
+			background-color: #717fcc;
+			width: 24px;
+			height: 24px;
+			border-radius: 12px;
+			position: absolute;
+			top: -12px;
+			right: -12px;
+			cursor: default;
+			z-index: 1;
+			background-repeat: no-repeat;
+			/*设置图片不重复*/
+			background-position: center;
+			/*图片显示的位置*/
+			background-image: url('../../images/close.jpg');
+			/*引入图片图片*/
+			background-size: 10px 10px;
+		}
+		/*.closeWrapper{
+			border-radius: 50%;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			z-index: 2;
+		}*/
+		
+		.closeButton:hover {
+			opacity: 0.7;
+		}
+	</style>
 	<script type="text/template" id='submenu'>
-			
+		<div class="subMenuWrapper">
+			<!--menutItem-->
+			<div class="subMenuItem" :class="{menuBorderStyle:isChecked}">
+				<label @click="checkEdit">{{menuname}}</label>
+				<!--编辑框-->
+				<div :class="{closeButton:isChecked}" @click="removeedit" title="close"></div>
+			</div>
+		</div>
 	</script>
 	<!--整体布局-->
 	<style>
 		.iconDiv i {
-		    font-size: 20px;
-		    margin-top: 0px;
+			font-size: 20px;
+			margin-top: 0px;
 		}
-		.menuEditWrapper{
+		
+		.menuEditWrapper {
 			overflow-y: visible;
 			width: 100%;
-			height:60px;
+			height: 60px;
 			background-color: lightgray;
 			border: 0.5px solid darkgray;
 		}
-		.keyBoardDiv{
+		
+		.keyBoardDiv {
 			border: inherit;
 			border-top: none;
 			border-left: none;
@@ -254,15 +384,17 @@
 			display: inline-block;
 			position: relative;
 		}
-		.keyBoardDiv span{
+		
+		.keyBoardDiv span {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%,-50%);
+			transform: translate(-50%, -50%);
 			width: 80%;
 			height: 80%;
 		}
-		.menuAddDiv{
+		
+		.menuAddDiv {
 			height: 100%;
 			width: 82%;
 			margin: 0px;
@@ -271,34 +403,51 @@
 			position: relative;
 			/*background-color: yellow;*/
 		}
-		.iconKeyBoard{
+		
+		.hidemenuitem {
+			display: none;
+		}
+		
+		.iconKeyBoard {
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
 			display: block;
-			width: 100%; /*设置图片显示的宽*/
-			height: 100%; /*图片显示的高*/
-			background-repeat: no-repeat; /*设置图片不重复*/
-			background-position: 0px 0px; /*图片显示的位置*/
-			background-image: url(../../images/keyboard.png); /*引入图片图片*/
-			background-size:100% 100%;
+			width: 100%;
+			/*设置图片显示的宽*/
+			height: 100%;
+			/*图片显示的高*/
+			background-repeat: no-repeat;
+			/*设置图片不重复*/
+			background-position: 0px 0px;
+			/*图片显示的位置*/
+			background-image: url(../../images/keyboard.png);
+			/*引入图片图片*/
+			background-size: 100% 100%;
 			border-radius: 24px;
 		}
-		.iconMenuAdd{
+		
+		.iconMenuAdd {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%,-50%);
+			transform: translate(-50%, -50%);
 			display: block;
-			width: 32px; /*设置图片显示的宽*/
-			height: 32px; /*图片显示的高*/
-			background-repeat: no-repeat; /*设置图片不重复*/
-			background-position: 0px 0px; /*图片显示的位置*/
-			background-image: url(../../images/add.png); /*引入图片图片*/
-			background-size:32px 32px;
+			width: 32px;
+			/*设置图片显示的宽*/
+			height: 32px;
+			/*图片显示的高*/
+			background-repeat: no-repeat;
+			/*设置图片不重复*/
+			background-position: 0px 0px;
+			/*图片显示的位置*/
+			background-image: url(../../images/add.png);
+			/*引入图片图片*/
+			background-size: 32px 32px;
 			border-radius: 16px;
 		}
-		.addButton{
+		
+		.addButton {
 			float: right;
 			display: inline-block;
 			/*background-color: red;*/
@@ -308,17 +457,19 @@
 			position: relative;
 			overflow: hidden;
 		}
-		.addButton:hover{
+		
+		.addButton:hover {
 			/*border: 1px solid whitesmoke;*/
 			opacity: 0.7;
 		}
-		.addButton span{
+		
+		.addButton span {
 			/*width: 10%;
 			height: 80%;*/
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%,-50%);
+			transform: translate(-50%, -50%);
 			width: 10%;
 			height: 80%;
 		}
@@ -342,59 +493,71 @@
 							<!--菜单编辑区域-->
 							<div class="menuAddDiv">
 								<!--菜单区域-->
-								<slot name="topmenu"></slot>
-								<div :style="addButtonStyle" class="addButton" title="添加根菜单" @click="addTopMenu">
+								<!--<slot name="topmenu"></slot>-->
+								<topmenu 
+									v-for="topmenu in topmenus" 
+									:menuname="topmenu.menuName" 
+									:menuindex="topmenu.menuIndex" 
+									:checkedindex="checkedindex" 
+									:hidemenu="hidemenu"
+									@checkedit="handleCheckTopMenu" 
+									@removeedit="handleRemoveTopMenu" 
+									@changecheckedindex="changeCheckedIndex"
+									@changemenuitem="changemenuitem"
+									@removesubmenu="removeSubmenu"
+									@addsubmenu="addSubmenu"
+									@changehidemenu="changeHidemenu">
+								</topmenu>
+								<div :style="{width:getwidth}" class="addButton" title="添加根菜单" @click="handleAddTopMenu">
 									<span><i class="iconMenuAdd"></i></span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<!--自定义菜单-->
-					<div class="AuInputRight">
-						<h4>Menu Setting</h4>
-						<hr class="hr" />
-						<el-form-item label="菜单名称" class="AuChild">
-							<el-tooltip class="item" effect="dark" content="字数不要超过4个汉字或8个字母" placement="bottom">
-								<el-input></el-input>
-							</el-tooltip>
-						</el-form-item>
-						<div v-if="formInLine.subMenu">
-							<el-form-item label="菜单内容">
-								<el-radio-group v-model="formInLine.tabPosition" @change="handleTabClick(formInLine.tabPosition)">
-							    <el-radio-button label="1">发送消息</el-radio-button>
-							    <el-radio-button label="2">跳转网页</el-radio-button>
-							    <el-radio-button label="3">跳转小程序</el-radio-button>
-							  </el-radio-group>
+					<div class="AuInputRightWrapper">
+						<div :class="{hidemenuitem:hidemenu}" class="AuInputRight">
+							<h4>Menu Setting</h4>
+							<hr class="hr" />
+							<el-form-item label="菜单名称" class="AuChild">
+								<el-tooltip class="item" effect="dark" content="字数不要超过4个汉字或8个字母" placement="bottom">
+									<el-input v-model='menuname'></el-input>
+								</el-tooltip>
 							</el-form-item>
-							<div class="iconDiv" v-show="panelShow.show1">
-								<div class="iconDivChild"><i class="glyphicon glyphicon-cloud-upload"></i></div>
-								<div class="iconDivChild"><i class="glyphicon glyphicon-pencil"></i></div>
-								<div class="iconDivChild"><i class="glyphicon glyphicon-folder-open"></i></div>
-								<div class="iconDivChild"><i class="glyphicon glyphicon-filter"></i></div>
-								<div class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></div>
-							</div>
-							<div class="iconDiv" v-show="panelShow.show2">
-								<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">订阅者点击该菜单会跳转到以下链接</p>
-								<el-form-item label="页面地址" class="AuChild">
-									<el-input></el-input>
+							<div v-if="formInLine.subMenu">
+								<el-form-item label="菜单内容">
+									<el-radio-group v-model="formInLine.tabPosition" @change="handleTabClick(formInLine.tabPosition)">
+										<el-radio-button label="1">发送消息</el-radio-button>
+										<el-radio-button label="2">跳转网页</el-radio-button>
+										<el-radio-button label="3">跳转小程序</el-radio-button>
+									</el-radio-group>
 								</el-form-item>
-							</div>
-							<div class="iconDiv" v-show="panelShow.show3">
-								<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">Action</p>
-								  <el-select v-model="defaultAction" placeholder="select an action">
-								    <el-option
-								      v-for="item in actions"
-								      :key="item.value"
-								      :label="item.label"
-								      :value="item.value">
-								    </el-option>
-								  </el-select>
+								<div class="iconDiv" v-show="panelShow.show1">
+									<div class="iconDivChild"><i class="glyphicon glyphicon-cloud-upload"></i></div>
+									<div class="iconDivChild"><i class="glyphicon glyphicon-pencil"></i></div>
+									<div class="iconDivChild"><i class="glyphicon glyphicon-folder-open"></i></div>
+									<div class="iconDivChild"><i class="glyphicon glyphicon-filter"></i></div>
+									<div class="iconDivChild"><i class="glyphicon glyphicon-facetime-video"></i></div>
+								</div>
+								<div class="iconDiv" v-show="panelShow.show2">
+									<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">订阅者点击该菜单会跳转到以下链接</p>
+									<el-form-item label="页面地址" class="AuChild">
+										<el-input></el-input>
+									</el-form-item>
+								</div>
+								<div class="iconDiv" v-show="panelShow.show3">
+									<p style="margin-left: 20px;color: lightgray;margin-top: 20px;">Action</p>
+									<el-select v-model="defaultAction" placeholder="select an action">
+										<el-option v-for="item in actions" :key="item.value" :label="item.label" :value="item.value">
+										</el-option>
+									</el-select>
+								</div>
 							</div>
 						</div>
 					</div>
 					<el-form-item class="BtFloat">
-							<el-button class="btnCancel">预览</el-button>
-							<el-button class="btnOk" type="success">保存并发布</el-button>
+						<el-button class="btnCancel">预览</el-button>
+						<el-button class="btnOk" type="success">保存并发布</el-button>
 					</el-form-item>
 				</el-form>
 			</div>
@@ -402,99 +565,232 @@
 	</script>
 	<script>
 		Vue.component('submenu', {
+			props: {
+				menuname: String,
+				menuindex: String,
+				//获取父组件保存的当前选择的标签值
+				checkedindex: String,
+			},
 			template: '#submenu',
-
-		})
-		Vue.component('topmenu', {
-			props:{
-				menuname:String,
-				menuindex:Number
-			},
-			template: '#topmenu',
-			created:function(){
-				console.log("this.menuname:"+this.menuname);
-				console.log("this.menuindex:"+this.menuindex);
-			},
-			data:function(){
-				return{
-					isChecked:false,
+			data: function() {
+				return {
+					isChecked: false,
 				}
 			},
-			methods:{
-				checkEdit(){
-					console.log("checkEdit");
-					if(this.isChecked){
+			watch: {
+			//若父组件当前保存的标签值发生变化则执行此函数
+				checkedindex: function() {
+					if(this.menuindex != this.checkedindex) {
 						this.isChecked = false;
-					}else{
+					}
+				}
+			},
+			methods: {
+				checkEdit() {
+					console.log("checkEdit");
+					if(this.isChecked) {
+						this.isChecked = false;
+					} else {
 						this.isChecked = true;
 					}
-					this.$emit("checkedit");
+					this.$emit("checkedit", this.menuindex,this.menuname);
 				},
-				removeedit(){
+				removeedit() {
 					console.log("removeedit");
-					console.log("this.menuindex:"+this.menuindex);
-					this.$emit("removeedit",this.menuindex);
+					console.log("this.menuindex:" + this.menuindex);
+					this.$emit("removeedit", this.menuindex);
 				}
 			}
 		})
-		Vue.component('selfmenu',{
-			props:{
-				name:String,
-				editable:Boolean,
-				menunum:Number
+		Vue.component('topmenu', {
+			props: {
+				menuname: String,
+				//一级菜单下标
+				menuindex: String,
+				//选择的一级菜单下标
+				checkedindex: String,
+				hidemenu:Boolean
+			},
+			template: '#topmenu',
+			created: function() {
+				console.log("this.menuname:" + this.menuname);
+				console.log("this.menuindex:" + this.menuindex);
+			},
+			data: function() {
+				return {
+					isChecked: false,
+					subcheckedindex: '0',
+					//二级菜单下标
+					submenuIndex: 0,
+					submenuname: '',
+					submenus: [],
+					hideMenu: this.hidemenu,
+				}
+			},
+			watch: {
+				checkedindex: function() {
+					if(this.menuindex != this.checkedindex) {
+						this.isChecked = false;
+					}
+					this.subcheckedindex = this.checkedindex;
+				},
+				submenus: function(){
+					this.$emit("changesubmenus",this.submenus);
+				},
+				hideMenu:function(){
+					this.$emit("changehidemenu",this.hideMenu);
+				}
+			},
+			methods: {
+				checkEdit() {
+					console.log("checkEdit");
+					if(this.isChecked) {
+						this.isChecked = false;
+					} else {
+						this.isChecked = true;
+					}
+					this.$emit("checkedit", this.menuindex,this.menuname);
+				},
+				removeedit() {
+					console.log("removeedit");
+					console.log("this.menuindex:" + this.menuindex);
+					this.$emit("removeedit", this.menuindex);
+				},
+				//添加二级菜单
+				handleAddSubMenu() {
+					console.log('addSubMenu');
+					var menu = {
+						menuIndex: this.menuindex + '-' + (++this.submenuIndex),
+						menuName: 'menu' + this.menuindex + '-' + this.submenuIndex
+					};
+					console.log("menu:"+menu);
+					this.submenus.push(menu);
+					this.subcheckedindex = menu.menuIndex;
+					this.submenuname = menu.menuName;
+					console.log(this.submenus);
+					this.$emit("addsubmenu",menu);
+				},
+				//选择二级菜单
+				handleCheckSubMenu(menuIndex,menuname) {
+					console.log("app:submenuindex:"+menuIndex);
+					if(this.hideMenu){
+						this.hideMenu = false;
+					}
+					else{
+						if(this.checkedindex == menuIndex){
+							this.hideMenu = true;
+						}else{
+						}
+					}
+					//更新菜单编辑信息
+					this.subcheckedindex = menuIndex;
+					this.submenuname = menuname;
+					console.log("handleCheckSubMenu");
+					console.log("this.$emit('changecheckedindex',this.subcheckedindex)");
+					this.$emit("changecheckedindex",this.subcheckedindex);
+					console.log("this.$emit('changemenuitem',this.submenuname)");
+					this.$emit("changemenuitem",this.submenuname);
+				},
+				//移除二级菜单
+				handleRemoveSubMenu(menuIndex) {
+					console.log('removeSubMenu');
+					this.submenus = this.submenus.filter(menu => menu.menuIndex != menuIndex);
+					this.$emit("removesubmenu",menuIndex);
+				}
+			}
+		})
+		Vue.component('selfmenu', {
+			props: {
+				name: String,
+				editable: Boolean,
+				//				menunum:Number
 			},
 			template: '#menudisplay',
-			data:function(){
-				return{
-					defaultAction:'',
-					actions:[
-						{
-							value:'1',
-							label:'Scan QR Code'
+			data: function() {
+				return {
+					//------------------------------
+					//一级菜单属性
+					checkedindex: '0',
+					menuIndex: '0',
+					menunum: 0,
+					menuname: '',
+					topmenus: [],
+					submenus:[],
+					//-------------------------------
+					defaultAction: '',
+					hidemenu: true,
+					actions: [{
+							value: '1',
+							label: 'Scan QR Code'
 						},
 						{
-							value:'2',
-							label:'Scan QR Code'
+							value: '2',
+							label: 'Scan QR Code'
 						},
 						{
-							value:'3',
-							label:'Scan QR Code'
+							value: '3',
+							label: 'Scan QR Code'
 						},
 						{
-							value:'4',
-							label:'Scan QR Code'
+							value: '4',
+							label: 'Scan QR Code'
 						}
 					],
-					panelShow:{
-						show1:true,
-						show2:false,
-						show3:false
+					panelShow: {
+						show1: true,
+						show2: false,
+						show3: false
 					},
-					formInLine:{
-						subMenu:this.editable,
-						tabPosition:'1'
+					formInLine: {
+						subMenu: this.editable,
+						tabPosition: '1',
 					},
-					addButtonStyle:{
-						width:(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%'))),
+					inputtext:'',
+					addButtonStyle: {
+						//						width:getwidth,
 					},
 				}
 			},
-			watch:{
-				menunum:function(newValue,oldValue){
-					console.log("newValue:"+newValue);
-					console.log("oldValue:"+oldValue);
+			computed: {
+				getIndex: function() {
+					this.index = this.index + 1;
+					return this.index;
+				},
+				getwidth: function() {
+					return(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%')));
+				}
+			},
+			watch: {
+				menunum: function(newValue, oldValue) {
+					console.log("newValue:" + newValue);
+					console.log("oldValue:" + oldValue);
 					this.addButtonStyle = {
-						width:(this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%')))
+						width: (this.menunum == 0 ? '100%' : (this.menunum == 1 ? '65%' : (this.menunum == 2 ? '32%' : '0%')))
 					}
 				},
-				topmenus:function(){
+				topmenus: function() {
 					this.menunum = this.topmenus.length;
+				},
+				menuname: function(){
+					var checkedIndex = this.checkedindex;
+					var menuName = this.menuname;
+					this.topmenus.forEach(function(menu){
+						if(menu.menuIndex == checkedIndex){
+							menu.menuName = menuName;
+						}
+					});
+					this.submenus.forEach(function(menu){
+						console.log("menu:"+menu);
+						if(menu.menuIndex == checkedIndex){
+							menu.menuName = menuName;
+						}
+					})
 				}
 			},
-			methods:{
-				handleTabClick(tabIndex){
+			methods: {
+				handleTabClick(tabIndex) {
 					console.log(tabIndex);
-					switch(tabIndex){
+					switch(tabIndex) {
 						case '1':
 							{
 								this.panelShow.show1 = true;
@@ -516,52 +812,80 @@
 								this.panelShow.show3 = true;
 								break;
 							}
-						default:{
+						default:
+							{
 								this.panelShow.show1 = true;
 								this.panelShow.show2 = false;
 								this.panelShow.show3 = false;
-						}
+							}
 					}
 				},
-			addTopMenu(){
-//				this.menunum += 1;
-				this.$emit("add");
-			}
+				//添加一级菜单
+				handleAddTopMenu() {
+					console.log('addTopMenu');
+					this.menunum += 1;
+					var menu = {
+						menuIndex: ++this.menuIndex + '',
+						menuName: 'menu' + this.menuIndex
+					};
+					console.log(menu);
+					this.topmenus.push(menu);
+					this.checkedindex = menu.menuIndex+'';
+					this.menuname = menu.menuName;
+					console.log(this.topmenus);
+				},
+				//选择一级菜单
+				handleCheckTopMenu(menuIndex,menuname) {
+					console.log("app:menuindex:"+menuIndex);
+					if(this.hidemenu){
+						this.hidemenu = false;
+					}
+					else{
+						if(this.checkedindex == menuIndex){
+							this.hidemenu = true;
+						}else{
+							
+						}
+					}
+					//更新菜单编辑信息
+					this.checkedindex = menuIndex;
+					console.log("handleCheckTopMenu后的this.checkedindex:"+this.checkedindex);
+					this.menuname = menuname;
+				},
+				//移除一级菜单
+				handleRemoveTopMenu(menuIndex) {
+					console.log('removeTopMenu');
+					this.menunum -= 1;
+					this.topmenus = this.topmenus.filter(menu => menu.menuIndex != menuIndex);
+				},
+				changeCheckedIndex(checkedIndex){
+					console.log("changeCheckedIndex");
+					this.checkedindex = checkedIndex;
+					console.log("changeCheckedIndex后的this.checkedindex:"+this.checkedindex);
+				},
+				changemenuitem(menuname){
+					console.log("changemenuitem");
+					this.menuname = menuname;
+					console.log("changemenuitem后的this.menuname:" + this.menuname);
+				},
+				changeHidemenu(hidemenu){
+					this.hidemenu = hidemenu;
+				},
+				removeSubmenu(menuIndex){
+					this.submenus = this.submenus.filter(menu => menu.menuIndex != menuIndex);
+				},
+				addSubmenu(menu){
+					this.submenus.push(menu);
+				}
 			}
 		})
 		new Vue({
 			el: '#app',
 			data() {
 				return {
-					menuIndex:0,
-					menunum:0,
-					topmenus:[
-					]
-				}
-			},
-			computed:{
-				getIndex:function(){
-					this.index=this.index+1;
-					return this.index;
 				}
 			},
 			methods: {
-				handleAddTopMenu(){
-					console.log('addTopMenu');
-					this.menunum += 1;
-					var menu = {
-						menuIndex : ++this.menuIndex,
-						menuName:'menu'+this.menuIndex
-					};
-					console.log(menu);
-					this.topmenus.push(menu);
-					console.log(this.topmenus);
-				},
-				handleRemoveTopMenu(menuIndex){
-					console.log('removeTopMenu');
-					this.menunum -= 1;
-					this.topmenus = this.topmenus.filter(menu => menu.menuIndex != menuIndex);
-				}
 			},
 		})
 	</script>
