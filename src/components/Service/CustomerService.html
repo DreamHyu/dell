@@ -305,7 +305,7 @@
 							    			<div class="ServiseGroupContentRight">
 							    				<!--内容右-->
 							    				<div class="ChattingcontentZoneHistory">
-							    					<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    					<my-block v-for="detail in currentCustomer.details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    				</div>
 							    			</div>
 							    		</div>
@@ -668,57 +668,12 @@
 								    				<!--聊天列表-->
 								    				<div class="ChattingWindow-ChattingList" style="overflow-y: auto;">
 								    					<table>
-								    						<tr>
-								    							<td>
-								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
+								    						<tr v-for="customer in customers">
+								    							<td @click="changeCustomer(customer)">
+								    								<img :src="customer.image" class="ChattingWindow-imgFloatLeft"/>
 												    				<span>
-												    					<h4><b>客服名字1</b></h4>
-												    					<h6>展示聊天第一句话</h6>
-												    				</span>
-								    							</td>
-								    						</tr>
-								    						<tr>
-								    							<td>
-								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
-												    				<span>
-												    					<h4><b>客服名字1</b></h4>
-												    					<h6>展示聊天第一句话</h6>
-												    				</span>
-								    							</td>
-								    						</tr>
-								    						<tr>
-								    							<td>
-								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
-												    				<span>
-												    					<h4><b>客服名字1</b></h4>
-												    					<h6>展示聊天第一句话</h6>
-												    				</span>
-								    							</td>
-								    						</tr>
-								    						<tr>
-								    							<td>
-								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
-												    				<span>
-												    					<h4><b>客服名字1</b></h4>
-												    					<h6>展示聊天第一句话</h6>
-												    				</span>
-								    							</td>
-								    						</tr>
-								    						<tr>
-								    							<td>
-								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
-												    				<span>
-												    					<h4><b>客服名字1</b></h4>
-												    					<h6>展示聊天第一句话</h6>
-												    				</span>
-								    							</td>
-								    						</tr>
-								    						<tr>
-								    							<td>
-								    								<img src="../../images/UserMg1.png" class="ChattingWindow-imgFloatLeft"/>
-												    				<span>
-												    					<h4><b>客服名字1</b></h4>
-												    					<h6>展示聊天第一句话</h6>
+												    					<h4><b>{{customer.name}}</b></h4>
+												    					<h6>{{customer.firstChattingContent}}</h6>
 												    				</span>
 								    							</td>
 								    						</tr>
@@ -778,7 +733,7 @@
 							    					</div>
 							    					<!--聊天内容区-->
 							    					<div ref="chattingContent" style="height:100%;padding: 20px;overflow-y: auto;overflow-x: hidden;">
-							    						<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    						<my-block v-for="detail in currentCustomer.details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    					</div>
 							    				</div>
 							    				<!--中中-->
@@ -791,19 +746,6 @@
 							    				</div>
 							    				<!--中下-->
 							    				<div class="ChattingWindow-middleDivDown">
-							    					<!--<div class="message" v-scroll-bottom="session.messages">
-													    <ul v-if="session">
-													        <li v-for="item in session.messages">
-													            <p class="time">
-													                <span>{{ item.date | time }}</span>
-													            </p>
-													            <div class="main" :class="{ self: item.self }">
-													                <img class="avatar" width="30" height="30" :src="item.self ? user.img : session.user.img" />
-													                <div class="text">{{ item.content }}</div>
-													            </div>
-													        </li>
-													    </ul>
-													</div>-->
 													<el-input type="textarea" v-model="msgToBeSend" @keyup.native="onKeyup" placeholder="按ctrl+Enter发送消息"></el-input>
 							    					<el-button type="success" class="ChattingWindow-middleDivDown-button" size="mini" @click="sendMsg">发送</el-button>
 							    				</div>
@@ -873,13 +815,12 @@
 							    				<!--右下-->
 							    				<div class="ChattingWindow-rightDivDown" >
 							    					<div style="height:100%;overflow-y: auto;">
-							    						<p>{{response1}}</p>
-							    						<hr class="hr"/>
-							    						<p>{{response2}}</p>
-							    						<hr class="hr"/>
-							    						<p>{{response3}}</p>
+							    						<div v-for="item in quickResponses" @click="checkQuickResponseMsg(item)">
+							    							<p :class="{isResponseChecked:item.checked}">{{item.responseMsg}}</p>
+							    							<hr class="hr"/>
+							    						</div>
 							    					</div>
-							    					<el-button type="success" class="ChattingWindow-rightDivDownButton" size="mini">使用</el-button>
+							    					<el-button type="success" class="ChattingWindow-rightDivDownButton" size="mini" @click="sendQuickResponseMsg">使用</el-button>
 							    				</div>
 							    			</div>
 							    		</div>
@@ -898,24 +839,15 @@
 							    					<form>
 							    						<h4>座席</h4>
 							    						<select>
-							    							<option class="Option">座席1</option>
-							    							<option>座席1</option>
-							    							<option>座席1</option>
-							    							<option>座席1</option>
+							    							<option v-for="item in options">{{item.option}}</option>
 							    						</select>
 							    						<h4>标签</h4>
 							    						<select>
-							    							<option>标签1</option>
-							    							<option>标签1</option>
-							    							<option>标签1</option>
-							    							<option>标签1</option>
+							    							<option v-for='item in tabs'>{{item.tab}}</option>
 							    						</select>
 							    						<h4>时间</h4>
 							    						<select>
-							    							<option>time1</option>
-							    							<option>time1</option>
-							    							<option>time1</option>
-							    							<option>time1</option>
+							    							<option v-for="item in times">{{item.time}}</option>
 							    						</select>
 							    						<h4>关键字</h4>
 							    						<input type="text" />
@@ -940,55 +872,12 @@
 							    							</tr>
 							    						</thead>
 							    						<tbody>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
+							    							<tr v-for="item in records">
+							    								<td>{{item.ChatID}}</td>
+							    								<td>{{item.name}}</td>
+							    								<td>{{item.info}}</td>
+							    								<td>{{item.datetime}}</td>
 							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							<tr>
-							    								<td>123157</td>
-							    								<td>Jesse</td>
-							    								<td>Charre/A3</td>
-							    								<td>2018/05/02</td>
-							    							</tr>
-							    							
 							    						</tbody>
 							    					</table>
 							    				</div>
@@ -1000,7 +889,7 @@
 							    				</div>
 							    				<hr class="hr" />
 							    				<div class="ChattingcontentZoneHistory">
-							    					<my-block v-for="detail in details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
+							    					<my-block v-for="detail in currentCustomer.details" :img="detail.img" :type="detail.type" :time="detail.time" :message="detail.message"></my-block>
 							    				</div>
 							    			</div>
 							    		</div>
@@ -1057,47 +946,127 @@
 					visible7: false,visible8: false,
 					visible9: false,visible10: false,
 					visible11: false,visible12: false,
-					response1:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
-					response2:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
-					response3:'请您就本次服务完成客户满意度调查',
+					//聊天窗口数据
+					//快捷回复
+					checkedResponse:{},
+					quickResponses:[
+						{
+							responseMsg:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
+							checked:false
+						},
+						{
+							responseMsg:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
+							checked:false
+						},
+						{
+							responseMsg:'请您就本次服务完成客户满意度调查',
+							checked:false
+						},
+						{
+							responseMsg:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
+							checked:false
+						},
+						{
+							responseMsg:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
+							checked:false
+						},
+						{
+							responseMsg:'请您就本次服务完成客户满意度调查',
+							checked:false
+						}
+					],
 					msgToBeSend:'',
 					newDate:new Date(),
-					details:[
-					{
-						type:'customer',
-						time:'2018/05/02 17:03',
-						img:'../../images/MemberList2.png',
-						message:'您好'
-					},
-					{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'../../images/UserMg3.png',
-						message:'您也好'
-					},
-					{
-						type:'customer',
-						time:'2018/05/02 17:03',
-						img:'../../images/MemberList2.png',
-						message:'您好'
-					},
-					{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'../../images/UserMg3.png',
-						message:'您也好'
-					},
-					{
-						type:'customer',
-						time:'2018/05/02 17:03',
-						img:'../../images/MemberList2.png',
-						message:'您好'
-					},{
-						type:'server',
-						time:'2018/05/02 17:03',
-						img:'../../images/UserMg3.png',
-						message:'您也好'
-					}],
+					customers:[
+						{
+							image:'../../images/UserMg1.png',
+							name:'客户1',
+							firstChattingContent:'聊天第一句话',
+							//聊天记录
+							details:[
+							{
+								type:'customer',
+								time:'2018/05/02 17:03',
+								img:'../../images/MemberList2.png',
+								message:'您好1'
+							},
+							{
+								type:'server',
+								time:'2018/05/02 17:03',
+								img:'../../images/UserMg3.png',
+								message:'您也好1'
+							},
+							{
+								type:'customer',
+								time:'2018/05/02 17:03',
+								img:'../../images/MemberList2.png',
+								message:'您好1'
+							},
+							{
+								type:'server',
+								time:'2018/05/02 17:03',
+								img:'../../images/UserMg3.png',
+								message:'您也好1'
+							},
+							{
+								type:'customer',
+								time:'2018/05/02 17:03',
+								img:'../../images/MemberList2.png',
+								message:'您好1'
+							},{
+								type:'server',
+								time:'2018/05/02 17:03',
+								img:'../../images/UserMg3.png',
+								message:'您也好1'
+							}],
+						},
+						{
+							image:'../../images/UserMg1.png',
+							name:'客户1',
+							firstChattingContent:'聊天第一句话',
+							//聊天记录
+							details:[
+								{
+									type:'customer',
+									time:'2018/05/02 17:03',
+									img:'../../images/MemberList2.png',
+									message:'您好2'
+								},
+								{
+									type:'server',
+									time:'2018/05/02 17:03',
+									img:'../../images/UserMg3.png',
+									message:'您也好2'
+								},
+								{
+									type:'customer',
+									time:'2018/05/02 17:03',
+									img:'../../images/MemberList2.png',
+									message:'您好2'
+								},
+								{
+									type:'server',
+									time:'2018/05/02 17:03',
+									img:'../../images/UserMg3.png',
+									message:'您也好2'
+								},
+								{
+									type:'customer',
+									time:'2018/05/02 17:03',
+									img:'../../images/MemberList2.png',
+									message:'您好2'
+								},
+								{
+									type:'server',
+									time:'2018/05/02 17:03',
+									img:'../../images/UserMg3.png',
+									message:'您也好2'
+								}
+							],
+						},
+					],
+					//当前聊天记录
+					currentCustomer:{},
 					dialogFormVisible: false,
 		        	dialogFormVisible1: false,
 		        	dialogFormVisible2: false,
@@ -1223,17 +1192,34 @@
 			          label: 'A10'
 			        }],
 			        selectedOptions3: ['groupB', 'b1'],
-			        formLabelWidth: '120px'
-							
+			        formLabelWidth: '120px',
+					//聊天历史数据
+					//1.筛选条件
+					options:[
+						{
+							option:'座席1'
+						}
+					],
+					tabs:[
+						{
+							tab:'标签1'
+						}
+					],
+					times:[
+						{
+							time:'2017/4/5'
+						}
+					],
+					//2.聊天记录
+					records:[
+						{
+							ChatID:'123455',
+							name:'Jesse',
+							info:'Charre/A3',
+							datetime:'2018/05/02'
+						}
+					]
 				};
-			},
-			watch:{
-				details:function(){
-					this.$nextTick(function(){
-						var chattingContent = this.$refs.chattingContent;
-						chattingContent.scrollTop = chattingContent.scrollHeight;
-					})
-				}
 			},
 			filters: {
 			    formatDate(time) {
@@ -1250,6 +1236,15 @@
 		                this.sendMsg();
 		            }
 		        },
+		        changeCustomer(customer){
+		        	this.currentCustomer = customer;
+		        },
+		        refresh(){
+		        		this.$nextTick(function(){
+							var chattingContent = this.$refs.chattingContent;
+							chattingContent.scrollTop = chattingContent.scrollHeight;
+						});
+		        },
 				sendMsg(){
 					if(this.msgToBeSend.length){
 						var newDetail = {
@@ -1258,8 +1253,36 @@
 							time:this.formatDate(new Date(),"yyyy-MM-dd hh:mm:ss"),
 							message:this.msgToBeSend,
 						};
-						this.details.push(newDetail);
+						this.currentCustomer.details.push(newDetail);
 						this.msgToBeSend='';
+						this.refresh();
+					}
+				},
+				sendQuickResponseMsg(){
+					if(!this.checkedResponse.checked){
+						this.$message({
+							type:'info',
+							message:'还未选择快捷回复信息！'
+						});
+						return;
+					}else{
+						this.msgToBeSend = this.checkedResponse.responseMsg;
+//						this.sendMsg();
+					}
+				},
+				//选择快捷回复信息
+				checkQuickResponseMsg(checkedItem){
+					for(var i = 0; i < this.quickResponses.length; i++){
+						if(this.quickResponses[i].checked && this.quickResponses[i] != checkedItem){
+							this.quickResponses[i].checked = false;
+						}
+					}
+					if(checkedItem.checked){
+						checkedItem.checked = false;
+						this.checkedResponse = {};
+					}else{
+						checkedItem.checked = true;
+						this.checkedResponse = checkedItem;
 					}
 				},
 				formatDate(date,fmt){
