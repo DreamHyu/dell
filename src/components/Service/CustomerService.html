@@ -322,250 +322,30 @@
 									    		</div>
 									    		<!--分割线-->
 									    		<hr class="hr" />
-									    		
 									    		<!--列表区-->
-									    		<table class="WaitingQueue-list">
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
+									    		<div class="WaitingQueue-list">
+									    			<div v-for="item in waitingQueueList" class="waitingQueue-item">
+									    					<img :src="item.image1" class="WaitingQueue-imgFloatLeft"/>
 									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
+									    						<h3>{{item.name}}</h3>
+									    						<h6>{{item.firstChattingContent}}</h6>
 									    					</span>
-									    					<el-popover
-															  ref="popover1"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible1">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible1 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible1 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover1 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover2"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible2">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible2 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible2 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover2 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover3"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible3">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible3 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible3 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover3 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover4"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible4">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible4 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible4 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover4 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover5"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible5">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible5 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible5 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover5 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover6"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible6">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible6 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible6 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover6 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover7"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible7">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible7 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible7 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover7 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover8"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible8">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible8 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible8 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover8 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover9"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible9">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible9 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible9 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover9 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover10"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible10">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible10 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible10 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover10 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    			<tr>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover11"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible11">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible11 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible11 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover11 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    				<td>
-									    					<img src="../../images/MemberList2.png" class="WaitingQueue-imgFloatLeft"/>
-									    					<span>
-									    						<h3>Derrick</h3>
-									    						<h6>展示聊天第一句话</h6>
-									    					</span>
-									    					<el-popover
-															  ref="popover12"
-															  placement="bottom"
-															  width="200"
-															  v-model="visible12">
-															  <p>是否开始会话？</p>
-															  <div style="text-align: center; margin: 0 auto">
-															    <el-button type="primary" size="mini" @click="visible12 = false">取消</el-button>
-															    <el-button type="success" size="mini" @click="visible12 = false">确定</el-button>
-															  </div>
-															</el-popover>
-									    					<img v-popover:popover12 src="../../images/forward.png" class="WaitingQueue-imgFloatRight"/>
-									    				</td>
-									    			</tr>
-									    		</table>
+															<div class="WaitingQueue-imgFloatRight">
+																<el-popover
+																  placement="bottom"
+																  width="200"
+																  trigger="click"
+																  v-model="item.popoverVisible">
+																  <p>是否开始会话？</p>
+																  <div style="text-align: center; margin: 0 auto">
+																    <el-button type="primary" size="mini" @click="cancelSession(item)">取消</el-button>
+																    <el-button type="success" size="mini" @click="approveSession(item)">确定</el-button>
+																  </div>
+																  <img :src="item.image2" width="32px" slot="reference" title="开始回话"/>
+																</el-popover>
+															</div>
+									    			</div>
+									    		</div>
 									    	</div>
 									    	<!--rightDiv-->
 									    	<div class="WaitingQueue-rightDiv">
@@ -582,58 +362,23 @@
 														    <el-tab-pane label="基本信息" name="first">
 														    	<div class="WaitingQueue-tableWrapper" style="overflow-y: auto;">
 														    		<table class="WaitingQueue-basicInfo">
-														    			<tr>
-														    				<td>地址</td>
-														    				<td>重庆</td>
-														    			</tr>
-														    			<tr>
-														    				<td>客户名</td>
-														    				<td>daniel</td>
-														    			</tr>
-														    			<tr>
-														    				<td>关注日期</td>
-														    				<td>01/02/2018</td>
-														    			</tr>
-														    			<tr>
-														    				<td>公众号</td>
-														    				<td>哈哈哈哈</td>
-														    			</tr>
-														    			<tr>
-														    				<td>语言</td>
-														    				<td>中文</td>
-														    			</tr>
-														    			<tr>
-														    				<td>城市</td>
-														    				<td>重庆</td>
-														    			</tr>
-														    			<tr>
-														    				<td>省份</td>
-														    				<td></td>
-														    			</tr>
-														    			<tr>
-														    				<td>电话</td>
-														    				<td>110</td>
-														    			</tr>
-														    			<tr>
-														    				<td></td>
-														    				<td></td>
-														    			</tr>
-														    			<tr>
-														    				<td></td>
-														    				<td></td>
-														    			</tr>
-														    			<tr>
-														    				<td></td>
-														    				<td></td>
-														    			</tr>
-														    			<tr>
-														    				<td></td>
-														    				<td></td>
+														    			<tr v-for="item in basicInfos">
+														    				<td>{{item.title}}</td>
+														    				<td>{{item.detail}}</td>
 														    			</tr>
 														    		</table>
 														    	</div>
 														    </el-tab-pane>
-														    <el-tab-pane label="会员信息" name="second">会员信息</el-tab-pane>
+														    <el-tab-pane label="会员信息" name="second">
+														    	<div class="WaitingQueue-tableWrapper" style="overflow-y: auto;">
+														    		<table class="WaitingQueue-basicInfo">
+														    			<tr v-for="item in vipInfos">
+														    				<td>{{item.title}}</td>
+														    				<td>{{item.detail}}</td>
+														    			</tr>
+														    		</table>
+														    	</div>
+														    </el-tab-pane>
 														  </el-tabs>
 														</template>
 										    		</div>
@@ -927,393 +672,443 @@
 		</div>
 	</script>
 	
-	<script>
-		Vue.component("my-block",
-		{
-			props:['type','time','message','img'],
-			template:"#myBlock"
-		})
-		new Vue({
-			el: '#app',
-			data() {
-				return {
-					value:"",
-					menu1:"first",
-					menu2:"first",
-					visible1: false,visible2: false,
-					visible3: false,visible4: false,
-					visible5: false,visible6: false,
-					visible7: false,visible8: false,
-					visible9: false,visible10: false,
-					visible11: false,visible12: false,
-					//聊天窗口数据
-					//快捷回复
-					checkedResponse:{},
-					quickResponses:[
-						{
-							responseMsg:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
-							checked:false
-						},
-						{
-							responseMsg:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
-							checked:false
-						},
-						{
-							responseMsg:'请您就本次服务完成客户满意度调查',
-							checked:false
-						},
-						{
-							responseMsg:'您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
-							checked:false
-						},
-						{
-							responseMsg:'感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
-							checked:false
-						},
-						{
-							responseMsg:'请您就本次服务完成客户满意度调查',
-							checked:false
-						}
-					],
-					msgToBeSend:'',
-					newDate:new Date(),
-					customers:[
-						{
-							image:'../../images/UserMg1.png',
-							name:'客户1',
-							firstChattingContent:'聊天第一句话',
-							//聊天记录
-							details:[
-							{
-								type:'customer',
-								time:'2018/05/02 17:03',
-								img:'../../images/MemberList2.png',
-								message:'您好1'
-							},
-							{
-								type:'server',
-								time:'2018/05/02 17:03',
-								img:'../../images/UserMg3.png',
-								message:'您也好1'
-							},
-							{
-								type:'customer',
-								time:'2018/05/02 17:03',
-								img:'../../images/MemberList2.png',
-								message:'您好1'
-							},
-							{
-								type:'server',
-								time:'2018/05/02 17:03',
-								img:'../../images/UserMg3.png',
-								message:'您也好1'
-							},
-							{
-								type:'customer',
-								time:'2018/05/02 17:03',
-								img:'../../images/MemberList2.png',
-								message:'您好1'
-							},{
-								type:'server',
-								time:'2018/05/02 17:03',
-								img:'../../images/UserMg3.png',
-								message:'您也好1'
-							}],
-						},
-						{
-							image:'../../images/UserMg1.png',
-							name:'客户1',
-							firstChattingContent:'聊天第一句话',
-							//聊天记录
-							details:[
-								{
-									type:'customer',
-									time:'2018/05/02 17:03',
-									img:'../../images/MemberList2.png',
-									message:'您好2'
-								},
-								{
-									type:'server',
-									time:'2018/05/02 17:03',
-									img:'../../images/UserMg3.png',
-									message:'您也好2'
-								},
-								{
-									type:'customer',
-									time:'2018/05/02 17:03',
-									img:'../../images/MemberList2.png',
-									message:'您好2'
-								},
-								{
-									type:'server',
-									time:'2018/05/02 17:03',
-									img:'../../images/UserMg3.png',
-									message:'您也好2'
-								},
-								{
-									type:'customer',
-									time:'2018/05/02 17:03',
-									img:'../../images/MemberList2.png',
-									message:'您好2'
-								},
-								{
-									type:'server',
-									time:'2018/05/02 17:03',
-									img:'../../images/UserMg3.png',
-									message:'您也好2'
-								}
-							],
-						},
-					],
-					//当前聊天记录
-					currentCustomer:{},
-					dialogFormVisible: false,
-		        	dialogFormVisible1: false,
-		        	dialogFormVisible2: false,
-		        	dialogFormVisible3: false,
-		        	dialogFormVisible4: false,
-		        	dialogFormVisible5: false,
-			        options: [{
-			          value: 'groupA',
-			          label: '小组A',
-			          children: [{
-			            value: 'a1',
-			            label: 'A1'
-			          }, {
-			            value: 'a2',
-			            label: 'A2'
-			          },
-			          {
-			            value: 'a3',
-			            label: 'A3'
-			          },
-			          {
-			            value: 'a4',
-			            label: 'A4'
-			          },
-			          {
-			            value: 'a5',
-			            label: 'A5'
-			          },
-			          {
-			            value: 'a6',
-			            label: 'A6'
-			          },
-			          {
-			            value: 'a7',
-			            label: 'A7'
-			          },
-			          {
-			            value: 'a8',
-			            label: 'A8'
-			          },
-			          {
-			            value: 'a9',
-			            label: 'A9'
-			          },
-			          {
-			            value: 'a10',
-			            label: 'A10'
-			          }]
-			        },{
-			          value: 'groupB',
-			          label: '小组B',
-			          children: [{
-			            value: 'b1',
-			            label: 'B1'
-			          }, {
-			            value: 'b2',
-			            label: 'B2'
-			          },
-			          {
-			            value: 'b3',
-			            label: 'B3'
-			          },
-			          {
-			            value: 'b4',
-			            label: 'B4'
-			          },
-			          {
-			            value: 'b5',
-			            label: 'B5'
-			          },
-			          {
-			            value: 'b6',
-			            label: 'B6'
-			          },
-			          {
-			            value: 'b7',
-			            label: 'B7'
-			          },
-			          {
-			            value: 'b8',
-			            label: 'B8'
-			          },
-			          {
-			            value: 'b9',
-			            label: 'B9'
-			          },
-			          {
-			            value: 'b10',
-			            label: 'B10'
-			          }]
-			        }
-			        ],
-			        value: "",
-			        options: [{
-			          value: '选项1',
-			          label: 'A1'
-			        }, {
-			          value: '选项2',
-			          label: 'A2'
-			        }, {
-			          value: '选项3',
-			          label: 'A3'
-			        }, {
-			          value: '选项4',
-			          label: 'A4'
-			        }, {
-			          value: '选项5',
-			          label: 'A5'
-			        }, {
-			          value: '选项6',
-			          label: 'A6'
-			        }, {
-			          value: '选项7',
-			          label: 'A7'
-			        }, {
-			          value: '选项8',
-			          label: 'A8'
-			        }, {
-			          value: '选项9',
-			          label: 'A9'
-			        }, {
-			          value: '选项10',
-			          label: 'A10'
-			        }],
-			        selectedOptions3: ['groupB', 'b1'],
-			        formLabelWidth: '120px',
-					//聊天历史数据
-					//1.筛选条件
-					options:[
-						{
-							option:'座席1'
-						}
-					],
-					tabs:[
-						{
-							tab:'标签1'
-						}
-					],
-					times:[
-						{
-							time:'2017/4/5'
-						}
-					],
-					//2.聊天记录
-					records:[
-						{
-							ChatID:'123455',
-							name:'Jesse',
-							info:'Charre/A3',
-							datetime:'2018/05/02'
-						}
-					]
-				};
-			},
-			filters: {
-			    formatDate(time) {
-			      var date = new Date(time);
-			      return this.formatDate(time, "yyyy-MM-dd hh:mm:ss");
-			    }
-			},
-			methods: {
-				handleClick(){
-					
+	<script>Vue.component("my-block", {
+	props: ['type', 'time', 'message', 'img'],
+	template: "#myBlock"
+})
+new Vue({
+	el: '#app',
+	data() {
+		return {
+			value: "",
+			menu1: "first",
+			menu2: "first",
+			//聊天窗口数据
+			//快捷回复
+			checkedResponse: {},
+			quickResponses: [{
+					responseMsg: '您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
+					checked: false
 				},
-				onKeyup (e) {
-		            if (e.keyCode === 13 && e.ctrlKey && this.msgToBeSend.length) {
-		                this.sendMsg();
-		            }
-		        },
-		        changeCustomer(customer){
-		        	this.currentCustomer = customer;
-		        },
-		        refresh(){
-		        		this.$nextTick(function(){
-							var chattingContent = this.$refs.chattingContent;
-							chattingContent.scrollTop = chattingContent.scrollHeight;
-						});
-		        },
-				sendMsg(){
-					if(this.msgToBeSend.length){
-						var newDetail = {
-							img:'../../images/UserMg3.png',
-							type:'server',
-							time:this.formatDate(new Date(),"yyyy-MM-dd hh:mm:ss"),
-							message:this.msgToBeSend,
-						};
-						this.currentCustomer.details.push(newDetail);
-						this.msgToBeSend='';
-						this.refresh();
+				{
+					responseMsg: '感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
+					checked: false
+				},
+				{
+					responseMsg: '请您就本次服务完成客户满意度调查',
+					checked: false
+				},
+				{
+					responseMsg: '您好，欢迎访问SCRM，我是一号客服，很高兴为您服务!',
+					checked: false
+				},
+				{
+					responseMsg: '感谢您选择SCRM，您反应的问题已经备案，请您稍后我方工作人员来电',
+					checked: false
+				},
+				{
+					responseMsg: '请您就本次服务完成客户满意度调查',
+					checked: false
+				}
+			],
+			msgToBeSend: '',
+			newDate: new Date(),
+			//客户集合
+			customers: [{
+					image: '../../images/UserMg1.png',
+					name: '客户1',
+					firstChattingContent: '聊天第一句话',
+					//聊天记录
+					details: [{
+							type: 'customer',
+							time: '2018/05/02 17:03',
+							img: '../../images/MemberList2.png',
+							message: '您好1'
+						},
+						{
+							type: 'server',
+							time: '2018/05/02 17:03',
+							img: '../../images/UserMg3.png',
+							message: '您也好1'
+						},
+						{
+							type: 'customer',
+							time: '2018/05/02 17:03',
+							img: '../../images/MemberList2.png',
+							message: '您好1'
+						},
+						{
+							type: 'server',
+							time: '2018/05/02 17:03',
+							img: '../../images/UserMg3.png',
+							message: '您也好1'
+						},
+						{
+							type: 'customer',
+							time: '2018/05/02 17:03',
+							img: '../../images/MemberList2.png',
+							message: '您好1'
+						}, {
+							type: 'server',
+							time: '2018/05/02 17:03',
+							img: '../../images/UserMg3.png',
+							message: '您也好1'
+						}
+					],
+				},
+				{
+					image: '../../images/UserMg1.png',
+					name: '客户1',
+					firstChattingContent: '聊天第一句话',
+					//聊天记录
+					details: [{
+							type: 'customer',
+							time: '2018/05/02 17:03',
+							img: '../../images/MemberList2.png',
+							message: '您好2'
+						},
+						{
+							type: 'server',
+							time: '2018/05/02 17:03',
+							img: '../../images/UserMg3.png',
+							message: '您也好2'
+						},
+						{
+							type: 'customer',
+							time: '2018/05/02 17:03',
+							img: '../../images/MemberList2.png',
+							message: '您好2'
+						},
+						{
+							type: 'server',
+							time: '2018/05/02 17:03',
+							img: '../../images/UserMg3.png',
+							message: '您也好2'
+						},
+						{
+							type: 'customer',
+							time: '2018/05/02 17:03',
+							img: '../../images/MemberList2.png',
+							message: '您好2'
+						},
+						{
+							type: 'server',
+							time: '2018/05/02 17:03',
+							img: '../../images/UserMg3.png',
+							message: '您也好2'
+						}
+					],
+				},
+			],
+			//当前聊天记录
+			currentCustomer: {},
+			//等待队列
+			waitingQueueList: [{
+					image1: '../../images/MemberList2.png',
+					image2: '../../images/forward.png',
+					name: 'Derrik',
+					firstChattingContent: '展示聊天第一句话',
+					popover: 'popover1',
+					popoverVisible: false
+				},
+				{
+					image1: '../../images/MemberList2.png',
+					image2: '../../images/forward.png',
+					name: 'Derrik',
+					firstChattingContent: '展示聊天第一句话',
+					popover: 'popover2',
+					popoverVisible: false
+				},
+				{
+					image1: '../../images/MemberList2.png',
+					image2: '../../images/forward.png',
+					name: 'Derrik',
+					firstChattingContent: '展示聊天第一句话',
+					popover: 'popover3',
+					popoverVisible: false
+				}
+			],
+			//基本信息
+			basicInfos:[
+				{
+					title:'地址',
+					detail:'重庆'
+				}
+			],
+			//会员信息
+			vipInfos:[
+				{
+					title:'等级',
+					detail:'vip1'
+				}
+			],
+			//座席小组
+			dialogFormVisible: false,
+			dialogFormVisible1: false,
+			dialogFormVisible2: false,
+			dialogFormVisible3: false,
+			dialogFormVisible4: false,
+			dialogFormVisible5: false,
+			options: [{
+				value: 'groupA',
+				label: '小组A',
+				children: [{
+						value: 'a1',
+						label: 'A1'
+					}, {
+						value: 'a2',
+						label: 'A2'
+					},
+					{
+						value: 'a3',
+						label: 'A3'
+					},
+					{
+						value: 'a4',
+						label: 'A4'
+					},
+					{
+						value: 'a5',
+						label: 'A5'
+					},
+					{
+						value: 'a6',
+						label: 'A6'
+					},
+					{
+						value: 'a7',
+						label: 'A7'
+					},
+					{
+						value: 'a8',
+						label: 'A8'
+					},
+					{
+						value: 'a9',
+						label: 'A9'
+					},
+					{
+						value: 'a10',
+						label: 'A10'
 					}
-				},
-				sendQuickResponseMsg(){
-					if(!this.checkedResponse.checked){
-						this.$message({
-							type:'info',
-							message:'还未选择快捷回复信息！'
-						});
-						return;
-					}else{
-						this.msgToBeSend = this.checkedResponse.responseMsg;
-//						this.sendMsg();
+				]
+			}, {
+				value: 'groupB',
+				label: '小组B',
+				children: [{
+						value: 'b1',
+						label: 'B1'
+					}, {
+						value: 'b2',
+						label: 'B2'
+					},
+					{
+						value: 'b3',
+						label: 'B3'
+					},
+					{
+						value: 'b4',
+						label: 'B4'
+					},
+					{
+						value: 'b5',
+						label: 'B5'
+					},
+					{
+						value: 'b6',
+						label: 'B6'
+					},
+					{
+						value: 'b7',
+						label: 'B7'
+					},
+					{
+						value: 'b8',
+						label: 'B8'
+					},
+					{
+						value: 'b9',
+						label: 'B9'
+					},
+					{
+						value: 'b10',
+						label: 'B10'
 					}
-				},
-				//选择快捷回复信息
-				checkQuickResponseMsg(checkedItem){
-					for(var i = 0; i < this.quickResponses.length; i++){
-						if(this.quickResponses[i].checked && this.quickResponses[i] != checkedItem){
-							this.quickResponses[i].checked = false;
-						}
-					}
-					if(checkedItem.checked){
-						checkedItem.checked = false;
-						this.checkedResponse = {};
-					}else{
-						checkedItem.checked = true;
-						this.checkedResponse = checkedItem;
-					}
-				},
-				formatDate(date,fmt){
-				    if(/(y+)/.test(fmt)){
-				        fmt = fmt.replace(RegExp.$1, (date.getFullYear()+'').substr(4-RegExp.$1.length));
-				    }
-				    let o = {
-				        'M+': date.getMonth()+1,
-				        'd+': date.getDate(),
-				        'h+': date.getHours(),
-				        'm+': date.getMinutes(),
-				        's+': date.getSeconds()
-				    }
-				    for(let k in o){    
-				        let str = o[k]+'';
-				        if(new RegExp(`(${k})`).test(fmt)){
-				            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length===1)?str:this.padLeftZero(str));
-				        }
-				    }
-				    return fmt;
-				},
-				padLeftZero(str){
-				    return ('00'+str).substr(str.length);
-				},
-				
-				open(){
-					this.dialogFormVisible = false;
-					this.dialogFormVisible2 = true;
-				},
+				]
+			}],
+			value: "",
+			options: [{
+				value: '选项1',
+				label: 'A1'
+			}, {
+				value: '选项2',
+				label: 'A2'
+			}, {
+				value: '选项3',
+				label: 'A3'
+			}, {
+				value: '选项4',
+				label: 'A4'
+			}, {
+				value: '选项5',
+				label: 'A5'
+			}, {
+				value: '选项6',
+				label: 'A6'
+			}, {
+				value: '选项7',
+				label: 'A7'
+			}, {
+				value: '选项8',
+				label: 'A8'
+			}, {
+				value: '选项9',
+				label: 'A9'
+			}, {
+				value: '选项10',
+				label: 'A10'
+			}],
+			selectedOptions3: ['groupB', 'b1'],
+			formLabelWidth: '120px',
+			//聊天历史数据
+			//1.筛选条件
+			options: [{
+				option: '座席1'
+			}],
+			tabs: [{
+				tab: '标签1'
+			}],
+			times: [{
+				time: '2017/4/5'
+			}],
+			//2.聊天记录
+			records: [{
+				ChatID: '123455',
+				name: 'Jesse',
+				info: 'Charre/A3',
+				datetime: '2018/05/02'
+			}]
+		};
+	},
+	filters: {
+		formatDate(time) {
+			var date = new Date(time);
+			return this.formatDate(time, "yyyy-MM-dd hh:mm:ss");
+		}
+	},
+	methods: {
+		handleClick() {
+
+		},
+		onKeyup(e) {
+			if(e.keyCode === 13 && e.ctrlKey && this.msgToBeSend.length) {
+				this.sendMsg();
 			}
-		})
-	</script>
+		},
+		//改变当前会话对象
+		changeCustomer(customer) {
+			this.currentCustomer = customer;
+		},
+		//刷新
+		refresh() {
+			this.$nextTick(function() {
+				var chattingContent = this.$refs.chattingContent;
+				chattingContent.scrollTop = chattingContent.scrollHeight;
+			});
+		},
+		//发送信息
+		sendMsg() {
+			if(this.msgToBeSend.length) {
+				var newDetail = {
+					img: '../../images/UserMg3.png',
+					type: 'server',
+					time: this.formatDate(new Date(), "yyyy-MM-dd hh:mm:ss"),
+					message: this.msgToBeSend,
+				};
+				this.currentCustomer.details.push(newDetail);
+				this.msgToBeSend = '';
+				this.refresh();
+			}
+		},
+		//发送快捷回复消息
+		sendQuickResponseMsg() {
+			if(!this.checkedResponse.checked) {
+				this.$message({
+					type: 'info',
+					message: '还未选择快捷回复信息！'
+				});
+				return;
+			} else {
+				this.msgToBeSend = this.checkedResponse.responseMsg;
+				//						this.sendMsg();
+			}
+		},
+		//选择快捷回复信息
+		checkQuickResponseMsg(checkedItem) {
+			for(var i = 0; i < this.quickResponses.length; i++) {
+				if(this.quickResponses[i].checked && this.quickResponses[i] != checkedItem) {
+					this.quickResponses[i].checked = false;
+				}
+			}
+			if(checkedItem.checked) {
+				checkedItem.checked = false;
+				this.checkedResponse = {};
+			} else {
+				checkedItem.checked = true;
+				this.checkedResponse = checkedItem;
+			}
+		},
+		//取消会话
+		cancelSession(item){
+			item.popoverVisible = false;
+			//取消会话
+			//.....
+			
+			this.$message({
+				type:'info',
+				message:'会话已取消'
+			})
+		},
+		//开始会话
+		approveSession(item){
+			item.popoverVisible = false;
+			//开始会话
+			//.....
+			
+			this.$message({
+				type:'info',
+				message:'会话已开始'
+			})
+		},
+		//格式化日期
+		formatDate(date, fmt) {
+			if(/(y+)/.test(fmt)) {
+				fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+			}
+			let o = {
+				'M+': date.getMonth() + 1,
+				'd+': date.getDate(),
+				'h+': date.getHours(),
+				'm+': date.getMinutes(),
+				's+': date.getSeconds()
+			}
+			for(let k in o) {
+				let str = o[k] + '';
+				if(new RegExp(`(${k})`).test(fmt)) {
+					fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : this.padLeftZero(str));
+				}
+			}
+			return fmt;
+		},
+		padLeftZero(str) {
+			return('00' + str).substr(str.length);
+		},
+
+		open() {
+			this.dialogFormVisible = false;
+			this.dialogFormVisible2 = true;
+		},
+	}
+})</script>
 
 </html>

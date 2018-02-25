@@ -239,13 +239,20 @@ hr{
 	height: 70%;
 	margin: 0 auto;
 }
-table.WaitingQueue-list {
+.waitingQueue-item{
+	display: inline-block;
+	height: 10%;
+	width: 50%;
+	position: relative;
+	margin-top: 2%;
+}
+/*table.WaitingQueue-list {
 	border-collapse: collapse;
 }
 table.WaitingQueue-list tr td{
 	position: relative;
 	width: 50%;
-}
+}*/
 .WaitingQueue-imgFloatLeft{
 	position: absolute;
 	top: 50%;
@@ -267,6 +274,16 @@ table.WaitingQueue-list span{
 	left: 18%;
 	transform: translateY(-50%);
 	display: block;
+}
+.waitingQueue-item span{
+	position: absolute;
+	top: 50%;
+	left: 18%;
+	transform: translateY(-50%);
+	display: block;
+}
+.waitingQueue-item span>h3,.waitingQueue-item span>h6{
+	text-align: center;
 }
 /*.WaitingQueue-listSpanDiv{
 	position: absolute;
