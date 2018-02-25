@@ -69,3 +69,20 @@
     .el-tabs--left.el-tabs--card .el-tabs__item.is-left.is-active{
     	border-right-color: #e4e7ed;
     }
+	.tabinfo{
+		width: 300px;
+		float: left;
+		margin-top: 40px;
+	}
+	.tablabel{
+		display: inline-block;
+		float: right;
+		margin-right: 20px;
+		line-height: 26px;
+	}
+	.tabinfobutton{
+		display: inline-block;
+		color: #FFFFFF;
+		float: right;
+		margin-left: 20px;
+	}

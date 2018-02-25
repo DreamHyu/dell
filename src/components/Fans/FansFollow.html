@@ -264,13 +264,18 @@
 												<el-input class="FansFollowInput FansFollowInputC" v-model="input" placeholder="搜索">
 													<i slot="suffix" class="el-input__icon el-icon-search"></i>
 												</el-input>
+													<el-button class="FansFollewButtons" type="success" @click="removeTab" size="small">删除</el-button>
+													<el-button class="FansFollewButtons" type="success" @click="editTab" size="small">重命名</el-button>
+													<label class="tablabel">{{filterTabName}}</label>
+													<label class="tablabel">当前标签:</label>
 											</div>
 											<div class="FansFollowRight">
 
 												<div class="FansFollowRightHead">
 													标签1
 												</div>
-												<el-tabs v-model="editableTabsValue2" :tab-position="tabPosition" type="card" closable @tab-remove="removeTab">
+												<el-tabs v-model="editableTabsValue2" :tab-position="tabPosition" type="card" 
+												@tab-click="filterTab">
 													<el-tab-pane v-for="(item, index) in editableTabs2" :key="item.name" :label="item.title" :name="item.name" >
 													</el-tab-pane>
 												</el-tabs>
@@ -285,7 +290,7 @@
 												</el-popover>
 												<div class="FansRightButton">
 													<el-button size="small" v-popover:popover2>
-														Add
+														<i class="el-icon-plus"></i>
 													</el-button>
 												</div>
 
@@ -406,6 +411,8 @@
 					editTabNewName:'dd',
 					popvisible1:false,
 					popvisible2:false,
+					currentItem:'',
+					filterTabName:'',
 					newTabName:'',
 					tableData3: [{
 						img: '../../images/MemberList4.png',
@@ -604,17 +611,65 @@
 						name: newTabIndex,
 					});
 					this.editableTabsValue2 = newTabIndex;
+					this.filterTabName = this.newTabName;
 					this.newTabName = '';
 					this.popvisible2 = false;
 				},
-				editTab(item){
-					console.log("edit");
-					item.title = 'dd';
-					console.log(item);
-					this.popvisible1 = false;
-					this.editTabNewName = '';
+				editTab(){
+					if(!this.currentItem){
+						this.$alert("请先选择标签");
+						return;
+					}
+					var item = this.currentItem;
+					this.$prompt('请输入新的标签名称', '提示', {
+			          confirmButtonText: '确定',
+			          cancelButtonText: '取消',
+			        }).then(({ value }) => {
+			        //remove
+						let tabs = this.editableTabs2;
+						let activeName = this.editableTabsValue2;
+						if(activeName === item.name) {
+							tabs.forEach((tab, index) => {
+								if(tab.name === item.name) {
+									let nextTab = tabs[index + 1] || tabs[index - 1];
+									if(nextTab) {
+										activeName = nextTab.name;
+									}
+								}
+							});
+						}
+						this.editableTabsValue2 = activeName;
+						this.editableTabs2 = tabs.filter(tab => tab.name !== item.name);
+					//add
+						this.editableTabs2.push({
+							title: value,
+							name: item.name,
+						});
+						this.editableTabsValue2 = item.name;
+						this.filterTabName = value;
+					//message
+			          this.$message({
+			            type: 'success',
+			            message: '修改成功！'
+			          });
+			        }).catch(() => {
+			          this.$message({
+			            type: 'info',
+			            message: '取消修改'
+			          });       
+			        });
 				},
-				removeTab(targetName) {
+				filterTab(item){
+					this.currentItem = item;
+					console.log("filterTab");
+					this.filterTabName = item.label;
+				},
+				removeTab() {
+					if(!this.currentItem){
+						this.$alert("请先选择标签");
+						return;
+					}
+					var targetName = this.currentItem.name;
 					this.$confirm('是否删除该标签?', '提示', {
 						confirmButtonText: '确定',
 						cancelButtonText: '取消',
@@ -628,6 +683,7 @@
 									let nextTab = tabs[index + 1] || tabs[index - 1];
 									if(nextTab) {
 										activeName = nextTab.name;
+										this.filterTabName = nextTab.title;
 									}
 								}
 							});

@@ -27,16 +27,25 @@ body{
     	color: #00A372;
 	}
   	.AuInputLeft{
+  		border: 1px solid #E0E0E0;
   		display: inline-block;
   		width: 31.8%;
   		vertical-align: top;
   		padding: 15px 10px 0px 10px;
   	}
-  	.AuInputRight{
+  	.AuInputRightWrapper{
   		display: inline-block;
   		width: 63%;
+  		height: 880px;
   		vertical-align: top;
   		padding: 15px 20px 0px 50px;
+  		background-color: #EEEEEE;
+  	}
+  	.AuInputRight{
+  		/*display: inline-block;*/
+  		width: 100%;
+  		/*vertical-align: top;
+  		padding: 15px 20px 0px 50px;*/
   	}
   	.AuInputpPicture{
   		display: inline-block;

@@ -83,6 +83,7 @@
 }
 .FansFollowButtonPositionA{
 	position: absolute;
+	width: 70%;
 	left: 49px;
 	top: 8px;
 }
@@ -99,6 +100,20 @@
 .FansFollowInput{
 	width: 180px;
 	margin-left: 20px;
+}
+.tablabel{
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+	line-height: 40px;
+}
+.FansFollewButtons{
+	display: inline-block;
+	color: #FFFFFF;
+	width: 100px;
+	float: right;
+	margin-left: 20px;
+	margin-top: 4px;
 }
 .FansFollowMain .el-input__inner{
 	height: 32px;
