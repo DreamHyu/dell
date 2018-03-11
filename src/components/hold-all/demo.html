@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>demo</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	</head>
+	<body>
+		<div id="app" style="width: 90%;margin: 50px auto;overflow: visible;">
+			<histo-group v-for="group in groups"
+				:groupname="group.groupname" 
+				:names="group.names" 
+				:histos="group.histos" 
+				:colors="colors"
+				:bar_height='bar_height'></histo-group>
+		</div>
+	</body>
+  <script src="https://cdn.jsdelivr.net/vue/2.2.6/vue.min.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../../js/groupFactory.js"></script>
+  <style>
+  	.histoWrapper{
+  		width:100%;
+  		/*border: 1px solid green;*/
+  	}
+  	.histoType{
+  		width: 80%;
+  		height: 30px;
+  		margin-top: 0px;
+  		border-radius: 15px;
+  		border: 1px solid forestgreen;
+  		text-align: center;
+  		font-family: "微软雅黑";
+  		font-size: 15px;
+  		line-height: 30px;
+  		color: lightseagreen;
+  	}
+  	.histoGram{
+  		width: 100%;
+  		margin-top: 10px;
+  		position: relative;
+  		transition: opacity 2s ease-in-out;
+  		transition: width .6s ease-out;
+  		transition: background-color .8s ease-in-out;
+  	}
+  	.histoEntry{
+  		width: 100%;
+  		/*height: 30px;*/
+  		/*margin-top: 10px;*/
+  		box-sizing: border-box;
+  		transition: opacity 2s ease-in-out;
+  		transition: width .6s ease-out;
+  		transition: background-color .8s ease-in-out;
+  	}
+  	.histoEntry_gram{
+  		height: inherit;
+  		float: left;
+  		position: relative;
+  		transition: opacity 2s ease-in-out;
+  		transition: width .6s ease-out;
+  		transition: background-color .8s ease-in-out;
+  		z-index: 5;
+  	}
+  	.histoEntry_gram:hover{
+  		opacity: 0.6;
+  	}
+  	.histoEntry_gram span{
+  		position: absolute;
+  		right: -20px;
+  		top: 50%;
+  		transform: translateY(-50%);
+  	}
+  	/*分割条*/
+  	.histoSplit{
+  		position: absolute;
+  		width: 2%;
+  		background-color: black;
+  		top: 0%;
+  		left: -2%;
+  		height: 100%;
+  		z-index: 6;
+  	}
+  	/*刻度条*/
+  	.histoScale{
+  		position: absolute;
+  		width: 1%;
+  		background-color: lightgray;
+  		opacity: 0.5;
+  		top: 0%;
+  		height: 100%;
+  	}
+  	.scaleBar1{
+  		left: 14%;
+  	}
+  	.scaleBar2{
+  		left: 28%;
+  	}
+  	.scaleBar3{
+  		left: 42%;
+  	}
+  	.scaleBar4{
+  		left: 56%;
+  	}
+  	.scaleBar5{
+  		left: 70%;
+  	}
+  	.scaleBar6{
+  		left: 84%;
+  	}
+  	.scaleBar7{
+  		left: 98%;
+  	}
+  	.wordWrapper{
+  		position: relative;
+  		width: 100%;
+  		height: 100%;
+  	}
+  	.histoScale .wordWrapper span{
+  		opacity: 0.7;
+  		position: absolute;
+  		left: 50%;
+  		transform: translateX(-50%);
+  		bottom: -20px;
+  		font-family: "微软雅黑";
+  		font-size: 10px;
+  		text-align: left;
+  	}
+  </style>
+  <script type="text/template" id="histogram">
+  	<div class="histoWrapper">
+  		<!--type-->
+  		<div class="histoType">
+  			{{type}}
+  		</div>
+  		<!--gram-->
+  		<div class="histoGram">
+  			<div class="histoEntry" :style="getHistoEntryStyle">
+  				<!--客服统计-->
+  				<div class="histoEntry_gram" :style="getGroupAverageGramStyle">
+  					<span>
+  						{{getAverageVal}}
+  					</span>
+  				</div>
+  			</div>
+  			<!--客服集合-->
+  			<div v-for="(item,index) in values" class="histoEntry" :style="getHistoEntryStyle">
+  				<!--客服统计-->
+  				<div class="histoEntry_gram" :style="getHistoEntryGramStyle(item,index)">
+  					<span>
+  						{{item}}
+  					</span>
+  				</div>
+  			</div>
+  			<div class="histoSplit"></div>
+  			<div class="histoScale scaleBar1">
+  			</div>
+  			<div class="histoScale scaleBar2">
+  			</div>
+  			<div class="histoScale scaleBar3">
+  			</div>
+  			<div class="histoScale scaleBar4">
+  			</div>
+  			<div class="histoScale scaleBar5">
+  			</div>
+  			<div class="histoScale scaleBar6">
+  			</div>
+  			<div class="histoScale scaleBar7">
+  			</div>
+  		</div>
+  	</div>
+  </script>
+  <style>
+  	.histoGroupWrapper{
+  		width: 100%;
+  		position: relative;
+  		/*box-sizing: border-box;
+  		overflow: visible;*/
+  		margin-top: 20px;
+  	}
+  	.histoGroupNameWrapper{
+  		width: 10%;
+  		float: left;
+  		margin-top: 50px;
+  	}
+  	.histoEntry_name{
+  		width: 100%;
+  		/*height: 30px;*/
+  		line-height: 30px;
+  		font-family: "微软雅黑";
+  		font-size: 15px;
+  		/*margin-top: 10px;*/
+  		text-align: left;
+  	}
+  	.histoDivWrapper{
+  		float: left;
+  		/*overflow: visible;*/
+  		margin-top: inherit;
+  		margin-right: 3%;
+  	}
+  </style>
+  <script type="text/template" id="histoGroup">
+  	<div class="histoGroupWrapper">
+		<div class="histoGroupNameWrapper">
+			<!--小组名称-->
+			<div class="histoEntry_name" :style="getHistoEntryStyle">
+				{{groupname}}
+			</div>
+			<!--客服名称-->
+			<div v-for="item in names" class="histoEntry_name" :style="getHistoEntryStyle">
+				{{item}}
+			</div>
+  		</div>
+  		<div v-for="item in histos" :style="getHistoDivWrapperStyle()" class="histoDivWrapper" >
+  			<histo  
+				:type="item.type" 
+				:values="item.values" 
+				:colors="colors"
+				:bar_height="bar_height">
+			</histo>
+  		</div>
+  		<div style="clear: both;"></div>
+  	</div>
+  </script>
+  <script type="text/template" id="histoToolTip">
+  	<div>
+  		<slot></slot>
+  	</div>
+  </script>
+  <script>
+  	Vue.component('histo',{
+  		props:{
+  			//统计类别
+  			type:String,
+  			//客服集合
+        	values:Array,
+        	colors:Array,
+        	bar_height:Number
+  		},
+  		template:"#histogram",
+  		computed:{
+  			//获取平均统计样式
+  			getGroupAverageGramStyle:function(){
+  				var style = {
+  					width : Math.floor(this.getSum() * 1.0 / this.values.length) / this.getMaxNum() * 100 + '%',
+  					background: this.colors[0],
+  				}
+  				return style;
+  			},
+  			getHistoEntryStyle:function(){
+  				var style = {
+  					height : this.bar_height + 'px',
+  					marginTop: this.bar_height * 1.0 / 3 + 'px'
+  				}
+  				return style
+  			},
+  			//获取平均值
+  			getAverageVal:function(){
+  				var avg = 0;
+  				return Math.floor(this.getSum()/this.values.length);
+  			},
+  			getScaleUnit:function(){
+  				var unit = Math.floor(this.getMaxNum()*1.0 / 7);
+  				return unit;
+  			}
+  		},
+  		data: function() {
+				return {
+					
+				}
+			},
+		methods: {
+				getMaxNum:function(){
+					var values = [];
+					for(var i = 0; i < this.values.length; i++){
+						values.push(this.values[i]);
+					}
+					return Math.max.apply(null,values);
+				},
+				getSum:function(){
+					var sum = 0;
+					for(var i = 0; i < this.values.length; i++){
+						sum += this.values[i];
+					}
+					return sum;
+				},
+				getHistoEntryGramStyle:function(value,index){
+					var style = {
+	  					width: value * 1.0 / this.getMaxNum() * 100 + '%',
+	  					background: this.colors[index+1]
+	  				}
+	  				return style
+				}
+			}
+  	
+  	})
+    Vue.component('histo-group',{
+    	props:{
+    		groupname:String,
+    		names:Array,
+    		histos:Array,
+    		colors:Array,
+    		bar_height:Number
+    	},
+    	template:'#histoGroup',
+    	computed:{
+    		getHistoEntryStyle:function(){
+  				var style = {
+  					height : this.bar_height + 'px',
+  					marginTop: this.bar_height * 1.0 / 3 + 'px'
+  				}
+  				return style
+  			},
+    	},
+    	methods:{
+    		getHistoDivWrapperStyle:function(){
+    			var style = {
+    				width: Math.floor(60 * 1.0 / this.histos.length) + '%'
+    			}
+    			return style
+    		}
+    	}
+    })
+    new Vue({
+      el: '#app',
+      data:{
+		  	//bar的高度
+		  	bar_height:20,
+		  	//小组集合
+		  	groups: GroupFactory.get(3,5,6),
+		  	colors:[
+		  		'#FF7F24',
+		  		'#EE9A49',
+		  		'#EE30A7',
+		  		'#CD919E',
+		  		'#C67171',
+		  		'#A8A8A8',
+		  		'#A1A1A1',
+		  		'#9B30FF',
+		  		'#999999',
+		  		'#A0522D',
+		  		'#ADFF2F',
+		  		'#9ACD32',
+		  		'#96CDCD',
+		  		'#B3EE3A',
+		  		'#DEB887',
+		  		'#D8BFD8',
+		  		'#CDC673',
+		  		'#CDB79E',
+		  		'#E0FFFF',
+		  		'#EE0000',
+		  		'#EE4000',
+		  		'#EE6363',
+		  		'#EE9A00'
+		  	]
+	    },
+	    created:function(){
+	    	setInterval(this.shuffle,2000);
+	    	setInterval(this.changeGroups,10000);
+	    },
+	    methods: {
+			shuffle:function(){
+				this.colors.sort(function () {
+                  return Math.random() - 0.5
+                })
+			},
+			changeGroups:function(){
+				var rand = Math.floor(Math.random()*10 + 1);
+				this.groups = GroupFactory.get(rand,rand,rand);
+			}
+     	}
+    })
+ </script>
+</html>
